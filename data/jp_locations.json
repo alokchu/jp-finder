@@ -1,0 +1,36 @@
+{
+  "locations": {
+    "the_hills": {
+      "name": "The Hills Shire Council",
+      "url": "https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace",
+      "scraper_type": "council"
+    },
+    "blacktown": {
+      "name": "Blacktown City Council",
+      "url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace",
+      "scraper_type": "council"
+    },
+    "parramatta": {
+      "name": "City of Parramatta Council",
+      "url": "https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace",
+      "scraper_type": "council"
+    },
+    "sydney": {
+      "name": "City of Sydney Council",
+      "url": "https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace",
+      "scraper_type": "council"
+    },
+    "stanhope_village": {
+      "name": "Stanhope Village Shopping Centre",
+      "url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
+      "scraper_type": "shopping_center",
+      "address": "Stanhope Village, 2 Sentry Drive, Stanhope Gardens NSW 2768"
+    },
+    "winston_hills": {
+      "name": "Winston Hills Mall",
+      "url": "https://www.winstonhillsmall.com.au/whats-on/jpservice",
+      "scraper_type": "shopping_center",
+      "address": "Caroline Chisholm Drive, Winston Hills NSW 2153"
+    }
+  }
+}

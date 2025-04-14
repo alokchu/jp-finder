@@ -1,0 +1,26 @@
+[
+  {
+    "source": "The Hills Shire Council",
+    "url": "https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace",
+    "scraped_at": "2025-04-13T16:28:11.045101",
+    "locations_found": 3
+  },
+  {
+    "source": "Blacktown City Council",
+    "url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace",
+    "scraped_at": "2025-04-13T16:28:13.123059",
+    "locations_found": 0
+  },
+  {
+    "source": "Stanhope Village Shopping Centre",
+    "url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
+    "scraped_at": "2025-04-13T16:28:22.107711",
+    "locations_found": 2
+  },
+  {
+    "source": "Winston Hills Mall",
+    "url": "https://www.winstonhillsmall.com.au/whats-on/jpservice",
+    "scraped_at": "2025-04-13T16:28:34.260048",
+    "locations_found": 1
+  }
+]

@@ -1,0 +1,614 @@
+2025-04-12 16:16:49,970 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace)
+2025-04-12 16:16:50,326 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 16:16:52,331 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace)
+2025-04-12 16:16:52,394 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 16:16:52,394 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 16:16:54,399 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace)
+2025-04-12 16:16:54,488 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 16:16:56,494 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace)
+2025-04-12 16:16:57,101 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 16:16:59,108 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 16:16:59,108 - JPScraper - INFO - Saved 3 JP locations to data/jp_locations.json
+2025-04-12 16:36:42,126 - JPScraper - ERROR - Config file jp_locations.json not found, using empty configuration
+2025-04-12 16:36:42,127 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 16:36:42,127 - JPScraper - INFO - Saved 0 JP locations to data/jp_locations.json
+2025-04-12 16:37:13,510 - JPScraper - ERROR - Config file ../data/jp_locations.json not found, using empty configuration
+2025-04-12 16:37:13,511 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 16:37:13,511 - JPScraper - INFO - Saved 0 JP locations to data/jp_locations.json
+2025-04-12 16:45:12,372 - JPScraper - INFO - Loaded 5 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-12 16:45:12,372 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-12 16:45:12,899 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 16:45:14,904 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-12 16:45:14,999 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 16:45:14,999 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 16:45:17,005 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-12 16:45:17,103 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 16:45:19,105 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-12 16:45:19,683 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 16:45:21,684 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-12 16:45:22,576 - JPScraper - INFO - Found JP service at Stanhope Village Shopping Centre
+2025-04-12 16:45:24,585 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 16:45:24,585 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations.json
+2025-04-12 23:25:10,889 - JPScraper - INFO - Loaded 5 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-12 23:25:10,890 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-12 23:25:11,248 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 23:25:13,253 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-12 23:25:13,316 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 23:25:13,316 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 23:25:15,321 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-12 23:25:15,523 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 23:25:17,529 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-12 23:25:18,047 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 23:25:20,047 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-12 23:25:21,070 - JPScraper - INFO - Found JP service at Stanhope Village Shopping Centre
+2025-04-12 23:25:23,080 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 23:25:23,080 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations.json
+2025-04-12 23:27:07,614 - JPScraper - INFO - Loaded 5 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-12 23:27:07,614 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-12 23:27:08,117 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 23:27:10,123 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-12 23:27:10,184 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 23:27:10,185 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 23:27:12,187 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-12 23:27:12,257 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 23:27:14,262 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-12 23:27:14,970 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 23:27:16,976 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-12 23:27:17,905 - JPScraper - INFO - Found JP service at Stanhope Village Shopping Centre
+2025-04-12 23:27:19,914 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 23:27:19,915 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-12 23:44:02,945 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-12 23:44:02,945 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-12 23:44:03,421 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 23:44:05,427 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-12 23:44:05,494 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 23:44:05,495 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 23:44:07,500 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-12 23:44:08,281 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 23:44:10,284 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-12 23:44:10,924 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 23:45:49,869 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-12 23:45:49,870 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-12 23:45:50,280 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-12 23:45:52,285 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-12 23:45:52,352 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-12 23:45:52,353 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-12 23:45:54,358 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-12 23:45:54,428 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-12 23:45:56,429 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-12 23:45:56,992 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-12 23:45:58,997 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-12 23:45:58,997 - JPScraper - ERROR - Failed to scrape shopping centre: 'JPScraper' object has no attribute 'get_soup'
+2025-04-12 23:46:01,003 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-12 23:46:01,003 - JPScraper - ERROR - Failed to scrape shopping centre: 'JPScraper' object has no attribute 'get_soup'
+2025-04-12 23:46:03,010 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-12 23:46:03,010 - JPScraper - INFO - Saved 3 JP locations to data/jp_locations_out.json
+2025-04-13 00:45:02,736 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 00:45:02,738 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 00:45:03,260 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 00:45:05,265 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 00:45:05,344 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 00:45:05,344 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 00:45:07,350 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 00:45:07,629 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 00:45:09,632 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 00:45:10,185 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 00:45:12,190 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 00:45:12,191 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:45:12,191 - JPScraper - ERROR - Failed to scrape shopping centre: 'JPScraper' object has no attribute 'get_soup'
+2025-04-13 00:45:14,196 - JPScraper - INFO - Scraping Winston Hills Mall (https://winstonhillsmall.com.au/justice-of-the-peace/) as shopping center
+2025-04-13 00:45:14,197 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:45:14,197 - JPScraper - ERROR - Failed to scrape shopping centre: 'JPScraper' object has no attribute 'get_soup'
+2025-04-13 00:45:16,205 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 00:45:16,205 - JPScraper - INFO - Saved 3 JP locations to data/jp_locations_out.json
+2025-04-13 00:47:45,112 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 00:47:45,113 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 00:47:45,482 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 00:47:47,487 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 00:47:47,540 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 00:47:47,540 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 00:47:49,543 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 00:47:49,622 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 00:47:51,628 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 00:47:52,199 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 00:47:54,204 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 00:47:54,204 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:47:54,987 - JPScraper - WARNING - No JP service found at Stanhope Village: https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:47:56,993 - JPScraper - INFO - Scraping Winston Hills Mall (https://winstonhillsmall.com.au/justice-of-the-peace/) as shopping center
+2025-04-13 00:47:56,993 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:47:58,807 - JPScraper - ERROR - Failed to scrape shopping centre: 404 Client Error: Not Found for url: https://www.winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:48:00,814 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 00:48:00,814 - JPScraper - INFO - Saved 3 JP locations to data/jp_locations_out.json
+2025-04-13 00:52:04,137 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 00:52:04,137 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 00:52:04,886 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 00:52:06,892 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 00:52:06,959 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 00:52:06,959 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 00:52:08,960 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 00:52:09,054 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 00:52:11,059 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 00:52:11,696 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 00:52:13,701 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 00:52:13,702 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:52:14,595 - JPScraper - ERROR - Failed to scrape shopping centre: JPScraper.scrape_stanhope_village() takes 2 positional arguments but 3 were given
+2025-04-13 00:52:16,600 - JPScraper - INFO - Scraping Winston Hills Mall (https://winstonhillsmall.com.au/justice-of-the-peace/) as shopping center
+2025-04-13 00:52:16,601 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:52:18,432 - JPScraper - ERROR - Failed to scrape shopping centre: 404 Client Error: Not Found for url: https://www.winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:52:20,442 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 00:52:20,442 - JPScraper - INFO - Saved 3 JP locations to data/jp_locations_out.json
+2025-04-13 00:53:11,833 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 00:53:11,833 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 00:53:12,162 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 00:53:14,167 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 00:53:14,242 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 00:53:14,243 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 00:53:16,248 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 00:53:16,323 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 00:53:18,324 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 00:53:18,830 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 00:53:20,835 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 00:53:20,835 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:53:21,679 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 00:53:22,451 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 00:53:22,454 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 00:53:24,460 - JPScraper - INFO - Scraping Winston Hills Mall (https://winstonhillsmall.com.au/justice-of-the-peace/) as shopping center
+2025-04-13 00:53:24,460 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:53:26,035 - JPScraper - ERROR - Failed to scrape shopping centre: 404 Client Error: Not Found for url: https://www.winstonhillsmall.com.au/justice-of-the-peace/
+2025-04-13 00:53:28,038 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 00:53:28,038 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 00:54:29,645 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 00:54:29,645 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 00:54:30,173 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 00:54:32,178 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 00:54:32,252 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 00:54:32,253 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 00:54:34,254 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 00:54:34,364 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 00:54:36,369 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 00:54:37,001 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 00:54:39,003 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 00:54:39,004 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 00:54:39,963 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 00:54:40,910 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 00:54:40,913 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 00:54:42,919 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 00:54:42,919 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 00:54:43,712 - JPScraper - WARNING - No JP service found at Winston Hills: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 00:54:45,722 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 00:54:45,722 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:03:47,213 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:03:47,213 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:03:47,742 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:03:49,748 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:03:49,820 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:03:49,820 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:03:51,825 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:03:51,929 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:03:53,934 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:03:54,673 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:03:56,679 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:03:56,679 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:03:57,467 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:03:58,274 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:03:58,277 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:04:00,282 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:04:00,283 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:04:03,137 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:04:03,138 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:06:22,343 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:06:22,343 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:06:22,671 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:06:24,676 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:06:24,751 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:06:24,752 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:06:26,757 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:06:26,843 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:06:28,848 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:06:29,500 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:06:31,505 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:06:31,506 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:06:32,336 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:06:33,220 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:06:33,223 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:06:35,229 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:06:35,229 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:06:38,000 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:06:38,000 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:08:21,482 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:08:21,482 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:08:21,837 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:08:23,842 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:08:23,917 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:08:23,917 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:08:25,919 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:08:26,017 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:08:28,022 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:08:28,718 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:08:30,724 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:08:30,724 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:08:31,732 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:08:32,569 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:08:32,572 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:08:34,577 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:08:34,578 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:08:35,511 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:08:37,520 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:08:37,520 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:10:52,140 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:10:52,141 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:10:52,574 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:10:54,579 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:10:54,630 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:10:54,631 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:10:56,636 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:10:56,707 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:10:58,710 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:10:59,233 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:11:01,239 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:11:01,240 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:11:02,070 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:11:02,861 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:11:02,864 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:11:04,869 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:11:04,870 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:11:05,687 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:11:07,696 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:11:07,697 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:13:34,876 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:13:34,876 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:13:35,177 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:13:37,182 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:13:37,242 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:13:37,243 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:13:39,248 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:13:39,335 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:13:41,336 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:13:41,970 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:13:43,976 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:13:43,976 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:13:44,984 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:13:45,772 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:13:45,775 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:13:47,780 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:13:47,781 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:13:48,610 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:13:50,619 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:13:50,619 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:14:16,272 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:14:16,272 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:14:16,338 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:14:18,344 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:14:18,384 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:14:18,385 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:14:20,386 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:14:20,455 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:14:22,456 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:14:22,972 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:14:24,978 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:14:24,978 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:14:25,740 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:14:26,570 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:14:26,573 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:14:28,578 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:14:28,579 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:14:30,146 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:14:32,155 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:14:32,155 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:17:57,942 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:17:57,943 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:17:58,431 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:18:00,436 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:18:00,509 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:18:00,510 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:18:02,515 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:18:02,613 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:18:04,617 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:18:05,455 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:18:07,460 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:18:07,461 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:18:08,301 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:18:09,127 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:18:09,129 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:18:11,134 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:18:11,135 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:18:12,274 - JPScraper - ERROR - Failed to scrape shopping centre: JPScraper.scrape_winston_hills() takes 2 positional arguments but 3 were given
+2025-04-13 01:18:14,283 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:18:14,283 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:18:50,312 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:18:50,312 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:18:50,403 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:18:52,409 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:18:52,483 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:18:52,484 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:18:54,489 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:18:54,586 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:18:56,592 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:18:57,134 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:18:59,139 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:18:59,140 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:18:59,930 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:19:00,743 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:19:00,746 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:19:02,752 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:19:02,752 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:19:15,954 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:19:17,962 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:19:17,962 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:20:05,105 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:20:05,105 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:20:05,426 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:20:07,431 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:20:07,473 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:20:07,474 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:20:09,479 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:20:09,561 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:20:11,567 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:20:12,084 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:20:14,089 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:20:14,090 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:20:14,907 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:20:15,713 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:20:15,717 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:20:17,722 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:20:17,722 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:20:22,411 - JPScraper - WARNING - [JP Winston Hills] No JP service found: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:20:24,419 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:20:24,419 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:24:32,149 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:24:32,149 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:24:32,624 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:24:34,630 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:24:34,702 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:24:34,703 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:24:36,709 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:24:36,802 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:24:38,807 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:24:39,401 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:24:41,407 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:24:41,407 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:24:42,279 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:24:43,105 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:24:43,111 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:24:45,116 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:24:45,117 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:24:51,324 - JPScraper - WARNING - [JP Winston Hills] Could not find services container: https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:24:53,333 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:24:53,334 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 01:26:42,450 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:26:42,451 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:26:42,854 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:26:44,857 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:26:44,924 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:26:44,924 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:26:46,928 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:26:47,005 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:26:49,009 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:26:49,645 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:26:51,650 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:26:51,650 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:26:52,435 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:26:53,200 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:26:53,206 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:26:55,210 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:26:55,211 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:27:05,887 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 01:27:05,891 - JPScraper - WARNING - [JP Winston Hills] Falling back to using body element as container
+2025-04-13 01:27:05,892 - JPScraper - INFO - [JP Winston Hills] Found JP info paragraphs: 16
+2025-04-13 01:27:05,893 - JPScraper - INFO - [JP Winston Hills] Found: Thursday 24 April 2025 10 | am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, :00am, :00pm, am, pm, am, pm, :00am, :30pm, :00am, :30pm, :00am, :30pm, :00am, :00pm, :00am, :30pm, :00am, :00pm, :00am, :00pm, :00am, :00pm, am, pm, am, pm, :00am, :00pm, am, pm, am, pm, :00am, :00pm, am, pm, am, pm, :00am, :00pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm, am, pm
+2025-04-13 01:27:07,902 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:27:07,902 - JPScraper - INFO - Saved 5 JP locations to data/jp_locations_out.json
+2025-04-13 01:29:15,717 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:29:15,717 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:29:16,335 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:29:18,341 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:29:18,403 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:29:18,404 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:29:20,409 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:29:20,507 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:29:22,512 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:29:23,137 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:29:25,143 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:29:25,143 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:29:26,015 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:29:26,783 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:29:26,789 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:29:28,794 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:29:28,794 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:29:39,802 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 01:29:39,804 - JPScraper - INFO - [JP Winston Hills] Found JP text: JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:...
+2025-04-13 01:29:39,804 - JPScraper - INFO - [JP Winston Hills] Found: Thursday 24 April 2025 | 10:00 am - 12:00 pm
+2025-04-13 01:29:41,813 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:29:41,814 - JPScraper - INFO - Saved 5 JP locations to data/jp_locations_out.json
+2025-04-13 01:32:09,048 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 01:32:09,048 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 01:32:09,395 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 01:32:11,400 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 01:32:11,489 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 01:32:11,490 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 01:32:13,495 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 01:32:13,584 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 01:32:15,589 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 01:32:16,200 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 01:32:18,201 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 01:32:18,202 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 01:32:19,161 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 01:32:19,996 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 01:32:20,002 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 01:32:22,008 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 01:32:22,009 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 01:32:32,942 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 01:32:32,944 - JPScraper - INFO - [JP Winston Hills] Found JP text:  JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:00 pm 12:00 Terry White Chemmart 180 Caroline Chi...
+2025-04-13 01:32:32,944 - JPScraper - INFO - [JP Winston Hills] Found: Every Thursday | 10am to 12pm
+2025-04-13 01:32:34,954 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 01:32:34,955 - JPScraper - INFO - Saved 5 JP locations to data/jp_locations_out.json
+2025-04-13 11:30:39,353 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 11:30:39,353 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 11:31:08,263 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 11:31:10,264 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 11:31:15,166 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 11:31:15,166 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 11:31:17,167 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 11:31:32,485 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 11:31:34,493 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 11:31:47,544 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 11:31:49,551 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 11:31:49,551 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 11:31:53,717 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 11:31:57,744 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 11:31:57,750 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 11:31:59,755 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 11:31:59,756 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 11:32:17,744 - selenium.webdriver.common.selenium_manager - WARNING - Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+2025-04-13 11:34:18,851 - JPScraper - ERROR - [JP Winston Hills] Scraping error: HTTPConnectionPool(host='localhost', port=50136): Read timed out. (read timeout=120)
+2025-04-13 11:34:18,876 - JPScraper - ERROR - Traceback (most recent call last):
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/alokchugh/PycharmProjects/jp-finder/JPScraper.py", line 301, in scrape_winston_hills
+    driver.get(location['url'])
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 427, in execute
+    response = self.command_executor.execute(driver_command, params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 404, in execute
+    return self._request(command_info[0], url, body=data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 428, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/alokchugh/PycharmProjects/jp-finder/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=50136): Read timed out. (read timeout=120)
+
+2025-04-13 11:34:20,906 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 11:34:20,906 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 11:37:41,243 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 11:37:41,243 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 11:37:59,754 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 11:38:01,761 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 11:38:34,107 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 11:38:34,108 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 11:38:36,114 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 11:38:44,346 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 11:38:46,350 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 11:38:52,878 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 11:38:54,883 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 11:38:54,884 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 11:38:58,951 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 11:39:03,615 - JPScraper - WARNING - Could not find specific content area for Stanhope Village
+2025-04-13 11:39:03,622 - JPScraper - INFO - Found JP service at Stanhope Village: Days: Monday: 9am - 5.30pmTuesday: 9am - 5.30pmWednesday: 9am - 5.30pmThursday: 9am - 9pmFriday: 9am - 5.30pmSaturday: 9am - 5pmSunday: 10am - 4pm, Hours: 12:00 am
+2025-04-13 11:39:05,627 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 11:39:05,628 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 11:40:27,722 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 11:40:27,724 - JPScraper - INFO - [JP Winston Hills] Found JP text:  JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:00 pm 12:00 Terry White Chemmart 180 Caroline Chi...
+2025-04-13 11:40:27,725 - JPScraper - INFO - [JP Winston Hills] Found: Every Thursday | 10am to 12pm
+2025-04-13 11:40:29,734 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 11:40:29,735 - JPScraper - INFO - Saved 5 JP locations to data/jp_locations_out.json
+2025-04-13 16:21:10,733 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 16:21:10,733 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 16:21:11,241 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 16:21:13,246 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 16:21:13,314 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 16:21:13,315 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 16:21:15,320 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 16:21:16,321 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 16:21:18,323 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 16:21:19,269 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 16:21:21,272 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 16:21:21,272 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 16:21:22,089 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 16:21:22,858 - JPScraper - ERROR - Error scraping Stanhope Village: 'JPScraper' object has no attribute 'extract_hours_from_text'
+2025-04-13 16:21:24,864 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 16:21:24,864 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 16:21:35,119 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 16:21:35,121 - JPScraper - INFO - [JP Winston Hills] Found JP text:  JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:00 pm 12:00 Terry White Chemmart 180 Caroline Chi...
+2025-04-13 16:21:35,121 - JPScraper - INFO - [JP Winston Hills] Found: Every Thursday | 10am to 12pm
+2025-04-13 16:21:37,130 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 16:21:37,131 - JPScraper - INFO - Saved 4 JP locations to data/jp_locations_out.json
+2025-04-13 16:22:23,881 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 16:22:23,881 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 16:22:24,234 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 16:22:26,239 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 16:22:26,651 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 16:22:26,651 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 16:22:28,656 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 16:22:28,736 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 16:22:30,738 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 16:22:31,462 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 16:22:33,468 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 16:22:33,468 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 16:22:34,296 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 16:22:35,068 - JPScraper - INFO - Found JP service: Stanhope Village Shopping Centre (JP Desk) - Days: wednesday afternoons from 3 pm to 6 pm and saturday mornings from 9 am to 12pm. - Hours: 12pm, 3 pm, 6 pm, 9 am
+2025-04-13 16:22:35,068 - JPScraper - INFO - Found JP service: Dennis Johnson Library (JP Service) - Days: mondays 10am - 1pm tuesdays 5pm - 7pm wednesdays 10am - 12pm saturdays 10am - 12:30pm - Hours: 10am - 12:30pm, 10am - 12pm, 10am - 1pm, 12:30pm, 12pm, 1pm, 5pm - 7pm, 7pm
+2025-04-13 16:22:37,073 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 16:22:37,073 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 16:22:47,581 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 16:22:47,583 - JPScraper - INFO - [JP Winston Hills] Found JP text:  JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:00 pm 12:00 Terry White Chemmart 180 Caroline Chi...
+2025-04-13 16:22:47,584 - JPScraper - INFO - [JP Winston Hills] Found: Every Thursday | 10am to 12pm
+2025-04-13 16:22:49,591 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 16:22:49,592 - JPScraper - INFO - Saved 6 JP locations to data/jp_locations_out.json
+2025-04-13 16:28:10,499 - JPScraper - INFO - Loaded 6 locations from /Users/alokchugh/PycharmProjects/jp-finder/data/jp_locations.json
+2025-04-13 16:28:10,499 - JPScraper - INFO - Scraping The Hills Shire Council (https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace) as council website
+2025-04-13 16:28:11,045 - JPScraper - INFO - Found 3 JP locations from The Hills Shire Council
+2025-04-13 16:28:13,050 - JPScraper - INFO - Scraping Blacktown City Council (https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace) as council website
+2025-04-13 16:28:13,122 - JPScraper - WARNING - Could not find content area for Blacktown City Council
+2025-04-13 16:28:13,123 - JPScraper - INFO - Found 0 JP locations from Blacktown City Council
+2025-04-13 16:28:15,128 - JPScraper - INFO - Scraping City of Parramatta Council (https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace) as council website
+2025-04-13 16:28:15,245 - JPScraper - ERROR - Error scraping City of Parramatta Council: 404 Client Error: Not Found for url: https://www.cityofparramatta.nsw.gov.au/community/community-services/justice-of-the-peace
+2025-04-13 16:28:17,251 - JPScraper - INFO - Scraping City of Sydney Council (https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace) as council website
+2025-04-13 16:28:17,820 - JPScraper - ERROR - Error scraping City of Sydney Council: 404 Client Error: Not Found for url: https://www.cityofsydney.nsw.gov.au/community-support-services/justice-peace
+2025-04-13 16:28:19,825 - JPScraper - INFO - Scraping Stanhope Village Shopping Centre (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace) as shopping center
+2025-04-13 16:28:19,826 - JPScraper - INFO - Scraping shopping centre: Stanhope Village Shopping Centre from https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace
+2025-04-13 16:28:20,974 - JPScraper - INFO - Scraping Stanhope Village (https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace)
+2025-04-13 16:28:22,107 - JPScraper - INFO - Found JP service: Stanhope Village Shopping Centre (JP Desk) - Days: wednesday afternoons from 3 pm to 6 pm and saturday mornings from 9 am to 12pm. - Hours: 12pm, 3 pm, 6 pm, 9 am
+2025-04-13 16:28:22,107 - JPScraper - INFO - Found JP service: Dennis Johnson Library (JP Service) - Days: mondays 10am - 1pm tuesdays 5pm - 7pm wednesdays 10am - 12pm saturdays 10am - 12:30pm - Hours: 10am - 12:30pm, 10am - 12pm, 10am - 1pm, 12:30pm, 12pm, 1pm, 5pm - 7pm, 7pm
+2025-04-13 16:28:24,112 - JPScraper - INFO - Scraping Winston Hills Mall (https://www.winstonhillsmall.com.au/whats-on/jpservice) as shopping center
+2025-04-13 16:28:24,113 - JPScraper - INFO - Scraping shopping centre: Winston Hills Mall from https://www.winstonhillsmall.com.au/whats-on/jpservice
+2025-04-13 16:28:34,257 - JPScraper - INFO - [JP Winston Hills] Page title: Justice of the Peace (JP) Service — Winston Hills Mall | Shopping Centre Sydney | Woolworths, Coles, Big W & ALDI | | Shopping Centre Sydney
+2025-04-13 16:28:34,259 - JPScraper - INFO - [JP Winston Hills] Found JP text:  JUSTICE OF THE PEACE - JP SERVICE Thursday 24 April 2025 10:00 am 10:00 Thursday 16 October 2025 12:00 pm 12:00 Terry White Chemmart 180 Caroline Chi...
+2025-04-13 16:28:34,260 - JPScraper - INFO - [JP Winston Hills] Found: Every Thursday | 10am to 12pm
+2025-04-13 16:28:36,269 - JPScraper - INFO - Generated sitemap.xml in data
+2025-04-13 16:28:36,270 - JPScraper - INFO - Saved 6 JP locations to data/jp_locations_out.json
