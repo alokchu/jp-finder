@@ -20,11 +20,11 @@ logger = logging.getLogger("JPFinderDeploy")
 
 
 class JPFinderDeployer:
-    def __init__(self, base_domain="nswjpfinder.com.au"):
+    def __init__(self, base_domain="jpfinder.com.au"):
         self.base_domain = base_domain
         self.build_dir = Path("build")
         self.data_dir = Path("data")
-        self.template_file = Path("jp-finder-website.html")
+        self.template_file = Path("index.html")
         self.script_dir = Path(os.path.dirname(os.path.abspath(__file__)))
 
         # Create additional SEO-focused pages
@@ -79,7 +79,7 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
     def load_jp_data(self):
         """Load JP location data from JSON file"""
         try:
-            jp_locations_file = self.data_dir / "jp_locations.json"
+            jp_locations_file = self.data_dir / "jp_locations_out.json"
             if not jp_locations_file.exists():
                 logger.error(f"JP locations data file not found: {jp_locations_file}")
                 return None
@@ -118,8 +118,8 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         jp_data_js = json.dumps(jp_data, indent=2)
 
         # Replace placeholder in template with actual data
-        pattern = r"const jpData = \[([\s\S]*?)\];"
-        replacement = f"const jpData = {jp_data_js};"
+        pattern = r"const jpLocations = \[([\s\S]*?)\];"
+        replacement = f"const jpLocations = {jp_data_js};"
         html_with_data = re.sub(pattern, replacement, template)
 
         # Update last updated date
@@ -128,7 +128,7 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
                                                 f'<span id="lastUpdated">{today}</span>')
 
         # Replace placeholder domain with actual domain
-        html_with_data = html_with_data.replace("nswjpfinder.com.au", self.base_domain)
+        html_with_data = html_with_data.replace("jpfinder.com.au", self.base_domain)
 
         # Add Netlify form handling if not present
         if '<form name="jp-submission"' not in html_with_data and '<form data-netlify="true"' not in html_with_data:
