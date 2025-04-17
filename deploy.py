@@ -24,7 +24,7 @@ class JPFinderDeployer:
         self.base_domain = base_domain
         self.build_dir = Path("build")
         self.data_dir = Path("data")
-        self.template_file = Path("index.html")
+        self.template_file = Path("templates") / "index.html"
         self.script_dir = Path(os.path.dirname(os.path.abspath(__file__)))
 
         # Create additional SEO-focused pages
@@ -118,9 +118,12 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         jp_data_js = json.dumps(jp_data, indent=2)
 
         # Replace placeholder in template with actual data
-        pattern = r"const jpLocations = \[([\s\S]*?)\];"
-        replacement = f"const jpLocations = {jp_data_js};"
-        html_with_data = re.sub(pattern, replacement, template)
+        pattern = re.compile(r"const jpLocations = \[([\s\S]*?)\];", re.DOTALL)
+
+        def repl(match):
+            return f"const jpLocations = {jp_data_js};"
+
+        html_with_data = re.sub(pattern, repl, template)
 
         # Update last updated date
         today = datetime.datetime.now().strftime("%B %d, %Y")
@@ -405,6 +408,7 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
 
         # Load template and data
         template = self.load_template()
+        print(f'template is {template}')
         jp_data = self.load_jp_data()
 
         if not template or not jp_data:
