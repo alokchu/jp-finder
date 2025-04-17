@@ -63,6 +63,8 @@ class JPFinderDeployer:
         (self.build_dir / "css").mkdir()
         (self.build_dir / "js").mkdir()
         (self.build_dir / "images").mkdir()
+        (self.build_dir / "data").mkdir(parents=True, exist_ok=True)  # ← this line
+        shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
 
     def create_robots_txt(self):
         """Create a robots.txt file for SEO"""
