@@ -530,6 +530,9 @@ class JPScraper:
         """Save collected JP data to JSON files"""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
+        if not os.path.exists(output_dir, "jp_locations_out.json"):
+            logger.error(f'Error in locating {os.path.join(output_dir, "jp_locations_out.json")}')
+
 
         # Save JP location data
         with open(os.path.join(output_dir, "jp_locations_out.json"), "w") as f:
