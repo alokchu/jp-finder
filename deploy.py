@@ -442,7 +442,7 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Deploy JP Finder Website")
     parser.add_argument("--build-only", action="store_true", help="Only build without scraping")
-    parser.add_argument("--domain", type=str, default="nswjpfinder.com.au", help="Base domain for the website")
+    parser.add_argument("--domain", type=str, default="jpfinder.com.au", help="Base domain for the website")
     args = parser.parse_args()
 
     deployer = JPFinderDeployer(base_domain=args.domain)
