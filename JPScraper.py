@@ -6,6 +6,7 @@ import re
 from datetime import datetime
 import time
 import logging
+from Geocoder import Geocoder
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from urllib.parse import urljoin
@@ -35,6 +36,7 @@ class JPScraper:
             'Cache-Control': 'max-age=0'
         }
         self.session = requests.Session()
+        self.geocoder = Geocoder()
 
         # Load locations from config file
         try:
@@ -71,6 +73,58 @@ class JPScraper:
         text = re.sub(r'\s+', ' ', text.strip())
         # Remove special characters
         return text
+
+    def extract_hours_from_text(self, text):
+        """
+        Enhanced function to extract hours in the desired format.
+        Extracts time ranges and individual times from the text.
+        """
+        # First, look for time ranges
+        time_ranges = re.findall(r'(\d{1,2}(?::\d{2})?\s*(?:am|pm)\s*-\s*\d{1,2}(?::\d{2})?\s*(?:am|pm))', text,
+                                 re.IGNORECASE)
+
+        # Also look for alternative formats like "from X to Y"
+        from_to_ranges = re.findall(r'from\s+(\d{1,2}(?::\d{2})?\s*(?:am|pm))\s+to\s+(\d{1,2}(?::\d{2})?\s*(?:am|pm))',
+                                    text, re.IGNORECASE)
+
+        # Look for individual times
+        individual_times = re.findall(r'(?<![0-9:-])\b(\d{1,2}(?::\d{2})?\s*(?:am|pm))\b(?![0-9:-])', text,
+                                      re.IGNORECASE)
+
+        # Process results
+        all_times = []
+
+        # Add standard ranges
+        for time_range in time_ranges:
+            all_times.append(time_range)
+            # Also extract individual times from the range
+            parts = re.findall(r'(\d{1,2}(?::\d{2})?\s*(?:am|pm))', time_range)
+            all_times.extend(parts)
+
+        # Add from-to ranges
+        for start, end in from_to_ranges:
+            range_str = f"{start} - {end}"
+            if range_str not in all_times:
+                all_times.append(range_str)
+            all_times.append(start)
+            all_times.append(end)
+
+        # Add individual times that weren't part of a range
+        for time in individual_times:
+            if time not in all_times:
+                all_times.append(time)
+
+        # Clean and normalize
+        normalized_times = []
+        for time in all_times:
+            # Normalize spacing
+            clean_time = re.sub(r'\s+', ' ', time.strip())
+            normalized_times.append(clean_time)
+
+        # Remove duplicates and sort
+        unique_times = sorted(set(normalized_times))
+
+        return ', '.join(unique_times)
 
     def scrape_location(self, location_id):
         """Generic method to determine which scraper to use based on location configuration"""
@@ -151,7 +205,7 @@ class JPScraper:
                                 # Fix up days text
                                 days_text = re.sub(r'(\d)(am|pm)', r'\1 \2', days_text)
                                 days = self.clean_text(days_text)
-                                hours = self.clean_text(times_text)
+                                hours = self.extract_hours_from_text(times_text)
 
                                 # If hours are empty but days includes time information
                                 if not hours and re.search(r'\d+:\d+|am|pm', days):
@@ -159,7 +213,17 @@ class JPScraper:
                                     match = re.match(r'([^0-9:]+)(.+)', days)
                                     if match:
                                         days = match.group(1).strip()
-                                        hours = match.group(2).strip()
+                                        hours = self.extract_hours_from_text(match.group(2))
+
+                                # Get postcode
+                                postcode = ""
+                                pc_match = re.search(r'NSW[,\s]+(\d{4})', address, re.IGNORECASE)
+                                if pc_match:
+                                    postcode = pc_match.group(1)
+
+                                # Geocode the address to get lat/lon
+                                lat, lon = self.geocoder.geocode_address(address)
+                                print(f'Got values for Geocode the address {lat} {lon}')
 
                                 locations.append({
                                     "name": location_name,
@@ -168,8 +232,9 @@ class JPScraper:
                                     "hours": hours,
                                     "council": location['name'],
                                     "source_url": location['url'],
-                                    "postcode": re.search(r'NSW[,\s]+(\d{4})', address, re.IGNORECASE).group(
-                                        1) if re.search(r'NSW[,\s]+(\d{4})', address, re.IGNORECASE) else ""
+                                    "postcode": postcode,
+                                    "lat": lat,
+                                    "lon": lon
                                 })
 
             # If no tables or no results from tables, try paragraphs and lists
@@ -202,20 +267,28 @@ class JPScraper:
                                                 address = self.extract_address(parts[0], location['name'])
                                                 schedule = self.clean_text(parts[1])
 
-                                                # Try to separate days and hours
-                                                days = schedule
-                                                hours = ""
+                                                # Extract hours from schedule
+                                                hours = self.extract_hours_from_text(schedule)
+
+                                                # Get postcode
+                                                postcode = ""
+                                                pc_match = re.search(r'NSW[,\s]+(\d{4})', address, re.IGNORECASE)
+                                                if pc_match:
+                                                    postcode = pc_match.group(1)
+
+                                                # Geocode the address
+                                                lat, lon = self.geocoder.geocode_address(address)
 
                                                 locations.append({
                                                     "name": location_name,
                                                     "address": address,
-                                                    "days": days,
+                                                    "days": schedule,
                                                     "hours": hours,
                                                     "council": location['name'],
                                                     "source_url": location['url'],
-                                                    "postcode": re.search(r'NSW[,\s]+(\d{4})', address,
-                                                                          re.IGNORECASE).group(1) if re.search(
-                                                        r'NSW[,\s]+(\d{4})', address, re.IGNORECASE) else ""
+                                                    "postcode": postcode,
+                                                    "lat": lat,
+                                                    "lon": lon
                                                 })
                                 elif element.name == 'p':
                                     # Check if paragraph contains location information
@@ -235,17 +308,27 @@ class JPScraper:
                                                     location_name = self.clean_text(parts[0])
                                                     address = self.extract_address(parts[0], location['name'])
                                                     schedule = self.clean_text(parts[1])
+                                                    hours = self.extract_hours_from_text(schedule)
+
+                                                    # Get postcode
+                                                    postcode = ""
+                                                    pc_match = re.search(r'NSW[,\s]+(\d{4})', address, re.IGNORECASE)
+                                                    if pc_match:
+                                                        postcode = pc_match.group(1)
+
+                                                    # Geocode the address
+                                                    lat, lon = self.geocoder.geocode_address(address)
 
                                                     locations.append({
                                                         "name": location_name,
                                                         "address": address,
                                                         "days": schedule,
-                                                        "hours": "",
+                                                        "hours": hours,
                                                         "council": location['name'],
                                                         "source_url": location['url'],
-                                                        "postcode": re.search(r'NSW[,\s]+(\d{4})', address,
-                                                                              re.IGNORECASE).group(1) if re.search(
-                                                            r'NSW[,\s]+(\d{4})', address, re.IGNORECASE) else ""
+                                                        "postcode": postcode,
+                                                        "lat": lat,
+                                                        "lon": lon
                                                     })
 
             # Add the locations to our JP data
@@ -268,26 +351,6 @@ class JPScraper:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
         return BeautifulSoup(response.text, 'html.parser')
-
-    def scrape_shopping_center(self, location):
-        logger.info(f"Scraping {location['name']} ({location['url']}) as shopping center")
-        url = location['url']
-        logger.info(f"Scraping shopping centre: {location['name']} from {url}")
-
-        try:
-            soup = self.get_soup(url)
-
-            # Dispatch to specific function
-            name_lower = location['name'].lower()
-            if 'winston hills' in name_lower:
-                return self.scrape_winston_hills(location)
-            elif 'stanhope' in name_lower:
-                return self.scrape_stanhope_village(location)
-            else:
-                return self.scrape_generic_shopping_center(location, soup)
-
-        except Exception as e:
-            logger.error(f"Failed to scrape shopping centre: {e}")
 
     def scrape_winston_hills(self, location):
         try:
@@ -409,6 +472,41 @@ class JPScraper:
             import traceback
             logger.error(traceback.format_exc())
 
+    def scrape_shopping_center(self, location):
+        logger.info(f"Scraping {location['name']} ({location['url']}) as shopping center")
+        url = location['url']
+        logger.info(f"Scraping shopping centre: {location['name']} from {url}")
+
+        try:
+            soup = self.get_soup(url)
+
+            # Dispatch to specific function
+            name_lower = location['name'].lower()
+            if 'winston hills' in name_lower:
+                return self.scrape_winston_hills(location)
+            elif 'stanhope' in name_lower:
+                return self.scrape_stanhope_village(location)
+            else:
+                return self.scrape_generic_shopping_center(location, soup)
+
+        except Exception as e:
+            logger.error(f"Failed to scrape shopping centre: {e}")
+
+
+    def scrape_all_locations(self):
+        """Scrape all configured locations"""
+        for location_id in self.locations:
+            self.scrape_location(location_id)
+            # Be nice to the servers
+            time.sleep(2)
+
+    def save_data(self, output_dir="data"):
+        """Save collected JP data to JSON files"""
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        if not os.path.exists(os.path.join(output_dir, "jp_locations_out.json")):
+            logger.error(f'Error in locating {os.path.join(output_dir, "jp_locations_out.json")}')
+
     def scrape_stanhope_village(self, location):
         """Scraper for Stanhope Village and Dennis Johnson Library JP services"""
         logger.info(f"Scraping Stanhope Village ({location['url']})")
@@ -502,101 +600,6 @@ class JPScraper:
 
         except Exception as e:
             logger.error(f"Error scraping Stanhope Village: {str(e)}")
-
-    def extract_hours_from_text(self, text):
-        """
-        Extracts and returns a clean, comma-separated string of time ranges or standalone times from text.
-        e.g., "Wednesdays 3pm - 6pm and Saturdays 9am - 12pm" -> "3pm - 6pm, 9am - 12pm"
-        """
-        time_ranges = re.findall(r'(\d{1,2}(?::\d{2})?\s*(?:am|pm)\s*-\s*\d{1,2}(?::\d{2})?\s*(?:am|pm))', text,
-                                 re.IGNORECASE)
-        single_times = re.findall(r'(?<!-)\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b(?!\s*-\s*\d)', text, re.IGNORECASE)
-
-        all_times = time_ranges + single_times
-        return ', '.join(sorted(set(t.strip() for t in all_times)))
-
-    def scrape_generic_shopping_center(self, location, soup):
-        # Optionally, scan for <strong> or <p> tags mentioning "Justice of the Peace"
-        logger.info(f"No custom scraper found for {location['name']}. Skipping for now.")
-
-    def scrape_all_locations(self):
-        """Scrape all configured locations"""
-        for location_id in self.locations:
-            self.scrape_location(location_id)
-            # Be nice to the servers
-            time.sleep(2)
-
-    def save_data(self, output_dir="data"):
-        """Save collected JP data to JSON files"""
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        if not os.path.exists(output_dir, "jp_locations_out.json"):
-            logger.error(f'Error in locating {os.path.join(output_dir, "jp_locations_out.json")}')
-
-
-        # Save JP location data
-        with open(os.path.join(output_dir, "jp_locations_out.json"), "w") as f:
-            json.dump(self.jp_data, f, indent=2)
-
-        # Save source information
-        with open(os.path.join(output_dir, "sources.json"), "w") as f:
-            json.dump(self.source_info, f, indent=2)
-
-        # Save a sitemap.xml file for SEO
-        self.generate_sitemap(output_dir)
-
-        logger.info(f"Saved {len(self.jp_data)} JP locations to {output_dir}/jp_locations_out.json")
-
-    def generate_sitemap(self, output_dir):
-        """Generate a sitemap.xml file for better SEO"""
-        base_url = "https://www.nswjpfinder.com.au"  # Replace with your actual domain
-
-        sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-        sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-
-        # Add main pages
-        pages = [
-            {"loc": "/", "priority": "1.0"},
-            {"loc": "/about", "priority": "0.8"},
-            {"loc": "/locations", "priority": "0.8"},
-            {"loc": "/jp-info", "priority": "0.9"},
-            {"loc": "/privacy", "priority": "0.5"},
-            {"loc": "/contact", "priority": "0.7"},
-        ]
-
-        for page in pages:
-            sitemap_content += '  <url>\n'
-            sitemap_content += f'    <loc>{base_url}{page["loc"]}</loc>\n'
-            sitemap_content += '    <changefreq>weekly</changefreq>\n'
-            sitemap_content += f'    <priority>{page["priority"]}</priority>\n'
-            sitemap_content += '  </url>\n'
-
-        # Add location pages
-        for location_id, location in self.locations.items():
-            sitemap_content += '  <url>\n'
-            sitemap_content += f'    <loc>{base_url}/?location={location["name"].replace(" ", "+")}</loc>\n'
-            sitemap_content += '    <changefreq>weekly</changefreq>\n'
-            sitemap_content += '    <priority>0.7</priority>\n'
-            sitemap_content += '  </url>\n'
-
-        # Add day-specific pages for SEO
-        days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        for day in days:
-            sitemap_content += '  <url>\n'
-            sitemap_content += f'    <loc>{base_url}/?day={day}</loc>\n'
-            sitemap_content += '    <changefreq>weekly</changefreq>\n'
-            sitemap_content += '    <priority>0.6</priority>\n'
-            sitemap_content += '  </url>\n'
-
-        sitemap_content += '</urlset>'
-
-        with open(os.path.join(output_dir, "sitemap.xml"), "w") as f:
-            f.write(sitemap_content)
-
-        logger.info(f"Generated sitemap.xml in {output_dir}")
-
-
-
 
 if __name__ == "__main__":
     config_path = os.environ.get("JP_CONFIG_PATH", "data/jp_locations.json")

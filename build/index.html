@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JP Finder</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>NSW Justice of Peace Finder</h1>
+
+  <div id="search-container">
+    <label for="suburb-input">Enter your suburb:</label>
+    <div class="input-container">
+      <span class="search-icon">🔍</span>
+      <input id="suburb-input" type="text" placeholder="Type a NSW suburb..." autocomplete="off" />
+    </div>
+    <div id="suburb-suggestions" class="suburb-suggestions" style="display: none;"></div>
+    <div id="error-message"></div>
+    <button id="find-jp">Find Nearest JP</button>
+    <div id="status-message"></div>
+  </div>
+
+  <div id="result">
+    <p class="loading">Loading suburbs data...</p>
+  </div>
+
+  
+<script src="/js/main.js"></script>
+</body>
+</html>

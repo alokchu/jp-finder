@@ -1,0 +1,144 @@
+2025-04-16 21:14:22,087 - INFO - Building JP Finder website...
+2025-04-16 21:14:22,088 - INFO - Creating build directory: build
+2025-04-16 21:14:22,088 - ERROR - Template file not found: jp-finder-website.html
+2025-04-16 21:14:22,088 - INFO - Loaded 1 JP locations from data/jp_locations.json
+2025-04-16 21:14:22,088 - ERROR - Failed to build website: missing template or data
+2025-04-17 11:07:17,730 - INFO - Building JP Finder website...
+2025-04-17 11:07:17,730 - INFO - Cleaning build directory: build
+2025-04-17 11:07:17,731 - INFO - Creating build directory: build
+2025-04-17 11:07:17,731 - ERROR - Template file not found: index.html
+2025-04-17 11:07:17,732 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 11:07:17,732 - ERROR - Failed to build website: missing template or data
+2025-04-17 11:08:05,714 - INFO - Running JP service scraper...
+2025-04-17 11:08:06,176 - ERROR - Config file jp_locations.json not found, using empty configuration
+2025-04-17 11:08:06,176 - ERROR - Error running scraper: 'JPScraper' object has no attribute 'scrape_all_councils'
+2025-04-17 11:08:06,176 - INFO - Building JP Finder website...
+2025-04-17 11:08:06,176 - INFO - Cleaning build directory: build
+2025-04-17 11:08:06,176 - INFO - Creating build directory: build
+2025-04-17 11:08:06,177 - ERROR - Template file not found: index.html
+2025-04-17 11:08:06,177 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 11:08:06,177 - ERROR - Failed to build website: missing template or data
+2025-04-17 11:10:02,780 - INFO - Building JP Finder website...
+2025-04-17 11:10:02,781 - INFO - Cleaning build directory: build
+2025-04-17 11:10:02,781 - INFO - Creating build directory: build
+2025-04-17 11:10:02,781 - INFO - Loaded template from templates/index.html
+2025-04-17 11:10:02,798 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 11:16:48,836 - INFO - Building JP Finder website...
+2025-04-17 11:16:48,836 - INFO - Cleaning build directory: build
+2025-04-17 11:16:48,837 - INFO - Creating build directory: build
+2025-04-17 11:16:48,837 - INFO - Loaded template from templates/index.html
+2025-04-17 11:16:48,847 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 11:20:45,203 - INFO - Building JP Finder website...
+2025-04-17 11:20:45,203 - INFO - Cleaning build directory: build
+2025-04-17 11:20:45,204 - INFO - Creating build directory: build
+2025-04-17 11:20:45,204 - INFO - Loaded template from templates/index.html
+2025-04-17 11:20:45,215 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 11:20:45,216 - INFO - Updated HTML template with JP data
+2025-04-17 11:20:45,217 - INFO - Extracted CSS to separate file
+2025-04-17 11:20:45,218 - INFO - Extracted JavaScript to separate file
+2025-04-17 11:20:45,221 - INFO - Created robots.txt
+2025-04-17 11:20:45,221 - INFO - Created additional page: about.html
+2025-04-17 11:20:45,221 - INFO - Created additional page: councils.html
+2025-04-17 11:20:45,222 - INFO - Created additional page: jp-info.html
+2025-04-17 11:20:45,224 - INFO - Created additional page: privacy.html
+2025-04-17 11:20:45,225 - INFO - Created additional page: contact.html
+2025-04-17 11:20:45,225 - INFO - Created 404 error page
+2025-04-17 11:20:45,226 - INFO - Copied sitemap.xml to build directory
+2025-04-17 11:20:45,228 - INFO - Created netlify.toml configuration file
+2025-04-17 11:20:45,228 - INFO - Website built successfully!
+2025-04-17 12:13:55,503 - INFO - Building JP Finder website...
+2025-04-17 12:13:55,503 - INFO - Cleaning build directory: build
+2025-04-17 12:13:55,505 - INFO - Creating build directory: build
+2025-04-17 12:13:55,505 - INFO - Loaded template from templates/index.html
+2025-04-17 12:13:55,524 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 12:13:55,525 - INFO - Updated HTML template with JP data
+2025-04-17 12:13:55,525 - INFO - Extracted CSS to separate file
+2025-04-17 12:13:55,526 - INFO - Extracted JavaScript to separate file
+2025-04-17 12:13:55,526 - INFO - Created robots.txt
+2025-04-17 12:13:55,527 - INFO - Created additional page: about.html
+2025-04-17 12:13:55,527 - INFO - Created additional page: councils.html
+2025-04-17 12:13:55,527 - INFO - Created additional page: jp-info.html
+2025-04-17 12:13:55,527 - INFO - Created additional page: privacy.html
+2025-04-17 12:13:55,527 - INFO - Created additional page: contact.html
+2025-04-17 12:13:55,527 - INFO - Created 404 error page
+2025-04-17 12:13:55,528 - INFO - Copied sitemap.xml to build directory
+2025-04-17 12:13:55,528 - INFO - Created netlify.toml configuration file
+2025-04-17 12:13:55,528 - INFO - Website built successfully!
+2025-04-17 12:36:03,240 - INFO - Building JP Finder website...
+2025-04-17 12:36:03,241 - INFO - Cleaning build directory: build
+2025-04-17 12:36:03,243 - INFO - Creating build directory: build
+2025-04-17 12:36:03,244 - INFO - Loaded template from templates/index.html
+2025-04-17 12:36:03,253 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 12:36:03,254 - INFO - Updated HTML template with JP data
+2025-04-17 12:36:03,254 - INFO - Extracted CSS to separate file
+2025-04-17 12:36:03,255 - INFO - Extracted JavaScript to separate file
+2025-04-17 12:36:03,255 - INFO - Created robots.txt
+2025-04-17 12:36:03,255 - INFO - Created additional page: about.html
+2025-04-17 12:36:03,255 - INFO - Created additional page: councils.html
+2025-04-17 12:36:03,256 - INFO - Created additional page: jp-info.html
+2025-04-17 12:36:03,256 - INFO - Created additional page: privacy.html
+2025-04-17 12:36:03,256 - INFO - Created additional page: contact.html
+2025-04-17 12:36:03,256 - INFO - Created 404 error page
+2025-04-17 12:36:03,256 - INFO - Copied sitemap.xml to build directory
+2025-04-17 12:36:03,257 - INFO - Created netlify.toml configuration file
+2025-04-17 12:36:03,257 - INFO - Website built successfully!
+2025-04-17 14:18:54,750 - INFO - Building JP Finder website...
+2025-04-17 14:18:54,751 - INFO - Cleaning build directory: build
+2025-04-17 14:18:54,752 - INFO - Creating build directory: build
+2025-04-17 14:18:57,248 - INFO - Building JP Finder website...
+2025-04-17 14:18:57,248 - INFO - Cleaning build directory: build
+2025-04-17 14:18:57,249 - INFO - Creating build directory: build
+2025-04-17 14:21:30,270 - INFO - Building JP Finder website...
+2025-04-17 14:21:30,270 - INFO - Cleaning build directory: build
+2025-04-17 14:21:30,271 - INFO - Creating build directory: build
+2025-04-17 14:21:30,276 - INFO - Loaded template from templates/index.html
+2025-04-17 14:21:30,305 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 14:21:30,306 - INFO - Updated HTML template with JP data
+2025-04-17 14:21:30,306 - INFO - Extracted CSS to separate file
+2025-04-17 14:21:30,307 - INFO - Extracted JavaScript to separate file
+2025-04-17 14:21:30,307 - INFO - Created robots.txt
+2025-04-17 14:21:30,307 - INFO - Created additional page: about.html
+2025-04-17 14:21:30,307 - INFO - Created additional page: councils.html
+2025-04-17 14:21:30,307 - INFO - Created additional page: jp-info.html
+2025-04-17 14:21:30,308 - INFO - Created additional page: privacy.html
+2025-04-17 14:21:30,308 - INFO - Created additional page: contact.html
+2025-04-17 14:21:30,308 - INFO - Created 404 error page
+2025-04-17 14:21:30,308 - INFO - Copied sitemap.xml to build directory
+2025-04-17 14:21:30,310 - INFO - Created netlify.toml configuration file
+2025-04-17 14:21:30,310 - INFO - Website built successfully!
+2025-04-17 14:59:01,871 - INFO - Building JP Finder website...
+2025-04-17 14:59:01,871 - INFO - Cleaning build directory: build
+2025-04-17 14:59:01,873 - INFO - Creating build directory: build
+2025-04-17 14:59:01,879 - INFO - Loaded template from templates/index.html
+2025-04-17 14:59:01,894 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-04-17 14:59:01,894 - INFO - Updated HTML template with JP data
+2025-04-17 14:59:01,895 - INFO - Extracted CSS to separate file
+2025-04-17 14:59:01,896 - INFO - Extracted JavaScript to separate file
+2025-04-17 14:59:01,896 - INFO - Created robots.txt
+2025-04-17 14:59:01,896 - INFO - Created additional page: about.html
+2025-04-17 14:59:01,896 - INFO - Created additional page: councils.html
+2025-04-17 14:59:01,897 - INFO - Created additional page: jp-info.html
+2025-04-17 14:59:01,897 - INFO - Created additional page: privacy.html
+2025-04-17 14:59:01,897 - INFO - Created additional page: contact.html
+2025-04-17 14:59:01,897 - INFO - Created 404 error page
+2025-04-17 14:59:01,899 - INFO - Copied sitemap.xml to build directory
+2025-04-17 14:59:01,899 - INFO - Created netlify.toml configuration file
+2025-04-17 14:59:01,899 - INFO - Website built successfully!
+2025-05-01 08:55:14,215 - INFO - Building JP Finder website...
+2025-05-01 08:55:14,215 - INFO - Cleaning build directory: build
+2025-05-01 08:55:14,220 - INFO - Creating build directory: build
+2025-05-01 08:55:14,313 - INFO - Loaded template from templates/index.html
+2025-05-01 08:55:14,356 - INFO - Loaded 6 JP locations from data/jp_locations_out.json
+2025-05-01 08:55:14,356 - INFO - Updated HTML template with JP data
+2025-05-01 08:55:14,356 - INFO - Extracted CSS to separate file
+2025-05-01 08:55:14,357 - INFO - Extracted JavaScript to separate file
+2025-05-01 08:55:14,357 - INFO - Created robots.txt
+2025-05-01 08:55:14,357 - INFO - Created additional page: about.html
+2025-05-01 08:55:14,358 - INFO - Created additional page: councils.html
+2025-05-01 08:55:14,358 - INFO - Created additional page: jp-info.html
+2025-05-01 08:55:14,358 - INFO - Created additional page: privacy.html
+2025-05-01 08:55:14,358 - INFO - Created additional page: contact.html
+2025-05-01 08:55:14,358 - INFO - Created 404 error page
+2025-05-01 08:55:14,359 - INFO - Copied sitemap.xml to build directory
+2025-05-01 08:55:14,361 - INFO - Created netlify.toml configuration file
+2025-05-01 08:55:14,361 - INFO - Website built successfully!

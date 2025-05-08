@@ -107,7 +107,7 @@
   </style>
 </head>
 <body>
-  <h1>Justice of Peace Finder</h1>
+  <h1>NSW Justice of Peace Finder</h1>
 
   <div id="search-container">
     <label for="suburb-input">Enter your suburb:</label>
@@ -162,6 +162,8 @@
               lat: null,
               lon: null
             }));
+
+          console.log("Number of suburbs loaded:", NSWSuburbs.length);
 
           // Geocode the suburbs that don't have coordinates
           geocodeSuburbs();
@@ -389,6 +391,7 @@
 
     function findJP() {
       const input = suburbInput.value.trim();
+      console.log("My input suburb:", input);
       errorMessage.style.display = "none";
 
       if (!input) {

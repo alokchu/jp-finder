@@ -1,0 +1,60 @@
+[
+  {
+    "name": "The Hills Shire Council 3 Columbia Court Norwest NSW 2153 Location Please Note - No Copying Service (Please bring all copies of documents to be certified (if applicable) as Council does not have a copying service available at our main customer service centre in Norwest).",
+    "address": "The Hills Shire Council\n3 Columbia Court Norwest NSW 2153\nLocation\n\u00a0\nPlease Note -\u00a0No Copying Service\n(Please bring all copies of documents to be certified (if applicable) as Council does not have a copying service available at our main customer service centre in Norwest)., The Hills Shire Council, NSW",
+    "days": "Monday: 11 am - 2 pm Wednesday: 11 am - 2 pm Friday: 11 am - 2 pm To avoid delays we recommend you book in a time to see a JP if you have more than: 5 Statutory Declarations, and/or 10 Signatures Otherwise, we may ask you to wait while the JP serves other customers. To book, call Customer Service on 02 9843 0555.",
+    "hours": "Monday: 11am - 2pm Wednesday: 11am - 2pm Friday: 11am - 2pm To avoid delays we recommend you book in a time to see a JP if you have more than: 5 Statutory Declarations, and/or 10 Signatures Otherwise, we may ask you to wait while the JP serves other customers. To book, call Customer Service on 02 9843 0555.",
+    "council": "The Hills Shire Council",
+    "source_url": "https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace",
+    "postcode": "2153"
+  },
+  {
+    "name": "Castle Hill Library Cnr Castle & Pennant Streets Castle Hill NSW 2154 Location Copying Service Available, fees apply",
+    "address": "Castle Hill Library\nCnr Castle, The Hills Shire Council, NSW",
+    "days": "Tuesday: 10 am - 1 pm Wednesday: 5 pm - 7 pm Thursday: 10 am - 1 pm",
+    "hours": "Tuesday: 10am - 1 pm Wednesday: 5pm - 7pm Thursday: 10am - 1pm",
+    "council": "The Hills Shire Council",
+    "source_url": "https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace",
+    "postcode": ""
+  },
+  {
+    "name": "Vinegar Hill Memorial Library 29 Main Street, Rouse Hill Town Centre Rouse Hill NSW 2155 Location Copying Service Available, fees apply",
+    "address": "29 Main Street, Rouse Hill Town Centre\r\nRouse Hill NSW 2155",
+    "days": "Thursday: 5 pm - 7 pm",
+    "hours": "Thursday: 5pm - 7pm",
+    "council": "The Hills Shire Council",
+    "source_url": "https://www.thehills.nsw.gov.au/Residents/Library/Library-Services/Justice-of-the-Peace",
+    "postcode": "2155"
+  },
+  {
+    "name": "Stanhope Village Shopping Centre (JP Desk)",
+    "address": "Outside Specsavers, Stanhope Village Shopping Centre, 2 Sentry Drive, Stanhope Gardens NSW 2768",
+    "days": "wednesday afternoons from 3 pm to 6 pm and saturday mornings from 9 am to 12pm.",
+    "hours": "12pm, 3 pm, 6 pm, 9 am",
+    "council": "N/A",
+    "source_url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
+    "postcode": "2768",
+    "holiday_notice": "Christmas Holiday Hours \ud83c\udf84",
+    "notes": ""
+  },
+  {
+    "name": "Dennis Johnson Library (JP Service)",
+    "address": "Stanhope Leisure Centre, Sentry Drive, Stanhope Gardens NSW 2768",
+    "days": "mondays 10am - 1pm tuesdays 5pm - 7pm wednesdays 10am - 12pm saturdays 10am - 12:30pm",
+    "hours": "10am - 12:30pm, 10am - 12pm, 10am - 1pm, 12:30pm, 12pm, 1pm, 5pm - 7pm, 7pm",
+    "council": "N/A",
+    "source_url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
+    "postcode": "2768",
+    "holiday_notice": "Christmas Holiday Hours \ud83c\udf84",
+    "notes": ""
+  },
+  {
+    "name": "Winston Hills Mall",
+    "address": "Caroline Chisholm Drive, Winston Hills NSW 2153",
+    "days": "Every Thursday",
+    "hours": "10am to 12pm",
+    "council": "N/A",
+    "source_url": "https://www.winstonhillsmall.com.au/whats-on/jpservice",
+    "postcode": "2153"
+  }
+]
