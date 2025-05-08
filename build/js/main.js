@@ -33,7 +33,7 @@ function loadSuburbsData() {
           lon: item.lng
         }));
 
-      console.log("Number of suburbs loaded:", NSWSuburbs.length);
+      console.log("Number of suburbs loaded:=>", NSWSuburbs.length);
       console.log("NSW suburbs sample:", NSWSuburbs[0]," and ",NSWSuburbs[1]);
 
       // Geocode the suburbs that don't have coordinates
