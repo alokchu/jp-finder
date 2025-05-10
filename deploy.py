@@ -229,6 +229,9 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         """Extract CSS from HTML and save as separate file"""
         css_pattern = r"<style>([\s\S]*?)</style>"
         css_match = re.search(css_pattern, html_content)
+        
+        # Add timestamp for cache busting
+        timestamp = int(datetime.datetime.now().timestamp())
 
         if css_match:
             css_content = css_match.group(1)
@@ -237,14 +240,14 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
             with open(self.build_dir / "css" / "style.css", "w", encoding="utf-8") as f:
                 f.write(css_content)
 
-            # Replace inline CSS with link to CSS file
+            # Replace inline CSS with link to CSS file (with cache busting)
             html_content = re.sub(
                 r"<style>[\s\S]*?</style>",
-                '<link rel="stylesheet" href="/css/style.css">',
+                f'<link rel="stylesheet" href="/css/style.css?v={timestamp}">',
                 html_content
             )
 
-            logger.info("Extracted CSS to separate file")
+            logger.info("Extracted CSS to separate file with cache busting")
 
         return html_content
 
@@ -252,6 +255,9 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         """Extract JavaScript from HTML and save as separate file"""
         js_pattern = r"<script>([\s\S]*?)</script>"
         js_matches = re.finditer(js_pattern, html_content)
+        
+        # Add timestamp for cache busting
+        timestamp = int(datetime.datetime.now().timestamp())
 
         main_js = []
 
@@ -268,21 +274,20 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
             with open(self.build_dir / "js" / "main.js", "w", encoding="utf-8") as f:
                 f.write("\n\n".join(main_js))
 
-            # Replace inline JS with link to JS file
-            # Keep schema.org and other special scripts
+            # Replace inline JS with link to JS file (with cache busting)
             modified_html = re.sub(
                 r"<script>(?!.*?application/ld\+json)[\s\S]*?</script>",
                 "",
                 html_content
             )
 
-            # Add script tag at the end of body
+            # Add script tag at the end of body with cache busting parameter
             modified_html = modified_html.replace(
                 "</body>",
-                '<script src="/js/main.js"></script>\n</body>'
+                f'<script src="/js/main.js?v={timestamp}"></script>\n</body>'
             )
 
-            logger.info("Extracted JavaScript to separate file")
+            logger.info("Extracted JavaScript to separate file with cache busting")
             return modified_html
 
         return html_content
