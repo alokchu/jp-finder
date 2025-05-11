@@ -12,45 +12,82 @@ window.addEventListener('DOMContentLoaded', () => {
   loadSuburbsData();
 });
 
-// Load suburbs data from JSON file
-function loadSuburbsData() {
-  fetch('../data/suburbs.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+// Load suburbs data from JSON file with caching
+async function loadSuburbsData() {
+  // First try to load from localStorage
+  const cachedData = localStorage.getItem('nswSuburbs');
+  const cacheTimestamp = localStorage.getItem('nswSuburbsTimestamp');
+  
+  // Check if we have valid cached data (less than 24 hours old)
+  if (cachedData && cacheTimestamp) {
+    const cacheAge = Date.now() - parseInt(cacheTimestamp);
+    if (cacheAge < 24 * 60 * 60 * 1000) { // 24 hours
+      try {
+        NSWSuburbs = JSON.parse(cachedData);
+        console.log("Using cached suburbs data");
+        initializeApp();
+        return;
+      } catch (e) {
+        console.error('Error parsing cached data:', e);
       }
-      return response.json();
-    })
-    .then(data => {
-      // Process the data into a format we can use
-      NSWSuburbs = data.data
-        .filter(item => item.state === "NSW")
-        .map(item => ({
-          name: item.suburb,
-          state: item.state,
-          postcode: item.postcode,
-          lat: item.lat,
-          lon: item.lng
-        }));
+    }
+  }
 
-      console.log("Number of suburbs loaded :=>", NSWSuburbs.length);
-      console.log("NSW suburbs sample:", NSWSuburbs[0]," and ",NSWSuburbs[1]);
+  // Show loading indicator
+  showStatus("Loading suburbs data...", "info");
+  
+  try {
+    const response = await fetch('../data/suburbs.json');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let data = '';
+    
+    while (true) {
+      const {value, done} = await reader.read();
+      if (done) break;
+      data += decoder.decode(value, {stream: true});
+    }
+    
+    const jsonData = JSON.parse(data);
+    
+    // Process the data into a format we can use
+    NSWSuburbs = jsonData.data
+      .filter(item => item.state === "NSW")
+      .map(item => ({
+        name: item.suburb,
+        state: item.state,
+        postcode: item.postcode,
+        lat: item.lat,
+        lon: item.lng
+      }));
 
-      // Geocode the suburbs that don't have coordinates
-      geocodeSuburbs();
+    // Cache the processed data
+    try {
+      localStorage.setItem('nswSuburbs', JSON.stringify(NSWSuburbs));
+      localStorage.setItem('nswSuburbsTimestamp', Date.now().toString());
+    } catch (e) {
+      console.warn('Failed to cache suburbs data:', e);
+    }
 
-      initializeApp();
-      showStatus("Suburbs data loaded successfully!", "success");
-    })
-    .catch(error => {
-      console.error('Error loading suburbs data:', error);
-      resultElement.innerHTML = `<p>Error loading suburbs data: ${error.message}</p>`;
-      showStatus("Failed to load suburbs data. Using fallback data.", "error");
-
-      // Use fallback data
-      useFallbackData();
-      initializeApp();
-    });
+    console.log("Number of suburbs loaded:", NSWSuburbs.length);
+    
+    // Hide loading indicator
+    showStatus("", "info");
+    
+    geocodeSuburbs();
+    initializeApp();
+  } catch (error) {
+    console.error('Error loading suburbs data:', error);
+    showStatus("Using fallback data due to loading error", "error");
+    
+    // Use fallback data
+    useFallbackData();
+    initializeApp();
+  }
 }
 
 // Improved function to get coordinates from postcode

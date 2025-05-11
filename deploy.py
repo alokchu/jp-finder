@@ -70,29 +70,36 @@ class JPFinderDeployer:
 
     def copy_static_files(self):
         """Copy static files to build directory"""
-        # Copy JavaScript files
-        js_source_dir = Path("templates/js")
-        js_dest_dir = self.build_dir / "js"
+        # Add timestamp for cache busting
+        timestamp = int(datetime.datetime.now().timestamp())
         
-        if js_source_dir.exists():
-            # Add cache busting timestamp
-            timestamp = int(datetime.datetime.now().timestamp())
+        # Copy suburbs.json to build directory
+        shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
+        logger.info("Copied suburbs.json to build directory")
+        
+        # Copy and version JavaScript
+        js_content = ""
+        js_file = Path("templates/js/main.js")
+        if js_file.exists():
+            with open(js_file, "r", encoding="utf-8") as f:
+                js_content = f.read()
             
-            # Copy main.js with timestamp in filename
-            if (js_source_dir / "main.js").exists():
-                with open(js_source_dir / "main.js", "r", encoding="utf-8") as f:
-                    js_content = f.read()
-                
-                # Write to build directory
-                with open(js_dest_dir / "main.js", "w", encoding="utf-8") as f:
-                    f.write(js_content)
-                
-                logger.info("Copied and versioned main.js")
+            # Write to build directory with version
+            with open(self.build_dir / "js" / "main.js", "w", encoding="utf-8") as f:
+                f.write(f"// Version: {timestamp}\n")
+                f.write(js_content)
         
-        # Copy data files
-        if Path("data/suburbs.json").exists():
-            shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
-            logger.info("Copied suburbs.json")
+        # Update HTML to include versioned JS
+        with open(self.template_file, "r", encoding="utf-8") as f:
+            html_content = f.read()
+        
+        html_content = html_content.replace(
+            '<script src="/js/main.js"></script>',
+            f'<script src="/js/main.js?v={timestamp}"></script>'
+        )
+        
+        with open(self.build_dir / "index.html", "w", encoding="utf-8") as f:
+            f.write(html_content)
 
     def create_robots_txt(self):
         """Create a robots.txt file for SEO"""
