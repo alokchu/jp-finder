@@ -519,3 +519,7 @@ if __name__ == "__main__":
 
     # Build the website
     deployer.build_website()
+
+    # In deploy.py, make sure we're copying both JS files
+    shutil.copy('templates/js/main.js', 'build/js/main.js')
+    shutil.copy('templates/js/jp-locations.js', 'build/js/jp-locations.js')
