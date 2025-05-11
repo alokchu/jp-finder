@@ -1,4 +1,3 @@
-// Version: 1746956904
 // We'll replace the hardcoded suburbs with data loaded from suburbs.json
 let NSWSuburbs = [];
 let selectedSuburbIndex = -1;
@@ -1197,173 +1196,478 @@ const jpLocations = [
     "lat": -33.7880,
     "lon": 150.9773
   },
-{
-"name": "Dubbo City Library",
-"address": "Dubbo City Library\nCnr Macquarie & Talbragar Streets\nDubbo NSW 2830",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "9:30 AM - 5:00 PM",
-"Tuesday": "9:30 AM - 5:00 PM",
-"Wednesday": "9:30 AM - 5:00 PM",
-"Thursday": "9:30 AM - 5:00 PM",
-"Friday": "9:30 AM - 5:00 PM"
-},
-"council": "Dubbo Regional Council",
-"source_url": "https://www.dubbo.nsw.gov.au/Community-and-Groups/Justice-of-the-Peace",
-"postcode": "2830",
-"lat": -32.2452,
-"lon": 148.6015
-},
-{
-"name": "Dubbo Regional Council - Customer Service Centre",
-"address": "Dubbo Regional Council\nCnr Church and Darling Streets\nDubbo NSW 2830",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "9:00 AM - 4:00 PM",
-"Tuesday": "9:00 AM - 4:00 PM",
-"Wednesday": "9:00 AM - 4:00 PM",
-"Thursday": "9:00 AM - 4:00 PM",
-"Friday": "9:00 AM - 4:00 PM"
-},
-"council": "Dubbo Regional Council",
-"source_url": "https://www.dubbo.nsw.gov.au/Community-and-Groups/Justice-of-the-Peace",
-"postcode": "2830",
-"lat": -32.2447,
-"lon": 148.6062
-},
-{
-"name": "Orange City Library",
-"address": "Orange City Library\n147 Byng Street\nOrange NSW 2800",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "10:00 AM - 12:00 PM",
-"Tuesday": "2:00 PM - 4:00 PM",
-"Wednesday": "10:00 AM - 12:00 PM",
-"Thursday": "2:00 PM - 4:00 PM",
-"Friday": "10:00 AM - 12:00 PM"
-},
-"council": "Orange City Council",
-"source_url": "https://www.orange.nsw.gov.au/community/justice-of-the-peace",
-"postcode": "2800",
-"lat": -33.2835,
-"lon": 149.1012
-},
-{
-"name": "Orange Civic Centre",
-"address": "Orange Civic Centre\n135 Byng Street\nOrange NSW 2800",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "9:00 AM - 3:00 PM",
-"Tuesday": "9:00 AM - 3:00 PM",
-"Wednesday": "9:00 AM - 3:00 PM",
-"Thursday": "9:00 AM - 3:00 PM",
-"Friday": "9:00 AM - 3:00 PM"
-},
-"council": "Orange City Council",
-"source_url": "https://www.orange.nsw.gov.au/community/justice-of-the-peace",
-"postcode": "2800",
-"lat": -33.2833,
-"lon": 149.1008
-},
-{
-"name": "Hawkesbury Central Library",
-"address": "Hawkesbury Central Library\nDeerubbin Centre\n300 George Street\nWindsor NSW 2756",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
-"hours": {
-"Monday": "9:00 AM - 5:00 PM",
-"Tuesday": "9:00 AM - 5:00 PM",
-"Wednesday": "9:00 AM - 5:00 PM",
-"Thursday": "9:00 AM - 5:00 PM",
-"Friday": "9:00 AM - 5:00 PM",
-"Saturday": "9:00 AM - 1:00 PM"
-},
-"council": "Hawkesbury City Council",
-"source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
-"postcode": "2756",
-"lat": -33.6103,
-"lon": 150.8219
-},
-{
-"name": "Richmond Marketplace",
-"address": "Richmond Marketplace\n78 March Street\nRichmond NSW 2753",
-"days": "Tuesday, Thursday",
-"hours": {
-"Tuesday": "10:00 AM - 12:00 PM",
-"Thursday": "1:00 PM - 3:00 PM"
-},
-"council": "Hawkesbury City Council",
-"source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
-"postcode": "2753",
-"lat": -33.5978,
-"lon": 150.7483
-},
-{
-"name": "Penrith City Council - St Marys Office",
-"address": "Penrith City Council - St Marys Office\nSt Marys Corner Community & Cultural Precinct\n207-209 Queen Street\nSt Marys NSW 2760",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "9:00 AM - 4:00 PM",
-"Tuesday": "9:00 AM - 4:00 PM",
-"Wednesday": "9:00 AM - 4:00 PM",
-"Thursday": "9:00 AM - 4:00 PM",
-"Friday": "9:00 AM - 4:00 PM"
-},
-"council": "Penrith City Council",
-"source_url": "https://www.penrithcity.nsw.gov.au/community-library/community-information/justice-of-the-peace",
-"postcode": "2760",
-"lat": -33.7656,
-"lon": 150.7744
-},
-{
-"name": "Katoomba Library",
-"address": "Katoomba Library\n30 Parke Street\nKatoomba NSW 2780",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
-"hours": {
-"Monday": "10:00 AM - 5:00 PM",
-"Tuesday": "10:00 AM - 5:00 PM",
-"Wednesday": "10:00 AM - 5:00 PM",
-"Thursday": "10:00 AM - 5:00 PM",
-"Friday": "10:00 AM - 5:00 PM",
-"Saturday": "10:00 AM - 1:00 PM"
-},
-"council": "Blue Mountains City Council",
-"source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
-"postcode": "2780",
-"lat": -33.7147,
-"lon": 150.3122
-},
-{
-"name": "Springwood Library",
-"address": "Springwood Library\n104 Macquarie Road\nSpringwood NSW 2777",
-"days": "Monday, Wednesday, Friday",
-"hours": {
-"Monday": "10:00 AM - 12:00 PM",
-"Wednesday": "2:00 PM - 4:00 PM",
-"Friday": "10:00 AM - 12:00 PM"
-},
-"council": "Blue Mountains City Council",
-"source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
-"postcode": "2777",
-"lat": -33.6969,
-"lon": 150.5658
-},
-{
-"name": "Blue Mountains City Council - Katoomba Office",
-"address": "Blue Mountains City Council\n2-6 Civic Place\nKatoomba NSW 2780",
-"days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-"hours": {
-"Monday": "9:00 AM - 4:30 PM",
-"Tuesday": "9:00 AM - 4:30 PM",
-"Wednesday": "9:00 AM - 4:30 PM",
-"Thursday": "9:00 AM - 4:30 PM",
-"Friday": "9:00 AM - 4:30 PM"
-},
-"council": "Blue Mountains City Council",
-"source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
-"postcode": "2780",
-"lat": -33.7142,
-"lon": 150.3120
-}
+  {
+    "name": "Dubbo City Library",
+    "address": "Dubbo City Library\nCnr Macquarie & Talbragar Streets\nDubbo NSW 2830",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "9:30 AM - 5:00 PM",
+      "Tuesday": "9:30 AM - 5:00 PM",
+      "Wednesday": "9:30 AM - 5:00 PM",
+      "Thursday": "9:30 AM - 5:00 PM",
+      "Friday": "9:30 AM - 5:00 PM"
+    },
+    "council": "Dubbo Regional Council",
+    "source_url": "https://www.dubbo.nsw.gov.au/Community-and-Groups/Justice-of-the-Peace",
+    "postcode": "2830",
+    "lat": -32.2452,
+    "lon": 148.6015
+  },
+  {
+    "name": "Dubbo Regional Council - Customer Service Centre",
+    "address": "Dubbo Regional Council\nCnr Church and Darling Streets\nDubbo NSW 2830",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "9:00 AM - 4:00 PM",
+      "Tuesday": "9:00 AM - 4:00 PM",
+      "Wednesday": "9:00 AM - 4:00 PM",
+      "Thursday": "9:00 AM - 4:00 PM",
+      "Friday": "9:00 AM - 4:00 PM"
+    },
+    "council": "Dubbo Regional Council",
+    "source_url": "https://www.dubbo.nsw.gov.au/Community-and-Groups/Justice-of-the-Peace",
+    "postcode": "2830",
+    "lat": -32.2447,
+    "lon": 148.6062
+  },
+  {
+    "name": "Orange City Library",
+    "address": "Orange City Library\n147 Byng Street\nOrange NSW 2800",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Tuesday": "2:00 PM - 4:00 PM",
+      "Wednesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Orange City Council",
+    "source_url": "https://www.orange.nsw.gov.au/community/justice-of-the-peace",
+    "postcode": "2800",
+    "lat": -33.2835,
+    "lon": 149.1012
+  },
+  {
+    "name": "Orange Civic Centre",
+    "address": "Orange Civic Centre\n135 Byng Street\nOrange NSW 2800",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "9:00 AM - 3:00 PM",
+      "Tuesday": "9:00 AM - 3:00 PM",
+      "Wednesday": "9:00 AM - 3:00 PM",
+      "Thursday": "9:00 AM - 3:00 PM",
+      "Friday": "9:00 AM - 3:00 PM"
+    },
+    "council": "Orange City Council",
+    "source_url": "https://www.orange.nsw.gov.au/community/justice-of-the-peace",
+    "postcode": "2800",
+    "lat": -33.2833,
+    "lon": 149.1008
+  },
+  {
+    "name": "Hawkesbury Central Library",
+    "address": "Hawkesbury Central Library\nDeerubbin Centre\n300 George Street\nWindsor NSW 2756",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
+    "hours": {
+      "Monday": "9:00 AM - 5:00 PM",
+      "Tuesday": "9:00 AM - 5:00 PM",
+      "Wednesday": "9:00 AM - 5:00 PM",
+      "Thursday": "9:00 AM - 5:00 PM",
+      "Friday": "9:00 AM - 5:00 PM",
+      "Saturday": "9:00 AM - 1:00 PM"
+    },
+    "council": "Hawkesbury City Council",
+    "source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
+    "postcode": "2756",
+    "lat": -33.6103,
+    "lon": 150.8219
+  },
+  {
+    "name": "Richmond Marketplace",
+    "address": "Richmond Marketplace\n78 March Street\nRichmond NSW 2753",
+    "days": "Tuesday, Thursday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "1:00 PM - 3:00 PM"
+    },
+    "council": "Hawkesbury City Council",
+    "source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
+    "postcode": "2753",
+    "lat": -33.5978,
+    "lon": 150.7483
+  },
+  {
+    "name": "Penrith City Council - St Marys Office",
+    "address": "Penrith City Council - St Marys Office\nSt Marys Corner Community & Cultural Precinct\n207-209 Queen Street\nSt Marys NSW 2760",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "9:00 AM - 4:00 PM",
+      "Tuesday": "9:00 AM - 4:00 PM",
+      "Wednesday": "9:00 AM - 4:00 PM",
+      "Thursday": "9:00 AM - 4:00 PM",
+      "Friday": "9:00 AM - 4:00 PM"
+    },
+    "council": "Penrith City Council",
+    "source_url": "https://www.penrithcity.nsw.gov.au/community-library/community-information/justice-of-the-peace",
+    "postcode": "2760",
+    "lat": -33.7656,
+    "lon": 150.7744
+  },
+  {
+    "name": "Katoomba Library",
+    "address": "Katoomba Library\n30 Parke Street\nKatoomba NSW 2780",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
+    "hours": {
+      "Monday": "10:00 AM - 5:00 PM",
+      "Tuesday": "10:00 AM - 5:00 PM",
+      "Wednesday": "10:00 AM - 5:00 PM",
+      "Thursday": "10:00 AM - 5:00 PM",
+      "Friday": "10:00 AM - 5:00 PM",
+      "Saturday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Blue Mountains City Council",
+    "source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
+    "postcode": "2780",
+    "lat": -33.7147,
+    "lon": 150.3122
+  },
+  {
+    "name": "Springwood Library",
+    "address": "Springwood Library\n104 Macquarie Road\nSpringwood NSW 2777",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Blue Mountains City Council",
+    "source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
+    "postcode": "2777",
+    "lat": -33.6969,
+    "lon": 150.5658
+  },
+  {
+    "name": "Blue Mountains City Council - Katoomba Office",
+    "address": "Blue Mountains City Council\n2-6 Civic Place\nKatoomba NSW 2780",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Monday": "9:00 AM - 4:30 PM",
+      "Tuesday": "9:00 AM - 4:30 PM",
+      "Wednesday": "9:00 AM - 4:30 PM",
+      "Thursday": "9:00 AM - 4:30 PM",
+      "Friday": "9:00 AM - 4:30 PM"
+    },
+    "council": "Blue Mountains City Council",
+    "source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
+    "postcode": "2780",
+    "lat": -33.7142,
+    "lon": 150.3120
+  },
+  {
+    "name": "Manly Library",
+    "address": "Manly Library\n1 Market Place\nManly NSW 2095",
+    "days": "Monday, Wednesday, Saturday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Northern Beaches Council",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "postcode": "2095",
+    "lat": -33.7971,
+    "lon": 151.2857
+  },
+  {
+    "name": "Dee Why Library",
+    "address": "Dee Why Library\n725 Pittwater Road\nDee Why NSW 2099",
+    "days": "Tuesday, Thursday, Friday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Northern Beaches Council",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "postcode": "2099",
+    "lat": -33.7516,
+    "lon": 151.2867
+  },
+  {
+    "name": "Gordon Library",
+    "address": "Gordon Library\n799 Pacific Highway\nGordon NSW 2072",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Ku-ring-gai Council",
+    "source_url": "https://www.krg.nsw.gov.au/Community/Justice-of-the-Peace",
+    "postcode": "2072",
+    "lat": -33.7559,
+    "lon": 151.1545
+  },
+  {
+    "name": "Cabramatta Library",
+    "address": "Cabramatta Library\n1 Railway Parade\nCabramatta NSW 2166",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 1:00 PM",
+      "Thursday": "2:00 PM - 5:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Fairfield City Council",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Justice-of-the-Peace",
+    "postcode": "2166",
+    "lat": -33.8945,
+    "lon": 150.9385
+  },
+  {
+    "name": "Kogarah Library",
+    "address": "Kogarah Library and Service Centre\n2 Belgrave Street\nKogarah NSW 2217",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 1:00 PM",
+      "Wednesday": "2:00 PM - 5:00 PM",
+      "Friday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Georges River Council",
+    "source_url": "https://www.georgesriver.nsw.gov.au/Community/Justice-of-the-Peace",
+    "postcode": "2217",
+    "lat": -33.9671,
+    "lon": 151.1374
+  },
+  {
+    "name": "St George Bank - Chatswood Branch",
+    "address": "St George Bank\n402 Victoria Avenue\nChatswood NSW 2067",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "9:30 AM - 4:00 PM",
+      "Tuesday": "9:30 AM - 4:00 PM",
+      "Wednesday": "9:30 AM - 4:00 PM",
+      "Thursday": "9:30 AM - 4:00 PM",
+      "Friday": "9:30 AM - 4:00 PM"
+    },
+    "council": "Willoughby City Council",
+    "source_url": "https://www.stgeorge.com.au/contact-us/locate-us",
+    "postcode": "2067",
+    "lat": -33.7965,
+    "lon": 151.1824
+  },
+  {
+    "name": "Macquarie Centre Customer Service Desk",
+    "address": "Macquarie Centre\nLevel 3 (near Event Cinemas)\nHerring Road & Waterloo Road\nMacquarie Park NSW 2113",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "11:00 AM - 2:00 PM",
+      "Thursday": "11:00 AM - 2:00 PM",
+      "Saturday": "11:00 AM - 2:00 PM"
+    },
+    "council": "City of Ryde",
+    "source_url": "https://www.macquariecentre.com.au/services",
+    "postcode": "2113",
+    "lat": -33.7766,
+    "lon": 151.1235
+  },
+  {
+    "name": "Eastgardens Library",
+    "address": "Eastgardens Library\nWestfield Eastgardens, Level 1\n152 Bunnerong Road\nEastgardens NSW 2036",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Bayside Council",
+    "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
+    "postcode": "2036",
+    "lat": -33.9472,
+    "lon": 151.2197
+  },
+  {
+    "name": "Rockdale Library",
+    "address": "Rockdale Library\n444-446 Princes Highway\nRockdale NSW 2216",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Bayside Council",
+    "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
+    "postcode": "2216",
+    "lat": -33.9517,
+    "lon": 151.1397
+  },
+  {
+    "name": "Warringah Mall Library",
+    "address": "Warringah Mall Library\nShop 650, Level 2, Westfield Warringah Mall\n145 Old Pittwater Road\nBrookvale NSW 2100",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 1:00 PM",
+      "Wednesday": "2:00 PM - 5:00 PM",
+      "Friday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Northern Beaches Council",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "postcode": "2100",
+    "lat": -33.7671,
+    "lon": 151.2712
+  },
+  {
+    "name": "Fairfield Library",
+    "address": "Fairfield Library\n1/1B Barbara Street\nFairfield NSW 2165",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Fairfield City Council",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Justice-of-the-Peace",
+    "postcode": "2165",
+    "lat": -33.8726,
+    "lon": 150.9571
+  },
+  {
+    "name": "Bankstown Library and Knowledge Centre",
+    "address": "Bankstown Library and Knowledge Centre\n80 Rickard Road\nBankstown NSW 2200",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "10:00 AM - 4:00 PM",
+      "Tuesday": "10:00 AM - 4:00 PM",
+      "Wednesday": "10:00 AM - 4:00 PM",
+      "Thursday": "10:00 AM - 4:00 PM",
+      "Friday": "10:00 AM - 4:00 PM"
+    },
+    "council": "Canterbury-Bankstown Council",
+    "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
+    "postcode": "2200",
+    "lat": -33.9171,
+    "lon": 151.0341
+  },
+  {
+    "name": "Lane Cove Library",
+    "address": "Lane Cove Library\nLibrary Walk, 139a Longueville Road\nLane Cove NSW 2066",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Lane Cove Council",
+    "source_url": "https://www.lanecove.nsw.gov.au/Community/Pages/JusticeOfThePeace.aspx",
+    "postcode": "2066",
+    "lat": -33.8156,
+    "lon": 151.1697
+  },
+  {
+    "name": "Carlingford Court Shopping Centre",
+    "address": "Carlingford Court Shopping Centre\nCustomer Service Desk, Level 1\n220 Carlingford Road\nCarlingford NSW 2118",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "11:00 AM - 2:00 PM",
+      "Wednesday": "11:00 AM - 2:00 PM",
+      "Friday": "11:00 AM - 2:00 PM"
+    },
+    "council": "City of Parramatta",
+    "source_url": "https://www.carlingfordcourt.com.au/services",
+    "postcode": "2118",
+    "lat": -33.7827,
+    "lon": 151.0463
+  },
+  {
+    "name": "Burwood Library",
+    "address": "Burwood Library\n2 Conder Street\nBurwood NSW 2134",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 12:00 PM",
+      "Wednesday": "2:00 PM - 4:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Burwood Council",
+    "source_url": "https://www.burwood.nsw.gov.au/Community/Justice-of-the-Peace",
+    "postcode": "2134",
+    "lat": -33.8776,
+    "lon": 151.1044
+  },
+  {
+    "name": "Strathfield Library",
+    "address": "Strathfield Library\n65-67 Rochester Street\nStrathfield NSW 2135",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Strathfield Council",
+    "source_url": "https://www.strathfield.nsw.gov.au/community/justice-of-the-peace/",
+    "postcode": "2135",
+    "lat": -33.8728,
+    "lon": 151.0917
+  },
+  {
+    "name": "Mona Vale Library",
+    "address": "Mona Vale Library\n1 Park Street\nMona Vale NSW 2103",
+    "days": "Monday, Wednesday, Friday",
+    "hours": {
+      "Monday": "10:00 AM - 1:00 PM",
+      "Wednesday": "2:00 PM - 5:00 PM",
+      "Friday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Northern Beaches Council",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "postcode": "2103",
+    "lat": -33.6766,
+    "lon": 151.3052
+  },
+  {
+    "name": "Revesby Library",
+    "address": "Revesby Library\n26 Revesby Place\nRevesby NSW 2212",
+    "days": "Tuesday, Thursday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM"
+    },
+    "council": "Canterbury-Bankstown Council",
+    "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
+    "postcode": "2212",
+    "lat": -33.9494,
+    "lon": 151.0175
+  },
+  {
+    "name": "Campsie Library and Knowledge Centre",
+    "address": "Campsie Library and Knowledge Centre\n14-28 Amy Street\nCampsie NSW 2194",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "10:00 AM - 4:00 PM",
+      "Tuesday": "10:00 AM - 4:00 PM",
+      "Wednesday": "10:00 AM - 4:00 PM",
+      "Thursday": "10:00 AM - 4:00 PM",
+      "Friday": "10:00 AM - 4:00 PM"
+    },
+    "council": "Canterbury-Bankstown Council",
+    "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
+    "postcode": "2194",
+    "lat": -33.9115,
+    "lon": 151.1036
+  },
+  {
+    "name": "St Ives Library",
+    "address": "St Ives Library\nSt Ives Village Shopping Centre\n166 Mona Vale Road\nSt Ives NSW 2075",
+    "days": "Tuesday, Thursday, Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 12:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Ku-ring-gai Council",
+    "source_url": "https://www.krg.nsw.gov.au/Community/Justice-of-the-Peace",
+    "postcode": "2075",
+    "lat": -33.7444,
+    "lon": 151.1681
+  }
 ];
 
 function getDistance(lat1, lon1, lat2, lon2) {

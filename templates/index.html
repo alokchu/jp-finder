@@ -176,9 +176,12 @@
   </div>
 
   <div id="result">
-    <p class="loading">Loading suburbs data...</p>
+    <p>Enter your suburb above to find the nearest Justice of the Peace.</p>
   </div>
 
-  <script src="/js/main.js"></script>
+  <!-- Load JP locations data first -->
+  <script src="js/jp-locations.js"></script>
+  <!-- Then load main.js which will use the locations data -->
+  <script src="js/main.js"></script>
 </body>
 </html>

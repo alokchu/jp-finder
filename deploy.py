@@ -5,6 +5,7 @@ import argparse
 import datetime
 import re
 import logging
+import time
 from pathlib import Path
 
 # Setup logging
@@ -22,9 +23,11 @@ logger = logging.getLogger("JPFinderDeploy")
 class JPFinderDeployer:
     def __init__(self, base_domain="jpfinder.com.au"):
         self.base_domain = base_domain
-        self.build_dir = Path("build")
-        self.data_dir = Path("data")
-        self.template_file = Path("templates") / "index.html"
+        self.root_dir = Path(__file__).parent
+        self.templates_dir = self.root_dir / "templates"
+        self.build_dir = self.root_dir / "build"
+        self.data_dir = self.root_dir / "data"
+        self.template_file = self.templates_dir / "index.html"
         self.script_dir = Path(os.path.dirname(os.path.abspath(__file__)))
 
         # Create additional SEO-focused pages
@@ -70,34 +73,44 @@ class JPFinderDeployer:
 
     def copy_static_files(self):
         """Copy static files to build directory"""
-        # Add timestamp for cache busting
-        timestamp = int(datetime.datetime.now().timestamp())
+        # Create data directory if it doesn't exist
+        data_dir = self.build_dir / "data"
+        data_dir.mkdir(exist_ok=True)
         
-        # Copy suburbs.json to build directory
-        shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
-        logger.info("Copied suburbs.json to build directory")
-        
-        # Copy and version JavaScript
-        js_content = ""
-        js_file = Path("templates/js/main.js")
-        if js_file.exists():
-            with open(js_file, "r", encoding="utf-8") as f:
-                js_content = f.read()
-            
-            # Write to build directory with version
-            with open(self.build_dir / "js" / "main.js", "w", encoding="utf-8") as f:
-                f.write(f"// Version: {timestamp}\n")
-                f.write(js_content)
-        
-        # Update HTML to include versioned JS
+        # Copy JS files
+        js_src = self.templates_dir / "js" / "main.js"
+        js_dest = self.build_dir / "js" / "main.js"
+        shutil.copy2(js_src, js_dest)
+
+        # Copy CSS files
+        css_src = self.templates_dir / "css" / "style.css"
+        if css_src.exists():
+            css_dest = self.build_dir / "css" / "style.css"
+            shutil.copy2(css_src, css_dest)
+
+        # Copy suburbs.json with logging
+        suburbs_src = self.data_dir / "suburbs.json"
+        if suburbs_src.exists():
+            suburbs_dest = data_dir / "suburbs.json"
+            logger.info(f"Copying suburbs.json from {suburbs_src} to {suburbs_dest}")
+            shutil.copy2(suburbs_src, suburbs_dest)
+            logger.info(f"Successfully copied suburbs.json. File size: {os.path.getsize(suburbs_dest)} bytes")
+        else:
+            logger.error(f"suburbs.json not found at {suburbs_src}")
+
+        # Copy and process index.html
+        self.process_html_file()
+
+    def process_html_file(self):
+        """Process and copy index.html with cache busting"""
         with open(self.template_file, "r", encoding="utf-8") as f:
             html_content = f.read()
-        
-        html_content = html_content.replace(
-            '<script src="/js/main.js"></script>',
-            f'<script src="/js/main.js?v={timestamp}"></script>'
-        )
-        
+
+        # Add cache busting to CSS and JS files
+        timestamp = int(time.time())
+        html_content = html_content.replace('href="/css/style.css"', f'href="/css/style.css?v={timestamp}"')
+        html_content = html_content.replace('src="js/main.js"', f'src="js/main.js?v={timestamp}"')
+
         with open(self.build_dir / "index.html", "w", encoding="utf-8") as f:
             f.write(html_content)
 

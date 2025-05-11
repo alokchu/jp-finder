@@ -48,22 +48,135 @@ class JPScraper:
             logger.error(f"Config file {config_file} not found, using empty configuration")
             self.locations = {}
 
+    def get_coordinates(self, postcode):
+        """Get coordinates for known postcodes"""
+        COORDINATES = {
+            "2153": {"lat": -33.7304, "lon": 150.9678},  # Norwest/Winston Hills
+            "2154": {"lat": -33.7319, "lon": 151.0042},  # Castle Hill
+            "2155": {"lat": -33.6841, "lon": 150.9107},  # Rouse Hill
+            "2768": {"lat": -33.7184, "lon": 150.9151},  # Stanhope Gardens
+            "2769": {"lat": -33.7035, "lon": 150.9066},  # The Ponds
+            "2145": {"lat": -33.7880, "lon": 150.9773},  # Winston Hills
+            "2150": {"lat": -33.8148, "lon": 151.0017},  # Parramatta
+            "2151": {"lat": -33.7967, "lon": 150.9882},  # North Parramatta
+            "2152": {"lat": -33.7650, "lon": 150.9556},  # Northmead
+            "2148": {"lat": -33.7677, "lon": 150.8577},  # Blacktown
+            "2750": {"lat": -33.7506, "lon": 150.6944},  # Penrith
+            "2170": {"lat": -33.9200, "lon": 150.9255},  # Liverpool
+            "2077": {"lat": -33.7039, "lon": 151.0987},  # Hornsby
+            "2113": {"lat": -33.7858, "lon": 151.1243},  # Macquarie Centre
+        }
+        return COORDINATES.get(str(postcode))
+
+    def extract_postcode(self, address):
+        """Extract NSW postcode from address"""
+        match = re.search(r'NSW\s+(\d{4})', address)
+        return match.group(1) if match else None
+
+    def clean_address(self, address):
+        """Clean and format address string"""
+        if not address:
+            return ""
+        # Remove extra whitespace and newlines
+        address = re.sub(r'\s+', ' ', address.replace('\n', ' '))
+        # Remove duplicate commas
+        address = re.sub(r',\s*,', ',', address)
+        # Remove extra spaces around commas
+        address = re.sub(r'\s*,\s*', ', ', address)
+        return address.strip()
+
+    def extract_hours_from_text(self, text):
+        """
+        Extract hours in the structured format needed for the frontend.
+        Returns a dictionary with days as keys and time ranges as values.
+        """
+        days = {
+            'Monday': '',
+            'Tuesday': '',
+            'Wednesday': '',
+            'Thursday': '',
+            'Friday': '',
+            'Saturday': '',
+            'Sunday': ''
+        }
+        
+        if not text:
+            return days
+
+        text_lower = text.lower()
+        
+        # Extract notes about delays, booking requirements etc.
+        notes = []
+        if "avoid delays" in text_lower:
+            delay_match = re.search(r'to avoid delays.*?(?=(?:[A-Z][a-z]+:|\Z))', text, re.DOTALL)
+            if delay_match:
+                notes.append(delay_match.group(0).strip())
+        
+        if "copying service" in text_lower:
+            copy_match = re.search(r'(?:no )?copying service[^.]*\.', text_lower)
+            if copy_match:
+                notes.append(copy_match.group(0).strip().capitalize())
+
+        # Handle individual days
+        day_patterns = {
+            'monday': 'Monday',
+            'tuesday': 'Tuesday',
+            'wednesday': 'Wednesday',
+            'thursday': 'Thursday',
+            'friday': 'Friday',
+            'saturday': 'Saturday',
+            'sunday': 'Sunday'
+        }
+
+        for pattern, day in day_patterns.items():
+            if pattern in text_lower:
+                # Look for time range after day name
+                time_match = re.search(
+                    rf"{pattern}:?\s*(\d+(?::\d+)?\s*(?:am|pm)\s*(?:-|to)\s*\d+(?::\d+)?\s*(?:am|pm))",
+                    text_lower,
+                    re.IGNORECASE
+                )
+                if time_match:
+                    time_range = time_match.group(1)
+                    # Standardize format to "HH:MM AM/PM"
+                    time_parts = re.findall(r'(\d+)(?::(\d+))?\s*(am|pm)', time_range.lower())
+                    if len(time_parts) == 2:
+                        start_time = self.format_time(time_parts[0])
+                        end_time = self.format_time(time_parts[1])
+                        days[day] = f"{start_time} - {end_time}"
+
+        return days, ' '.join(notes)
+
+    def format_time(self, time_parts):
+        """Format time parts into standardized "HH:MM AM/PM" format"""
+        hour, minute, meridiem = time_parts
+        hour = int(hour)
+        minute = minute if minute else "00"
+        if meridiem.lower() == "pm" and hour != 12:
+            hour += 12
+        elif meridiem.lower() == "am" and hour == 12:
+            hour = 0
+        return f"{hour:02d}:{minute} {meridiem.upper()}"
+
     def extract_address(self, text, location_name):
         """Extract NSW address from text using regex patterns"""
+        if not text:
+            return ""
+            
         # Try to find full address with postcode
         address_pattern = r'(\d+[A-Za-z\s\-,]+(?:Street|St|Road|Rd|Avenue|Ave|Drive|Dr|Lane|Ln|Place|Pl|Parade|Pde|Highway|Hwy)[,\s]+[A-Za-z\s\-]+(?:NSW|nsw)[,\s]+\d{4})'
         match = re.search(address_pattern, text)
         if match:
-            return match.group(1).strip()
+            return self.clean_address(match.group(1))
 
         # Try to find library or center name with location
         location_pattern = r'([A-Za-z\s\-]+(?:Library|Centre|Center|Building|Office)[,\s]+[A-Za-z\s\-]+)'
         match = re.search(location_pattern, text)
         if match:
-            return f"{match.group(1).strip()}, {location_name}, NSW"
+            return self.clean_address(f"{match.group(1)}, {location_name}, NSW")
 
         # Fall back to location name
-        return f"{text.strip()}, {location_name}, NSW"
+        return self.clean_address(f"{text}, {location_name}, NSW")
 
     def clean_text(self, text):
         """Clean and normalize text"""
@@ -71,60 +184,9 @@ class JPScraper:
             return ""
         # Remove extra whitespace
         text = re.sub(r'\s+', ' ', text.strip())
-        # Remove special characters
-        return text
-
-    def extract_hours_from_text(self, text):
-        """
-        Enhanced function to extract hours in the desired format.
-        Extracts time ranges and individual times from the text.
-        """
-        # First, look for time ranges
-        time_ranges = re.findall(r'(\d{1,2}(?::\d{2})?\s*(?:am|pm)\s*-\s*\d{1,2}(?::\d{2})?\s*(?:am|pm))', text,
-                                 re.IGNORECASE)
-
-        # Also look for alternative formats like "from X to Y"
-        from_to_ranges = re.findall(r'from\s+(\d{1,2}(?::\d{2})?\s*(?:am|pm))\s+to\s+(\d{1,2}(?::\d{2})?\s*(?:am|pm))',
-                                    text, re.IGNORECASE)
-
-        # Look for individual times
-        individual_times = re.findall(r'(?<![0-9:-])\b(\d{1,2}(?::\d{2})?\s*(?:am|pm))\b(?![0-9:-])', text,
-                                      re.IGNORECASE)
-
-        # Process results
-        all_times = []
-
-        # Add standard ranges
-        for time_range in time_ranges:
-            all_times.append(time_range)
-            # Also extract individual times from the range
-            parts = re.findall(r'(\d{1,2}(?::\d{2})?\s*(?:am|pm))', time_range)
-            all_times.extend(parts)
-
-        # Add from-to ranges
-        for start, end in from_to_ranges:
-            range_str = f"{start} - {end}"
-            if range_str not in all_times:
-                all_times.append(range_str)
-            all_times.append(start)
-            all_times.append(end)
-
-        # Add individual times that weren't part of a range
-        for time in individual_times:
-            if time not in all_times:
-                all_times.append(time)
-
-        # Clean and normalize
-        normalized_times = []
-        for time in all_times:
-            # Normalize spacing
-            clean_time = re.sub(r'\s+', ' ', time.strip())
-            normalized_times.append(clean_time)
-
-        # Remove duplicates and sort
-        unique_times = sorted(set(normalized_times))
-
-        return ', '.join(unique_times)
+        # Remove special characters but keep basic punctuation
+        text = re.sub(r'[^\w\s,.-]', '', text)
+        return text.strip()
 
     def scrape_location(self, location_id):
         """Generic method to determine which scraper to use based on location configuration"""
@@ -501,11 +563,70 @@ class JPScraper:
             time.sleep(2)
 
     def save_data(self, output_dir="data"):
-        """Save collected JP data to JSON files"""
+        """Save scraped data to JSON file"""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-        if not os.path.exists(os.path.join(output_dir, "jp_locations_out.json")):
-            logger.error(f'Error in locating {os.path.join(output_dir, "jp_locations_out.json")}')
+
+        output_file = os.path.join(output_dir, "jp_locations_out.json")
+        
+        formatted_data = []
+        for location in self.jp_data:
+            # Clean up the name and address
+            name = location.get('name', '').split('Location')[0].strip()
+            address = self.clean_address(location.get('address', ''))
+            
+            # Format hours into the required structure
+            hours_text = location.get('hours', '')
+            days_list = []
+            hours_dict = {}
+            
+            # Parse the hours text into structured format
+            for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']:
+                if day.lower() in hours_text.lower():
+                    time_match = re.search(
+                        rf"{day}:?\s*(\d+(?::\d+)?\s*(?:am|pm)\s*(?:-|to)\s*\d+(?::\d+)?\s*(?:am|pm))",
+                        hours_text,
+                        re.IGNORECASE
+                    )
+                    if time_match:
+                        time_range = time_match.group(1)
+                        # Convert to standardized format (e.g., "10:00 AM - 12:00 PM")
+                        times = re.findall(r'(\d+)(?::(\d+))?\s*(am|pm)', time_range.lower())
+                        if len(times) == 2:
+                            start_time = f"{int(times[0][0]):02d}:{times[0][1] or '00'} {times[0][2].upper()}"
+                            end_time = f"{int(times[1][0]):02d}:{times[1][1] or '00'} {times[1][2].upper()}"
+                            hours_dict[day] = f"{start_time} - {end_time}"
+                            days_list.append(day)
+
+            # Handle "Monday to Friday" pattern
+            if "monday to friday" in hours_text.lower():
+                days_list = ["Monday to Friday"]
+                for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
+                    hours_dict[day] = "8:30 AM - 5:00 PM"
+
+            # Extract postcode and get coordinates
+            postcode = location.get('postcode') or self.extract_postcode(address)
+            coords = self.get_coordinates(postcode) if postcode else None
+            
+            formatted_location = {
+                "name": name,
+                "address": address,
+                "days": ", ".join(days_list),
+                "hours": hours_dict,
+                "council": location.get('council', 'N/A'),
+                "source_url": location.get('source_url', ''),
+                "postcode": postcode or ''
+            }
+            
+            if coords:
+                formatted_location.update(coords)
+                
+            formatted_data.append(formatted_location)
+
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(formatted_data, f, indent=2, ensure_ascii=False)
+
+        logger.info(f"Saved {len(formatted_data)} JP locations to {output_file}")
 
     def scrape_stanhope_village(self, location):
         """Scraper for Stanhope Village and Dennis Johnson Library JP services"""
