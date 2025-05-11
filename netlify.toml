@@ -6,7 +6,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-  conditions = {Response = {404}}
 
 [[headers]]
   for = "/*"
