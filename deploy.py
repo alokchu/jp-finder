@@ -59,12 +59,40 @@ class JPFinderDeployer:
         logger.info(f"Creating build directory: {self.build_dir}")
         self.build_dir.mkdir(parents=True)
 
-        # Create directories for CSS and JS
+        # Create necessary directories
         (self.build_dir / "css").mkdir()
         (self.build_dir / "js").mkdir()
         (self.build_dir / "images").mkdir()
-        (self.build_dir / "data").mkdir(parents=True, exist_ok=True)  # ← this line
-        shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
+        (self.build_dir / "data").mkdir(parents=True, exist_ok=True)
+
+        # Copy static files
+        self.copy_static_files()
+
+    def copy_static_files(self):
+        """Copy static files to build directory"""
+        # Copy JavaScript files
+        js_source_dir = Path("templates/js")
+        js_dest_dir = self.build_dir / "js"
+        
+        if js_source_dir.exists():
+            # Add cache busting timestamp
+            timestamp = int(datetime.datetime.now().timestamp())
+            
+            # Copy main.js with timestamp in filename
+            if (js_source_dir / "main.js").exists():
+                with open(js_source_dir / "main.js", "r", encoding="utf-8") as f:
+                    js_content = f.read()
+                
+                # Write to build directory
+                with open(js_dest_dir / "main.js", "w", encoding="utf-8") as f:
+                    f.write(js_content)
+                
+                logger.info("Copied and versioned main.js")
+        
+        # Copy data files
+        if Path("data/suburbs.json").exists():
+            shutil.copyfile("data/suburbs.json", "build/data/suburbs.json")
+            logger.info("Copied suburbs.json")
 
     def create_robots_txt(self):
         """Create a robots.txt file for SEO"""
@@ -116,6 +144,9 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         if not template or not jp_data:
             return None
 
+        # Add timestamp for cache busting
+        timestamp = int(datetime.datetime.now().timestamp())
+
         # Convert JP data to JavaScript
         jp_data_js = json.dumps(jp_data, indent=2)
 
@@ -129,8 +160,16 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
 
         # Update last updated date
         today = datetime.datetime.now().strftime("%B %d, %Y")
-        html_with_data = html_with_data.replace('<span id="lastUpdated">April 12, 2025</span>',
-                                                f'<span id="lastUpdated">{today}</span>')
+        html_with_data = html_with_data.replace(
+            '<span id="lastUpdated">April 12, 2025</span>',
+            f'<span id="lastUpdated">{today}</span>'
+        )
+
+        # Add cache busting to JavaScript file
+        html_with_data = html_with_data.replace(
+            '<script src="/js/main.js"></script>',
+            f'<script src="/js/main.js?v={timestamp}"></script>'
+        )
 
         # Replace placeholder domain with actual domain
         html_with_data = html_with_data.replace("jpfinder.com.au", self.base_domain)
