@@ -1342,6 +1342,176 @@ const jpLocations = [
       "postcode": "2075",
       "lat": -33.7444,
       "lon": 151.1681
+    },
+    {
+        "name": "Newcastle City Council Administration Centre",
+        "address": "12 Stewart Avenue\nNewcastle West NSW 2302",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+        },
+        "council": "Newcastle City Council",
+        "source_url": "https://www.newcastle.nsw.gov.au/council/customer-service/justice-of-the-peace",
+        "postcode": "2302",
+        "lat": -32.9267,
+        "lon": 151.7644
+    },
+    {
+        "name": "Port Stephens Council Administration Building",
+        "address": "116 Adelaide Street\nRaymond Terrace NSW 2324",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 4:00 PM",
+        "Tuesday": "8:30 AM - 4:00 PM",
+        "Wednesday": "8:30 AM - 4:00 PM",
+        "Thursday": "8:30 AM - 4:00 PM",
+        "Friday": "8:30 AM - 4:00 PM"
+        },
+        "council": "Port Stephens Council",
+        "source_url": "https://www.portstephens.nsw.gov.au/council/contact-us/justice-of-the-peace",
+        "postcode": "2324",
+        "lat": -32.7632,
+        "lon": 151.7457
+    },
+    {
+        "name": "Cessnock City Council Administration Centre",
+        "address": "62-78 Vincent Street\nCessnock NSW 2325",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "9:00 AM - 4:30 PM",
+        "Tuesday": "9:00 AM - 4:30 PM",
+        "Wednesday": "9:00 AM - 4:30 PM",
+        "Thursday": "9:00 AM - 4:30 PM",
+        "Friday": "9:00 AM - 4:30 PM"
+        },
+        "council": "Cessnock City Council",
+        "source_url": "https://www.cessnock.nsw.gov.au/Council/Contact-us",
+        "postcode": "2325",
+        "lat": -32.8344,
+        "lon": 151.3552
+    },
+    {
+        "name": "Singleton Council Administration Centre",
+        "address": "Cnr Queen Street and Civic Avenue\nSingleton NSW 2330",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+        },
+        "council": "Singleton Council",
+        "source_url": "https://www.singleton.nsw.gov.au/Contact-Us",
+        "postcode": "2330",
+        "lat": -32.5671,
+        "lon": 151.1689
+    },
+    {
+        "name": "Port Macquarie-Hastings Council Customer Service Centre",
+        "address": "17 Burrawan Street\nPort Macquarie NSW 2444",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+        },
+        "council": "Port Macquarie-Hastings Council",
+        "source_url": "https://www.pmhc.nsw.gov.au/Council/About-Us/Customer-Service",
+        "postcode": "2444",
+        "lat": -31.4312,
+        "lon": 152.9089
+    },
+    {
+        "name": "Tweed Shire Council Administration Office",
+        "address": "10-14 Tumbulgum Road\nMurwillumbah NSW 2484",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 4:15 PM",
+        "Tuesday": "8:30 AM - 4:15 PM",
+        "Wednesday": "8:30 AM - 4:15 PM",
+        "Thursday": "8:30 AM - 4:15 PM",
+        "Friday": "8:30 AM - 4:15 PM"
+        },
+        "council": "Tweed Shire Council",
+        "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
+        "postcode": "2484",
+        "lat": -28.3278,
+        "lon": 153.3945
+    },
+    {
+        "name": "Byron Shire Council Administration Office",
+        "address": "70-90 Station Street\nMullumbimby NSW 2482",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+        },
+        "council": "Byron Shire Council",
+        "source_url": "https://www.byron.nsw.gov.au/Council/Contact-Council",
+        "postcode": "2482",
+        "lat": -28.5772,
+        "lon": 153.4989
+    },
+    {
+        "name": "Tweed Heads Civic and Cultural Centre",
+        "address": "Cnr Brett Street and Wharf Street\nTweed Heads NSW 2485",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "9:00 AM - 4:00 PM",
+        "Tuesday": "9:00 AM - 4:00 PM",
+        "Wednesday": "9:00 AM - 4:00 PM",
+        "Thursday": "9:00 AM - 4:00 PM",
+        "Friday": "9:00 AM - 4:00 PM"
+        },
+        "council": "Tweed Shire Council",
+        "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
+        "postcode": "2485",
+        "lat": -28.1823,
+        "lon": 153.5425
+    },
+    {
+        "name": "Maitland City Council Administration Centre",
+        "address": "285-287 High Street\nMaitland NSW 2320",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+        },
+        "council": "Maitland City Council",
+        "source_url": "https://www.maitland.nsw.gov.au/my-council/contact-us",
+        "postcode": "2320",
+        "lat": -32.7316,
+        "lon": 151.5550
+    },
+    {
+        "name": "Lake Macquarie City Council Administration Centre",
+        "address": "126-138 Main Road\nSpeers Point NSW 2284",
+        "days": "Monday to Friday",
+        "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+        },
+        "council": "Lake Macquarie City Council",
+        "source_url": "https://www.lakemac.com.au/For-residents/About-our-city/Justice-of-the-Peace",
+        "postcode": "2284",
+        "lat": -32.9497,
+        "lon": 151.6226
     }
   ];
 
