@@ -2115,6 +2115,65 @@ const jpLocations = [
       "postcode": "2118",
       "lat": -33.7816,
       "lon": 151.0454
+    },
+    {
+      "name": "Kellyville Village Shopping Centre",
+      "address": "Kellyville Village Shopping Centre\nCustomer Service Desk\n90 Wrights Road\nKellyville NSW 2155",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 1:00 PM",
+        "Wednesday": "2:00 PM - 5:00 PM",
+        "Friday": "10:00 AM - 1:00 PM"
+      },
+      "council": "The Hills Shire Council",
+      "source_url": "https://www.thehills.nsw.gov.au/Services/Justice-of-the-Peace",
+      "postcode": "2155",
+      "lat": -33.7128,
+      "lon": 150.9567
+    },
+    {
+      "name": "Kellyville Community Centre",
+      "address": "Kellyville Community Centre\n45 Windsor Road\nKellyville NSW 2155",
+      "days": "Tuesday, Thursday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM"
+      },
+      "council": "The Hills Shire Council",
+      "source_url": "https://www.thehills.nsw.gov.au/Services/Justice-of-the-Peace",
+      "postcode": "2155",
+      "lat": -33.7156,
+      "lon": 150.9594
+    },
+    {
+      "name": "North Rocks Shopping Centre",
+      "address": "North Rocks Shopping Centre\nInformation Desk\n328-336 North Rocks Road\nNorth Rocks NSW 2151",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 1:00 PM",
+        "Thursday": "2:00 PM - 5:00 PM",
+        "Saturday": "10:00 AM - 1:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2151",
+      "lat": -33.7742,
+      "lon": 151.0247
+    },
+    {
+      "name": "North Rocks Library",
+      "address": "North Rocks Library\nNorth Rocks Shopping Centre\n328-336 North Rocks Road\nNorth Rocks NSW 2151",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/north-rocks-library",
+      "postcode": "2151",
+      "lat": -33.7742,
+      "lon": 151.0247
     }
   ];
 
