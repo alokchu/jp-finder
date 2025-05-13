@@ -1512,6 +1512,536 @@ const jpLocations = [
         "postcode": "2284",
         "lat": -32.9497,
         "lon": 151.6226
+    },
+    {
+      "name": "Marsden Park Shopping Centre",
+      "address": "Marsden Park Shopping Centre\n169 Hollinsworth Road\nMarsden Park NSW 2765",
+      "days": "Tuesday, Thursday",
+      "hours": {
+        "Tuesday": "10:00 AM - 1:00 PM",
+        "Thursday": "2:00 PM - 5:00 PM"
+      },
+      "council": "Blacktown City Council",
+      "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
+      "postcode": "2765",
+      "lat": -33.7227,
+      "lon": 150.8367
+    },
+    {
+      "name": "Schofields Community Centre",
+      "address": "Schofields Community Centre\n65 Railway Terrace\nSchofields NSW 2762",
+      "days": "Monday, Wednesday",
+      "hours": {
+        "Monday": "9:30 AM - 12:30 PM",
+        "Wednesday": "1:30 PM - 4:30 PM"
+      },
+      "council": "Blacktown City Council",
+      "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
+      "postcode": "2762",
+      "lat": -33.7094,
+      "lon": 150.8728
+    },
+    {
+      "name": "Wollongong City Council",
+      "address": "Wollongong City Council\n41 Burelli Street\nWollongong NSW 2500",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "9:00 AM - 5:00 PM",
+        "Tuesday": "9:00 AM - 5:00 PM",
+        "Wednesday": "9:00 AM - 5:00 PM",
+        "Thursday": "9:00 AM - 5:00 PM",
+        "Friday": "9:00 AM - 5:00 PM"
+      },
+      "council": "Wollongong City Council",
+      "source_url": "https://www.wollongong.nsw.gov.au/your-council/justice-of-the-peace",
+      "postcode": "2500",
+      "lat": -34.4278,
+      "lon": 150.8931
+    },
+    {
+      "name": "Wollongong Central Shopping Centre",
+      "address": "Wollongong Central Shopping Centre\n200 Crown Street\nWollongong NSW 2500",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 2:00 PM",
+        "Thursday": "3:00 PM - 6:00 PM",
+        "Saturday": "10:00 AM - 1:00 PM"
+      },
+      "council": "Wollongong City Council",
+      "source_url": "https://www.wollongongcentral.com.au/services",
+      "postcode": "2500",
+      "lat": -34.4252,
+      "lon": 150.8936
+    },
+    {
+      "name": "Kiama Municipal Council",
+      "address": "Kiama Municipal Council\n11 Manning Street\nKiama NSW 2533",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Kiama Municipal Council",
+      "source_url": "https://www.kiama.nsw.gov.au/your-council/contact-us",
+      "postcode": "2533",
+      "lat": -34.6721,
+      "lon": 150.8540
+    },
+    {
+      "name": "Nowra Library",
+      "address": "Nowra Library\n10 Berry Street\nNowra NSW 2541",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Shoalhaven City Council",
+      "source_url": "https://www.shoalhaven.nsw.gov.au/Services/Justice-of-the-Peace",
+      "postcode": "2541",
+      "lat": -34.8739,
+      "lon": 150.6029
+    },
+    {
+      "name": "Shoalhaven City Council Administrative Centre",
+      "address": "Shoalhaven City Council Administrative Centre\nBridge Road\nNowra NSW 2541",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "9:00 AM - 4:00 PM",
+        "Tuesday": "9:00 AM - 4:00 PM",
+        "Wednesday": "9:00 AM - 4:00 PM",
+        "Thursday": "9:00 AM - 4:00 PM",
+        "Friday": "9:00 AM - 4:00 PM"
+      },
+      "council": "Shoalhaven City Council",
+      "source_url": "https://www.shoalhaven.nsw.gov.au/Services/Justice-of-the-Peace",
+      "postcode": "2541",
+      "lat": -34.8728,
+      "lon": 150.6021
+    },
+    {
+      "name": "Jervis Bay Maritime Museum",
+      "address": "Jervis Bay Maritime Museum\n1 Woollamia Road\nHuskisson NSW 2540",
+      "days": "Tuesday, Thursday",
+      "hours": {
+        "Tuesday": "10:00 AM - 1:00 PM",
+        "Thursday": "1:00 PM - 4:00 PM"
+      },
+      "council": "Shoalhaven City Council",
+      "source_url": "https://www.shoalhaven.nsw.gov.au/Services/Justice-of-the-Peace",
+      "postcode": "2540",
+      "lat": -35.0405,
+      "lon": 150.6724
+    },
+    {
+      "name": "Batemans Bay Library",
+      "address": "Batemans Bay Library\n1 Hanging Rock Place\nBatemans Bay NSW 2536",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Eurobodalla Shire Council",
+      "source_url": "https://www.esc.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2536",
+      "lat": -35.7082,
+      "lon": 150.1744
+    },
+    {
+      "name": "Byron Bay Library",
+      "address": "Byron Bay Library\nCorner of Lawson and Middleton Streets\nByron Bay NSW 2481",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM",
+        "Saturday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Byron Shire Council",
+      "source_url": "https://www.byron.nsw.gov.au/Services/Libraries",
+      "postcode": "2481",
+      "lat": -28.6474,
+      "lon": 153.6123
+    },
+    {
+      "name": "Coffs Harbour City Council",
+      "address": "Coffs Harbour City Council\n2 Castle Street\nCoffs Harbour NSW 2450",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Coffs Harbour City Council",
+      "source_url": "https://www.coffsharbour.nsw.gov.au/Community-and-recreation/Justice-of-the-Peace",
+      "postcode": "2450",
+      "lat": -30.2962,
+      "lon": 153.1187
+    },
+    {
+      "name": "Coffs Central Shopping Centre",
+      "address": "Coffs Central Shopping Centre\n35-61 Harbour Drive\nCoffs Harbour NSW 2450",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "11:00 AM - 2:00 PM",
+        "Wednesday": "2:00 PM - 5:00 PM",
+        "Friday": "10:00 AM - 1:00 PM"
+      },
+      "council": "Coffs Harbour City Council",
+      "source_url": "https://www.coffscentral.com.au/services",
+      "postcode": "2450",
+      "lat": -30.2973,
+      "lon": 153.1193
+    },
+    {
+      "name": "Albury City Council",
+      "address": "Albury City Council\n553 Kiewa Street\nAlbury NSW 2640",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+      },
+      "council": "Albury City Council",
+      "source_url": "https://www.alburycity.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2640",
+      "lat": -36.0737,
+      "lon": 146.9135
+    },
+    {
+      "name": "Wagga Wagga City Council",
+      "address": "Wagga Wagga City Council\n243 Baylis Street\nWagga Wagga NSW 2650",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+      },
+      "council": "Wagga Wagga City Council",
+      "source_url": "https://www.wagga.nsw.gov.au/city-of-wagga-wagga/community/justice-of-the-peace",
+      "postcode": "2650",
+      "lat": -35.1082,
+      "lon": 147.3699
+    },
+    {
+      "name": "Tamworth Regional Council",
+      "address": "Tamworth Regional Council\n437 Peel Street\nTamworth NSW 2340",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "9:00 AM - 4:30 PM",
+        "Tuesday": "9:00 AM - 4:30 PM",
+        "Wednesday": "9:00 AM - 4:30 PM",
+        "Thursday": "9:00 AM - 4:30 PM",
+        "Friday": "9:00 AM - 4:30 PM"
+      },
+      "council": "Tamworth Regional Council",
+      "source_url": "https://www.tamworth.nsw.gov.au/about-council/justice-of-the-peace",
+      "postcode": "2340",
+      "lat": -31.0929,
+      "lon": 150.9314
+    },
+    {
+      "name": "Armidale Regional Council",
+      "address": "Armidale Regional Council\n135 Rusden Street\nArmidale NSW 2350",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Armidale Regional Council",
+      "source_url": "https://www.armidaleregional.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2350",
+      "lat": -30.5150,
+      "lon": 151.6678
+    },
+    {
+      "name": "Broken Hill City Council",
+      "address": "Broken Hill City Council\n240 Blende Street\nBroken Hill NSW 2880",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 5:00 PM",
+        "Tuesday": "8:30 AM - 5:00 PM",
+        "Wednesday": "8:30 AM - 5:00 PM",
+        "Thursday": "8:30 AM - 5:00 PM",
+        "Friday": "8:30 AM - 5:00 PM"
+      },
+      "council": "Broken Hill City Council",
+      "source_url": "https://www.brokenhill.nsw.gov.au/Community/Justice-of-the-Peace",
+      "postcode": "2880",
+      "lat": -31.9567,
+      "lon": 141.4675
+    },
+    {
+      "name": "Griffith City Council",
+      "address": "Griffith City Council\n1 Benerembah Street\nGriffith NSW 2680",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:15 AM - 4:30 PM",
+        "Tuesday": "8:15 AM - 4:30 PM",
+        "Wednesday": "8:15 AM - 4:30 PM",
+        "Thursday": "8:15 AM - 4:30 PM",
+        "Friday": "8:15 AM - 4:30 PM"
+      },
+      "council": "Griffith City Council",
+      "source_url": "https://www.griffith.nsw.gov.au/cp_themes/default/home.asp",
+      "postcode": "2680",
+      "lat": -34.2897,
+      "lon": 146.0451
+    },
+    {
+      "name": "Bathurst Regional Council",
+      "address": "Bathurst Regional Council\n158 Russell Street\nBathurst NSW 2795",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Bathurst Regional Council",
+      "source_url": "https://www.bathurst.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2795",
+      "lat": -33.4193,
+      "lon": 149.5775
+    },
+    {
+      "name": "Lismore City Council",
+      "address": "Lismore City Council\n43 Oliver Avenue\nGoonellabah NSW 2480",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Lismore City Council",
+      "source_url": "https://lismore.nsw.gov.au/community-support-services",
+      "postcode": "2480",
+      "lat": -28.8167,
+      "lon": 153.2833
+    },
+    {
+      "name": "Port Macquarie Library",
+      "address": "Port Macquarie Library\n32 Grant Street\nPort Macquarie NSW 2444",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Port Macquarie-Hastings Council",
+      "source_url": "https://mnclibrary.org.au/port-macquarie",
+      "postcode": "2444",
+      "lat": -31.4333,
+      "lon": 152.9167
+    },
+    {
+      "name": "Forster Library",
+      "address": "Forster Library\n4-12 Breese Parade\nForster NSW 2428",
+      "days": "Tuesday, Thursday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM"
+      },
+      "council": "MidCoast Council",
+      "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
+      "postcode": "2428",
+      "lat": -32.1808,
+      "lon": 152.5124
+    },
+    {
+      "name": "Taree Library",
+      "address": "Taree Library\n242 Victoria Street\nTaree NSW 2430",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "MidCoast Council",
+      "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
+      "postcode": "2430",
+      "lat": -31.9097,
+      "lon": 152.4597
+    },
+    {
+      "name": "Goulburn Mulwaree Council",
+      "address": "Goulburn Mulwaree Council\n184-194 Bourke Street\nGoulburn NSW 2580",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "8:30 AM - 4:30 PM",
+        "Tuesday": "8:30 AM - 4:30 PM",
+        "Wednesday": "8:30 AM - 4:30 PM",
+        "Thursday": "8:30 AM - 4:30 PM",
+        "Friday": "8:30 AM - 4:30 PM"
+      },
+      "council": "Goulburn Mulwaree Council",
+      "source_url": "https://www.goulburn.nsw.gov.au/Council/Contact-Us",
+      "postcode": "2580",
+      "lat": -34.7545,
+      "lon": 149.7186
+    },
+    {
+      "name": "Leppington Library",
+      "address": "Leppington Library\n7 Madison Circuit\nLeppington NSW 2179",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM",
+        "Saturday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Camden Council",
+      "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2179",
+      "lat": -33.9647,
+      "lon": 150.8286
+    },
+    {
+      "name": "Oran Park Library",
+      "address": "Oran Park Library\n72 Central Avenue\nOran Park NSW 2570",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Camden Council",
+      "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2570",
+      "lat": -34.0023,
+      "lon": 150.7419
+    },
+    {
+      "name": "Edmondson Park Shopping Centre",
+      "address": "Edmondson Park Shopping Centre\nCustomer Service Desk\n2 Soldiers Parade\nEdmondson Park NSW 2174",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "11:00 AM - 2:00 PM",
+        "Thursday": "3:00 PM - 6:00 PM",
+        "Saturday": "10:00 AM - 1:00 PM"
+      },
+      "council": "Liverpool City Council",
+      "source_url": "https://www.liverpool.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2174",
+      "lat": -33.9594,
+      "lon": 150.8556
+    },
+    {
+      "name": "Narellan Library",
+      "address": "Narellan Library\nCamden Council\nQueen Street\nNarellan NSW 2567",
+      "days": "Monday, Wednesday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM"
+      },
+      "council": "Camden Council",
+      "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2567",
+      "lat": -34.0428,
+      "lon": 150.7364
+    },
+    {
+      "name": "Ashfield Library",
+      "address": "Ashfield Library\n260 Liverpool Road\nAshfield NSW 2131",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Inner West Council",
+      "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
+      "postcode": "2131",
+      "lat": -33.8893,
+      "lon": 151.1246
+    },
+    {
+      "name": "Haberfield Library",
+      "address": "Haberfield Library\n78 Dalhousie Street\nHaberfield NSW 2045",
+      "days": "Tuesday, Thursday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM"
+      },
+      "council": "Inner West Council",
+      "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
+      "postcode": "2045",
+      "lat": -33.8827,
+      "lon": 151.1419
+    },
+    {
+      "name": "Petersham Service Centre",
+      "address": "Petersham Service Centre\n2-14 Fisher Street\nPetersham NSW 2049",
+      "days": "Monday to Friday",
+      "hours": {
+        "Monday": "9:00 AM - 4:00 PM",
+        "Tuesday": "9:00 AM - 4:00 PM",
+        "Wednesday": "9:00 AM - 4:00 PM",
+        "Thursday": "9:00 AM - 4:00 PM",
+        "Friday": "9:00 AM - 4:00 PM"
+      },
+      "council": "Inner West Council",
+      "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
+      "postcode": "2049",
+      "lat": -33.8964,
+      "lon": 151.1546
+    },
+    {
+      "name": "Summer Hill Library",
+      "address": "Summer Hill Library\n131 Smith Street\nSummer Hill NSW 2130",
+      "days": "Monday, Wednesday",
+      "hours": {
+        "Monday": "2:00 PM - 4:00 PM",
+        "Wednesday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Inner West Council",
+      "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
+      "postcode": "2130",
+      "lat": -33.8933,
+      "lon": 151.1383
+    },
+    {
+      "name": "Balmain Library",
+      "address": "Balmain Library\n370 Darling Street\nBalmain NSW 2041",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Thursday": "2:00 PM - 4:00 PM",
+        "Saturday": "10:00 AM - 12:00 PM"
+      },
+      "council": "Inner West Council",
+      "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
+      "postcode": "2041",
+      "lat": -33.8586,
+      "lon": 151.1792
+    },
+    {
+      "name": "Gregory Hills Shopping Centre",
+      "address": "Gregory Hills Shopping Centre\nCustomer Service Desk\n100 Waterfront Crescent\nGregory Hills NSW 2557",
+      "days": "Wednesday, Friday",
+      "hours": {
+        "Wednesday": "10:00 AM - 2:00 PM",
+        "Friday": "11:00 AM - 3:00 PM"
+      },
+      "council": "Camden Council",
+      "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
+      "postcode": "2557",
+      "lat": -34.0283,
+      "lon": 150.7736
     }
   ];
 
