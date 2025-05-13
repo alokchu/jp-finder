@@ -2042,6 +2042,79 @@ const jpLocations = [
       "postcode": "2557",
       "lat": -34.0283,
       "lon": 150.7736
+    },
+    {
+      "name": "Epping Library",
+      "address": "Epping Library\nChambers Court\n1 Chambers Court\nEpping NSW 2121",
+      "days": "Monday, Wednesday, Friday",
+      "hours": {
+        "Monday": "10:00 AM - 12:00 PM",
+        "Wednesday": "2:00 PM - 4:00 PM",
+        "Friday": "10:00 AM - 12:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/epping-library",
+      "postcode": "2121",
+      "lat": -33.7728,
+      "lon": 151.0824
+    },
+    {
+      "name": "Carlingford Court Shopping Centre",
+      "address": "Carlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "10:00 AM - 1:00 PM",
+        "Thursday": "2:00 PM - 5:00 PM",
+        "Saturday": "10:00 AM - 1:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.carlingfordcourt.com.au/services",
+      "postcode": "2118",
+      "lat": -33.7827,
+      "lon": 151.0463
+    },
+    {
+      "name": "North Epping Community Centre",
+      "address": "North Epping Community Centre\n9 Oxley Avenue\nEpping NSW 2121",
+      "days": "Monday, Wednesday",
+      "hours": {
+        "Monday": "2:00 PM - 4:00 PM",
+        "Wednesday": "10:00 AM - 12:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/community/community-venues/north-epping-community-centre",
+      "postcode": "2121",
+      "lat": -33.7603,
+      "lon": 151.0847
+    },
+    {
+      "name": "West Epping Community Centre",
+      "address": "West Epping Community Centre\n3-5 Ward Street\nEpping NSW 2121",
+      "days": "Tuesday, Friday",
+      "hours": {
+        "Tuesday": "10:00 AM - 12:00 PM",
+        "Friday": "2:00 PM - 4:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/community/community-venues/west-epping-community-centre",
+      "postcode": "2121",
+      "lat": -33.7725,
+      "lon": 151.0733
+    },
+    {
+      "name": "Carlingford Library",
+      "address": "Carlingford Library\nLloyds Avenue\nCarlingford NSW 2118",
+      "days": "Tuesday, Thursday, Saturday",
+      "hours": {
+        "Tuesday": "2:00 PM - 4:00 PM",
+        "Thursday": "10:00 AM - 12:00 PM",
+        "Saturday": "10:00 AM - 12:00 PM"
+      },
+      "council": "City of Parramatta",
+      "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/carlingford-library",
+      "postcode": "2118",
+      "lat": -33.7816,
+      "lon": 151.0454
     }
   ];
 
