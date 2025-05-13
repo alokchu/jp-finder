@@ -43,6 +43,43 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1MEP8KQ1D9');
+
+    // Custom event tracking
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track JP searches
+      document.getElementById('find-jp').addEventListener('click', function() {
+        const suburb = document.getElementById('suburb-input').value;
+        gtag('event', 'search_jp', {
+          'search_term': suburb
+        });
+      });
+
+      // Track when JP locations are displayed
+      const resultDiv = document.getElementById('result');
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            const locationElements = resultDiv.getElementsByClassName('jp-result');
+            if (locationElements.length > 0) {
+              gtag('event', 'view_jp_results', {
+                'number_of_results': locationElements.length
+              });
+            }
+          }
+        });
+      });
+      
+      observer.observe(resultDiv, { childList: true });
+    });
+  </script>
+  
   <style>
     :root {
       --primary-color: #2f4f4f;
