@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JP Finder</title>
-  <link rel="stylesheet" href="/css/style.css?v=1747003572">
+  <title>NSW JP Finder | Find a Justice of the Peace Near You</title>
+  <meta name="description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more across New South Wales." />
+  <meta name="keywords" content="JP, Justice of the Peace, NSW, New South Wales, find JP, JP services, JP near me, free JP service" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.jpfinder.com.au/" />
+  <meta property="og:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
+  <meta property="og:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content="https://www.jpfinder.com.au/" />
+  <meta name="twitter:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
+  <meta name="twitter:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.jpfinder.com.au/" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "NSW JP Finder",
+    "description": "Find a free Justice of the Peace (JP) service near you in NSW",
+    "url": "https://www.jpfinder.com.au",
+    "applicationCategory": "Public Service Directory",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1747136785">
 </head>
 <body>
-  <h1>NSW Justice of Peace Finder</h1>
+  <div class="header-container">
+    <h1>NSW Justice of Peace Finder</h1>
+    <p class="subtitle">Find JP services at community locations near you</p>
+  </div>
+
+  <div class="important-notice">
+    <strong>Please Note:</strong> This service helps you find JP services at public locations like shopping centres, libraries, and community centres. We do not provide information about individual JPs.
+  </div>
 
   <div id="search-container">
     <label for="suburb-input">Enter your suburb:</label>
@@ -22,7 +68,7 @@
   </div>
 
   <div id="result">
-    <p>Enter your suburb above to find the nearest Justice of the Peace.</p>
+    <p>Enter your suburb above to find JP services at community locations near you.</p>
   </div>
 
   <!-- Load JP locations data first -->

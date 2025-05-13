@@ -1,98 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.nswjpfinder.com.au/</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.jpfinder.com.au/</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/about</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.jpfinder.com.au/about.html</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/locations</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/jp-info</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.jpfinder.com.au/jp-info.html</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/privacy</loc>
+    <loc>https://www.jpfinder.com.au/councils.html</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jpfinder.com.au/privacy.html</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/contact</loc>
+    <loc>https://www.jpfinder.com.au/contact.html</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Major Council Areas -->
+  <url>
+    <loc>https://www.jpfinder.com.au/search?council=Sydney</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jpfinder.com.au/search?council=Parramatta</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jpfinder.com.au/search?council=North+Sydney</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Popular Locations -->
+  <url>
+    <loc>https://www.jpfinder.com.au/search?location=Chatswood</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/?location=The+Hills+Shire+Council</loc>
+    <loc>https://www.jpfinder.com.au/search?location=Parramatta</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/?location=Blacktown+City+Council</loc>
+    <loc>https://www.jpfinder.com.au/search?location=Bondi+Junction</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/?location=City+of+Parramatta+Council</loc>
+    <loc>https://www.jpfinder.com.au/search?location=Liverpool</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.nswjpfinder.com.au/?location=City+of+Sydney+Council</loc>
+    <loc>https://www.jpfinder.com.au/search?location=Blacktown</loc>
+    <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?location=Stanhope+Village+Shopping+Centre</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?location=Winston+Hills+Mall</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Monday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Tuesday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Wednesday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Thursday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Friday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Saturday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.nswjpfinder.com.au/?day=Sunday</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
