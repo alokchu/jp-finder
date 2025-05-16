@@ -9,18 +9,18 @@
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.jpfinder.com.au/" />
+  <meta property="og:url" content="https://jpfinder.com.au/" />
   <meta property="og:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
   <meta property="og:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:url" content="https://www.jpfinder.com.au/" />
+  <meta name="twitter:url" content="https://jpfinder.com.au/" />
   <meta name="twitter:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
   <meta name="twitter:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jpfinder.com.au/" />
+  <link rel="canonical" href="https://jpfinder.com.au/" />
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -29,7 +29,7 @@
     "@type": "WebApplication",
     "name": "NSW JP Finder",
     "description": "Find a free Justice of the Peace (JP) service near you in NSW",
-    "url": "https://www.jpfinder.com.au",
+    "url": "https://jpfinder.com.au",
     "applicationCategory": "Public Service Directory",
     "operatingSystem": "Any",
     "offers": {
@@ -306,6 +306,145 @@
     .suburb-suggestion:hover, .suburb-suggestion.selected {
       background-color: #f0f0f0;
     }
+
+    /* Feedback Form Styles */
+    .feedback-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .feedback-container h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .feedback-form {
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(47, 79, 79, 0.1);
+    }
+
+    .form-group small {
+      display: block;
+      margin-top: 0.25rem;
+      color: #718096;
+      font-size: 0.875rem;
+    }
+
+    .submit-button {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Mobile responsiveness for form */
+    @media (max-width: 480px) {
+      .feedback-container {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 0.5rem;
+      }
+    }
+
+    /* Add success message styles */
+    .feedback-message {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 500;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .feedback-message.success {
+      background-color: #d1fae5;
+      border: 1px solid #059669;
+      color: #065f46;
+    }
+
+    #feedback-loading {
+      background-color: #e0f2fe;
+      border: 1px solid #0284c7;
+      color: #075985;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Add loading animation */
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    #feedback-loading {
+      animation: slideIn 0.3s ease-out, pulse 1.5s ease-in-out infinite;
+    }
   </style>
 </head>
 <body>
@@ -334,9 +473,86 @@
     <p>Enter your suburb above to find JP services at community locations near you.</p>
   </div>
 
+  <!-- Feedback Form Section -->
+  <div id="feedback-section" class="feedback-container">
+    <h2>Help Us Improve</h2>
+    <p>Your feedback helps us make this service better for everyone.</p>
+    
+    <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
+      <input type="hidden" name="form-name" value="jp-feedback" />
+      
+      <!-- Add loading and success message containers -->
+      <div id="feedback-loading" class="feedback-message hidden">
+        <p>📤 Sending your feedback...</p>
+      </div>
+      
+      <div id="feedback-success" class="feedback-message success hidden">
+        <p>✅ Thank you! Your feedback has been received.</p>
+      </div>
+      
+      <p class="hidden">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+      
+      <div class="form-group">
+        <label for="feedback-type">Type of Feedback</label>
+        <select id="feedback-type" name="feedback-type" required>
+          <option value="">Please select...</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="location-update">Location Update</option>
+          <option value="bug-report">Bug Report</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="feedback-message">Your Feedback</label>
+        <textarea id="feedback-message" name="feedback-message" rows="4" required placeholder="Please share your thoughts..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="feedback-email">Email (optional)</label>
+        <input type="email" id="feedback-email" name="feedback-email" placeholder="your@email.com">
+        <small>Only if you'd like us to follow up with you</small>
+      </div>
+
+      <button type="submit" class="submit-button">Send Feedback</button>
+    </form>
+  </div>
+
   <!-- Load JP locations data first -->
   <script src="js/jp-locations.js"></script>
   <!-- Then load main.js which will use the locations data -->
   <script src="js/main.js"></script>
+
+  <!-- Update form submission script -->
+  <script>
+    const feedbackForm = document.querySelector('form[name="jp-feedback"]');
+    const loadingMessage = document.getElementById('feedback-loading');
+    const successMessage = document.getElementById('feedback-success');
+
+    feedbackForm.addEventListener('submit', function(e) {
+      // Show loading message
+      loadingMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+
+      // Track the submission in Google Analytics
+      gtag('event', 'feedback_submission', {
+        'feedback_type': document.getElementById('feedback-type').value
+      });
+
+      // Wait for a short delay to show the success message
+      setTimeout(() => {
+        loadingMessage.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+        
+        // Hide success message and reset form after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+          feedbackForm.reset();
+        }, 5000);
+      }, 1000); // Show loading for at least 1 second
+    });
+  </script>
 </body>
 </html>
