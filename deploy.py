@@ -68,6 +68,12 @@ class JPFinderDeployer:
         (self.build_dir / "images").mkdir()
         (self.build_dir / "data").mkdir(parents=True, exist_ok=True)
 
+        # Copy Google Search Console verification file if it exists
+        gsc_file = self.templates_dir / "google-site-verification.html"
+        if gsc_file.exists():
+            shutil.copy2(gsc_file, self.build_dir)
+            logger.info("Copied Google Search Console verification file")
+
         # Copy static files
         self.copy_static_files()
 
@@ -234,6 +240,15 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
             content = f"""<!DOCTYPE html>
 <html lang="en-AU">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){{dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', 'G-1MEP8KQ1D9');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
@@ -352,10 +367,19 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         return html_content
 
     def create_404_page(self):
-        """Create a custom 404 error page"""
+        """Create a custom 404 page"""
         content = """<!DOCTYPE html>
 <html lang="en-AU">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){{dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', 'G-1MEP8KQ1D9');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | NSW JP Finder</title>
