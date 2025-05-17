@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en-AU">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1MEP8KQ1D9');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NSW JP Finder | Find a Justice of the Peace Near You</title>
-  <meta name="description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more across New South Wales." />
-  <meta name="keywords" content="JP, Justice of the Peace, NSW, New South Wales, find JP, JP services, JP near me, free JP service" />
-  
+  <meta name="description"
+    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more across New South Wales." />
+  <meta name="keywords"
+    content="JP, Justice of the Peace, NSW, New South Wales, find JP, JP services, JP near me, free JP service" />
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jpfinder.com.au/" />
   <meta property="og:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
-  <meta property="og:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
-  
+  <meta property="og:description"
+    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="https://jpfinder.com.au/" />
   <meta name="twitter:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
-  <meta name="twitter:description" content="Find a free Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
-  
+  <meta name="twitter:description"
+    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://jpfinder.com.au/" />
-  
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "NSW JP Finder",
-    "description": "Find a free Justice of the Peace (JP) service near you in NSW",
+    "description": "Find a Justice of the Peace (JP) service near you in NSW",
     "url": "https://jpfinder.com.au",
     "applicationCategory": "Public Service Directory",
     "operatingSystem": "Any",
@@ -42,19 +56,14 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1MEP8KQ1D9');
 
+  <!-- Google Analytics 4 -->
+
+  <script>
     // Custom event tracking
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Track JP searches
-      document.getElementById('find-jp').addEventListener('click', function() {
+      document.getElementById('find-jp').addEventListener('click', function () {
         const suburb = document.getElementById('suburb-input').value;
         gtag('event', 'search_jp', {
           'search_term': suburb
@@ -63,8 +72,8 @@
 
       // Track when JP locations are displayed
       const resultDiv = document.getElementById('result');
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
+      const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
           if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
             const locationElements = resultDiv.getElementsByClassName('jp-result');
             if (locationElements.length > 0) {
@@ -75,11 +84,11 @@
           }
         });
       });
-      
+
       observer.observe(resultDiv, { childList: true });
     });
   </script>
-  
+
   <style>
     :root {
       --primary-color: #2f4f4f;
@@ -101,7 +110,9 @@
     }
 
     /* Add box-sizing to all elements */
-    *, *:before, *:after {
+    *,
+    *:before,
+    *:after {
       box-sizing: inherit;
     }
 
@@ -112,7 +123,7 @@
       border-radius: 8px;
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
@@ -133,14 +144,14 @@
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 0 4px 4px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     #search-container {
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
       width: 100%;
       max-width: 100%;
@@ -200,14 +211,14 @@
     #find-jp:hover {
       background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
       transform: translateY(-1px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     #result {
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .jp-result {
@@ -266,24 +277,29 @@
       margin-top: 5px;
       display: none;
     }
+
     #status-message {
       margin-top: 10px;
       padding: 8px;
       border-radius: 4px;
       display: none;
     }
+
     .success {
       background-color: #d4edda;
       color: #155724;
     }
+
     .warning {
       background-color: #fff3cd;
       color: #856404;
     }
+
     .error {
       background-color: #f8d7da;
       color: #721c24;
     }
+
     /* Custom autocomplete styling */
     .suburb-suggestions {
       max-height: 200px;
@@ -293,17 +309,20 @@
       background: white;
       position: absolute;
       width: 100%;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       z-index: 100;
       margin: 0;
       padding: 0;
       list-style: none;
     }
+
     .suburb-suggestion {
       padding: 8px 12px;
       cursor: pointer;
     }
-    .suburb-suggestion:hover, .suburb-suggestion.selected {
+
+    .suburb-suggestion:hover,
+    .suburb-suggestion.selected {
       background-color: #f0f0f0;
     }
 
@@ -312,7 +331,7 @@
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
     }
 
@@ -377,7 +396,7 @@
     .submit-button:hover {
       background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
       transform: translateY(-1px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .hidden {
@@ -429,6 +448,7 @@
         opacity: 0;
         transform: translateY(-10px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -437,9 +457,17 @@
 
     /* Add loading animation */
     @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.6; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     #feedback-loading {
@@ -447,6 +475,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="header-container">
     <h1>NSW Justice of Peace Finder</h1>
@@ -454,7 +483,8 @@
   </div>
 
   <div class="important-notice">
-    <strong>Please Note:</strong> This service helps you find JP services at public locations like shopping centres, libraries, and community centres. We do not provide information about individual JPs.
+    <strong>Please Note:</strong> This service helps you find JP services at public locations like shopping centres,
+    libraries, and community centres. We do not provide information about individual JPs.
   </div>
 
   <div id="search-container">
@@ -477,23 +507,23 @@
   <div id="feedback-section" class="feedback-container">
     <h2>Help Us Improve</h2>
     <p>Your feedback helps us make this service better for everyone.</p>
-    
+
     <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
       <input type="hidden" name="form-name" value="jp-feedback" />
-      
+
       <!-- Add loading and success message containers -->
       <div id="feedback-loading" class="feedback-message hidden">
         <p>📤 Sending your feedback...</p>
       </div>
-      
+
       <div id="feedback-success" class="feedback-message success hidden">
         <p>✅ Thank you! Your feedback has been received.</p>
       </div>
-      
+
       <p class="hidden">
         <label>Don't fill this out if you're human: <input name="bot-field" /></label>
       </p>
-      
+
       <div class="form-group">
         <label for="feedback-type">Type of Feedback</label>
         <select id="feedback-type" name="feedback-type" required>
@@ -507,7 +537,8 @@
 
       <div class="form-group">
         <label for="feedback-message">Your Feedback</label>
-        <textarea id="feedback-message" name="feedback-message" rows="4" required placeholder="Please share your thoughts..."></textarea>
+        <textarea id="feedback-message" name="feedback-message" rows="4" required
+          placeholder="Please share your thoughts..."></textarea>
       </div>
 
       <div class="form-group">
@@ -531,7 +562,7 @@
     const loadingMessage = document.getElementById('feedback-loading');
     const successMessage = document.getElementById('feedback-success');
 
-    feedbackForm.addEventListener('submit', function(e) {
+    feedbackForm.addEventListener('submit', function (e) {
       // Show loading message
       loadingMessage.classList.remove('hidden');
       successMessage.classList.add('hidden');
@@ -545,7 +576,7 @@
       setTimeout(() => {
         loadingMessage.classList.add('hidden');
         successMessage.classList.remove('hidden');
-        
+
         // Hide success message and reset form after 5 seconds
         setTimeout(() => {
           successMessage.classList.add('hidden');
@@ -555,4 +586,5 @@
     });
   </script>
 </body>
+
 </html>

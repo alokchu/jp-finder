@@ -83,6 +83,14 @@ class JPFinderDeployer:
         data_dir = self.build_dir / "data"
         data_dir.mkdir(exist_ok=True)
         
+        # Copy favicon if it exists
+        favicon_src = self.templates_dir / "favicon.ico"
+        if favicon_src.exists():
+            shutil.copy2(favicon_src, self.build_dir / "favicon.ico")
+            logger.info("Copied favicon.ico")
+        else:
+            logger.warning("favicon.ico not found in templates directory")
+        
         # Copy JS files
         js_src = self.templates_dir / "js" / "main.js"
         js_dest = self.build_dir / "js" / "main.js"
