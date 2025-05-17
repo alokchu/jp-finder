@@ -3,13 +3,29 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
+  <script>
+    // Debug logging
+    console.log('Starting GA initialization...');
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag() { 
+      console.log('gtag called with arguments:', arguments);
+      dataLayer.push(arguments); 
+    }
     gtag('js', new Date());
+    gtag('config', 'G-1MEP8KQ1D9', {
+      debug_mode: true
+    });
+    console.log('GA initialization complete');
 
-    gtag('config', 'G-1MEP8KQ1D9');
+    // Add error handling for script loading
+    window.onerror = function(msg, url, line) {
+      if (url && url.includes('googletagmanager')) {
+        console.error('Google Analytics loading error:', msg, 'at line:', line);
+      }
+    };
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
