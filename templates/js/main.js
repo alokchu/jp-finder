@@ -1,7 +1,13 @@
-// Use global variables declared in index.html
-// window.NSWSuburbs - array of suburbs
-// window.selectedSuburbIndex - tracks selected suburb in dropdown
-// window.jpLocations - array of JP locations
+// Ensure global variables exist
+if (typeof window.NSWSuburbs === 'undefined') {
+  window.NSWSuburbs = [];
+}
+if (typeof window.selectedSuburbIndex === 'undefined') {
+  window.selectedSuburbIndex = -1;
+}
+if (typeof window.jpLocations === 'undefined') {
+  window.jpLocations = [];
+}
 
 // Make DOM elements global
 window.resultElement = document.getElementById("result");
@@ -27,11 +33,12 @@ async function loadSuburbsData() {
     if (cacheAge < 24 * 60 * 60 * 1000) { // 24 hours
       try {
         const parsedData = JSON.parse(cachedData);
-        window.NSWSuburbs.length = 0; // Clear the array
-        window.NSWSuburbs.push(...parsedData); // Add new items
-        console.log("Using cached suburbs data");
-        initializeApp();
-        return;
+        if (Array.isArray(parsedData)) {
+          window.NSWSuburbs = parsedData; // Simply assign the array
+          console.log("Using cached suburbs data");
+          initializeApp();
+          return;
+        }
       } catch (e) {
         console.error('Error parsing cached data:', e);
       }
@@ -71,8 +78,7 @@ async function loadSuburbsData() {
       }));
 
     // Update the global NSWSuburbs array
-    window.NSWSuburbs.length = 0;
-    window.NSWSuburbs.push(...processedData);
+    window.NSWSuburbs = processedData; // Simply assign the new array
 
     // Cache the processed data
     try {

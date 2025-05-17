@@ -553,9 +553,16 @@
 
   <!-- Initialize global variables -->
   <script>
-    window.NSWSuburbs = [];
-    window.selectedSuburbIndex = -1;
-    window.jpLocations = [];
+    // Initialize global variables if they don't exist
+    if (typeof window.NSWSuburbs === 'undefined') {
+      window.NSWSuburbs = [];
+    }
+    if (typeof window.selectedSuburbIndex === 'undefined') {
+      window.selectedSuburbIndex = -1;
+    }
+    if (typeof window.jpLocations === 'undefined') {
+      window.jpLocations = [];
+    }
   </script>
   <!-- Load JP locations data first -->
   <script src="js/jp-locations.js"></script>
