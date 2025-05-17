@@ -1,5 +1,4 @@
-// We'll replace the hardcoded suburbs with data loaded from suburbs.json
-let NSWSuburbs = [];
+// We'll use the NSWSuburbs array that's already declared in index.html
 let selectedSuburbIndex = -1;
 const resultElement = document.getElementById("result");
 const errorMessage = document.getElementById("error-message");
@@ -23,7 +22,7 @@ async function loadSuburbsData() {
     const cacheAge = Date.now() - parseInt(cacheTimestamp);
     if (cacheAge < 24 * 60 * 60 * 1000) { // 24 hours
       try {
-        NSWSuburbs = JSON.parse(cachedData);
+        Object.assign(NSWSuburbs, JSON.parse(cachedData));
         console.log("Using cached suburbs data");
         initializeApp();
         return;
