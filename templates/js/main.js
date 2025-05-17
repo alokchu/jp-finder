@@ -1,10 +1,14 @@
-// We'll use the NSWSuburbs array that's already declared in index.html
-let selectedSuburbIndex = -1;
-const resultElement = document.getElementById("result");
-const errorMessage = document.getElementById("error-message");
-const statusMessage = document.getElementById("status-message");
-const suburbInput = document.getElementById("suburb-input");
-const suburbSuggestions = document.getElementById("suburb-suggestions");
+// Use global variables declared in index.html
+// window.NSWSuburbs - array of suburbs
+// window.selectedSuburbIndex - tracks selected suburb in dropdown
+// window.jpLocations - array of JP locations
+
+// Make DOM elements global
+window.resultElement = document.getElementById("result");
+window.errorMessage = document.getElementById("error-message");
+window.statusMessage = document.getElementById("status-message");
+window.suburbInput = document.getElementById("suburb-input");
+window.suburbSuggestions = document.getElementById("suburb-suggestions");
 
 // Initialize the app when page loads
 window.addEventListener('DOMContentLoaded', () => {
@@ -22,7 +26,9 @@ async function loadSuburbsData() {
     const cacheAge = Date.now() - parseInt(cacheTimestamp);
     if (cacheAge < 24 * 60 * 60 * 1000) { // 24 hours
       try {
-        Object.assign(NSWSuburbs, JSON.parse(cachedData));
+        const parsedData = JSON.parse(cachedData);
+        window.NSWSuburbs.length = 0; // Clear the array
+        window.NSWSuburbs.push(...parsedData); // Add new items
         console.log("Using cached suburbs data");
         initializeApp();
         return;
@@ -54,7 +60,7 @@ async function loadSuburbsData() {
     const jsonData = JSON.parse(data);
     
     // Process the data into a format we can use
-    NSWSuburbs = jsonData.data
+    const processedData = jsonData.data
       .filter(item => item.state === "NSW")
       .map(item => ({
         name: item.suburb,
@@ -64,15 +70,19 @@ async function loadSuburbsData() {
         lon: item.lng
       }));
 
+    // Update the global NSWSuburbs array
+    window.NSWSuburbs.length = 0;
+    window.NSWSuburbs.push(...processedData);
+
     // Cache the processed data
     try {
-      localStorage.setItem('nswSuburbs', JSON.stringify(NSWSuburbs));
+      localStorage.setItem('nswSuburbs', JSON.stringify(window.NSWSuburbs));
       localStorage.setItem('nswSuburbsTimestamp', Date.now().toString());
     } catch (e) {
       console.warn('Failed to cache suburbs data:', e);
     }
 
-    console.log("Number of suburbs loaded:", NSWSuburbs.length);
+    console.log("Number of suburbs loaded:", window.NSWSuburbs.length);
     
     // Hide loading indicator
     showStatus("", "info");
@@ -130,7 +140,7 @@ function getLatLonFromPostcode(postcode, suburbData) {
 
 // Fallback data in case the JSON file can't be loaded
 function useFallbackData() {
-  NSWSuburbs = [
+  window.NSWSuburbs = [
     { name: "Sydney", lat: -33.8688, lon: 151.2093 },
     { name: "Newcastle", lat: -32.9283, lon: 151.7817 },
     { name: "Wollongong", lat: -34.4278, lon: 150.8936 },
@@ -170,7 +180,7 @@ function geocodeSuburbs() {
   };
 
   // Update our NSWSuburbs array with coordinates
-  NSWSuburbs.forEach(suburb => {
+  window.NSWSuburbs.forEach(suburb => {
     if (geocodedSuburbs[suburb.name]) {
       suburb.lat = geocodedSuburbs[suburb.name].lat;
       suburb.lon = geocodedSuburbs[suburb.name].lon;
@@ -186,55 +196,55 @@ function geocodeSuburbs() {
 }
 
 function initializeApp() {
-  resultElement.innerHTML = '<p>Enter your suburb above to find the nearest Justice of the Peace.</p>';
+  window.resultElement.innerHTML = '<p>Enter your suburb above to find the nearest Justice of the Peace.</p>';
   setupSuburbAutocomplete();
 }
 
 function showStatus(message, type) {
-  statusMessage.textContent = message;
-  statusMessage.className = type;
-  statusMessage.style.display = "block";
+  window.statusMessage.textContent = message;
+  window.statusMessage.className = type;
+  window.statusMessage.style.display = "block";
 
   // Hide status after 5 seconds
   setTimeout(() => {
-    statusMessage.style.display = "none";
+    window.statusMessage.style.display = "none";
   }, 5000);
 }
 
 function setupSuburbAutocomplete() {
   // Event listener for input changes
-  suburbInput.addEventListener('input', handleSuburbInput);
+  window.suburbInput.addEventListener('input', handleSuburbInput);
 
   // Event listener for keyboard navigation
-  suburbInput.addEventListener('keydown', handleKeyboardNavigation);
+  window.suburbInput.addEventListener('keydown', handleKeyboardNavigation);
 
   // Event listener for clicking outside to close suggestions
   document.addEventListener('click', (e) => {
-    if (e.target !== suburbInput && e.target !== suburbSuggestions) {
-      suburbSuggestions.style.display = 'none';
+    if (e.target !== window.suburbInput && e.target !== window.suburbSuggestions) {
+      window.suburbSuggestions.style.display = 'none';
     }
   });
 }
 
 function handleSuburbInput() {
-  const query = suburbInput.value.trim().toLowerCase();
+  const query = window.suburbInput.value.trim().toLowerCase();
 
   if (query.length < 2) {
-    suburbSuggestions.style.display = 'none';
+    window.suburbSuggestions.style.display = 'none';
     return;
   }
 
-  const matches = NSWSuburbs.filter(suburb =>
+  const matches = window.NSWSuburbs.filter(suburb =>
     suburb.name.toLowerCase().includes(query)
   ).slice(0, 8); // Limit to 8 suggestions
 
   if (matches.length === 0) {
-    suburbSuggestions.style.display = 'none';
+    window.suburbSuggestions.style.display = 'none';
     return;
   }
 
   // Build suggestion list
-  suburbSuggestions.innerHTML = '';
+  window.suburbSuggestions.innerHTML = '';
   matches.forEach((suburb, index) => {
     const item = document.createElement('li');
     item.className = 'suburb-suggestion';
@@ -257,47 +267,47 @@ function handleSuburbInput() {
     }
 
     item.addEventListener('click', () => {
-      suburbInput.value = suburb.name;
-      suburbSuggestions.style.display = 'none';
-      errorMessage.style.display = 'none';
+      window.suburbInput.value = suburb.name;
+      window.suburbSuggestions.style.display = 'none';
+      window.errorMessage.style.display = 'none';
     });
 
-    suburbSuggestions.appendChild(item);
+    window.suburbSuggestions.appendChild(item);
   });
 
-  selectedSuburbIndex = -1;
-  suburbSuggestions.style.display = 'block';
+  window.selectedSuburbIndex = -1;
+  window.suburbSuggestions.style.display = 'block';
 }
 
 function handleKeyboardNavigation(e) {
-  const suggestions = suburbSuggestions.querySelectorAll('.suburb-suggestion');
+  const suggestions = window.suburbSuggestions.querySelectorAll('.suburb-suggestion');
 
   if (suggestions.length === 0) return;
 
   // Down arrow
   if (e.key === 'ArrowDown') {
     e.preventDefault();
-    selectedSuburbIndex = Math.min(selectedSuburbIndex + 1, suggestions.length - 1);
+    window.selectedSuburbIndex = Math.min(window.selectedSuburbIndex + 1, suggestions.length - 1);
     updateSelectedSuggestion(suggestions);
   }
   // Up arrow
   else if (e.key === 'ArrowUp') {
     e.preventDefault();
-    selectedSuburbIndex = Math.max(selectedSuburbIndex - 1, -1);
+    window.selectedSuburbIndex = Math.max(window.selectedSuburbIndex - 1, -1);
     updateSelectedSuggestion(suggestions);
   }
   // Enter key
   else if (e.key === 'Enter') {
     e.preventDefault();
-    if (selectedSuburbIndex >= 0 && suggestions[selectedSuburbIndex]) {
+    if (window.selectedSuburbIndex >= 0 && suggestions[window.selectedSuburbIndex]) {
       // Extract just the suburb name from the possibly "Suburb, Postcode" format
-      const selectedText = suggestions[selectedSuburbIndex].textContent;
+      const selectedText = suggestions[window.selectedSuburbIndex].textContent;
       const suburbName = selectedText.split(',')[0].trim();
-      suburbInput.value = suburbName;
-      suburbSuggestions.style.display = 'none';
+      window.suburbInput.value = suburbName;
+      window.suburbSuggestions.style.display = 'none';
 
       // If enter is pressed with a selection, find JP
-      if (suburbSuggestions.style.display === 'none') {
+      if (window.suburbSuggestions.style.display === 'none') {
         findJP();
       }
     } else {
@@ -307,7 +317,7 @@ function handleKeyboardNavigation(e) {
   }
   // Escape key
   else if (e.key === 'Escape') {
-    suburbSuggestions.style.display = 'none';
+    window.suburbSuggestions.style.display = 'none';
   }
 }
 
@@ -316,12 +326,11 @@ function updateSelectedSuggestion(suggestions) {
   suggestions.forEach(s => s.classList.remove('selected'));
 
   // Add selected class to current suggestion
-  if (selectedSuburbIndex >= 0) {
-    suggestions[selectedSuburbIndex].classList.add('selected');
-    suggestions[selectedSuburbIndex].scrollIntoView({ block: 'nearest' });
+  if (window.selectedSuburbIndex >= 0) {
+    suggestions[window.selectedSuburbIndex].classList.add('selected');
+    suggestions[window.selectedSuburbIndex].scrollIntoView({ block: 'nearest' });
   }
 }
-
 
 function getDistance(lat1, lon1, lat2, lon2) {
   const toRad = deg => deg * (Math.PI / 180);
@@ -337,25 +346,25 @@ function getDistance(lat1, lon1, lat2, lon2) {
 document.getElementById("find-jp").addEventListener("click", findJP);
 
 function findJP() {
-  const input = suburbInput.value.trim();
+  const input = window.suburbInput.value.trim();
   console.log("My input suburb:", input);
-  errorMessage.style.display = "none";
+  window.errorMessage.style.display = "none";
 
   if (!input) {
-    errorMessage.textContent = "Please enter a suburb name";
-    errorMessage.style.display = "block";
+    window.errorMessage.textContent = "Please enter a suburb name";
+    window.errorMessage.style.display = "block";
     return;
   }
 
   // First try exact match (case insensitive)
-  let userSuburb = NSWSuburbs.find(s =>
+  let userSuburb = window.NSWSuburbs.find(s =>
     s.name.toLowerCase() === input.toLowerCase()
   );
   console.log('userSuburb found=>',userSuburb)
 
   // If no exact match, try to find a partial match
   if (!userSuburb) {
-    userSuburb = NSWSuburbs.find(s =>
+    userSuburb = window.NSWSuburbs.find(s =>
       s.name.toLowerCase().includes(input.toLowerCase()) ||
       input.toLowerCase().includes(s.name.toLowerCase())
     );
@@ -377,7 +386,7 @@ function findJP() {
     let closestMatch = null;
     let closestDistance = Infinity;
 
-    NSWSuburbs.forEach(s => {
+    window.NSWSuburbs.forEach(s => {
       const d = levenshtein(input.toLowerCase(), s.name.toLowerCase());
       if (d < closestDistance) {
         closestDistance = d;
@@ -393,21 +402,21 @@ function findJP() {
   }
 
   if (!userSuburb) {
-    errorMessage.textContent = "Suburb not found. Please check your spelling or select from the dropdown.";
-    errorMessage.style.display = "block";
+    window.errorMessage.textContent = "Suburb not found. Please check your spelling or select from the dropdown.";
+    window.errorMessage.style.display = "block";
     return;
   }
 
   // Check if we have coordinates for this suburb
   if (!userSuburb.lat || !userSuburb.lon) {
     // Try to get coordinates from postcode
-    const latLon = getLatLonFromPostcode(userSuburb.postcode, NSWSuburbs);
+    const latLon = getLatLonFromPostcode(userSuburb.postcode, window.NSWSuburbs);
     if (latLon) {
       console.log('latLon.lat=>'+latLon.lat+'latLon.lon=>'+latLon.lon);
       userSuburb.lat = latLon.lat;
       userSuburb.lon = latLon.lon;
     } else {
-      resultElement.innerHTML = `
+      window.resultElement.innerHTML = `
         <p style="color:orange;">We don't have precise location data for ${userSuburb.name}.</p>
         <p>Please try a different suburb or contact support.</p>
       `;
@@ -436,10 +445,10 @@ function findJP() {
   }
 
   // Calculate distances for all JP locations
-  const jpWithDistances = jpLocations.map(jp => {
+  const jpWithDistances = window.jpLocations.map(jp => {
     // If JP doesn't have coordinates, try to get them from postcode
     if (!jp.lat || !jp.lon) {
-      const latLon = getLatLonFromPostcode(jp.postcode, NSWSuburbs);
+      const latLon = getLatLonFromPostcode(jp.postcode, window.NSWSuburbs);
       if (latLon) {
         jp.lat = latLon.lat;
         jp.lon = latLon.lon;
@@ -479,8 +488,6 @@ function findJP() {
       let displayName = jp.name;
       let additionalInfo = "";
 
-
-
       // For Vinegar Hill specifically - split the name and any additional info
       if (jp.name.includes("Vinegar Hill Memorial Library")) {
         displayName = "Vinegar Hill Memorial Library";
@@ -511,9 +518,9 @@ function findJP() {
       }
     });
 
-    resultElement.innerHTML = resultsHTML;
+    window.resultElement.innerHTML = resultsHTML;
   } else {
-    resultElement.innerHTML = `<p class="error-message">No JP locations found nearby ${userSuburb.name}.</p>`;
+    window.resultElement.innerHTML = `<p class="error-message">No JP locations found nearby ${userSuburb.name}.</p>`;
   }
 }
 

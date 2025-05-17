@@ -551,9 +551,11 @@
     </form>
   </div>
 
-  <!-- Initialize NSWSuburbs array -->
+  <!-- Initialize global variables -->
   <script>
-    const NSWSuburbs = [];
+    window.NSWSuburbs = [];
+    window.selectedSuburbIndex = -1;
+    window.jpLocations = [];
   </script>
   <!-- Load JP locations data first -->
   <script src="js/jp-locations.js"></script>
