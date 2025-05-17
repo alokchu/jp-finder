@@ -6,26 +6,40 @@
   <script>
     // Debug logging
     console.log('Starting GA initialization...');
+    
+    // Error handling for script loading
+    window.onerror = function(msg, url, line) {
+      console.error('Script error:', msg);
+      console.error('URL:', url);
+      console.error('Line:', line);
+    };
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9" onerror="console.error('Failed to load GA script')"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { 
-      console.log('gtag called with arguments:', arguments);
-      dataLayer.push(arguments); 
+    function gtag() {
+      console.log('gtag called with:', Array.from(arguments));
+      dataLayer.push(arguments);
     }
+    
+    // Initialize GA with debug_mode and send_page_view enabled
     gtag('js', new Date());
     gtag('config', 'G-1MEP8KQ1D9', {
-      debug_mode: true
+      debug_mode: true,
+      send_page_view: true,
+      transport_url: 'https://www.google-analytics.com'
     });
+    
+    // Add page load timing
+    window.addEventListener('load', function() {
+      gtag('event', 'timing_complete', {
+        'name': 'load',
+        'value': Math.round(performance.now()),
+        'event_category': 'Page Load'
+      });
+    });
+    
     console.log('GA initialization complete');
-
-    // Add error handling for script loading
-    window.onerror = function(msg, url, line) {
-      if (url && url.includes('googletagmanager')) {
-        console.error('Google Analytics loading error:', msg, 'at line:', line);
-      }
-    };
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
