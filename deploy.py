@@ -334,42 +334,49 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         return html_content
 
     def extract_and_create_js(self, html_content):
-        """Extract JavaScript from HTML and save as separate file"""
-        js_pattern = r"<script>([\s\S]*?)</script>"
-        js_matches = re.finditer(js_pattern, html_content)
-        
-        # Add timestamp for cache busting
+        """Extract safe inline JavaScript from HTML and save as separate file, preserving critical scripts"""
         timestamp = int(datetime.datetime.now().timestamp())
+        js_pattern = r"<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)</script>"
 
-        main_js = []
+        matches = list(re.finditer(js_pattern, html_content, re.IGNORECASE))
 
-        for i, match in enumerate(js_matches):
-            # Skip any script tags with src attribute or type="application/ld+json"
-            if 'src=' in match.group(0) or 'application/ld+json' in match.group(0):
+        extracted_scripts = []
+        
+        # Define patterns to skip (critical inline scripts)
+        skip_keywords = ['gtag(', 'googletagmanager', 'dataLayer.push', 'type="application/ld+json"']
+
+        for match in matches:
+            script_tag = match.group(0)
+            js_content = match.group(1).strip()
+
+            # Skip script tags with specific keywords or structured data
+            if any(kw in script_tag.lower() or kw in js_content for kw in skip_keywords):
                 continue
 
-            js_content = match.group(1)
-            main_js.append(js_content)
+            if js_content:
+                extracted_scripts.append((script_tag, js_content))
 
-        if main_js:
-            # Write JS to file
-            with open(self.build_dir / "js" / "main.js", "w", encoding="utf-8") as f:
-                f.write("\n\n".join(main_js))
+        # Write to JS file if any scripts found
+        if extracted_scripts:
+            js_code = "\n\n".join(js for _, js in extracted_scripts)
+            js_path = self.build_dir / "js" / "main.js"
+            js_path.parent.mkdir(parents=True, exist_ok=True)
 
-            # Replace inline JS with link to JS file (with cache busting)
-            modified_html = re.sub(
-                r"<script>(?!.*?application/ld\+json)[\s\S]*?</script>",
-                "",
-                html_content
-            )
+            with open(js_path, "w", encoding="utf-8") as f:
+                f.write(js_code)
 
-            # Add script tag at the end of body with cache busting parameter
+            # Remove only the matched inline <script> tags
+            modified_html = html_content
+            for script_tag, _ in extracted_scripts:
+                modified_html = modified_html.replace(script_tag, '')
+
+            # Add <script src="..."> before </body>
             modified_html = modified_html.replace(
                 "</body>",
                 f'<script src="/js/main.js?v={timestamp}"></script>\n</body>'
             )
 
-            logger.info("Extracted JavaScript to separate file with cache busting")
+            logger.info("Successfully extracted and replaced inline JS.")
             return modified_html
 
         return html_content
