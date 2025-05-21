@@ -22,46 +22,49 @@
       dataLayer.push(arguments);
     }
     
-    // Initialize GA with debug_mode and send_page_view enabled
+    // Initialize GA with optimized configuration
     gtag('js', new Date());
     gtag('config', 'G-1MEP8KQ1D9', {
-      debug_mode: true,
       send_page_view: true,
-      transport_url: 'https://www.google-analytics.com'
+      page_title: 'NSW JP Finder Home'
     });
     
-    // Add page load timing
+    // Track key user interactions
     window.addEventListener('load', function() {
-      gtag('event', 'timing_complete', {
-        'name': 'load',
-        'value': Math.round(performance.now()),
-        'event_category': 'Page Load'
-      });
+      // Track page load performance
+      if (window.performance) {
+        const pageLoadTime = Math.round(performance.now());
+        gtag('event', 'performance_measurement', {
+          'name': 'page_load_time',
+          'value': pageLoadTime,
+          'event_category': 'Performance'
+        });
+      }
     });
     
     console.log('GA initialization complete');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NSW JP Finder | Find a Justice of the Peace Near You</title>
+  <title>NSW JP Finder | Find a Justice of the Peace Near You | JP Locations Across NSW</title>
   <meta name="description"
-    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more across New South Wales." />
+    content="Find free Justice of the Peace (JP) services near you in NSW. Search by suburb or postcode to locate JPs at libraries, councils, shopping centers and community locations across New South Wales." />
   <meta name="keywords"
-    content="JP, Justice of the Peace, NSW, New South Wales, find JP, JP services, JP near me, free JP service" />
+    content="JP, Justice of the Peace, NSW, New South Wales, find JP, JP services, JP near me, free JP service, witness documents, certify documents, statutory declarations, JP locations, JP community service, shopping center JP, library JP services, JP postcode search, The Ponds JP, Blacktown JP, Sydney JP, Newcastle JP, Wollongong JP, Parramatta JP, JP directory, JP availability, JP opening hours, where to find a JP, local JP service, community JP, JP certification, JP document witnessing, legal document witnessing NSW" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jpfinder.com.au/" />
   <meta property="og:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
   <meta property="og:description"
-    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+    content="Find free Justice of the Peace (JP) services near you in NSW. Search by suburb or postcode to locate JPs at libraries, councils, shopping centers and community locations." />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="https://jpfinder.com.au/" />
   <meta name="twitter:title" content="NSW JP Finder | Find a Justice of the Peace Near You" />
   <meta name="twitter:description"
-    content="Find a Justice of the Peace (JP) service near you in NSW. Search by suburb to locate JPs at libraries, councils, shopping centers and more." />
+    content="Find free Justice of the Peace (JP) services near you in NSW. Search by suburb or postcode to locate JPs at libraries, councils, shopping centers and community locations." />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://jpfinder.com.au/" />
@@ -80,6 +83,28 @@
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "AUD"
+    },
+    "keywords": "JP, Justice of the Peace, NSW, JP services, JP near me, free JP service, witness documents, certify documents, statutory declarations, JP locations, JP community service, shopping center JP, library JP, JP postcode search"
+  }
+  </script>
+
+  <!-- Enhanced Local Business Structured Data for JP Locations -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NSW Justice of the Peace Services",
+    "description": "Free Justice of the Peace services available at multiple locations across NSW",
+    "areaServed": {
+      "@type": "State",
+      "name": "New South Wales"
+    },
+    "serviceType": "Document witnessing and certification",
+    "priceRange": "Free",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jpfinder.com.au/?search={search_term}",
+      "query-input": "required name=search_term"
     }
   }
   </script>
@@ -88,13 +113,17 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <script>
-    // Custom event tracking
+    // Enhanced event tracking
     document.addEventListener('DOMContentLoaded', function () {
       // Track JP searches
       document.getElementById('find-jp').addEventListener('click', function () {
-        const suburb = document.getElementById('suburb-input').value;
-        gtag('event', 'search_jp', {
-          'search_term': suburb
+        const searchTerm = document.getElementById('suburb-input').value;
+        const isPostcode = /^\d{4}$/.test(searchTerm.trim());
+        
+        gtag('event', 'search', {
+          'search_term': searchTerm,
+          'search_type': isPostcode ? 'postcode' : 'suburb',
+          'event_category': 'User Engagement'
         });
       });
 
@@ -103,10 +132,15 @@
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
           if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-            const locationElements = resultDiv.getElementsByClassName('jp-result');
+            const locationElements = resultDiv.getElementsByClassName('jp-location');
             if (locationElements.length > 0) {
-              gtag('event', 'view_jp_results', {
-                'number_of_results': locationElements.length
+              gtag('event', 'view_item_list', {
+                'item_list_name': 'jp_results',
+                'items': Array.from(locationElements).map((el, index) => ({
+                  'item_name': el.querySelector('h4')?.textContent || 'JP Location',
+                  'item_list_position': index + 1
+                })),
+                'event_category': 'User Engagement'
               });
             }
           }
@@ -114,6 +148,19 @@
       });
 
       observer.observe(resultDiv, { childList: true });
+      
+      // Track interactions with Google Maps links
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.matches('a[href*="google.com/maps"]')) {
+          const locationName = e.target.closest('.jp-location')?.querySelector('h4')?.textContent || 'Unknown Location';
+          
+          gtag('event', 'select_content', {
+            'content_type': 'map_link',
+            'item_id': locationName,
+            'event_category': 'User Navigation'
+          });
+        }
+      });
     });
   </script>
 
@@ -249,7 +296,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .jp-result {
+    .jp-location {
       border-left: 4px solid var(--accent-color);
       margin-bottom: 1.5rem;
       padding: 1rem;
@@ -258,7 +305,7 @@
       transition: transform 0.2s ease;
     }
 
-    .jp-result:hover {
+    .jp-location:hover {
       transform: translateX(5px);
     }
 
@@ -501,6 +548,60 @@
     #feedback-loading {
       animation: slideIn 0.3s ease-out, pulse 1.5s ease-in-out infinite;
     }
+    
+    /* Added styles for SEO-related content */
+    .jp-services-info {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .jp-services-info h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .jp-services-info p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Style for location divider */
+    .location-divider {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+      margin: 1.5rem 0;
+    }
+
+    /* New styles for regional JP locations */
+    .region-locations {
+      margin-top: 1.5rem;
+    }
+
+    .region-locations h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .region-locations ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .region-locations li {
+      margin-right: 10px;
+      margin-bottom: 5px;
+      background-color: #f0f4f8;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
@@ -516,10 +617,10 @@
   </div>
 
   <div id="search-container">
-    <label for="suburb-input">Enter your suburb:</label>
+    <label for="suburb-input">Find a JP near you:</label>
     <div class="input-container">
       <span class="search-icon">🔍</span>
-      <input id="suburb-input" type="text" placeholder="Type a NSW suburb..." autocomplete="off" />
+      <input id="suburb-input" type="text" placeholder="Enter suburb or postcode (e.g. The Ponds or 2769)" autocomplete="off" />
     </div>
     <div id="suburb-suggestions" class="suburb-suggestions" style="display: none;"></div>
     <div id="error-message"></div>
@@ -528,7 +629,59 @@
   </div>
 
   <div id="result">
-    <p>Enter your suburb above to find JP services at community locations near you.</p>
+    <p>Enter your suburb or postcode above to find JP services at community locations near you.</p>
+  </div>
+  
+  <!-- Enhanced SEO content about JP services -->
+  <div class="jp-services-info">
+    <h2>Justice of the Peace Services in NSW</h2>
+    <p>A Justice of the Peace (JP) in New South Wales provides free services to the community, including witnessing statutory declarations, affidavits, and certifying copies of original documents. JPs can be found at various community locations such as shopping centers, libraries, council offices, and community hubs across NSW.</p>
+    
+    <p>Common documents that require a JP include:</p>
+    <ul>
+      <li>Statutory declarations</li>
+      <li>Certified copies of original documents</li>
+      <li>Affidavits</li>
+      <li>Land title documents</li>
+      <li>Medical certificates</li>
+      <li>Change of name forms</li>
+      <li>Power of attorney documents</li>
+      <li>Passport applications</li>
+    </ul>
+    
+    <p>Our JP Finder helps you locate JP services across NSW regions including Sydney, Parramatta, Blacktown, The Ponds, Stanhope Gardens, Newcastle, Wollongong, and more. Simply enter your suburb name or postcode to find the nearest Justice of the Peace service points.</p>
+
+    <h3>Why Use a Justice of the Peace?</h3>
+    <p>JPs provide an essential service to the community by helping people with important legal and administrative documents. When you need official documents certified or witnessed, a JP can verify your identity and ensure the proper procedures are followed. This service is completely free of charge throughout NSW.</p>
+
+    <div class="region-locations">
+      <h3>Popular JP Service Locations in NSW:</h3>
+      <ul>
+        <li>Sydney CBD</li>
+        <li>Parramatta</li>
+        <li>The Ponds</li>
+        <li>Blacktown</li>
+        <li>Liverpool</li>
+        <li>Penrith</li>
+        <li>Newcastle</li>
+        <li>Wollongong</li>
+        <li>Central Coast</li>
+        <li>Rouse Hill</li>
+        <li>Castle Hill</li>
+        <li>Hornsby</li>
+        <li>Chatswood</li>
+      </ul>
+    </div>
+
+    <h3>Types of JP Services Available</h3>
+    <ul>
+      <li><strong>Shopping Centre JP Services</strong> - Many shopping centers host regular JP services on specific days and times</li>
+      <li><strong>Library JP Services</strong> - Local libraries often have scheduled JP services available to the public</li>
+      <li><strong>Council JP Services</strong> - Many local councils provide JP services during business hours</li>
+      <li><strong>Community JP Services</strong> - Community centers and neighborhood houses may offer JP services</li>
+    </ul>
+
+    <p>This JP Finder tool is designed to help NSW residents quickly locate the most convenient JP service location near them. By entering your suburb or postcode, you'll find up-to-date information on where and when JP services are available in your area.</p>
   </div>
 
   <!-- Feedback Form Section -->
@@ -609,8 +762,10 @@
       successMessage.classList.add('hidden');
 
       // Track the submission in Google Analytics
-      gtag('event', 'feedback_submission', {
-        'feedback_type': document.getElementById('feedback-type').value
+      gtag('event', 'generate_lead', {
+        'form_name': 'feedback_form',
+        'feedback_type': document.getElementById('feedback-type').value,
+        'event_category': 'User Feedback'
       });
 
       // Wait for a short delay to show the success message

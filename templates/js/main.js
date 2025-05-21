@@ -16,9 +16,37 @@ window.statusMessage = document.getElementById("status-message");
 window.suburbInput = document.getElementById("suburb-input");
 window.suburbSuggestions = document.getElementById("suburb-suggestions");
 
+// Google Analytics tracking functions
+function trackEvent(eventName, parameters = {}) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', eventName, parameters);
+  }
+}
+
+function trackSearch(suburb, postcode, resultsFound) {
+  trackEvent('jp_search', {
+    'search_term': suburb,
+    'postcode': postcode,
+    'results_found': resultsFound,
+    'event_category': 'engagement'
+  });
+}
+
+function trackLocationClick(jpName, distance) {
+  trackEvent('jp_location_click', {
+    'jp_name': jpName,
+    'distance_km': Math.round(distance * 10) / 10,
+    'event_category': 'engagement'
+  });
+}
+
 // Initialize the app when page loads
 window.addEventListener('DOMContentLoaded', () => {
   loadSuburbsData();
+  trackEvent('page_load', {
+    'page_title': document.title,
+    'event_category': 'engagement'
+  });
 });
 
 // Load suburbs data from JSON file with caching
@@ -34,8 +62,9 @@ async function loadSuburbsData() {
       try {
         const parsedData = JSON.parse(cachedData);
         if (Array.isArray(parsedData)) {
-          window.NSWSuburbs = parsedData; // Simply assign the array
+          window.NSWSuburbs = parsedData;
           console.log("Using cached suburbs data");
+          console.log("Number of suburbs in cache:", parsedData.length);
           initializeApp();
           return;
         }
@@ -46,7 +75,7 @@ async function loadSuburbsData() {
   }
 
   // Show loading indicator
-  showStatus("Loading suburbs data...", "info");
+  showStatus("Loading NSW suburbs and postcodes data...", "info");
   
   try {
     const response = await fetch('../data/suburbs.json');
@@ -78,7 +107,7 @@ async function loadSuburbsData() {
       }));
 
     // Update the global NSWSuburbs array
-    window.NSWSuburbs = processedData; // Simply assign the new array
+    window.NSWSuburbs = processedData;
 
     // Cache the processed data
     try {
@@ -95,14 +124,56 @@ async function loadSuburbsData() {
     
     geocodeSuburbs();
     initializeApp();
+    
+    // Track successful data load
+    trackEvent('data_load_success', {
+      'suburbs_count': window.NSWSuburbs.length,
+      'event_category': 'technical'
+    });
+    
   } catch (error) {
     console.error('Error loading suburbs data:', error);
     showStatus("Using fallback data due to loading error", "error");
+    
+    // Track data load error
+    trackEvent('data_load_error', {
+      'error_message': error.message,
+      'event_category': 'technical'
+    });
     
     // Use fallback data
     useFallbackData();
     initializeApp();
   }
+}
+
+// Enhanced function to search by postcode or suburb name
+function findSuburbByInput(input) {
+  const cleanInput = input.trim();
+  
+  // Check if input is numeric (postcode)
+  if (/^\d{4}$/.test(cleanInput)) {
+    const postcode = parseInt(cleanInput);
+    return window.NSWSuburbs.filter(s => s.postcode === postcode);
+  }
+  
+  // Search by suburb name
+  const lowerInput = cleanInput.toLowerCase();
+  
+  // First try exact match
+  let matches = window.NSWSuburbs.filter(s =>
+    s.name.toLowerCase() === lowerInput
+  );
+  
+  // If no exact match, try partial match
+  if (matches.length === 0) {
+    matches = window.NSWSuburbs.filter(s =>
+      s.name.toLowerCase().includes(lowerInput) ||
+      lowerInput.includes(s.name.toLowerCase())
+    );
+  }
+  
+  return matches;
 }
 
 // Improved function to get coordinates from postcode
@@ -111,11 +182,11 @@ function getLatLonFromPostcode(postcode, suburbData) {
   
   console.log('Getting coordinates for postcode:', postcode);
   
-  // Convert postcode to string and ensure we're comparing strings
-  const postcodeStr = String(postcode).trim();
+  // Convert postcode to number for comparison
+  const postcodeNum = parseInt(String(postcode).trim());
   
   // Find all suburbs with this postcode and take the first one with valid coordinates
-  const matches = suburbData.filter(s => String(s.postcode).trim() === postcodeStr);
+  const matches = suburbData.filter(s => s.postcode === postcodeNum);
   
   if (matches.length > 0) {
     // Find first match with valid coordinates
@@ -129,16 +200,17 @@ function getLatLonFromPostcode(postcode, suburbData) {
   
   console.log('No matches found with valid coordinates for postcode:', postcode);
   
-  // If we're looking for The Ponds or nearby postcodes, return specific coordinates
-  if (postcodeStr === "2769") {
-    console.log('Using hardcoded coordinates for The Ponds area');
-    return { lat: -33.7035, lon: 150.9066 }; // The Ponds coordinates
-  }
+  // Hardcoded coordinates for specific postcodes
+  const hardcodedCoords = {
+    2769: { lat: -33.7035, lon: 150.9066 }, // The Ponds
+    2768: { lat: -33.7184, lon: 150.9151 }, // Stanhope Gardens
+    2000: { lat: -33.8688, lon: 151.2093 }, // Sydney CBD
+    2150: { lat: -33.8148, lon: 151.0017 }, // Parramatta
+  };
   
-  // For Stanhope Gardens postcode
-  if (postcodeStr === "2768") {
-    console.log('Using hardcoded coordinates for Stanhope Gardens');
-    return { lat: -33.7184, lon: 150.9151 }; // Stanhope Gardens coordinates
+  if (hardcodedCoords[postcodeNum]) {
+    console.log(`Using hardcoded coordinates for postcode ${postcodeNum}`);
+    return hardcodedCoords[postcodeNum];
   }
   
   return null;
@@ -147,26 +219,21 @@ function getLatLonFromPostcode(postcode, suburbData) {
 // Fallback data in case the JSON file can't be loaded
 function useFallbackData() {
   window.NSWSuburbs = [
-    { name: "Sydney", lat: -33.8688, lon: 151.2093 },
-    { name: "Newcastle", lat: -32.9283, lon: 151.7817 },
-    { name: "Wollongong", lat: -34.4278, lon: 150.8936 },
-    { name: "Blacktown", lat: -33.7711, lon: 150.9057 },
-    { name: "Parramatta", lat: -33.8148, lon: 151.0017 },
-    { name: "Penrith", lat: -33.7506, lon: 150.6944 },
-    { name: "Campbelltown", lat: -34.0650, lon: 150.8142 },
-    { name: "Liverpool", lat: -33.9200, lon: 150.9255 },
-    { name: "The Ponds", lat: -33.7035, lon: 150.9066 },
-    { name: "Stanhope Gardens", lat: -33.7184, lon: 150.9151 },
-    // ...other NSW suburbs with coordinates
+    { name: "Sydney", postcode: 2000, lat: -33.8688, lon: 151.2093 },
+    { name: "Newcastle", postcode: 2300, lat: -32.9283, lon: 151.7817 },
+    { name: "Wollongong", postcode: 2500, lat: -34.4278, lon: 150.8936 },
+    { name: "Blacktown", postcode: 2148, lat: -33.7711, lon: 150.9057 },
+    { name: "Parramatta", postcode: 2150, lat: -33.8148, lon: 151.0017 },
+    { name: "Penrith", postcode: 2750, lat: -33.7506, lon: 150.6944 },
+    { name: "Campbelltown", postcode: 2560, lat: -34.0650, lon: 150.8142 },
+    { name: "Liverpool", postcode: 2170, lat: -33.9200, lon: 150.9255 },
+    { name: "The Ponds", postcode: 2769, lat: -33.7035, lon: 150.9066 },
+    { name: "Stanhope Gardens", postcode: 2768, lat: -33.7184, lon: 150.9151 },
   ];
 }
 
 // Enhanced geocoding function with specific coordinates for key suburbs
 function geocodeSuburbs() {
-  // This is a simplified approach - in a real app, you would use a geocoding service
-  // like Google Maps, Mapbox, or OpenStreetMap Nominatim
-
-  // For now, let's assign coordinates to a few major suburbs
   const geocodedSuburbs = {
     "Sydney": { lat: -33.8688, lon: 151.2093 },
     "Newcastle": { lat: -32.9283, lon: 151.7817 },
@@ -182,27 +249,19 @@ function geocodeSuburbs() {
     "Castle Hill": { lat: -33.7319, lon: 151.0042 },
     "Rouse Hill": { lat: -33.6841, lon: 150.9107 },
     "Winston Hills": { lat: -33.7880, lon: 150.9773 }
-    // Add more geocoded suburbs as needed
   };
 
-  // Update our NSWSuburbs array with coordinates
+  // Update our NSWSuburbs array with coordinates where available
   window.NSWSuburbs.forEach(suburb => {
-    if (geocodedSuburbs[suburb.name]) {
+    if (geocodedSuburbs[suburb.name] && (!suburb.lat || !suburb.lon)) {
       suburb.lat = geocodedSuburbs[suburb.name].lat;
       suburb.lon = geocodedSuburbs[suburb.name].lon;
     }
-    /*else {
-      // For suburbs without known coordinates, use a default position
-      // This is not ideal but allows the app to function
-      console.log('in else block, suburb.name is=>'+suburb.name)
-      suburb.lat = -33.8688; // Sydney's coordinates as default
-      suburb.lon = 151.2093;
-    }*/
   });
 }
 
 function initializeApp() {
-  window.resultElement.innerHTML = '<p>Enter your suburb above to find the nearest Justice of the Peace.</p>';
+  window.resultElement.innerHTML = '<p>Enter a NSW suburb name or postcode above to find the nearest Justice of the Peace locations.</p>';
   setupSuburbAutocomplete();
 }
 
@@ -233,16 +292,30 @@ function setupSuburbAutocomplete() {
 }
 
 function handleSuburbInput() {
-  const query = window.suburbInput.value.trim().toLowerCase();
+  const query = window.suburbInput.value.trim();
 
   if (query.length < 2) {
     window.suburbSuggestions.style.display = 'none';
     return;
   }
 
-  const matches = window.NSWSuburbs.filter(suburb =>
-    suburb.name.toLowerCase().includes(query)
-  ).slice(0, 8); // Limit to 8 suggestions
+  let matches = [];
+  
+  // Check if input is numeric (postcode search)
+  if (/^\d+$/.test(query)) {
+    // Search by postcode
+    const postcodeQuery = parseInt(query);
+    matches = window.NSWSuburbs.filter(suburb => {
+      const postcodeStr = suburb.postcode.toString();
+      return postcodeStr.startsWith(query);
+    }).slice(0, 8);
+  } else {
+    // Search by suburb name
+    const lowerQuery = query.toLowerCase();
+    matches = window.NSWSuburbs.filter(suburb =>
+      suburb.name.toLowerCase().includes(lowerQuery)
+    ).slice(0, 8);
+  }
 
   if (matches.length === 0) {
     window.suburbSuggestions.style.display = 'none';
@@ -255,27 +328,31 @@ function handleSuburbInput() {
     const item = document.createElement('li');
     item.className = 'suburb-suggestion';
 
-    // Include postcode in the display if available
-    const displayText = suburb.postcode
-      ? `${suburb.name}, ${suburb.postcode}`
-      : suburb.name;
-
+    // Display format: "Suburb Name, Postcode"
+    const displayText = `${suburb.name}, ${suburb.postcode}`;
     item.textContent = displayText;
 
     // Highlight the matching part
-    const matchText = displayText;
-    const matchIndex = matchText.toLowerCase().indexOf(query);
+    const matchIndex = displayText.toLowerCase().indexOf(query.toLowerCase());
     if (matchIndex >= 0) {
       item.innerHTML =
-        matchText.substring(0, matchIndex) +
-        '<strong>' + matchText.substring(matchIndex, matchIndex + query.length) + '</strong>' +
-        matchText.substring(matchIndex + query.length);
+        displayText.substring(0, matchIndex) +
+        '<strong>' + displayText.substring(matchIndex, matchIndex + query.length) + '</strong>' +
+        displayText.substring(matchIndex + query.length);
     }
 
     item.addEventListener('click', () => {
+      // Set the input to just the suburb name for consistency
       window.suburbInput.value = suburb.name;
       window.suburbSuggestions.style.display = 'none';
       window.errorMessage.style.display = 'none';
+      
+      // Track autocomplete selection
+      trackEvent('autocomplete_selection', {
+        'selected_suburb': suburb.name,
+        'selected_postcode': suburb.postcode,
+        'event_category': 'engagement'
+      });
     });
 
     window.suburbSuggestions.appendChild(item);
@@ -306,18 +383,13 @@ function handleKeyboardNavigation(e) {
   else if (e.key === 'Enter') {
     e.preventDefault();
     if (window.selectedSuburbIndex >= 0 && suggestions[window.selectedSuburbIndex]) {
-      // Extract just the suburb name from the possibly "Suburb, Postcode" format
+      // Extract suburb name from "Suburb, Postcode" format
       const selectedText = suggestions[window.selectedSuburbIndex].textContent;
       const suburbName = selectedText.split(',')[0].trim();
       window.suburbInput.value = suburbName;
       window.suburbSuggestions.style.display = 'none';
-
-      // If enter is pressed with a selection, find JP
-      if (window.suburbSuggestions.style.display === 'none') {
-        findJP();
-      }
+      findJP();
     } else {
-      // If no suggestion is selected, just search
       findJP();
     }
   }
@@ -353,42 +425,39 @@ document.getElementById("find-jp").addEventListener("click", findJP);
 
 function findJP() {
   const input = window.suburbInput.value.trim();
-  console.log("My input suburb:", input);
+  console.log("Search input:", input);
   window.errorMessage.style.display = "none";
 
   if (!input) {
-    window.errorMessage.textContent = "Please enter a suburb name";
+    window.errorMessage.textContent = "Please enter a NSW suburb name or postcode";
     window.errorMessage.style.display = "block";
     return;
   }
 
-  // First try exact match (case insensitive)
-  let userSuburb = window.NSWSuburbs.find(s =>
-    s.name.toLowerCase() === input.toLowerCase()
-  );
-  console.log('userSuburb found=>',userSuburb)
+  // Find suburbs by input (handles both postcode and suburb name)
+  const matchingSuburbs = findSuburbByInput(input);
+  let userSuburb = null;
 
-  // If no exact match, try to find a partial match
-  if (!userSuburb) {
-    userSuburb = window.NSWSuburbs.find(s =>
-      s.name.toLowerCase().includes(input.toLowerCase()) ||
-      input.toLowerCase().includes(s.name.toLowerCase())
+  if (matchingSuburbs.length > 0) {
+    // If multiple matches, prefer exact name match or take first postcode match
+    const exactMatch = matchingSuburbs.find(s => 
+      s.name.toLowerCase() === input.toLowerCase()
     );
+    userSuburb = exactMatch || matchingSuburbs[0];
   }
 
   // Handle specifically for The Ponds if not found
   if (!userSuburb && input.toLowerCase() === "the ponds") {
     userSuburb = {
       name: "The Ponds",
-      postcode: "2769",
+      postcode: 2769,
       lat: -33.7035,
       lon: 150.9066
     };
   }
 
-  // If still no match, try Levenshtein distance
-  if (!userSuburb) {
-    console.log('In userSuburb block')
+  // If still no match, try Levenshtein distance for suburb names
+  if (!userSuburb && !/^\d+$/.test(input)) {
     let closestMatch = null;
     let closestDistance = Infinity;
 
@@ -408,8 +477,14 @@ function findJP() {
   }
 
   if (!userSuburb) {
-    window.errorMessage.textContent = "Suburb not found. Please check your spelling or select from the dropdown.";
+    window.errorMessage.textContent = "Suburb or postcode not found. Please check your spelling or select from the dropdown suggestions.";
     window.errorMessage.style.display = "block";
+    
+    // Track failed search
+    trackEvent('search_not_found', {
+      'search_term': input,
+      'event_category': 'engagement'
+    });
     return;
   }
 
@@ -418,14 +493,21 @@ function findJP() {
     // Try to get coordinates from postcode
     const latLon = getLatLonFromPostcode(userSuburb.postcode, window.NSWSuburbs);
     if (latLon) {
-      console.log('latLon.lat=>'+latLon.lat+'latLon.lon=>'+latLon.lon);
+      console.log('Got coordinates from postcode:', latLon.lat, latLon.lon);
       userSuburb.lat = latLon.lat;
       userSuburb.lon = latLon.lon;
     } else {
       window.resultElement.innerHTML = `
-        <p style="color:orange;">We don't have precise location data for ${userSuburb.name}.</p>
-        <p>Please try a different suburb or contact support.</p>
+        <p style="color:orange;">We don't have precise location data for ${userSuburb.name} (${userSuburb.postcode}).</p>
+        <p>Please try a different suburb or postcode, or contact support.</p>
       `;
+      
+      // Track location data missing
+      trackEvent('location_data_missing', {
+        'suburb_name': userSuburb.name,
+        'postcode': userSuburb.postcode,
+        'event_category': 'error'
+      });
       return;
     }
   }
@@ -433,9 +515,6 @@ function findJP() {
   console.log("User suburb:", userSuburb.name, "coordinates:", userSuburb.lat, userSuburb.lon);
 
   function createLocationElement(jp) {
-      // Generate the maps link
-      const mapsLink = `https://www.google.com/maps?q=${jp.address}`;
-
       // Process hours
       let hoursHTML = '';
       if (jp.hours && typeof jp.hours === 'object') {
@@ -447,7 +526,7 @@ function findJP() {
         }
         hoursHTML += '</ul>';
       }
-      return hoursHTML
+      return hoursHTML;
   }
 
   // Calculate distances for all JP locations
@@ -466,7 +545,6 @@ function findJP() {
 
     // Calculate distance
     const dist = getDistance(userSuburb.lat, userSuburb.lon, jp.lat, jp.lon);
-    //console.log(`Distance to ${jp.name}: ${dist.toFixed(2)} km`);
 
     // Return JP with distance
     return {
@@ -483,8 +561,12 @@ function findJP() {
   if (topThree.length > 0) {
     const postcodeInfo = userSuburb.postcode ? ` (${userSuburb.postcode})` : '';
 
-    // Start building the results HTML
-    let resultsHTML = `<h3>Results for ${userSuburb.name}${postcodeInfo}</h3>`;
+    // Track successful search
+    trackSearch(userSuburb.name, userSuburb.postcode, topThree.length);
+
+    // Start building the results HTML with SEO-friendly content
+    let resultsHTML = `<h3>Justice of the Peace (JP) Locations Near ${userSuburb.name}${postcodeInfo}</h3>`;
+    resultsHTML += `<p class="results-intro">Find the closest JP services in your area. These Justice of the Peace locations offer document witnessing, statutory declarations, and other notarial services.</p>`;
 
     // Add each of the top 3 locations
     topThree.forEach((jp, index) => {
@@ -507,14 +589,19 @@ function findJP() {
       }
 
       resultsHTML += `
-        <div class="jp-location">
-          <h4>${index + 1}. ${displayName}</h4>
-          <p class="jp-address">${jp.address}</p>
+        <div class="jp-location" itemscope itemtype="https://schema.org/GovernmentService">
+          <h4 itemprop="name">${index + 1}. ${displayName}</h4>
+          <p class="jp-address" itemprop="address">${jp.address}</p>
           ${additionalInfo ? `<p class="jp-additional-info">${additionalInfo}</p>` : ''}
-          <p class="jp-days"><strong>Days:</strong> ${jp.days || ''}</p>
+          <p class="jp-days"><strong>Available Days:</strong> <span itemprop="availableService">${jp.days || 'Contact for availability'}</span></p>
           ${createLocationElement(jp)}
-          <p class="jp-distance"><strong>Distance:</strong> ${jp.distance.toFixed(2)} km</p>
-          <p class="jp-map-link"><a href="${mapsLink}" target="_blank">View on Google Maps</a></p>
+          <p class="jp-distance"><strong>Distance from ${userSuburb.name}:</strong> ${jp.distance.toFixed(2)} km</p>
+          <p class="jp-map-link">
+            <a href="${mapsLink}" target="_blank" onclick="trackLocationClick('${displayName.replace(/'/g, "\\'")}', ${jp.distance})">
+              View ${displayName} on Google Maps →
+            </a>
+          </p>
+          <p class="jp-description">Justice of the Peace services including document witnessing, statutory declarations, and certified copies.</p>
         </div>
       `;
 
@@ -524,10 +611,39 @@ function findJP() {
       }
     });
 
+    // Add SEO-friendly footer content
+    resultsHTML += `
+      <div class="search-footer">
+        <p><strong>About JP Services:</strong> Justice of the Peace officers can witness documents, administer oaths, take statutory declarations, and certify copies of original documents. All services shown are for ${userSuburb.name} and surrounding NSW areas.</p>
+        <p><em>Need JP services in another area? Search for any NSW suburb or postcode above.</em></p>
+      </div>
+    `;
+
     window.resultElement.innerHTML = resultsHTML;
   } else {
-    window.resultElement.innerHTML = `<p class="error-message">No JP locations found nearby ${userSuburb.name}.</p>`;
+    window.resultElement.innerHTML = `
+      <div class="no-results">
+        <p class="error-message">No Justice of the Peace locations found near ${userSuburb.name}${userSuburb.postcode ? ` (${userSuburb.postcode})` : ''}.</p>
+        <p>Try searching for a nearby suburb or contact your local council for JP availability in your area.</p>
+      </div>
+    `;
+    
+    // Track no results found
+    trackEvent('no_results_found', {
+      'suburb_name': userSuburb.name,
+      'postcode': userSuburb.postcode,
+      'event_category': 'engagement'
+    });
   }
+}
+
+// Enhanced tracking for map link clicks
+function trackLocationClick(jpName, distance) {
+  trackEvent('jp_location_click', {
+    'jp_name': jpName,
+    'distance_km': Math.round(distance * 10) / 10,
+    'event_category': 'engagement'
+  });
 }
 
 function levenshtein(a, b) {
