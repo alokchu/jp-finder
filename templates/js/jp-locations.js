@@ -218,6 +218,20 @@ const jpLocations = [
     "lon": 151.1288
   },
   {
+    "name": "Constitution Hill Branch Library",
+    "address": "20 Hollis Street\nConstitution Hill NSW 2145",
+    "days": "Tuesday and Saturday",
+    "hours": {
+      "Tuesday": "10:00 AM - 1:30 PM",
+      "Saturday": "9:30 AM - 12:00 PM"
+    },
+    "council": "City of Parramatta",
+    "source_url": "https://historyandheritage.cityofparramatta.nsw.gov.au/blog/2020/05/08/constitution-hill-branch-library",
+    "postcode": "2145",
+    "lat": -33.7990,
+    "lon": 150.9730
+  },  
+  {
     "name": "Roseville Library 2 Clermiston Avenue Roseville NSW 2069",
     "address": "Roseville Library\n2 Clermiston Avenue\nRoseville NSW 2069",
     "days": "Monday, Saturday",
