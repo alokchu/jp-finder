@@ -2031,15 +2031,10 @@ const jpLocations = [
   {
     "name": "Epping Library",
     "address": "Epping Library\nChambers Court\n1 Chambers Court\nEpping NSW 2121",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
     "council": "City of Parramatta",
     "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/epping-library",
     "postcode": "2121",
+    "notes": "JPs on rotating roster every week, contact (02)9806 5843 to check hours and make a booking!",
     "lat": -33.7728,
     "lon": 151.0824
   },
