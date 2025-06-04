@@ -2456,7 +2456,49 @@ const jpLocations = [
     "postcode": "2065",
     "lat": -33.8252,
     "lon": 151.1892
-  }
+  },
+  {
+    "name": "Bateau Bay Square",
+    "address": "Bateau Bay Square\n12 Bay Village Road\nBateau Bay NSW 2261",
+    "council": "Central Coast Council",
+    "source_url": "https://www.bateaubaysquare.com.au/community-hub/news-and-events/news-details/bateaubaysquare/2023/01/24/justice-of-the-peace",
+    "postcode": "2261",
+    "days": "Thursday",
+    "hours": {
+      "Thursday": "9:30 AM - 12:30 PM"
+    },
+    "notes": "Located next to Mr Minit, opposite Coles. No booking required.",
+    "lat": -33.3811,
+    "lon": 151.4707
+  },  
+  {
+    "name": "Belmont Local Court",
+    "address": "Belmont Local Court\n597 Pacific Highway\nBelmont NSW 2280",
+    "council": "Lake Macquarie City Council",
+    "source_url": "https://dcj.nsw.gov.au/legal-and-justice/legal-assistance-and-representation/justice-of-the-peace/become-a-jp/taking-your-oaths.html",
+    "postcode": "2280",
+    "days": "By Appointment",
+    "hours": {},
+    "notes": "JP services available by appointment. Email local-court-belmont@justice.nsw.gov.au to schedule.",
+    "lat": -33.0221,
+    "lon": 151.6601
+  },
+  {
+    "name": "Tweed City Shopping Centre",
+    "address": "Tweed City Shopping Centre\n54 Minjungbal Drive\nTweed Heads South NSW 2486",
+    "council": "Tweed Shire Council",
+    "source_url": "https://www.tweedcity.com.au/whats-new/editorial/jp-services/",
+    "postcode": "2486",
+    "days": "Monday, Thursday, Saturday",
+    "hours": {
+      "Monday": "10:30 AM - 1:30 PM",
+      "Thursday": "10:30 AM - 1:30 PM, 5:00 PM - 6:30 PM",
+      "Saturday": "9:00 AM - 11:00 AM"
+    },
+    "notes": "Located behind the Customer Service Desk near Cotton On Kids.",
+    "lat": -28.2065,
+    "lon": 153.5408
+  }  
 ];
 
 // Export the jpLocations array so main.js can use it
