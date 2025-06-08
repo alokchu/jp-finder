@@ -2498,7 +2498,61 @@ const jpLocations = [
     "notes": "Located behind the Customer Service Desk near Cotton On Kids.",
     "lat": -28.2065,
     "lon": 153.5408
-  }  
+  },
+  {
+    "name": "Birmingham Gardens Community Centre",
+    "address": "Birmingham Gardens Community Centre\nCnr Wilkinson Avenue & Moore Street\nBirmingham Gardens NSW 2287",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "9:00 AM - 4:00 PM",
+      "Tuesday": "9:00 AM - 4:00 PM",
+      "Wednesday": "9:00 AM - 4:00 PM",
+      "Thursday": "9:00 AM - 4:00 PM",
+      "Friday": "9:00 AM - 4:00 PM"
+    },
+    "council": "City of Newcastle",
+    "source_url": "https://www.newcastle.nsw.gov.au/Community/Community-Facilities/Community-Centres/Birmingham-Gardens-Community-Centre",
+    "postcode": "2287",
+    "lat": -32.8925,
+    "lon": 151.6986,
+    "notes": "JP services available; please contact the centre to confirm JP availability and specific service times."
+  },
+  {
+    "name": "Box Hill Justice Service Centre",
+    "address": "Box Hill Justice Service Centre\n5/21 Nelson Road\nBox Hill NSW 2765",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "9:00 AM - 5:00 PM",
+      "Tuesday": "9:00 AM - 5:00 PM",
+      "Wednesday": "9:00 AM - 5:00 PM",
+      "Thursday": "9:00 AM - 5:00 PM",
+      "Friday": "9:00 AM - 5:00 PM"
+    },
+    "council": "The Hills Shire Council",
+    "source_url": "https://openhoursaustralia.com/en/box-hill/box-hill-justice-service-centre",
+    "postcode": "2765",
+    "lat": -33.6761,
+    "lon": 150.8655,
+    "notes": "Walk-in JP services available during business hours; no appointment necessary."
+  },
+  {
+    "name": "Caddens Corner Shopping Centre",
+    "address": "Caddens Corner Shopping Centre\n68 O'Connell Street\nCaddens NSW 2747",
+    "days": "Monday to Friday",
+    "hours": {
+      "Monday": "9:00 AM - 5:00 PM",
+      "Tuesday": "9:00 AM - 5:00 PM",
+      "Wednesday": "9:00 AM - 5:00 PM",
+      "Thursday": "9:00 AM - 5:00 PM",
+      "Friday": "9:00 AM - 5:00 PM"
+    },
+    "council": "Penrith City Council",
+    "source_url": "https://www.caddenscorner.com.au/",
+    "postcode": "2747",
+    "lat": -33.7684,
+    "lon": 150.7289,
+    "notes": "JP services available at the shopping centre; please check with individual retailers or the customer service desk for specific JP service times."
+  }       
 ];
 
 // Export the jpLocations array so main.js can use it
