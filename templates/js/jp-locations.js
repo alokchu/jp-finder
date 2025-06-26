@@ -2435,20 +2435,6 @@ const jpLocations = [
     "lon": 151.1944
   },
   {
-    "name": "Greenwich Library",
-    "address": "Greenwich Library\n48 Greenwich Road\nGreenwich NSW 2065",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
-    },
-    "council": "Lane Cove Council",
-    "source_url": "https://www.lanecove.nsw.gov.au/Community/Pages/JusticeofthePeace.aspx",
-    "postcode": "2065",
-    "lat": -33.8308,
-    "lon": 151.1842
-  },
-  {
     "name": "Northbridge Plaza",
     "address": "Northbridge Plaza\nCustomer Service Desk\n79-113 Sailors Bay Road\nNorthbridge NSW 2063",
     "days": "Monday, Wednesday",
