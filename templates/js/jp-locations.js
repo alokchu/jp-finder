@@ -391,23 +391,6 @@ const jpLocations = [
     "lon": 150.9068
   },
   {
-    "name": "Sutherland Shire Council Administration Centre 4-20 Eton Street Sutherland NSW 2232",
-    "address": "Sutherland Shire Council Administration Centre\n4-20 Eton Street\nSutherland NSW 2232",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Sutherland Shire Council",
-    "source_url": "https://www.sutherlandshire.nsw.gov.au/Residents/Justice-of-the-Peace",
-    "postcode": "2232",
-    "lat": -34.0327,
-    "lon": 151.0574
-  },
-  {
     "name": "Parramatta City Council Customer Contact Centre 126 Church Street Parramatta NSW 2150",
     "address": "Parramatta City Council Customer Contact Centre\n126 Church Street\nParramatta NSW 2150",
     "days": "Monday to Friday",
@@ -605,20 +588,72 @@ const jpLocations = [
     "lon": 150.9068
   },
   {
-    "name": "Westfield Liverpool Concierge Level 2, 175 Macquarie Street Liverpool NSW 2170",
-    "address": "Westfield Liverpool Concierge\nLevel 2\n175 Macquarie Street\nLiverpool NSW 2170",
-    "days": "Monday, Friday, Saturday",
+    "name": "Liverpool City Library (Yellamundie) 98 Bigge Street Liverpool NSW 2170",
+    "address": "Liverpool City Library (Yellamundie)\n98 Bigge Street\nLiverpool NSW 2170",
+    "days": "Wednesday, Friday, Saturday",
     "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Friday": "4:00 PM - 7:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
+      "Wednesday": "11:00 AM - 1:00 PM",
+      "Friday": "11:00 AM - 1:00 PM",
+      "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Liverpool City Council",
-    "source_url": "https://www.westfield.com.au/liverpool/services",
+    "source_url": "https://mylibrary.liverpool.nsw.gov.au/services/justice-of-the-peace-service",
     "postcode": "2170",
-    "lat": -33.9200,
-    "lon": 150.9260
+    "lat": -33.9181,
+    "lon": 150.9200
   },
+  {
+    "name": "Carnes Hill Library 11 Carnes Hill Drive Carnes Hill NSW 2171",
+    "address": "Carnes Hill Library\n11 Carnes Hill Drive\nCarnes Hill NSW 2171",
+    "days": "Wednesday",
+    "hours": {
+      "Wednesday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Liverpool City Council",
+    "source_url": "https://mylibrary.liverpool.nsw.gov.au/services/justice-of-the-peace-service",
+    "postcode": "2171",
+    "lat": -33.9460,
+    "lon": 150.8535
+  },
+  {
+    "name": "Casula Library 19 Hillcrest Road Casula NSW 2170",
+    "address": "Casula Library\n19 Hillcrest Road\nCasula NSW 2170",
+    "days": "Tuesday",
+    "hours": {
+      "Tuesday": "5:30 PM - 7:30 PM"
+    },
+    "council": "Liverpool City Council",
+    "source_url": "https://mylibrary.liverpool.nsw.gov.au/services/justice-of-the-peace-service",
+    "postcode": "2170",
+    "lat": -33.9230,
+    "lon": 150.9000
+  },
+  {
+    "name": "Green Valley Library 202 John Street Green Valley NSW 2168",
+    "address": "Green Valley Library\n202 John Street\nGreen Valley NSW 2168",
+    "days": "Monday",
+    "hours": {
+      "Monday": "5:30 PM - 7:30 PM"
+    },
+    "council": "Liverpool City Council",
+    "source_url": "https://mylibrary.liverpool.nsw.gov.au/services/justice-of-the-peace-service",
+    "postcode": "2168",
+    "lat": -33.9105,
+    "lon": 150.8977
+  },
+  {
+    "name": "Moorebank Library 20 Moore Street Moorebank NSW 2170",
+    "address": "Moorebank Library\n20 Moore Street\nMoorebank NSW 2170",
+    "days": "Tuesday",
+    "hours": {
+      "Tuesday": "5:30 PM - 7:30 PM"
+    },
+    "council": "Liverpool City Council",
+    "source_url": "https://mylibrary.liverpool.nsw.gov.au/services/justice-of-the-peace-service",
+    "postcode": "2170",
+    "lat": -33.9586,
+    "lon": 150.9255
+  }, 
   {
     "name": "Westfield Miranda Customer Service Level 2, 600 Kingsway Miranda NSW 2228",
     "address": "Westfield Miranda Customer Service\nLevel 2\n600 Kingsway\nMiranda NSW 2228",
@@ -2233,21 +2268,6 @@ const jpLocations = [
     "postcode": "2000",
     "lat": -33.8797,
     "lon": 151.2043
-  },
-  {
-    "name": "Queen Victoria Building Service Desk",
-    "address": "Queen Victoria Building\nLevel 2 Service Desk\n455 George Street\nSydney NSW 2000",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "11:00 AM - 2:00 PM",
-      "Thursday": "3:00 PM - 6:00 PM",
-      "Saturday": "11:00 AM - 2:00 PM"
-    },
-    "council": "City of Sydney",
-    "source_url": "https://www.qvb.com.au/services",
-    "postcode": "2000",
-    "lat": -33.8716,
-    "lon": 151.2069
   },
   {
     "name": "The Galeries Customer Service",
