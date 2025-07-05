@@ -765,8 +765,8 @@ const jpLocations = [
     "address": "Randwick City Library - Bowen Library\n669-673 Anzac Parade\nMaroubra NSW 2035",
     "days": "Tuesday, Thursday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
+      "Wednesday": "2:00 PM - 3:30 PM",
+      "Sunday": "1:00 PM - 2:30 PM"
     },
     "council": "Randwick City Council",
     "source_url": "https://www.randwick.nsw.gov.au/library/about-the-library/locations-and-opening-hours",
