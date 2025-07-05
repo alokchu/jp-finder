@@ -2132,21 +2132,6 @@ const jpLocations = [
     "lon": 151.0454
   },
   {
-    "name": "Kellyville Village Shopping Centre",
-    "address": "Kellyville Village Shopping Centre\nCustomer Service Desk\n90 Wrights Road\nKellyville NSW 2155",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
-    },
-    "council": "The Hills Shire Council",
-    "source_url": "https://www.thehills.nsw.gov.au/Services/Justice-of-the-Peace",
-    "postcode": "2155",
-    "lat": -33.7128,
-    "lon": 150.9567
-  },
-  {
     "name": "Kellyville Community Centre",
     "address": "Kellyville Community Centre\n45 Windsor Road\nKellyville NSW 2155",
     "days": "Tuesday, Thursday",
