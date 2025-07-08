@@ -2176,23 +2176,6 @@ const jpLocations = [
     "lon": 151.0247
   },
   {
-    "name": "Sydney Town Hall Customer Service Centre",
-    "address": "Sydney Town Hall\n483 George Street\nSydney NSW 2000",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:00 AM - 6:00 PM",
-      "Tuesday": "8:00 AM - 6:00 PM",
-      "Wednesday": "8:00 AM - 6:00 PM",
-      "Thursday": "8:00 AM - 6:00 PM",
-      "Friday": "8:00 AM - 6:00 PM"
-    },
-    "council": "City of Sydney",
-    "source_url": "https://www.cityofsydney.nsw.gov.au/guides/justice-of-the-peace",
-    "postcode": "2000",
-    "lat": -33.8731,
-    "lon": 151.2073
-  },
-  {
     "name": "Customs House Library",
     "address": "Customs House Library\n31 Alfred Street\nSydney NSW 2000",
     "days": "Tuesday, Thursday, Saturday",
