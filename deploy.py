@@ -74,6 +74,12 @@ class JPFinderDeployer:
             shutil.copy2(gsc_file, self.build_dir)
             logger.info("Copied Google Search Console verification file")
 
+        # Copy ads.txt
+        gsc_file2 = self.templates_dir / "ads.txt"
+        if gsc_file2.exists():
+            shutil.copy2(gsc_file2, self.build_dir)
+            logger.info("Copied ads.txt file")
+
         # Copy static files
         self.copy_static_files()
 
