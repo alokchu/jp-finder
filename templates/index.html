@@ -3,10 +3,11 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6111084230980098"
+     crossorigin="anonymous"></script>
   <script>
     // Debug logging
     console.log('Starting GA initialization....');
-    
     // Error handling for script loading
     window.onerror = function(msg, url, line) {
       console.error('Script error:', msg);
@@ -21,14 +22,12 @@
       console.log('gtag called with:', Array.from(arguments));
       dataLayer.push(arguments);
     }
-    
     // Initialize GA with optimized configuration
     gtag('js', new Date());
     gtag('config', 'G-1MEP8KQ1D9', {
       send_page_view: true,
       page_title: 'NSW JP Finder Home'
     });
-    
     // Track key user interactions
     window.addEventListener('load', function() {
       // Track page load performance
@@ -41,7 +40,6 @@
         });
       }
     });
-    
     console.log('GA initialization complete');
   </script>
   <meta charset="UTF-8" />
@@ -119,7 +117,6 @@
       document.getElementById('find-jp').addEventListener('click', function () {
         const searchTerm = document.getElementById('suburb-input').value;
         const isPostcode = /^\d{4}$/.test(searchTerm.trim());
-        
         gtag('event', 'search', {
           'search_term': searchTerm,
           'search_type': isPostcode ? 'postcode' : 'suburb',
@@ -146,14 +143,12 @@
           }
         });
       });
-
       observer.observe(resultDiv, { childList: true });
-      
+
       // Track interactions with Google Maps links
       document.addEventListener('click', function(e) {
         if (e.target && e.target.matches('a[href*="google.com/maps"]')) {
           const locationName = e.target.closest('.jp-location')?.querySelector('h4')?.textContent || 'Unknown Location';
-          
           gtag('event', 'select_content', {
             'content_type': 'map_link',
             'item_id': locationName,
@@ -172,10 +167,9 @@
       --background-color: #f8fafc;
       --text-color: #2d3748;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      max-width: 800px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 1rem;
       background-color: var(--background-color);
@@ -183,14 +177,11 @@
       line-height: 1.6;
       box-sizing: border-box;
     }
-
-    /* Add box-sizing to all elements */
     *,
     *:before,
     *:after {
       box-sizing: inherit;
     }
-
     .header-container {
       text-align: center;
       margin-bottom: 2rem;
@@ -200,19 +191,16 @@
       color: white;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     h1 {
       margin: 0;
       font-size: 2.2rem;
       font-weight: 700;
     }
-
     .subtitle {
       font-size: 1.1rem;
       margin: 0.5rem 0;
       opacity: 0.9;
     }
-
     .important-notice {
       background-color: #fff;
       border-left: 4px solid var(--accent-color);
@@ -221,7 +209,6 @@
       border-radius: 0 4px 4px 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     #search-container {
       background: white;
       padding: 1.5rem;
@@ -231,7 +218,6 @@
       width: 100%;
       max-width: 100%;
     }
-
     label {
       color: var(--primary-color);
       font-weight: 600;
@@ -239,13 +225,11 @@
       margin-bottom: 0.75rem;
       display: block;
     }
-
     .input-container {
       margin-bottom: 1.5rem;
       position: relative;
       width: 100%;
     }
-
     #suburb-input {
       width: 100%;
       padding: 12px 12px 12px 40px;
@@ -255,13 +239,11 @@
       transition: all 0.3s ease;
       max-width: 100%;
     }
-
     #suburb-input:focus {
       outline: none;
       border-color: var(--secondary-color);
       box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
     }
-
     .search-icon {
       position: absolute;
       left: 15px;
@@ -269,7 +251,6 @@
       transform: translateY(-50%);
       color: #718096;
     }
-
     #find-jp {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
@@ -282,20 +263,17 @@
       width: 100%;
       transition: all 0.3s ease;
     }
-
     #find-jp:hover {
       background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
       transform: translateY(-1px);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     #result {
       background: white;
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     .jp-location {
       border-left: 4px solid var(--accent-color);
       margin-bottom: 1.5rem;
@@ -304,77 +282,62 @@
       border-radius: 0 4px 4px 0;
       transition: transform 0.2s ease;
     }
-
     .jp-location:hover {
       transform: translateX(5px);
     }
-
     /* Mobile optimizations */
     @media (max-width: 480px) {
       body {
         padding: 0.5rem;
       }
-
       .header-container {
         padding: 1rem;
         margin-bottom: 1rem;
       }
-
       #search-container {
         padding: 1rem;
       }
-
       h1 {
         font-size: 1.5rem;
       }
-
       .subtitle {
         font-size: 1rem;
       }
-
       #suburb-input {
         padding: 10px 10px 10px 35px;
         font-size: 16px;
       }
-
       .search-icon {
         left: 12px;
       }
-
       .important-notice {
         margin: 0.5rem 0;
         padding: 0.75rem;
       }
     }
-
     #error-message {
       color: red;
       margin-top: 5px;
       display: none;
     }
-
     #status-message {
       margin-top: 10px;
       padding: 8px;
       border-radius: 4px;
       display: none;
     }
-
     .success {
       background-color: #d4edda;
       color: #155724;
     }
-
     .warning {
       background-color: #fff3cd;
       color: #856404;
     }
-
     .error {
       background-color: #f8d7da;
       color: #721c24;
     }
-
     /* Custom autocomplete styling */
     .suburb-suggestions {
       max-height: 200px;
@@ -390,17 +353,14 @@
       padding: 0;
       list-style: none;
     }
-
     .suburb-suggestion {
       padding: 8px 12px;
       cursor: pointer;
     }
-
     .suburb-suggestion:hover,
     .suburb-suggestion.selected {
       background-color: #f0f0f0;
     }
-
     /* Feedback Form Styles */
     .feedback-container {
       background: white;
@@ -409,27 +369,22 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin: 2rem 0;
     }
-
     .feedback-container h2 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
     }
-
     .feedback-form {
       margin-top: 1.5rem;
     }
-
     .form-group {
       margin-bottom: 1.25rem;
     }
-
     .form-group label {
       display: block;
       margin-bottom: 0.5rem;
       color: var(--text-color);
       font-weight: 500;
     }
-
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -440,7 +395,6 @@
       font-size: 1rem;
       transition: all 0.3s ease;
     }
-
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
@@ -448,14 +402,12 @@
       border-color: var(--secondary-color);
       box-shadow: 0 0 0 3px rgba(47, 79, 79, 0.1);
     }
-
     .form-group small {
       display: block;
       margin-top: 0.25rem;
       color: #718096;
       font-size: 0.875rem;
     }
-
     .submit-button {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
@@ -467,35 +419,29 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .submit-button:hover {
       background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
       transform: translateY(-1px);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     .hidden {
       display: none !important;
     }
-
     /* Mobile responsiveness for form */
     @media (max-width: 480px) {
       .feedback-container {
         padding: 1rem;
         margin: 1rem 0;
       }
-
       .form-group {
         margin-bottom: 1rem;
       }
-
       .form-group input,
       .form-group select,
       .form-group textarea {
         padding: 0.5rem;
       }
     }
-
     /* Add success message styles */
     .feedback-message {
       padding: 1rem;
@@ -505,50 +451,41 @@
       font-weight: 500;
       animation: slideIn 0.3s ease-out;
     }
-
     .feedback-message.success {
       background-color: #d1fae5;
       border: 1px solid #059669;
       color: #065f46;
     }
-
     #feedback-loading {
       background-color: #e0f2fe;
       border: 1px solid #0284c7;
       color: #075985;
     }
-
     @keyframes slideIn {
       from {
         opacity: 0;
         transform: translateY(-10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     /* Add loading animation */
     @keyframes pulse {
       0% {
         opacity: 1;
       }
-
       50% {
         opacity: 0.6;
       }
-
       100% {
         opacity: 1;
       }
     }
-
     #feedback-loading {
       animation: slideIn 0.3s ease-out, pulse 1.5s ease-in-out infinite;
     }
-    
     /* Added styles for SEO-related content */
     .jp-services-info {
       margin-top: 2rem;
@@ -557,16 +494,13 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
     .jp-services-info h2 {
       color: var(--primary-color);
       margin-bottom: 1rem;
     }
-    
     .jp-services-info p {
       margin-bottom: 1rem;
     }
-    
     /* Style for location divider */
     .location-divider {
       border: 0;
@@ -574,18 +508,15 @@
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
       margin: 1.5rem 0;
     }
-
     /* New styles for regional JP locations */
     .region-locations {
       margin-top: 1.5rem;
     }
-
     .region-locations h3 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
       font-size: 1.1rem;
     }
-
     .region-locations ul {
       list-style: none;
       padding-left: 0;
@@ -593,7 +524,6 @@
       display: flex;
       flex-wrap: wrap;
     }
-
     .region-locations li {
       margin-right: 10px;
       margin-bottom: 5px;
@@ -601,6 +531,59 @@
       padding: 3px 10px;
       border-radius: 15px;
       font-size: 0.9rem;
+    }
+    /* Main layout for sidebar ads */
+    .main-layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .main-content {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .sidebar-ads {
+      width: 270px;
+      min-width: 200px;
+      max-width: 300px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      padding: 1.5rem 1rem;
+      margin-top: 0.5rem;
+      position: sticky;
+      top: 2rem;
+    }
+    .sidebar-ads h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .ad-banner {
+      display: block;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto 1.5rem auto;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: #f9fafb;
+      text-align: center;
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+    /* Responsive: Stack on mobile */
+    @media (max-width: 900px) {
+      .main-layout {
+        flex-direction: column;
+        gap: 0;
+      }
+      .sidebar-ads {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+        position: static;
+      }
     }
   </style>
 </head>
@@ -611,125 +594,154 @@
     <p class="subtitle">Find JP services at community locations near you</p>
   </div>
 
-  <div class="important-notice">
-    <strong>Please Note:</strong> This service helps you find JP services at public locations like shopping centres,
-    libraries, and community centres. We do not provide information about individual JPs.
-  </div>
+  <div class="main-layout">
+    <div class="main-content">
+      <div class="important-notice">
+        <strong>Please Note:</strong> This service helps you find JP services at public locations like shopping centres,
+        libraries, and community centres. We do not provide information about individual JPs.
+      </div>
 
-  <div id="search-container">
-    <label for="suburb-input">Find a JP near you:</label>
-    <div class="input-container">
-      <span class="search-icon">🔍</span>
-      <input id="suburb-input" type="text" placeholder="Enter suburb or postcode (e.g. The Ponds or 2769)" autocomplete="off" />
+      <div id="search-container">
+        <label for="suburb-input">Find a JP near you:</label>
+        <div class="input-container">
+          <span class="search-icon">🔍</span>
+          <input id="suburb-input" type="text" placeholder="Enter suburb or postcode (e.g. The Ponds or 2769)" autocomplete="off" />
+        </div>
+        <div id="suburb-suggestions" class="suburb-suggestions" style="display: none;"></div>
+        <div id="error-message"></div>
+        <button id="find-jp">Find Nearest JP</button>
+        <div id="status-message"></div>
+      </div>
+
+      <div id="result">
+        <p>Enter your suburb or postcode above to find JP services at community locations near you.</p>
+      </div>
+      
+      <!-- Enhanced SEO content about JP services -->
+      <div class="jp-services-info">
+        <h2>Justice of the Peace Services in NSW</h2>
+        <p>A Justice of the Peace (JP) in New South Wales provides free services to the community, including witnessing statutory declarations, affidavits, and certifying copies of original documents. JPs can be found at various community locations such as shopping centers, libraries, council offices, and community hubs across NSW.</p>
+        
+        <p>Common documents that require a JP include:</p>
+        <ul>
+          <li>Statutory declarations</li>
+          <li>Certified copies of original documents</li>
+          <li>Affidavits</li>
+          <li>Land title documents</li>
+          <li>Medical certificates</li>
+          <li>Change of name forms</li>
+          <li>Power of attorney documents</li>
+          <li>Passport applications</li>
+        </ul>
+        
+        <p>Our JP Finder helps you locate JP services across NSW regions including Sydney, Parramatta, Blacktown, The Ponds, Stanhope Gardens, Newcastle, Wollongong, and more. Simply enter your suburb name or postcode to find the nearest Justice of the Peace service points.</p>
+
+        <h3>Why Use a Justice of the Peace?</h3>
+        <p>JPs provide an essential service to the community by helping people with important legal and administrative documents. When you need official documents certified or witnessed, a JP can verify your identity and ensure the proper procedures are followed. This service is completely free of charge throughout NSW.</p>
+
+        <div class="region-locations">
+          <h3>Popular JP Service Locations in NSW:</h3>
+          <ul>
+            <li>Sydney CBD</li>
+            <li>Parramatta</li>
+            <li>The Ponds</li>
+            <li>Blacktown</li>
+            <li>Liverpool</li>
+            <li>Penrith</li>
+            <li>Newcastle</li>
+            <li>Wollongong</li>
+            <li>Central Coast</li>
+            <li>Rouse Hill</li>
+            <li>Castle Hill</li>
+            <li>Hornsby</li>
+            <li>Chatswood</li>
+          </ul>
+        </div>
+
+        <h3>Types of JP Services Available</h3>
+        <ul>
+          <li><strong>Shopping Centre JP Services</strong> - Many shopping centers host regular JP services on specific days and times</li>
+          <li><strong>Library JP Services</strong> - Local libraries often have scheduled JP services available to the public</li>
+          <li><strong>Council JP Services</strong> - Many local councils provide JP services during business hours</li>
+          <li><strong>Community JP Services</strong> - Community centers and neighborhood houses may offer JP services</li>
+        </ul>
+
+        <p>This JP Finder tool is designed to help NSW residents quickly locate the most convenient JP service location near them. By entering your suburb or postcode, you'll find up-to-date information on where and when JP services are available in your area.</p>
+      </div>
+
+      <!-- Feedback Form Section -->
+      <div id="feedback-section" class="feedback-container">
+        <h2>Help Us Improve</h2>
+        <p>Your feedback helps us make this service better for everyone.</p>
+
+        <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
+          <input type="hidden" name="form-name" value="jp-feedback" />
+
+          <!-- Add loading and success message containers -->
+          <div id="feedback-loading" class="feedback-message hidden">
+            <p>📤 Sending your feedback...</p>
+          </div>
+
+          <div id="feedback-success" class="feedback-message success hidden">
+            <p>✅ Thank you! Your feedback has been received.</p>
+          </div>
+
+          <p class="hidden">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-group">
+            <label for="feedback-type">Type of Feedback</label>
+            <select id="feedback-type" name="feedback-type" required>
+              <option value="">Please select...</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="location-update">Location Update</option>
+              <option value="bug-report">Bug Report</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-message">Your Feedback</label>
+            <textarea id="feedback-message" name="feedback-message" rows="4" required
+              placeholder="Please share your thoughts..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-email">Email (optional)</label>
+            <input type="email" id="feedback-email" name="feedback-email" placeholder="your@email.com">
+            <small>Only if you'd like us to follow up with you</small>
+          </div>
+
+          <button type="submit" class="submit-button">Send Feedback</button>
+        </form>
+      </div>
     </div>
-    <div id="suburb-suggestions" class="suburb-suggestions" style="display: none;"></div>
-    <div id="error-message"></div>
-    <button id="find-jp">Find Nearest JP</button>
-    <div id="status-message"></div>
-  </div>
-
-  <div id="result">
-    <p>Enter your suburb or postcode above to find JP services at community locations near you.</p>
-  </div>
-  
-  <!-- Enhanced SEO content about JP services -->
-  <div class="jp-services-info">
-    <h2>Justice of the Peace Services in NSW</h2>
-    <p>A Justice of the Peace (JP) in New South Wales provides free services to the community, including witnessing statutory declarations, affidavits, and certifying copies of original documents. JPs can be found at various community locations such as shopping centers, libraries, council offices, and community hubs across NSW.</p>
-    
-    <p>Common documents that require a JP include:</p>
-    <ul>
-      <li>Statutory declarations</li>
-      <li>Certified copies of original documents</li>
-      <li>Affidavits</li>
-      <li>Land title documents</li>
-      <li>Medical certificates</li>
-      <li>Change of name forms</li>
-      <li>Power of attorney documents</li>
-      <li>Passport applications</li>
-    </ul>
-    
-    <p>Our JP Finder helps you locate JP services across NSW regions including Sydney, Parramatta, Blacktown, The Ponds, Stanhope Gardens, Newcastle, Wollongong, and more. Simply enter your suburb name or postcode to find the nearest Justice of the Peace service points.</p>
-
-    <h3>Why Use a Justice of the Peace?</h3>
-    <p>JPs provide an essential service to the community by helping people with important legal and administrative documents. When you need official documents certified or witnessed, a JP can verify your identity and ensure the proper procedures are followed. This service is completely free of charge throughout NSW.</p>
-
-    <div class="region-locations">
-      <h3>Popular JP Service Locations in NSW:</h3>
-      <ul>
-        <li>Sydney CBD</li>
-        <li>Parramatta</li>
-        <li>The Ponds</li>
-        <li>Blacktown</li>
-        <li>Liverpool</li>
-        <li>Penrith</li>
-        <li>Newcastle</li>
-        <li>Wollongong</li>
-        <li>Central Coast</li>
-        <li>Rouse Hill</li>
-        <li>Castle Hill</li>
-        <li>Hornsby</li>
-        <li>Chatswood</li>
-      </ul>
-    </div>
-
-    <h3>Types of JP Services Available</h3>
-    <ul>
-      <li><strong>Shopping Centre JP Services</strong> - Many shopping centers host regular JP services on specific days and times</li>
-      <li><strong>Library JP Services</strong> - Local libraries often have scheduled JP services available to the public</li>
-      <li><strong>Council JP Services</strong> - Many local councils provide JP services during business hours</li>
-      <li><strong>Community JP Services</strong> - Community centers and neighborhood houses may offer JP services</li>
-    </ul>
-
-    <p>This JP Finder tool is designed to help NSW residents quickly locate the most convenient JP service location near them. By entering your suburb or postcode, you'll find up-to-date information on where and when JP services are available in your area.</p>
-  </div>
-
-  <!-- Feedback Form Section -->
-  <div id="feedback-section" class="feedback-container">
-    <h2>Help Us Improve</h2>
-    <p>Your feedback helps us make this service better for everyone.</p>
-
-    <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
-      <input type="hidden" name="form-name" value="jp-feedback" />
-
-      <!-- Add loading and success message containers -->
-      <div id="feedback-loading" class="feedback-message hidden">
-        <p>📤 Sending your feedback...</p>
+    <aside class="sidebar-ads">
+      <h3>Sponsored</h3>
+      <!-- Example ad banner for a notary (replace with real ad or Google AdSense code) -->
+      <div class="ad-banner">
+        <a href="https://notary-example.com.au/" target="_blank" rel="noopener">
+          <img src="https://via.placeholder.com/250x250?text=Your+Ad+Here" alt="Advertise your Notary Service" style="width:100%;border-radius:4px;">
+        </a>
+        <div style="margin-top:0.5rem;font-size:0.95rem;color:#444;">
+          <strong>Advertise your Notary Service here!</strong><br>
+          <span style="font-size:0.9rem;">Reach thousands of NSW residents looking for document witnessing.</span>
+        </div>
       </div>
-
-      <div id="feedback-success" class="feedback-message success hidden">
-        <p>✅ Thank you! Your feedback has been received.</p>
-      </div>
-
-      <p class="hidden">
-        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-      </p>
-
-      <div class="form-group">
-        <label for="feedback-type">Type of Feedback</label>
-        <select id="feedback-type" name="feedback-type" required>
-          <option value="">Please select...</option>
-          <option value="suggestion">Suggestion</option>
-          <option value="location-update">Location Update</option>
-          <option value="bug-report">Bug Report</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="feedback-message">Your Feedback</label>
-        <textarea id="feedback-message" name="feedback-message" rows="4" required
-          placeholder="Please share your thoughts..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="feedback-email">Email (optional)</label>
-        <input type="email" id="feedback-email" name="feedback-email" placeholder="your@email.com">
-        <small>Only if you'd like us to follow up with you</small>
-      </div>
-
-      <button type="submit" class="submit-button">Send Feedback</button>
-    </form>
+      <!-- You can add more ad blocks or Google AdSense code below -->
+      <!-- Example: 
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXX"
+           data-ad-slot="YYYYYY"
+           data-ad-format="rectangle"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      -->
+    </aside>
   </div>
 
   <!-- Initialize global variables -->
