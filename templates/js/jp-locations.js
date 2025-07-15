@@ -1009,39 +1009,6 @@ const jpLocations = [
     "lon": 150.7744
   },
   {
-    "name": "Katoomba Library",
-    "address": "Katoomba Library\n30 Parke Street\nKatoomba NSW 2780",
-    "days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
-    "hours": {
-      "Monday": "10:00 AM - 5:00 PM",
-      "Tuesday": "10:00 AM - 5:00 PM",
-      "Wednesday": "10:00 AM - 5:00 PM",
-      "Thursday": "10:00 AM - 5:00 PM",
-      "Friday": "10:00 AM - 5:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
-    },
-    "council": "Blue Mountains City Council",
-    "source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2780",
-    "lat": -33.7147,
-    "lon": 150.3122
-  },
-  {
-    "name": "Springwood Library",
-    "address": "Springwood Library\n104 Macquarie Road\nSpringwood NSW 2777",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Blue Mountains City Council",
-    "source_url": "https://www.bmcc.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2777",
-    "lat": -33.6969,
-    "lon": 150.5658
-  },
-  {
     "name": "Blue Mountains City Council - Katoomba Office",
     "address": "Blue Mountains City Council\n2-6 Civic Place\nKatoomba NSW 2780",
     "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
@@ -1641,20 +1608,6 @@ const jpLocations = [
     "postcode": "2541",
     "lat": -34.8728,
     "lon": 150.6021
-  },
-  {
-    "name": "Jervis Bay Maritime Museum",
-    "address": "Jervis Bay Maritime Museum\n1 Woollamia Road\nHuskisson NSW 2540",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "1:00 PM - 4:00 PM"
-    },
-    "council": "Shoalhaven City Council",
-    "source_url": "https://www.shoalhaven.nsw.gov.au/Services/Justice-of-the-Peace",
-    "postcode": "2540",
-    "lat": -35.0405,
-    "lon": 150.6724
   },
   {
     "name": "Batemans Bay Library",
