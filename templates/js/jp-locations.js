@@ -563,9 +563,7 @@ const jpLocations = [
     "address": "Sutherland Shire Libraries - Sutherland Branch\n30-36 Belmont Street\nSutherland NSW 2232",
     "days": "Monday, Wednesday, Saturday",
     "hours": {
-      "Monday": "2:00 PM - 4:00 PM",
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Tuesday": "2:00 PM - 4:00 PM"
     },
     "council": "Sutherland Shire Council",
     "source_url": "https://www.sutherlandshire.nsw.gov.au/Community/Library/Your-Library/Justice-of-the-Peace",
@@ -802,21 +800,6 @@ const jpLocations = [
     "postcode": "2077",
     "lat": -33.7033,
     "lon": 151.0988
-  },
-  {
-    "name": "Inner West Council Service Centre 7-15 Wetherill Street Leichhardt NSW 2040",
-    "address": "Inner West Council Service Centre\n7-15 Wetherill Street\nLeichhardt NSW 2040",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
-    },
-    "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
-    "postcode": "2040",
-    "lat": -33.8847,
-    "lon": 151.1552
   },
   {
     "name": "Castle Hill Library Cnr Castle & Pennant Streets Castle Hill NSW 2154 Location Copying Service Available, fees apply",
@@ -1955,23 +1938,6 @@ const jpLocations = [
     "postcode": "2045",
     "lat": -33.8827,
     "lon": 151.1419
-  },
-  {
-    "name": "Petersham Service Centre",
-    "address": "Petersham Service Centre\n2-14 Fisher Street\nPetersham NSW 2049",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 4:00 PM",
-      "Tuesday": "9:00 AM - 4:00 PM",
-      "Wednesday": "9:00 AM - 4:00 PM",
-      "Thursday": "9:00 AM - 4:00 PM",
-      "Friday": "9:00 AM - 4:00 PM"
-    },
-    "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
-    "postcode": "2049",
-    "lat": -33.8964,
-    "lon": 151.1546
   },
   {
     "name": "Summer Hill Library",
