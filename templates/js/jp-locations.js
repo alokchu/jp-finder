@@ -1466,23 +1466,6 @@ const jpLocations = [
       "lon": 151.5550
   },
   {
-      "name": "Lake Macquarie City Council Administration Centre",
-      "address": "126-138 Main Road\nSpeers Point NSW 2284",
-      "days": "Monday to Friday",
-      "hours": {
-      "Monday": "8:30 AM - 5:00 PM",
-      "Tuesday": "8:30 AM - 5:00 PM",
-      "Wednesday": "8:30 AM - 5:00 PM",
-      "Thursday": "8:30 AM - 5:00 PM",
-      "Friday": "8:30 AM - 5:00 PM"
-      },
-      "council": "Lake Macquarie City Council",
-      "source_url": "https://www.lakemac.com.au/For-residents/About-our-city/Justice-of-the-Peace",
-      "postcode": "2284",
-      "lat": -32.9497,
-      "lon": 151.6226
-  },
-  {
     "name": "Marsden Park Shopping Centre",
     "address": "Marsden Park Shopping Centre\n169 Hollinsworth Road\nMarsden Park NSW 2765",
     "days": "Tuesday, Thursday",
