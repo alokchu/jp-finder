@@ -1120,9 +1120,8 @@ const jpLocations = [
     "address": "Eastgardens Library\nWestfield Eastgardens, Level 1\n152 Bunnerong Road\nEastgardens NSW 2036",
     "days": "Monday, Wednesday, Friday",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Tuesday": "9:00 AM - 1:00 PM",
+      "Thursday": "1:00 PM - 4:45 PM",
     },
     "council": "Bayside Council",
     "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
@@ -2262,20 +2261,6 @@ const jpLocations = [
     "postcode": "2148",
     "lat": -33.7717,
     "lon": 150.9065
-  },
-  {
-    "name": "Macquarie University Library",
-    "address": "Macquarie University Library\n16 Macquarie Walk\nMacquarie Park NSW 2109",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "11:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM"
-    },
-    "council": "City of Ryde",
-    "source_url": "https://www.mq.edu.au/about/campus-services-and-facilities/library",
-    "postcode": "2109",
-    "lat": -33.7741,
-    "lon": 151.1138
   },
   {
     "name": "Willoughby Library",
