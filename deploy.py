@@ -245,73 +245,79 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         return html_with_data
 
     def create_additional_pages(self):
-        """Create additional pages for SEO purposes"""
+        """Copy additional pages from templates if they exist, otherwise create placeholder"""
         for page in self.additional_pages:
             filename = page["filename"]
             title = page["title"]
+            src_path = self.templates_dir / filename
+            dest_path = self.build_dir / filename
 
-            # Create a simple page template
-            content = f"""<!DOCTYPE html>
-<html lang="en-AU">
-<head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){{dataLayer.push(arguments);}}
-        gtag('js', new Date());
-        gtag('config', 'G-1MEP8KQ1D9');
-    </script>
+            if src_path.exists():
+                # Copy the actual rich HTML file from templates
+                shutil.copy2(src_path, dest_path)
+                logger.info(f"Copied existing page: {filename} from templates")
+            else:
+                # Fallback placeholder only if file doesn't exist
+                content = f"""<!DOCTYPE html>
+    <html lang="en-AU">
+    <head>
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', 'G-1MEP8KQ1D9');
+        </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content="{title} - Find JP services across New South Wales">
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- SEO tags would go here -->
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>NSW Justice of the Peace Finder</h1>
-            <p class="tagline">Find free JP services near you in New South Wales</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <div class="breadcrumbs">
-            <a href="/">Home</a> <span class="separator">›</span> <span>{title.split('|')[0].strip()}</span>
-        </div>
-
-        <section class="info-section">
-            <h2>{title.split('|')[0].strip()}</h2>
-            <p>This page is under construction. Please check back soon for more information.</p>
-
-            <p>In the meantime, you can <a href="/">search for JP services</a> on our home page.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="/">Home</a>
-                <a href="/about.html">About</a>
-                <a href="/councils.html">Council Directory</a>
-                <a href="/jp-info.html">JP Information</a>
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/contact.html">Contact</a>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{title}</title>
+        <meta name="description" content="{title} - Find JP services across New South Wales">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>NSW Justice of the Peace Finder</h1>
+                <p class="tagline">Find free JP services near you in New South Wales</p>
             </div>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> NSW JP Finder</p>
-            <p>This is an unofficial service and is not affiliated with the NSW Government.</p>
-        </div>
-    </footer>
-</body>
-</html>
-"""
-            with open(self.build_dir / filename, "w", encoding="utf-8") as f:
-                f.write(content)
+        </header>
 
-            logger.info(f"Created additional page: {filename}")
+        <main class="container">
+            <div class="breadcrumbs">
+                <a href="/">Home</a> <span class="separator">›</span> <span>{title.split('|')[0].strip()}</span>
+            </div>
+
+            <section class="info-section">
+                <h2>{title.split('|')[0].strip()}</h2>
+                <p>This page is under construction. Please check back soon for more information.</p>
+
+                <p>In the meantime, you can <a href="/">search for JP services</a> on our home page.</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="/about.html">About</a>
+                    <a href="/councils.html">Council Directory</a>
+                    <a href="/jp-info.html">JP Information</a>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> NSW JP Finder</p>
+                <p>This is an unofficial service and is not affiliated with the NSW Government.</p>
+            </div>
+        </footer>
+    </body>
+    </html>
+    """
+                with open(dest_path, "w", encoding="utf-8") as f:
+                    f.write(content)
+                logger.info(f"Created placeholder page: {filename} because source template missing")
+
 
     def extract_and_create_css(self, html_content):
         """Extract CSS from HTML and save as separate file"""
