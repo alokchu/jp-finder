@@ -112,20 +112,6 @@ const jpLocations = [
     "lon": 151.1837
   },
   {
-    "name": "Macquarie University Library 16 Macquarie Walk Macquarie Park NSW 2109",
-    "address": "Macquarie University Library\n16 Macquarie Walk\nMacquarie Park NSW 2109",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "11:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM"
-    },
-    "council": "City of Ryde",
-    "source_url": "https://www.mq.edu.au/about/campus-services-and-facilities/library",
-    "postcode": "2109",
-    "lat": -33.7741,
-    "lon": 151.1138
-  },
-  {
     "name": "North Sydney Council Customer Service Centre 200 Miller Street North Sydney NSW 2060",
     "address": "North Sydney Council Customer Service Centre\n200 Miller Street\nNorth Sydney NSW 2060",
     "days": "Monday to Friday",
@@ -230,20 +216,6 @@ const jpLocations = [
     "postcode": "2145",
     "lat": -33.7990,
     "lon": 150.9730
-  },  
-  {
-    "name": "Roseville Library 2 Clermiston Avenue Roseville NSW 2069",
-    "address": "Roseville Library\n2 Clermiston Avenue\nRoseville NSW 2069",
-    "days": "Monday, Saturday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Ku-ring-gai Council",
-    "source_url": "https://www.kmc.nsw.gov.au/Facilities_recreation/Library/Library_locations",
-    "postcode": "2069",
-    "lat": -33.7831,
-    "lon": 151.1780
   },
   {
     "name": "St Ives Library St Ives Shopping Village, 166 Mona Vale Road St Ives NSW 2075",
@@ -873,23 +845,6 @@ const jpLocations = [
     "postcode": "2153",
     "lat": -33.7880,
     "lon": 150.9773
-  },
-  {
-    "name": "Dubbo City Library",
-    "address": "Dubbo City Library\nCnr Macquarie & Talbragar Streets\nDubbo NSW 2830",
-    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
-    "hours": {
-      "Monday": "9:30 AM - 5:00 PM",
-      "Tuesday": "9:30 AM - 5:00 PM",
-      "Wednesday": "9:30 AM - 5:00 PM",
-      "Thursday": "9:30 AM - 5:00 PM",
-      "Friday": "9:30 AM - 5:00 PM"
-    },
-    "council": "Dubbo Regional Council",
-    "source_url": "https://www.dubbo.nsw.gov.au/Community-and-Groups/Justice-of-the-Peace",
-    "postcode": "2830",
-    "lat": -32.2452,
-    "lon": 148.6015
   },
   {
     "name": "Dubbo Regional Council - Customer Service Centre",
@@ -1790,11 +1745,8 @@ const jpLocations = [
   {
     "name": "Forster Library",
     "address": "Forster Library\n4-12 Breese Parade\nForster NSW 2428",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
-    },
+    "days": "By Appointment",
+    "hours": {},
     "council": "MidCoast Council",
     "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
     "postcode": "2428",
@@ -1804,12 +1756,8 @@ const jpLocations = [
   {
     "name": "Taree Library",
     "address": "Taree Library\n242 Victoria Street\nTaree NSW 2430",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
+    "days": "By Appointment",
+    "hours": {},
     "council": "MidCoast Council",
     "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
     "postcode": "2430",
@@ -1920,20 +1868,6 @@ const jpLocations = [
     "postcode": "2045",
     "lat": -33.8827,
     "lon": 151.1419
-  },
-  {
-    "name": "Summer Hill Library",
-    "address": "Summer Hill Library\n131 Smith Street\nSummer Hill NSW 2130",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "2:00 PM - 4:00 PM",
-      "Wednesday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
-    "postcode": "2130",
-    "lat": -33.8933,
-    "lon": 151.1383
   },
   {
     "name": "Balmain Library",
