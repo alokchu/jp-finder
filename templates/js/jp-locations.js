@@ -1163,12 +1163,11 @@ const jpLocations = [
   },
   {
     "name": "Carlingford Court Shopping Centre",
-    "address": "Carlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
+    "address": "Lvl 1 opposite Mobile Experts\n Carlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
     "days": "Tuesday, Thursday, Saturday",
     "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
+      "Tuesday": "11:00 AM - 1:00 PM",
+      "Thursday": "11:00 AM - 1:00 PM"
     },
     "council": "City of Parramatta",
     "source_url": "https://www.carlingfordcourt.com.au/services",
@@ -2011,19 +2010,21 @@ const jpLocations = [
     "lon": 151.0247
   },
   {
-    "name": "Customs House Library",
-    "address": "Customs House Library\n31 Alfred Street\nSydney NSW 2000",
-    "days": "Tuesday, Thursday, Saturday",
+    "name": "Town Hall House customer service centre",
+    "address": "Lvl 2, Town Hall House customer service centre\n456 Kent Street\nSydney NSW 2000",
+    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Monday": "12:00 PM - 2:00 PM",
+      "Tuesday": "12:00 PM - 2:00 PM",
+      "Wednesday": "12:00 PM - 2:00 PM",
+      "Thursday": "12:00 PM - 2:00 PM",
+      "Friday": "12:00 PM - 2:00 PM"
     },
     "council": "City of Sydney",
     "source_url": "https://www.cityofsydney.nsw.gov.au/guides/justice-of-the-peace",
     "postcode": "2000",
-    "lat": -33.8618,
-    "lon": 151.2107
+    "lat": -33.8730,
+    "lon": 151.2060
   },
   {
     "name": "International Towers Barangaroo",
@@ -2293,24 +2294,6 @@ const jpLocations = [
     "notes": "Located behind the Customer Service Desk near Cotton On Kids.",
     "lat": -28.2065,
     "lon": 153.5408
-  },
-  {
-    "name": "Birmingham Gardens Community Centre",
-    "address": "Birmingham Gardens Community Centre\nCnr Wilkinson Avenue & Moore Street\nBirmingham Gardens NSW 2287",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 4:00 PM",
-      "Tuesday": "9:00 AM - 4:00 PM",
-      "Wednesday": "9:00 AM - 4:00 PM",
-      "Thursday": "9:00 AM - 4:00 PM",
-      "Friday": "9:00 AM - 4:00 PM"
-    },
-    "council": "City of Newcastle",
-    "source_url": "https://www.newcastle.nsw.gov.au/Community/Community-Facilities/Community-Centres/Birmingham-Gardens-Community-Centre",
-    "postcode": "2287",
-    "lat": -32.8925,
-    "lon": 151.6986,
-    "notes": "JP services available; please contact the centre to confirm JP availability and specific service times."
   },
   {
     "name": "Box Hill Justice Service Centre",
