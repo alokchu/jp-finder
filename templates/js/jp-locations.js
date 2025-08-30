@@ -1208,7 +1208,7 @@ const jpLocations = [
   {
     "name": "Mona Vale Library",
     "address": "Mona Vale Library\n1 Park Street\nMona Vale NSW 2103",
-    "days": "JP timings subject to change - refer https://www.northernbeaches.nsw.gov.au/library/services/justice-peace" for latest,
+    "days": "JP timings subject to change - refer https://www.northernbeaches.nsw.gov.au/library/services/justice-peace for latest timings",
     "hours": {},
     "council": "Northern Beaches Council",
     "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
