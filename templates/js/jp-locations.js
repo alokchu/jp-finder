@@ -1163,7 +1163,7 @@ const jpLocations = [
   },
   {
     "name": "Carlingford Court Shopping Centre",
-    "address": "Lvl 1 opposite Mobile Experts\n Carlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
+    "address": "Lvl 1 opposite Mobile Experts\nCarlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
     "days": "Tuesday, Thursday, Saturday",
     "hours": {
       "Tuesday": "11:00 AM - 1:00 PM",
@@ -1208,12 +1208,8 @@ const jpLocations = [
   {
     "name": "Mona Vale Library",
     "address": "Mona Vale Library\n1 Park Street\nMona Vale NSW 2103",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
-    },
+    "days": "JP timings subject to change - refer https://www.northernbeaches.nsw.gov.au/library/services/justice-peace" for latest,
+    "hours": {},
     "council": "Northern Beaches Council",
     "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
     "postcode": "2103",
