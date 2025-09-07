@@ -1073,8 +1073,9 @@ const jpLocations = [
   {
     "name": "Eastgardens Library",
     "address": "Eastgardens Library\nWestfield Eastgardens, Level 1\n152 Bunnerong Road\nEastgardens NSW 2036",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Monday, Tuesday, Thursday",
     "hours": {
+      "Monday": "11:00 AM - 1:00 PM",
       "Tuesday": "9:00 AM - 1:00 PM",
       "Thursday": "1:00 PM - 4:45 PM",
     },
@@ -1193,11 +1194,9 @@ const jpLocations = [
   {
     "name": "Strathfield Library",
     "address": "Strathfield Library\n65-67 Rochester Street\nStrathfield NSW 2135",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Wednesday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Wednesday": "10:00 AM - 12:00 PM"
     },
     "council": "Strathfield Council",
     "source_url": "https://www.strathfield.nsw.gov.au/community/justice-of-the-peace/",
