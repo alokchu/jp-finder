@@ -1149,8 +1149,7 @@ const jpLocations = [
     "address": "Burwood Library\n2 Conder Street\nBurwood NSW 2134",
     "days": "Monday, Wednesday, Friday",
     "hours": {
-      "Tuesday": "2:00 PM - 4:00 PM",
-      "Tuesday": "6:45 PM - 7:45 PM (only, every second Tuesday of the month)"
+      "Tuesday": "2:00 PM - 4:00 PM (Every Tuesday) AND 6:45 PM - 7:45 PM (only - every second Tuesday of the month)"
     },
     "council": "Burwood Council",
     "source_url": "https://www.burwood.nsw.gov.au/Community/Justice-of-the-Peace",
