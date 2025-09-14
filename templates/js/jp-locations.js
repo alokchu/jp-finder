@@ -898,38 +898,6 @@ const jpLocations = [
     "lon": 149.1008
   },
   {
-    "name": "Hawkesbury Central Library",
-    "address": "Hawkesbury Central Library\nDeerubbin Centre\n300 George Street\nWindsor NSW 2756",
-    "days": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM",
-      "Saturday": "9:00 AM - 1:00 PM"
-    },
-    "council": "Hawkesbury City Council",
-    "source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
-    "postcode": "2756",
-    "lat": -33.6103,
-    "lon": 150.8219
-  },
-  {
-    "name": "Richmond Marketplace",
-    "address": "Richmond Marketplace\n78 March Street\nRichmond NSW 2753",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "1:00 PM - 3:00 PM"
-    },
-    "council": "Hawkesbury City Council",
-    "source_url": "https://www.hawkesbury.nsw.gov.au/council/forms-and-publications/justice-of-the-peace",
-    "postcode": "2753",
-    "lat": -33.5978,
-    "lon": 150.7483
-  },
-  {
     "name": "Penrith City Council - St Marys Office",
     "address": "Penrith City Council - St Marys Office\nSt Marys Corner Community & Cultural Precinct\n207-209 Queen Street\nSt Marys NSW 2760",
     "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
@@ -1181,9 +1149,8 @@ const jpLocations = [
     "address": "Burwood Library\n2 Conder Street\nBurwood NSW 2134",
     "days": "Monday, Wednesday, Friday",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Tuesday": "2:00 PM - 4:00 PM",
+      "Tuesday": "6:45 PM - 7:45 PM (only, every second Tuesday of the month)"
     },
     "council": "Burwood Council",
     "source_url": "https://www.burwood.nsw.gov.au/Community/Justice-of-the-Peace",
