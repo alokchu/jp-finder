@@ -735,6 +735,54 @@
       <div id="result">
         <p>Enter your suburb or postcode above to find JP services at community locations near you.</p>
       </div>
+      <!-- Feedback Form Section -->
+      <div id="feedback-section" class="feedback-container">
+        <h2>Suggest a Location Fix</h2>
+        <p>Noticed something wrong or missing? Please suggest a correction or update for a JP location to help keep this service accurate.</p>
+        <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
+          <input type="hidden" name="form-name" value="jp-feedback" />
+
+          <!-- Add loading and success message containers -->
+          <div id="feedback-loading" class="feedback-message hidden">
+            <p>📤 Sending your feedback...</p>
+          </div>
+
+          <div id="feedback-success" class="feedback-message success hidden">
+            <p>✅ Thank you! Your feedback has been received.</p>
+          </div>
+
+          <p class="hidden">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-group">
+            <label for="feedback-type">Type of Feedback</label>
+            <select id="feedback-type" name="feedback-type" required>
+              <option value="">Please select...</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="location-update">Location Update</option>
+              <option value="bug-report">Bug Report</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-message">Your Feedback</label>
+            <textarea id="feedback-message" name="feedback-message" rows="4" required
+              placeholder="Please share your thoughts..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-email">Email (optional)</label>
+            <input type="email" id="feedback-email" name="feedback-email" placeholder="your@email.com">
+            <small>Only if you'd like us to follow up with you</small>
+          </div>
+
+          <button type="submit" class="submit-button">Send Feedback</button>
+        </form>
+      </div>
+    
+      
 
       <!-- Enhanced SEO content about JP services -->
       <div class="jp-services-info">
@@ -809,56 +857,7 @@
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
-      </div>
-
-
-      <!-- Feedback Form Section -->
-      <div id="feedback-section" class="feedback-container">
-        <h2>Suggest a Location Fix</h2>
-        <p>Noticed something wrong or missing? Please suggest a correction or update for a JP location to help keep this service accurate.</p>
-        <form name="jp-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="feedback-form">
-          <input type="hidden" name="form-name" value="jp-feedback" />
-
-          <!-- Add loading and success message containers -->
-          <div id="feedback-loading" class="feedback-message hidden">
-            <p>📤 Sending your feedback...</p>
-          </div>
-
-          <div id="feedback-success" class="feedback-message success hidden">
-            <p>✅ Thank you! Your feedback has been received.</p>
-          </div>
-
-          <p class="hidden">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-          </p>
-
-          <div class="form-group">
-            <label for="feedback-type">Type of Feedback</label>
-            <select id="feedback-type" name="feedback-type" required>
-              <option value="">Please select...</option>
-              <option value="suggestion">Suggestion</option>
-              <option value="location-update">Location Update</option>
-              <option value="bug-report">Bug Report</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="feedback-message">Your Feedback</label>
-            <textarea id="feedback-message" name="feedback-message" rows="4" required
-              placeholder="Please share your thoughts..."></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="feedback-email">Email (optional)</label>
-            <input type="email" id="feedback-email" name="feedback-email" placeholder="your@email.com">
-            <small>Only if you'd like us to follow up with you</small>
-          </div>
-
-          <button type="submit" class="submit-button">Send Feedback</button>
-        </form>
-      </div>
-    </div>
+      </div>   
     <!--<aside class="sidebar-ads">-->
       <!--<h3>Advertise your content here</h3>-->
       <!-- Example ad banner for a notary (replace with real ad or Google AdSense code) -->
