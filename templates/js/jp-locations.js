@@ -718,11 +718,10 @@ const jpLocations = [
   },
   {
     "name": "Marrickville Library & Pavilion 313 Marrickville Road Marrickville NSW 2204",
-    "address": "Marrickville Library & Pavilion\n313 Marrickville Road\nMarrickville NSW 2204",
-    "days": "Wednesday, Saturday",
+    "address": "Patyegarang Place, Marrickville Library & Pavilion\n313 Marrickville Road\nMarrickville NSW 2204",
+    "days": "Wednesday",
     "hours": {
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Saturday": "2:00 PM - 4:00 PM"
+      "Wednesday": "2:00 PM - 4:00 PM (call 9392 5588 to book)"
     },
     "council": "Inner West Council",
     "source_url": "https://www.innerwest.nsw.gov.au/explore/libraries/library-locations-and-opening-hours/marrickville-library",
@@ -1147,7 +1146,7 @@ const jpLocations = [
   {
     "name": "Burwood Library",
     "address": "Burwood Library\n2 Conder Street\nBurwood NSW 2134",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Tuesday",
     "hours": {
       "Tuesday": "2:00 PM - 4:00 PM (Every Tuesday) AND 6:45 PM - 7:45 PM (only - every second Tuesday of the month)"
     },
@@ -1803,11 +1802,9 @@ const jpLocations = [
   {
     "name": "Ashfield Library",
     "address": "Ashfield Library\n260 Liverpool Road\nAshfield NSW 2131",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Friday",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Friday": "10:00 AM - 12:00 PM (call 9392 5588 to book)"
     },
     "council": "Inner West Council",
     "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
@@ -1816,27 +1813,37 @@ const jpLocations = [
     "lon": 151.1246
   },
   {
-    "name": "Haberfield Library",
-    "address": "Haberfield Library\n78 Dalhousie Street\nHaberfield NSW 2045",
-    "days": "Tuesday, Thursday",
+    "name": "Stanmore Library",
+    "address": "Stanmore Library\nDouglas Street\nStanmore NSW 2048",
+    "days": "Monday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
+      "Monday": "10:00 AM - 12:00 PM (call 9392 5588 to book)"
     },
     "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
-    "postcode": "2045",
-    "lat": -33.8827,
-    "lon": 151.1419
+    "source_url": "https://www.innerwest.nsw.gov.au/about/get-in-touch/jp-services",
+    "postcode": "2048",
+    "lat": -33.8921,
+    "lon": 151.1593
   },
+  {
+    "name": "Leichhardt Library",
+    "address": "Leichhardt Library\nThe Italian Forum\n23 Norton Street\nLeichhardt NSW 2040",
+    "days": "Thursday",
+    "hours": {
+      "Thursday": "3:00 PM - 4:00 PM (call 9392 5588 to book)"
+    },
+    "council": "Inner West Council",
+    "source_url": "https://www.innerwest.nsw.gov.au/about/get-in-touch/jp-services",
+    "postcode": "2040",
+    "lat": -33.8836,
+    "lon": 151.1552
+  },    
   {
     "name": "Balmain Library",
     "address": "Balmain Library\n370 Darling Street\nBalmain NSW 2041",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Wednesday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Wednesday": "10:00 AM - 12:00 PM (call 9392 5588 to book)"
     },
     "council": "Inner West Council",
     "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
@@ -1943,11 +1950,9 @@ const jpLocations = [
   {
     "name": "North Rocks Shopping Centre",
     "address": "North Rocks Shopping Centre\nInformation Desk\n328-336 North Rocks Road\nNorth Rocks NSW 2151",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Saturday",
     "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
+      "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "City of Parramatta",
     "source_url": "https://www.cityofparramatta.nsw.gov.au/community/justice-of-the-peace",
