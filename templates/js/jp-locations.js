@@ -744,20 +744,6 @@ const jpLocations = [
     "lon": 151.2399
   },
   {
-    "name": "Hurstville Central Shopping Centre Information Desk 225 Forest Road Hurstville NSW 2220",
-    "address": "Hurstville Central Shopping Centre Information Desk\n225 Forest Road\nHurstville NSW 2220",
-    "days": "Monday, Friday",
-    "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Friday": "11:00 AM - 2:00 PM"
-    },
-    "council": "Georges River Council",
-    "source_url": "https://www.hurstvillecentral.com.au/services",
-    "postcode": "2220",
-    "lat": -33.9676,
-    "lon": 151.1038
-  },
-  {
     "name": "Hornsby Library 28-44 George Street Hornsby NSW 2077",
     "address": "Hornsby Library\n28-44 George Street\nHornsby NSW 2077",
     "days": "Monday, Wednesday, Saturday",
@@ -1952,7 +1938,7 @@ const jpLocations = [
     "address": "North Rocks Shopping Centre\nInformation Desk\n328-336 North Rocks Road\nNorth Rocks NSW 2151",
     "days": "Saturday",
     "hours": {
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Saturday": "10:00 AM - 12:00 PM (In front of Alexander Jewellers & Watchmaker North Rocks)"
     },
     "council": "City of Parramatta",
     "source_url": "https://www.cityofparramatta.nsw.gov.au/community/justice-of-the-peace",
@@ -2038,21 +2024,6 @@ const jpLocations = [
     "postcode": "2000",
     "lat": -33.8797,
     "lon": 151.2043
-  },
-  {
-    "name": "The Galeries Customer Service",
-    "address": "The Galeries\nLevel 1 Customer Service\n500 George Street\nSydney NSW 2000",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "11:00 AM - 2:00 PM"
-    },
-    "council": "City of Sydney",
-    "source_url": "https://www.thegaleries.com/services",
-    "postcode": "2000",
-    "lat": -33.8734,
-    "lon": 151.2066
   },
   {
     "name": "Glenhaven Community Centre",
