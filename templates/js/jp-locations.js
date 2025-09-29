@@ -148,9 +148,7 @@ const jpLocations = [
     "address": "Mosman Library\n605 Military Road\nMosman NSW 2088",
     "days": "Monday, Wednesday, Saturday",
     "hours": {
-      "Monday": "2:00 PM - 4:00 PM",
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Wednesday": "12:00 PM - 2:00 PM"
     },
     "council": "Mosman Council",
     "source_url": "https://mosman.nsw.gov.au/community/justice-of-the-peace",
@@ -1488,21 +1486,6 @@ const jpLocations = [
     "postcode": "2536",
     "lat": -35.7082,
     "lon": 150.1744
-  },
-  {
-    "name": "Byron Bay Library",
-    "address": "Byron Bay Library\nCorner of Lawson and Middleton Streets\nByron Bay NSW 2481",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Byron Shire Council",
-    "source_url": "https://www.byron.nsw.gov.au/Services/Libraries",
-    "postcode": "2481",
-    "lat": -28.6474,
-    "lon": 153.6123
   },
   {
     "name": "Coffs Harbour City Council",
