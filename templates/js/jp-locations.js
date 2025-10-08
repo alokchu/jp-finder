@@ -146,7 +146,7 @@ const jpLocations = [
   {
     "name": "Mosman Library 605 Military Road Mosman NSW 2088",
     "address": "Mosman Library\n605 Military Road\nMosman NSW 2088",
-    "days": "Monday, Wednesday, Saturday",
+    "days": "Wednesday",
     "hours": {
       "Wednesday": "12:00 PM - 2:00 PM"
     },
@@ -1039,10 +1039,9 @@ const jpLocations = [
   {
     "name": "Rockdale Library",
     "address": "Rockdale Library\n444-446 Princes Highway\nRockdale NSW 2216",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Wednesday, Saturday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
+      "Wednesday": "3:00 PM - 5:00 PM",
       "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Bayside Council",
@@ -1992,21 +1991,6 @@ const jpLocations = [
     "postcode": "2000",
     "lat": -33.8634,
     "lon": 151.2089
-  },
-  {
-    "name": "Haymarket Library",
-    "address": "Haymarket Library\n744 George Street\nHaymarket NSW 2000",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "City of Sydney",
-    "source_url": "https://www.cityofsydney.nsw.gov.au/guides/justice-of-the-peace",
-    "postcode": "2000",
-    "lat": -33.8797,
-    "lon": 151.2043
   },
   {
     "name": "Glenhaven Community Centre",
