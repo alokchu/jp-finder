@@ -287,20 +287,6 @@ const jpLocations = [
     "lon": 151.2185
   },
   {
-    "name": "Royal North Shore Hospital Volunteer Desk Building 34, Reserve Road St Leonards NSW 2065",
-    "address": "Royal North Shore Hospital Volunteer Desk\nBuilding 34\nReserve Road\nSt Leonards NSW 2065",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "1:00 PM - 3:00 PM"
-    },
-    "council": "North Sydney Council",
-    "source_url": "https://www.nslhd.health.nsw.gov.au/Hospitals/RNSH",
-    "postcode": "2065",
-    "lat": -33.8224,
-    "lon": 151.1893
-  },
-  {
     "name": "Northbridge Plaza Information Desk 79-113 Sailors Bay Road Northbridge NSW 2063",
     "address": "Northbridge Plaza Information Desk\n79-113 Sailors Bay Road\nNorthbridge NSW 2063",
     "days": "Friday",
@@ -531,7 +517,7 @@ const jpLocations = [
   {
     "name": "Sutherland Shire Libraries - Sutherland Branch 30-36 Belmont Street Sutherland NSW 2232",
     "address": "Sutherland Shire Libraries - Sutherland Branch\n30-36 Belmont Street\nSutherland NSW 2232",
-    "days": "Monday, Wednesday, Saturday",
+    "days": "Tuesday",
     "hours": {
       "Tuesday": "2:00 PM - 4:00 PM"
     },
@@ -540,6 +526,46 @@ const jpLocations = [
     "postcode": "2232",
     "lat": -34.0316,
     "lon": 151.0576
+  },
+  {
+    "name": "Caringbah Library",
+    "address": "Caringbah Library, Caringbah (see council page)",
+    "days": "Monday",
+    "hours": {
+      "Monday": "11:00 AM - 1:00 PM"
+    },
+    "council": "Sutherland Shire Council",
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+  },
+  {
+    "name": "Southgate Centre (Sylvania) JP desk",
+    "address": "Southgate Shopping Centre, Sylvania (desk in the shopping centre)",
+    "days": "Wednesday",
+    "hours": {
+      "Wednesday": "9:00 AM - 12:00 PM"
+    },
+    "council": "Sutherland Shire Council",
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+  },
+  {
+    "name": "Cronulla Library",
+    "address": "Cronulla Library (Cronulla Central precinct - see council page)",
+    "days": "Thursday",
+    "hours": {
+      "Thursday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Sutherland Shire Council",
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+  },
+  {
+    "name": "Menai Library",
+    "address": "Menai Library (see council page)",
+    "days": "Friday",
+    "hours": {
+      "Friday": "10:00 AM - 1:00 PM"
+    },
+    "council": "Sutherland Shire Council",
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
   },
   {
     "name": "Stockland Wetherill Park Customer Care Desk 561-583 Polding Street Wetherill Park NSW 2164",
@@ -621,7 +647,7 @@ const jpLocations = [
     "postcode": "2170",
     "lat": -33.9586,
     "lon": 150.9255
-  }, 
+  },
   {
     "name": "Westfield Miranda Customer Service Level 2, 600 Kingsway Miranda NSW 2228",
     "address": "Westfield Miranda Customer Service\nLevel 2\n600 Kingsway\nMiranda NSW 2228",
@@ -1083,13 +1109,9 @@ const jpLocations = [
   {
     "name": "Bankstown Library and Knowledge Centre",
     "address": "Bankstown Library and Knowledge Centre\n80 Rickard Road\nBankstown NSW 2200",
-    "days": "Monday to Friday",
+    "days": "Tuesday",
     "hours": {
-      "Monday": "10:00 AM - 4:00 PM",
-      "Tuesday": "10:00 AM - 4:00 PM",
-      "Wednesday": "10:00 AM - 4:00 PM",
-      "Thursday": "10:00 AM - 4:00 PM",
-      "Friday": "10:00 AM - 4:00 PM"
+      "Tuesday": "10:00 AM - 12:00 PM"
     },
     "council": "Canterbury-Bankstown Council",
     "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
@@ -1164,29 +1186,11 @@ const jpLocations = [
     "lon": 151.3052
   },
   {
-    "name": "Revesby Library",
-    "address": "Revesby Library\n26 Revesby Place\nRevesby NSW 2212",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
-    },
-    "council": "Canterbury-Bankstown Council",
-    "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
-    "postcode": "2212",
-    "lat": -33.9494,
-    "lon": 151.0175
-  },
-  {
     "name": "Campsie Library and Knowledge Centre",
     "address": "Campsie Library and Knowledge Centre\n14-28 Amy Street\nCampsie NSW 2194",
-    "days": "Monday to Friday",
+    "days": "Wednesday",
     "hours": {
-      "Monday": "10:00 AM - 4:00 PM",
-      "Tuesday": "10:00 AM - 4:00 PM",
-      "Wednesday": "10:00 AM - 4:00 PM",
-      "Thursday": "10:00 AM - 4:00 PM",
-      "Friday": "10:00 AM - 4:00 PM"
+      "Wednesday": "10:00 AM - 12:45 PM"
     },
     "council": "Canterbury-Bankstown Council",
     "source_url": "https://www.cbcity.nsw.gov.au/community/community-services/justice-of-the-peace",
@@ -1210,157 +1214,140 @@ const jpLocations = [
     "lon": 151.1681
   },
   {
-      "name": "Newcastle City Council Administration Centre",
-      "address": "12 Stewart Avenue\nNewcastle West NSW 2302",
-      "days": "Monday to Friday",
-      "hours": {
-      "Monday": "8:30 AM - 5:00 PM",
-      "Tuesday": "8:30 AM - 5:00 PM",
-      "Wednesday": "8:30 AM - 5:00 PM",
-      "Thursday": "8:30 AM - 5:00 PM",
-      "Friday": "8:30 AM - 5:00 PM"
-      },
-      "council": "Newcastle City Council",
-      "source_url": "https://www.newcastle.nsw.gov.au/council/customer-service/justice-of-the-peace",
-      "postcode": "2302",
-      "lat": -32.9267,
-      "lon": 151.7644
-  },
-  {
-      "name": "Port Stephens Council Administration Building",
-      "address": "116 Adelaide Street\nRaymond Terrace NSW 2324",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Port Stephens Council Administration Building",
+    "address": "116 Adelaide Street\nRaymond Terrace NSW 2324",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 4:00 PM",
       "Tuesday": "8:30 AM - 4:00 PM",
       "Wednesday": "8:30 AM - 4:00 PM",
       "Thursday": "8:30 AM - 4:00 PM",
       "Friday": "8:30 AM - 4:00 PM"
-      },
-      "council": "Port Stephens Council",
-      "source_url": "https://www.portstephens.nsw.gov.au/council/contact-us/justice-of-the-peace",
-      "postcode": "2324",
-      "lat": -32.7632,
-      "lon": 151.7457
+    },
+    "council": "Port Stephens Council",
+    "source_url": "https://www.portstephens.nsw.gov.au/council/contact-us/justice-of-the-peace",
+    "postcode": "2324",
+    "lat": -32.7632,
+    "lon": 151.7457
   },
   {
-      "name": "Cessnock City Council Administration Centre",
-      "address": "62-78 Vincent Street\nCessnock NSW 2325",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Cessnock City Council Administration Centre",
+    "address": "62-78 Vincent Street\nCessnock NSW 2325",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "9:00 AM - 4:30 PM",
       "Tuesday": "9:00 AM - 4:30 PM",
       "Wednesday": "9:00 AM - 4:30 PM",
       "Thursday": "9:00 AM - 4:30 PM",
       "Friday": "9:00 AM - 4:30 PM"
-      },
-      "council": "Cessnock City Council",
-      "source_url": "https://www.cessnock.nsw.gov.au/Council/Contact-us",
-      "postcode": "2325",
-      "lat": -32.8344,
-      "lon": 151.3552
+    },
+    "council": "Cessnock City Council",
+    "source_url": "https://www.cessnock.nsw.gov.au/Council/Contact-us",
+    "postcode": "2325",
+    "lat": -32.8344,
+    "lon": 151.3552
   },
   {
-      "name": "Singleton Council Administration Centre",
-      "address": "Cnr Queen Street and Civic Avenue\nSingleton NSW 2330",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Singleton Council Administration Centre",
+    "address": "Cnr Queen Street and Civic Avenue\nSingleton NSW 2330",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 4:30 PM",
       "Tuesday": "8:30 AM - 4:30 PM",
       "Wednesday": "8:30 AM - 4:30 PM",
       "Thursday": "8:30 AM - 4:30 PM",
       "Friday": "8:30 AM - 4:30 PM"
-      },
-      "council": "Singleton Council",
-      "source_url": "https://www.singleton.nsw.gov.au/Contact-Us",
-      "postcode": "2330",
-      "lat": -32.5671,
-      "lon": 151.1689
+    },
+    "council": "Singleton Council",
+    "source_url": "https://www.singleton.nsw.gov.au/Contact-Us",
+    "postcode": "2330",
+    "lat": -32.5671,
+    "lon": 151.1689
   },
   {
-      "name": "Port Macquarie-Hastings Council Customer Service Centre",
-      "address": "17 Burrawan Street\nPort Macquarie NSW 2444",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Port Macquarie-Hastings Council Customer Service Centre",
+    "address": "17 Burrawan Street\nPort Macquarie NSW 2444",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 4:30 PM",
       "Tuesday": "8:30 AM - 4:30 PM",
       "Wednesday": "8:30 AM - 4:30 PM",
       "Thursday": "8:30 AM - 4:30 PM",
       "Friday": "8:30 AM - 4:30 PM"
-      },
-      "council": "Port Macquarie-Hastings Council",
-      "source_url": "https://www.pmhc.nsw.gov.au/Council/About-Us/Customer-Service",
-      "postcode": "2444",
-      "lat": -31.4312,
-      "lon": 152.9089
+    },
+    "council": "Port Macquarie-Hastings Council",
+    "source_url": "https://www.pmhc.nsw.gov.au/Council/About-Us/Customer-Service",
+    "postcode": "2444",
+    "lat": -31.4312,
+    "lon": 152.9089
   },
   {
-      "name": "Tweed Shire Council Administration Office",
-      "address": "10-14 Tumbulgum Road\nMurwillumbah NSW 2484",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Tweed Shire Council Administration Office",
+    "address": "10-14 Tumbulgum Road\nMurwillumbah NSW 2484",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 4:15 PM",
       "Tuesday": "8:30 AM - 4:15 PM",
       "Wednesday": "8:30 AM - 4:15 PM",
       "Thursday": "8:30 AM - 4:15 PM",
       "Friday": "8:30 AM - 4:15 PM"
-      },
-      "council": "Tweed Shire Council",
-      "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
-      "postcode": "2484",
-      "lat": -28.3278,
-      "lon": 153.3945
+    },
+    "council": "Tweed Shire Council",
+    "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
+    "postcode": "2484",
+    "lat": -28.3278,
+    "lon": 153.3945
   },
   {
-      "name": "Byron Shire Council Administration Office",
-      "address": "70-90 Station Street\nMullumbimby NSW 2482",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Byron Shire Council Administration Office",
+    "address": "70-90 Station Street\nMullumbimby NSW 2482",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 4:30 PM",
       "Tuesday": "8:30 AM - 4:30 PM",
       "Wednesday": "8:30 AM - 4:30 PM",
       "Thursday": "8:30 AM - 4:30 PM",
       "Friday": "8:30 AM - 4:30 PM"
-      },
-      "council": "Byron Shire Council",
-      "source_url": "https://www.byron.nsw.gov.au/Council/Contact-Council",
-      "postcode": "2482",
-      "lat": -28.5772,
-      "lon": 153.4989
+    },
+    "council": "Byron Shire Council",
+    "source_url": "https://www.byron.nsw.gov.au/Council/Contact-Council",
+    "postcode": "2482",
+    "lat": -28.5772,
+    "lon": 153.4989
   },
   {
-      "name": "Tweed Heads Civic and Cultural Centre",
-      "address": "Cnr Brett Street and Wharf Street\nTweed Heads NSW 2485",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Tweed Heads Civic and Cultural Centre",
+    "address": "Cnr Brett Street and Wharf Street\nTweed Heads NSW 2485",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "9:00 AM - 4:00 PM",
       "Tuesday": "9:00 AM - 4:00 PM",
       "Wednesday": "9:00 AM - 4:00 PM",
       "Thursday": "9:00 AM - 4:00 PM",
       "Friday": "9:00 AM - 4:00 PM"
-      },
-      "council": "Tweed Shire Council",
-      "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
-      "postcode": "2485",
-      "lat": -28.1823,
-      "lon": 153.5425
+    },
+    "council": "Tweed Shire Council",
+    "source_url": "https://www.tweed.nsw.gov.au/council/contact-us",
+    "postcode": "2485",
+    "lat": -28.1823,
+    "lon": 153.5425
   },
   {
-      "name": "Maitland City Council Administration Centre",
-      "address": "285-287 High Street\nMaitland NSW 2320",
-      "days": "Monday to Friday",
-      "hours": {
+    "name": "Maitland City Council Administration Centre",
+    "address": "285-287 High Street\nMaitland NSW 2320",
+    "days": "Monday to Friday",
+    "hours": {
       "Monday": "8:30 AM - 5:00 PM",
       "Tuesday": "8:30 AM - 5:00 PM",
       "Wednesday": "8:30 AM - 5:00 PM",
       "Thursday": "8:30 AM - 5:00 PM",
       "Friday": "8:30 AM - 5:00 PM"
-      },
-      "council": "Maitland City Council",
-      "source_url": "https://www.maitland.nsw.gov.au/my-council/contact-us",
-      "postcode": "2320",
-      "lat": -32.7316,
-      "lon": 151.5550
+    },
+    "council": "Maitland City Council",
+    "source_url": "https://www.maitland.nsw.gov.au/my-council/contact-us",
+    "postcode": "2320",
+    "lat": -32.7316,
+    "lon": 151.5550
   },
   {
     "name": "Marsden Park Shopping Centre",
@@ -1805,7 +1792,7 @@ const jpLocations = [
     "postcode": "2040",
     "lat": -33.8836,
     "lon": 151.1552
-  },    
+  },
   {
     "name": "Balmain Library",
     "address": "Balmain Library\n370 Darling Street\nBalmain NSW 2041",
@@ -2145,9 +2132,8 @@ const jpLocations = [
   {
     "name": "Gore Hill Library",
     "address": "Gore Hill Library\nPacific Highway & Ralph Street\nSt Leonards NSW 2065",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Thursday, Saturday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
       "Thursday": "2:00 PM - 4:00 PM",
       "Saturday": "10:00 AM - 12:00 PM"
     },
@@ -2156,6 +2142,49 @@ const jpLocations = [
     "postcode": "2065",
     "lat": -33.8252,
     "lon": 151.1892
+  },
+  {
+    "name": "HJ Daley Library, Campbelltown",
+    "address": "147-157 Queen St, Campbelltown NSW 2560",
+    "days": "Monday–Friday",
+    "hours": {
+      "Monday": "10:00 AM – 01:00 PM",
+      "Tuesday": "10:00 AM – 01:00 PM",
+      "Wednesday": "10:00 AM – 01:00 PM",
+      "Thursday": "10:00 AM – 01:00 PM",
+      "Friday": "10:00 AM – 01:00 PM"
+    },
+    "council": "Campbelltown City Council",
+    "source_url": "https://www.campbelltown.nsw.gov.au/Services-and-Facilities/Libraries/Libraries-additional-pages/Justices-Of-The-Peace",
+    "postcode": "2560",
+    "lat": -34.0702792,
+    "lon": 150.8066246
+  },
+  {
+    "name": "Campbelltown Mall (Community JP desk)",
+    "address": "Lower Level, Campbelltown Mall, 271 Queen St, Campbelltown NSW 2560",
+    "days": "Saturday",
+    "hours": {
+      "Saturday": "10:00 AM – 12:00 PM"
+    },
+    "council": "Campbelltown City Council",
+    "source_url": "https://www.campbelltownmall.com.au/",
+    "postcode": "2560",
+    "lat": -34.068807,
+    "lon": 150.810799
+  },
+  {
+    "name": "Coutts Lawyers & Conveyancers, Campbelltown",
+    "address": "Shop 1, 143 Queen St, Campbelltown NSW 2560",
+    "days": "Wednesday",
+    "hours": {
+      "Wednesday": "2:00 PM – 4:00 PM"
+    },
+    "council": "Campbelltown City Council",
+    "source_url": "https://www.couttslegal.com.au/coutts-locations/campbelltown-lawyers/",
+    "postcode": "2560",
+    "lat": null,
+    "lon": null
   },
   {
     "name": "Bateau Bay Square",
@@ -2170,7 +2199,7 @@ const jpLocations = [
     "notes": "Located next to Mr Minit, opposite Coles. No booking required.",
     "lat": -33.3811,
     "lon": 151.4707
-  },  
+  },
   {
     "name": "Belmont Local Court",
     "address": "Belmont Local Court\n597 Pacific Highway\nBelmont NSW 2280",
@@ -2234,7 +2263,7 @@ const jpLocations = [
     "lat": -33.7684,
     "lon": 150.7289,
     "notes": "JP services available at the shopping centre; please check with individual retailers or the customer service desk for specific JP service times."
-  }       
+  }
 ];
 
 // Export the jpLocations array so main.js can use it
