@@ -559,7 +559,7 @@ const jpLocations = [
   },
   {
     "name": "Menai Library",
-    "address": "Menai Library (see council page)",
+    "address": "Menai Library (see council page )",
     "days": "Friday",
     "hours": {
       "Friday": "10:00 AM - 1:00 PM"
