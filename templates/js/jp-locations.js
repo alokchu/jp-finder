@@ -535,7 +535,10 @@ const jpLocations = [
       "Monday": "11:00 AM - 1:00 PM"
     },
     "council": "Sutherland Shire Council",
-    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace",
+    "postcode": "2229",
+    "lat": -34.0449815,
+    "lon": 151.1234315
   },
   {
     "name": "Southgate Centre (Sylvania) JP desk",
@@ -545,7 +548,10 @@ const jpLocations = [
       "Wednesday": "9:00 AM - 12:00 PM"
     },
     "council": "Sutherland Shire Council",
-    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace",
+    "postcode": "2224",
+    "lat": -34.01003,
+    "lon": 151.10408
   },
   {
     "name": "Cronulla Library",
@@ -555,7 +561,9 @@ const jpLocations = [
       "Thursday": "10:00 AM - 1:00 PM"
     },
     "council": "Sutherland Shire Council",
-    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace",
+    "lat": -34.05204,
+    "lon": 151.15218
   },
   {
     "name": "Menai Library",
@@ -565,7 +573,10 @@ const jpLocations = [
       "Friday": "10:00 AM - 1:00 PM"
     },
     "council": "Sutherland Shire Council",
-    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace"
+    "source_url": "https://www.sutherlandshire.nsw.gov.au/subsites/libraries/services/justices-of-the-peace",
+    "postcode": "2234",
+    "lat": -34.013333,
+    "lon": 151.016111
   },
   {
     "name": "Stockland Wetherill Park Customer Care Desk 561-583 Polding Street Wetherill Park NSW 2164",
