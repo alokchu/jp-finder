@@ -54,8 +54,8 @@ const jpLocations = [
     "address": "Chatswood Library on The Concourse\n409 Victoria Avenue\nChatswood NSW 2067",
     "days": "Tuesday, Thursday, Saturday",
     "hours": {
-      "Tuesday": "11:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
+      "Monday": "12:00 AM - 2:00 PM",
+      "Wednesday": "10:00 AM - 12:00 PM",
       "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Willoughby City Council",
@@ -456,21 +456,6 @@ const jpLocations = [
     "lon": 151.0028
   },
   {
-    "name": "Westfield Bondi Junction Concierge Level 3, 500 Oxford Street Bondi Junction NSW 2022",
-    "address": "Westfield Bondi Junction Concierge\nLevel 3\n500 Oxford Street\nBondi Junction NSW 2022",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Wednesday": "3:00 PM - 6:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
-    },
-    "council": "Waverley Council",
-    "source_url": "https://www.westfield.com.au/bondijunction/services",
-    "postcode": "2022",
-    "lat": -33.8916,
-    "lon": 151.2501
-  },
-  {
     "name": "Macquarie Centre Customer Service Centre Level 3, Corner Herring & Waterloo Roads North Ryde NSW 2113",
     "address": "Macquarie Centre Customer Service Centre\nLevel 3\nCorner Herring & Waterloo Roads\nNorth Ryde NSW 2113",
     "days": "Tuesday, Friday, Sunday",
@@ -643,21 +628,6 @@ const jpLocations = [
     "postcode": "2170",
     "lat": -33.9586,
     "lon": 150.9255
-  },
-  {
-    "name": "Westfield Miranda Customer Service Level 2, 600 Kingsway Miranda NSW 2228",
-    "address": "Westfield Miranda Customer Service\nLevel 2\n600 Kingsway\nMiranda NSW 2228",
-    "days": "Wednesday, Friday, Sunday",
-    "hours": {
-      "Wednesday": "10:00 AM - 2:00 PM",
-      "Friday": "3:00 PM - 6:00 PM",
-      "Sunday": "11:00 AM - 2:00 PM"
-    },
-    "council": "Sutherland Shire Council",
-    "source_url": "https://www.westfield.com.au/miranda/services",
-    "postcode": "2228",
-    "lat": -34.0359,
-    "lon": 151.1040
   },
   {
     "name": "Rouse Hill Town Centre Customer Service Level 2, 10-14 Market Lane Rouse Hill NSW 2155",
@@ -1409,11 +1379,9 @@ const jpLocations = [
   {
     "name": "Nowra Library",
     "address": "Nowra Library\n10 Berry Street\nNowra NSW 2541",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Thursday",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Thursday": "10:00 AM - 11:00 AM"
     },
     "council": "Shoalhaven City Council",
     "source_url": "https://www.shoalhaven.nsw.gov.au/Services/Justice-of-the-Peace",
@@ -1437,21 +1405,6 @@ const jpLocations = [
     "postcode": "2541",
     "lat": -34.8728,
     "lon": 150.6021
-  },
-  {
-    "name": "Batemans Bay Library",
-    "address": "Batemans Bay Library\n1 Hanging Rock Place\nBatemans Bay NSW 2536",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Eurobodalla Shire Council",
-    "source_url": "https://www.esc.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2536",
-    "lat": -35.7082,
-    "lon": 150.1744
   },
   {
     "name": "Coffs Harbour City Council",
