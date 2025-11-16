@@ -1929,8 +1929,8 @@ const jpLocations = [
   },
   {
     "name": "International Towers Barangaroo",
-    "address": "International Towers\nTower One, Level 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
-    "days": "Tuesday, Thursday",
+    "address": "International Towers\nLobby of Tower 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
+    "days": "Tuesday, Thursday, Contact Eddie Fazal JP on 0409 668 270",
     "hours": {
       "Tuesday": "12:00 PM - 1:30 PM",
       "Thursday": "12:00 PM - 1:30 PM"
