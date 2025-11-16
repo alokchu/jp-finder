@@ -82,20 +82,6 @@ const jpLocations = [
     "lon": 151.1851
   },
   {
-    "name": "Chatswood Chase Shopping Centre Concierge Level 1, 345 Victoria Avenue Chatswood NSW 2067",
-    "address": "Chatswood Chase Shopping Centre Concierge\nLevel 1\n345 Victoria Avenue\nChatswood NSW 2067",
-    "days": "Monday, Thursday, Saturday",
-    "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Thursday": "4:00 PM - 7:00 PM",
-      "Saturday": "11:00 AM - 2:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.chatswoodchaseshopping.com.au/services",
-    "postcode": "2067",
-    "lat": -33.7956,
-    "lon": 151.1811
-  },
   {
     "name": "Westfield Chatswood Concierge Level 3, 1 Anderson Street Chatswood NSW 2067",
     "address": "Westfield Chatswood Concierge\nLevel 3\n1 Anderson Street\nChatswood NSW 2067",
@@ -395,20 +381,6 @@ const jpLocations = [
     "lon": 151.0334
   },
   {
-    "name": "Northern Beaches Council Dee Why Civic Centre 725 Pittwater Road Dee Why NSW 2099",
-    "address": "Northern Beaches Council Dee Why Civic Centre\n725 Pittwater Road\nDee Why NSW 2099",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "9:00 AM - 12:00 PM",
-      "Wednesday": "1:00 PM - 4:00 PM",
-      "Friday": "9:00 AM - 12:00 PM"
-    },
-    "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
-    "postcode": "2099",
-    "lat": -33.7539,
-    "lon": 151.2874
-  },
   {
     "name": "Liverpool City Council Customer Service Centre Ground Floor, 33 Moore Street Liverpool NSW 2170",
     "address": "Liverpool City Council Customer Service Centre\nGround Floor\n33 Moore Street\nLiverpool NSW 2170",
@@ -471,20 +443,6 @@ const jpLocations = [
     "lon": 151.2501
   },
   {
-    "name": "Castle Towers Shopping Centre Concierge Level 3, 6-14 Castle Street Castle Hill NSW 2154",
-    "address": "Castle Towers Shopping Centre Concierge\nLevel 3\n6-14 Castle Street\nCastle Hill NSW 2154",
-    "days": "Monday, Thursday, Saturday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Thursday": "5:00 PM - 8:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
-    },
-    "council": "The Hills Shire Council",
-    "source_url": "https://www.qicgre.com/places/castle-towers",
-    "postcode": "2154",
-    "lat": -33.7312,
-    "lon": 151.0041
-  },
   {
     "name": "Macquarie Centre Customer Service Centre Level 3, Corner Herring & Waterloo Roads North Ryde NSW 2113",
     "address": "Macquarie Centre Customer Service Centre\nLevel 3\nCorner Herring & Waterloo Roads\nNorth Ryde NSW 2113",
@@ -735,22 +693,6 @@ const jpLocations = [
     "lon": 151.1837
   },
   {
-    "name": "NSW Service Centre - Parramatta Service NSW Centre 8 Valentine Avenue Parramatta NSW 2150",
-    "address": "NSW Service Centre - Parramatta\nService NSW Centre\n8 Valentine Avenue\nParramatta NSW 2150",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 5:30 PM",
-      "Tuesday": "8:30 AM - 5:30 PM",
-      "Wednesday": "8:30 AM - 5:30 PM",
-      "Thursday": "8:30 AM - 5:30 PM",
-      "Friday": "8:30 AM - 5:30 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/parramatta-service-centre",
-    "postcode": "2150",
-    "lat": -33.8144,
-    "lon": 151.0031
-  },
   {
     "name": "Marrickville Library & Pavilion 313 Marrickville Road Marrickville NSW 2204",
     "address": "Patyegarang Place, Marrickville Library & Pavilion\n313 Marrickville Road\nMarrickville NSW 2204",
@@ -837,22 +779,6 @@ const jpLocations = [
     "lon": 150.9151
   },
   {
-    "name": "Dennis Johnson Library (JP Service)",
-    "address": "Stanhope Leisure Centre, Sentry Drive, Stanhope Gardens NSW 2768",
-    "days": "Monday, Tuesday, Wednesday, Saturday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Tuesday": "5:00 PM - 7:00 PM",
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:30 PM"
-    },
-    "council": "N/A",
-    "source_url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
-    "postcode": "2768",
-    "holiday_notice": "Christmas Holiday Hours 🎄",
-    "lat": -33.7184,
-    "lon": 150.9151
-  },
   {
     "name": "Winston Hills Mall",
     "address": "Caroline Chisholm Drive, Winston Hills NSW 2153",
@@ -1310,22 +1236,6 @@ const jpLocations = [
     "lon": 153.3945
   },
   {
-    "name": "Byron Shire Council Administration Office",
-    "address": "70-90 Station Street\nMullumbimby NSW 2482",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Byron Shire Council",
-    "source_url": "https://www.byron.nsw.gov.au/Council/Contact-Council",
-    "postcode": "2482",
-    "lat": -28.5772,
-    "lon": 153.4989
-  },
   {
     "name": "Tweed Heads Civic and Cultural Centre",
     "address": "Cnr Brett Street and Wharf Street\nTweed Heads NSW 2485",
@@ -1960,12 +1870,10 @@ const jpLocations = [
   },
   {
     "name": "International Towers Barangaroo",
-    "address": "International Towers\nTower One, Level 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
-    "days": "Monday, Wednesday, Friday",
+    "address": "International Towers\nTower Three, Level 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
+    "days": "Monday, ,
     "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "11:00 AM - 2:00 PM"
+      "Monday": "10:00 AM - 2:00 PM",
     },
     "council": "City of Sydney",
     "source_url": "https://www.barangaroo.com/the-district/services",
@@ -2238,24 +2146,6 @@ const jpLocations = [
     "notes": "Located behind the Customer Service Desk near Cotton On Kids.",
     "lat": -28.2065,
     "lon": 153.5408
-  },
-  {
-    "name": "Box Hill Justice Service Centre",
-    "address": "Box Hill Justice Service Centre\n5/21 Nelson Road\nBox Hill NSW 2765",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
-    },
-    "council": "The Hills Shire Council",
-    "source_url": "https://openhoursaustralia.com/en/box-hill/box-hill-justice-service-centre",
-    "postcode": "2765",
-    "lat": -33.6761,
-    "lon": 150.8655,
-    "notes": "Walk-in JP services available during business hours; no appointment necessary."
   },
   {
     "name": "Caddens Corner Shopping Centre",
