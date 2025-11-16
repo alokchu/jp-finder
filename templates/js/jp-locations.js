@@ -1871,8 +1871,7 @@ const jpLocations = [
   {
     "name": "International Towers Barangaroo",
     "address": "International Towers\nTower Three, Level 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
-    "days": "Monday, ,
-    "hours": {
+    "days": "Monday",    "hours": {
       "Monday": "10:00 AM - 2:00 PM",
     },
     "council": "City of Sydney",
