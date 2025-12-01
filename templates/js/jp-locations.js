@@ -174,18 +174,34 @@ const jpLocations = [
     "lon": 151.2447
   },
   {
-    "name": "Lindfield Library Level 1, 259 Pacific Highway Lindfield NSW 2070",
-    "address": "Lindfield Library\nLevel 1\n259 Pacific Highway\nLindfield NSW 2070",
-    "days": "Wednesday, Friday",
+    "name": "Gordon Library 799 Pacific Highway Gordon NSW 2072",
+    "address": "Gordon Library\n799 Pacific Highway\nGordon NSW 2072",
+    "days": "Monday, Tuesday, Thursday, Friday",
     "hours": {
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Friday": "2:00 PM - 4:00 PM"
+      "Monday": "10:00 AM - 11:30 AM; 5:30 PM - 6:30 PM",
+      "Tuesday": "10:00 AM - 11:30 AM",
+      "Thursday": "10:00 AM - 11:30 AM; 5:30 PM - 6:30 PM",
+      "Friday": "10:00 AM - 11:30 AM"
     },
     "council": "Ku-ring-gai Council",
-    "source_url": "https://www.kmc.nsw.gov.au/Facilities_recreation/Library/Library_locations",
+    "source_url": "https://www.krg.nsw.gov.au/Community/Ku-ring-gai-Library/Justice-of-the-Peace",
+    "postcode": "2072",
+    "lat": -33.7330,
+    "lon": 151.1440
+  },
+  {
+    "name": "Lindfield Library 265 Pacific Highway Lindfield NSW 2070",
+    "address": "Lindfield Library\n265 Pacific Highway\nLindfield NSW 2070",
+    "days": "Monday, Wednesday",
+    "hours": {
+      "Monday": "10:00 AM - 11:30 AM",
+      "Wednesday": "10:00 AM - 11:30 AM"
+    },
+    "council": "Ku-ring-gai Council",
+    "source_url": "https://www.krg.nsw.gov.au/Community/Ku-ring-gai-Library/Justice-of-the-Peace",
     "postcode": "2070",
-    "lat": -33.7771,
-    "lon": 151.1692
+    "lat": -33.7810,
+    "lon": 151.1670
   },
   {
     "name": "Turramurra Library 5 Ray Street Turramurra NSW 2074",
@@ -212,7 +228,7 @@ const jpLocations = [
     "council": "City of Parramatta",
     "source_url": "https://historyandheritage.cityofparramatta.nsw.gov.au/blog/2020/05/08/constitution-hill-branch-library",
     "postcode": "2145",
-    "lat": -33.7990,
+    "lat": -33.7990, 
     "lon": 150.9730
   },
   {
@@ -362,20 +378,6 @@ const jpLocations = [
     "postcode": "2150",
     "lat": -33.8150,
     "lon": 151.0011
-  },
-  {
-    "name": "Hornsby Shire Council Administration Building 296 Peats Ferry Road Hornsby NSW 2077",
-    "address": "Hornsby Shire Council Administration Building\n296 Peats Ferry Road\nHornsby NSW 2077",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
-    },
-    "council": "Hornsby Shire Council",
-    "source_url": "https://www.hornsby.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2077",
-    "lat": -33.7009,
-    "lon": 151.0985
   },
   {
     "name": "Canterbury-Bankstown Council Bankstown Customer Service Centre Upper Ground Floor, Bankstown Civic Tower, 66-72 Rickard Road Bankstown NSW 2200",
@@ -938,21 +940,6 @@ const jpLocations = [
     "lon": 151.2867
   },
   {
-    "name": "Gordon Library",
-    "address": "Gordon Library\n799 Pacific Highway\nGordon NSW 2072",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Ku-ring-gai Council",
-    "source_url": "https://www.krg.nsw.gov.au/Community/Justice-of-the-Peace",
-    "postcode": "2072",
-    "lat": -33.7559,
-    "lon": 151.1545
-  },
-  {
     "name": "Cabramatta Library",
     "address": "Cabramatta Library\n1 Railway Parade\nCabramatta NSW 2166",
     "days": "Tuesday, Thursday, Saturday",
@@ -970,11 +957,10 @@ const jpLocations = [
   {
     "name": "Kogarah Library",
     "address": "Kogarah Library and Service Centre\n2 Belgrave Street\nKogarah NSW 2217",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Monday, Thursday",
     "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
+      "Monday": "2:30 PM - 4:30 PM",
+      "Thursday": "11:00 AM - 1:00 PM"
     },
     "council": "Georges River Council",
     "source_url": "https://www.georgesriver.nsw.gov.au/Community/Justice-of-the-Peace",
@@ -983,21 +969,30 @@ const jpLocations = [
     "lon": 151.1374
   },
   {
-    "name": "St George Bank - Chatswood Branch",
-    "address": "St George Bank\n402 Victoria Avenue\nChatswood NSW 2067",
-    "days": "Monday to Friday",
+    "name": "Oatley Library 26 Letitia Street Oatley NSW 2223",
+    "address": "Oatley Library\n26 Letitia Street\nOatley NSW 2223",
+    "days": "Thursday",
     "hours": {
-      "Monday": "9:30 AM - 4:00 PM",
-      "Tuesday": "9:30 AM - 4:00 PM",
-      "Wednesday": "9:30 AM - 4:00 PM",
-      "Thursday": "9:30 AM - 4:00 PM",
-      "Friday": "9:30 AM - 4:00 PM"
+      "Thursday": "11:00 AM - 1:00 PM"
     },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.stgeorge.com.au/contact-us/locate-us",
-    "postcode": "2067",
-    "lat": -33.7965,
-    "lon": 151.1824
+    "council": "Georges River Council",
+    "source_url": "https://georgesriver.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JPSERVICE",
+    "postcode": "2223",
+    "lat": -33.9814,
+    "lon": 151.083
+  },
+  {
+    "name": "South Hurstville Library Corner of Short and Allen Street South Hurstville NSW 2221",
+    "address": "South Hurstville Library\nCorner of Short and Allen Street\nSouth Hurstville NSW 2221",
+    "days": "Friday",
+    "hours": {
+      "Friday": "11:00 AM - 1:00 PM"
+    },
+    "council": "Georges River Council",
+    "source_url": "https://georgesriver.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JPSERVICE",
+    "postcode": "2221",
+    "lat": -33.97756,
+    "lon": 151.1055
   },
   {
     "name": "Macquarie Centre Customer Service Desk",
@@ -1085,21 +1080,6 @@ const jpLocations = [
     "postcode": "2200",
     "lat": -33.9171,
     "lon": 151.0341
-  },
-  {
-    "name": "Lane Cove Library",
-    "address": "Lane Cove Library\nLibrary Walk, 139a Longueville Road\nLane Cove NSW 2066",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Lane Cove Council",
-    "source_url": "https://www.lanecove.nsw.gov.au/Community/Pages/JusticeOfThePeace.aspx",
-    "postcode": "2066",
-    "lat": -33.8156,
-    "lon": 151.1697
   },
   {
     "name": "Carlingford Court Shopping Centre",
