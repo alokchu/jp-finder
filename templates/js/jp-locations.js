@@ -1521,23 +1521,6 @@ const jpLocations = [
     "lon": 150.9314
   },
   {
-    "name": "Armidale Regional Council",
-    "address": "Armidale Regional Council\n135 Rusden Street\nArmidale NSW 2350",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Armidale Regional Council",
-    "source_url": "https://www.armidaleregional.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2350",
-    "lat": -30.5150,
-    "lon": 151.6678
-  },
-  {
     "name": "Broken Hill City Council",
     "address": "Broken Hill City Council\n240 Blende Street\nBroken Hill NSW 2880",
     "days": "Monday to Friday",
