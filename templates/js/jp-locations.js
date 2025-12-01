@@ -52,7 +52,7 @@ const jpLocations = [
   {
     "name": "Chatswood Library on The Concourse 409 Victoria Avenue Chatswood NSW 2067",
     "address": "Chatswood Library on The Concourse\n409 Victoria Avenue\nChatswood NSW 2067",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Monday, Wednesday, Saturday",
     "hours": {
       "Monday": "12:00 AM - 2:00 PM",
       "Wednesday": "10:00 AM - 12:00 PM",
@@ -1388,6 +1388,37 @@ const jpLocations = [
     "postcode": "2541",
     "lat": -34.8739,
     "lon": 150.6029
+  },
+  {
+    "name": "Armidale Community JP Desk – Community Support Hub 101 Dangar Street Armidale NSW 2350",
+    "address": "Armidale Community JP Desk – Community Support Hub\n101 Dangar Street\nArmidale NSW 2350",
+    "days": "Wednesday, Friday",
+    "hours": {
+      "Wednesday": "10:00 AM - 12:00 PM",
+      "Friday": "10:00 AM - 12:00 PM"
+    },
+    "council": "Armidale Regional Council",
+    "source_url": "https://communitysupporthub.org.au/",
+    "postcode": "2350",
+    "lat": -30.5143,
+    "lon": 151.6680
+  },
+  {
+    "name": "UNE Armidale Campus – JP Access via Student Services Dixon Library Armidale NSW 2351",
+    "address": "University of New England\nStudent Services – Dixon Library\nElm Avenue\nArmidale NSW 2351",
+    "days": "By appointment (business days)",
+    "hours": {
+      "Monday": "By appointment",
+      "Tuesday": "By appointment",
+      "Wednesday": "By appointment",
+      "Thursday": "By appointment",
+      "Friday": "By appointment"
+    },
+    "council": "Armidale Regional Council",
+    "source_url": "https://askune.custhelp.com/app/answers/detail/a_id/991/~/finding-a-justice-of-the-peace",
+    "postcode": "2351",
+    "lat": -30.4909,
+    "lon": 151.6430
   },
   {
     "name": "Shoalhaven City Council Administrative Centre",
