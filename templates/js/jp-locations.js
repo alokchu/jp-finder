@@ -429,20 +429,6 @@ const jpLocations = [
     "lon": 150.9219
   },
   {
-    "name": "Randwick City Council Administration Building 30 Frances Street Randwick NSW 2031",
-    "address": "Randwick City Council Administration Building\n30 Frances Street\nRandwick NSW 2031",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "9:30 AM - 12:30 PM",
-      "Thursday": "1:30 PM - 4:30 PM"
-    },
-    "council": "Randwick City Council",
-    "source_url": "https://www.randwick.nsw.gov.au/community/community-support/justice-of-the-peace",
-    "postcode": "2031",
-    "lat": -33.9173,
-    "lon": 151.2407
-  },
-  {
     "name": "Westfield Parramatta Information Desk Level 2, 159-175 Church Street Parramatta NSW 2150",
     "address": "Westfield Parramatta Information Desk\nLevel 2\n159-175 Church Street\nParramatta NSW 2150",
     "days": "Tuesday, Thursday, Saturday",
@@ -471,6 +457,32 @@ const jpLocations = [
     "postcode": "2113",
     "lat": -33.7758,
     "lon": 151.1231
+  },
+  {
+    "name": "Northbridge Library, 173 Sailors Bay Road Northbridge NSW 2063",
+    "address": "Northbridge Library\n173 Sailors Bay Road\nNorthbridge NSW 2063",
+    "days": "Thursday",
+    "hours": {
+      "Thursday": "5:00 PM - 6:00 PM"
+    },
+    "council": "Willoughby City Council",
+    "source_url": "",
+    "postcode": "2063",
+    "lat": -33.8130,
+    "lon": 151.2160
+  },
+  {
+    "name": "West Chatswood Library, 565 Mowbray Road West Chatswood NSW 2067",
+    "address": "West Chatswood Library\n565 Mowbray Road West\nChatswood NSW 2067",
+    "days": "Tuesday",
+    "hours": {
+      "Tuesday": "5:00 PM - 6:00 PM"
+    },
+    "council": "Willoughby City Council",
+    "source_url": "",
+    "postcode": "2067",
+    "lat": -33.8000,
+    "lon": 151.1570
   },
   {
     "name": "Bankstown Central Customer Service Desk Level 1, North Terrace, 1 North Terrace Bankstown NSW 2200",
@@ -1843,21 +1855,6 @@ const jpLocations = [
     "lon": 151.0247
   },
   {
-    "name": "North Rocks Library",
-    "address": "North Rocks Library\nNorth Rocks Shopping Centre\n328-336 North Rocks Road\nNorth Rocks NSW 2151",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/north-rocks-library",
-    "postcode": "2151",
-    "lat": -33.7742,
-    "lon": 151.0247
-  },
-  {
     "name": "Town Hall House customer service centre",
     "address": "Lvl 2, Town Hall House customer service centre\n456 Kent Street\nSydney NSW 2000",
     "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
@@ -2015,10 +2012,9 @@ const jpLocations = [
   {
     "name": "Artarmon Library",
     "address": "Artarmon Library\n139 Artarmon Road\nArtarmon NSW 2064",
-    "days": "Tuesday, Thursday",
+    "days": "Thursday",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
+      "Thursday": "6:00 PM - 7:00 PM"
     },
     "council": "Willoughby City Council",
     "source_url": "https://www.willoughby.nsw.gov.au/Community/Library/Library-locations/Artarmon-Library",
