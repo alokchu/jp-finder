@@ -6,6 +6,7 @@ import datetime
 import re
 import logging
 import time
+import subprocess
 from pathlib import Path
 
 # Setup logging
@@ -108,13 +109,27 @@ class JPFinderDeployer:
             css_dest = self.build_dir / "css" / "style.css"
             shutil.copy2(css_src, css_dest)
 
-        # Copy suburbs.json with logging
+        # Write suburbs.json pre-filtered to NSW, keeping only the fields
+        # the frontend uses. The source file covers all of Australia (6.7MB)
+        # and was downloaded on every page load; the filtered file is a few
+        # hundred KB. main.js is unchanged - same keys, same filter result.
         suburbs_src = self.data_dir / "suburbs.json"
         if suburbs_src.exists():
             suburbs_dest = data_dir / "suburbs.json"
-            logger.info(f"Copying suburbs.json from {suburbs_src} to {suburbs_dest}")
-            shutil.copy2(suburbs_src, suburbs_dest)
-            logger.info(f"Successfully copied suburbs.json. File size: {os.path.getsize(suburbs_dest)} bytes")
+            keep_fields = ("suburb", "state", "postcode", "lat", "lng")
+            with open(suburbs_src, "r", encoding="utf-8") as f:
+                all_suburbs = json.load(f).get("data", [])
+            nsw_suburbs = [
+                {k: item[k] for k in keep_fields if k in item}
+                for item in all_suburbs
+                if item.get("state") == "NSW"
+            ]
+            with open(suburbs_dest, "w", encoding="utf-8") as f:
+                json.dump({"data": nsw_suburbs}, f, separators=(",", ":"))
+            logger.info(
+                f"Wrote NSW-only suburbs.json: {len(nsw_suburbs)} of "
+                f"{len(all_suburbs)} suburbs, {os.path.getsize(suburbs_dest)} bytes"
+            )
         else:
             logger.error(f"suburbs.json not found at {suburbs_src}")
 
@@ -139,7 +154,7 @@ class JPFinderDeployer:
         robots_content = f"""User-agent: *
 Allow: /
 
-Sitemap: https://www.{self.base_domain}/sitemap.xml
+Sitemap: https://{self.base_domain}/sitemap.xml
 """
         with open(self.build_dir / "robots.txt", "w") as f:
             f.write(robots_content)
@@ -450,38 +465,47 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         logger.info("Created 404 error page")
 
     def copy_sitemap(self):
-        """Copy sitemap.xml from data directory to build directory"""
-        sitemap_file = self.data_dir / "sitemap.xml"
-        if sitemap_file.exists():
-            shutil.copy(sitemap_file, self.build_dir / "sitemap.xml")
-            logger.info("Copied sitemap.xml to build directory")
-        else:
-            logger.warning("Sitemap file not found in data directory")
-            self.generate_sitemap()
+        """Generate sitemap.xml fresh on every build.
+
+        Previously this copied data/sitemap.xml verbatim, which is why the
+        live sitemap's lastmod was stuck at 2025-08-09 and its URLs used www
+        while the canonical is non-www. Generation is now the only path.
+        """
+        self.generate_sitemap()
 
     def generate_sitemap(self):
-        """Generate a basic sitemap if one doesn't exist"""
+        """Generate sitemap.xml with non-www URLs (matching the canonical)
+        and real last-modified dates from git history, falling back to today
+        when git is unavailable."""
         today = datetime.datetime.now().strftime("%Y-%m-%d")
-        sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.{self.base_domain}/</loc>
-    <lastmod>{today}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-"""
 
-        # Add additional pages to sitemap
+        def lastmod_for(src_file):
+            try:
+                result = subprocess.run(
+                    ["git", "log", "-1", "--format=%cs", "--", src_file],
+                    capture_output=True, text=True, check=True,
+                    cwd=self.root_dir,
+                )
+                return result.stdout.strip() or today
+            except Exception:
+                return today
+
+        pages = [("/", "templates/index.html", "daily", "1.0")]
         for page in self.additional_pages:
+            pages.append(
+                (f"/{page['filename']}", f"templates/{page['filename']}", "weekly", "0.8")
+            )
+
+        sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+        sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        for url_path, src_file, changefreq, priority in pages:
             sitemap_content += f"""  <url>
-    <loc>https://www.{self.base_domain}/{page['filename']}</loc>
-    <lastmod>{today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://{self.base_domain}{url_path}</loc>
+    <lastmod>{lastmod_for(src_file)}</lastmod>
+    <changefreq>{changefreq}</changefreq>
+    <priority>{priority}</priority>
   </url>
 """
-
         sitemap_content += "</urlset>"
 
         with open(self.build_dir / "sitemap.xml", "w", encoding="utf-8") as f:
@@ -494,6 +518,12 @@ Sitemap: https://www.{self.base_domain}/sitemap.xml
         netlify_config = """[build]
   publish = "build/"
   command = "python deploy.py --build-only"
+
+# /index.html is a duplicate of / - consolidate with a 301
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
 
 [[redirects]]
   from = "/*"
