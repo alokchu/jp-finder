@@ -135,6 +135,10 @@ class JPFinderDeployer:
 
         # Copy and process index.html
         self.process_html_file()
+        preview_src = self.templates_dir / "preview"
+        if preview_src.exists():
+            shutil.copytree(preview_src, self.build_dir / "preview", dirs_exist_ok=True)
+            logger.info("Copied sponsor preview pages")
 
     def process_html_file(self):
         """Process and copy index.html with cache busting"""
