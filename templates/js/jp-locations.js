@@ -1,23 +1,6 @@
 /// Enhanced JP locations data with coordinates
 const jpLocations = [
   {
-    "name": "Ku-ring-gai Council Chambers 818 Pacific Highway Gordon NSW 2072",
-    "address": "Ku-ring-gai Council Chambers\n818 Pacific Highway\nGordon NSW 2072",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 5:00 PM",
-      "Tuesday": "8:30 AM - 5:00 PM",
-      "Wednesday": "8:30 AM - 5:00 PM",
-      "Thursday": "8:30 AM - 5:00 PM",
-      "Friday": "8:30 AM - 5:00 PM"
-    },
-    "council": "Ku-ring-gai Council",
-    "source_url": "https://www.kmc.nsw.gov.au/Your_Council/Organisation/Justice_of_the_Peace",
-    "postcode": "2072",
-    "lat": -33.7558,
-    "lon": 151.1543
-  },
-  {
     "name": "St Ives Shopping Village Information Desk 166 Mona Vale Road St Ives NSW 2075",
     "address": "St Ives Shopping Village Information Desk\n166 Mona Vale Road\nSt Ives NSW 2075",
     "days": "Wednesday, Friday",
@@ -54,12 +37,12 @@ const jpLocations = [
     "address": "Chatswood Library on The Concourse\n409 Victoria Avenue\nChatswood NSW 2067",
     "days": "Monday, Wednesday, Saturday",
     "hours": {
-      "Monday": "12:00 AM - 2:00 PM",
+      "Monday": "12:00 PM - 2:00 PM",
       "Wednesday": "10:00 AM - 12:00 PM",
       "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Willoughby City Council",
-    "source_url": "https://www.willoughby.nsw.gov.au/Community/Library/Library-locations/Chatswood-Library",
+    "source_url": "https://libraries.willoughby.nsw.gov.au/Services/JP-Services/JP-Services",
     "postcode": "2067",
     "lat": -33.7967,
     "lon": 151.1828
@@ -82,36 +65,6 @@ const jpLocations = [
     "lon": 151.1851
   },
   {
-    "name": "Chatswood Chase Shopping Centre Concierge Level 1, 345 Victoria Avenue Chatswood NSW 2067",
-    "address": "Chatswood Chase Shopping Centre Concierge\nLevel 1\n345 Victoria Avenue\nChatswood NSW 2067",
-    "days": "Monday, Thursday, Saturday",
-    "hours": {
-      "Monday": "11:00 AM - 2:00 PM",
-      "Thursday": "4:00 PM - 7:00 PM",
-      "Saturday": "11:00 AM - 2:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.chatswoodchaseshopping.com.au/services",
-    "postcode": "2067",
-    "lat": -33.7956,
-    "lon": 151.1811
-  },
-  {
-    "name": "Westfield Chatswood Concierge Level 3, 1 Anderson Street Chatswood NSW 2067",
-    "address": "Westfield Chatswood Concierge\nLevel 3\n1 Anderson Street\nChatswood NSW 2067",
-    "days": "Tuesday, Friday, Sunday",
-    "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Friday": "3:00 PM - 6:00 PM",
-      "Sunday": "11:00 AM - 2:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.westfield.com.au/chatswood/services",
-    "postcode": "2067",
-    "lat": -33.7971,
-    "lon": 151.1837
-  },
-  {
     "name": "North Sydney Council Customer Service Centre 200 Miller Street North Sydney NSW 2060",
     "address": "North Sydney Council Customer Service Centre\n200 Miller Street\nNorth Sydney NSW 2060",
     "days": "Monday to Friday",
@@ -131,17 +84,17 @@ const jpLocations = [
   {
     "name": "Stanton Library 234 Miller Street North Sydney NSW 2060",
     "address": "Stanton Library\n234 Miller Street\nNorth Sydney NSW 2060",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Tuesday, Thursday",
     "hours": {
       "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Thursday": "2:00 PM - 4:00 PM"
     },
     "council": "North Sydney Council",
-    "source_url": "https://www.northsydney.nsw.gov.au/Library_Services/Library_Locations/Stanton_Library",
+    "source_url": "https://www.northsydney.nsw.gov.au/community/justice-peace-services",
     "postcode": "2060",
     "lat": -33.8399,
-    "lon": 151.2069
+    "lon": 151.2069,
+    "notes": "Bookings required (no walk-ins) - book via the North Sydney Council JP page. No Saturday service."
   },
   {
     "name": "Mosman Library 605 Military Road Mosman NSW 2088",
@@ -181,13 +134,13 @@ const jpLocations = [
       "Monday": "10:00 AM - 11:30 AM; 5:30 PM - 6:30 PM",
       "Tuesday": "10:00 AM - 11:30 AM",
       "Thursday": "10:00 AM - 11:30 AM; 5:30 PM - 6:30 PM",
-      "Friday": "10:00 AM - 11:30 AM"
+      "Friday": "9:30 AM - 10:30 AM"
     },
     "council": "Ku-ring-gai Council",
     "source_url": "https://www.krg.nsw.gov.au/Community/Ku-ring-gai-Library/Justice-of-the-Peace",
     "postcode": "2072",
-    "lat": -33.7330,
-    "lon": 151.1440
+    "lat": -33.733,
+    "lon": 151.144
   },
   {
     "name": "Lindfield Library 265 Pacific Highway Lindfield NSW 2070",
@@ -200,19 +153,19 @@ const jpLocations = [
     "council": "Ku-ring-gai Council",
     "source_url": "https://www.krg.nsw.gov.au/Community/Ku-ring-gai-Library/Justice-of-the-Peace",
     "postcode": "2070",
-    "lat": -33.7810,
-    "lon": 151.1670
+    "lat": -33.781,
+    "lon": 151.167
   },
   {
     "name": "Turramurra Library 5 Ray Street Turramurra NSW 2074",
     "address": "Turramurra Library\n5 Ray Street\nTurramurra NSW 2074",
-    "days": "Tuesday, Thursday",
+    "days": "Monday, Tuesday",
     "hours": {
-      "Tuesday": "2:00 PM - 4:00 PM",
-      "Thursday": "10:00 AM - 12:00 PM"
+      "Monday": "3:30 PM - 4:30 PM",
+      "Tuesday": "3:00 PM - 4:30 PM"
     },
     "council": "Ku-ring-gai Council",
-    "source_url": "https://www.kmc.nsw.gov.au/Facilities_recreation/Library/Library_locations",
+    "source_url": "https://www.krg.nsw.gov.au/Community/Ku-ring-gai-Library/Justice-of-the-Peace",
     "postcode": "2074",
     "lat": -33.7333,
     "lon": 151.1288
@@ -232,20 +185,6 @@ const jpLocations = [
     "lon": 150.9730
   },
   {
-    "name": "St Ives Library St Ives Shopping Village, 166 Mona Vale Road St Ives NSW 2075",
-    "address": "St Ives Library\nSt Ives Shopping Village\n166 Mona Vale Road\nSt Ives NSW 2075",
-    "days": "Wednesday, Friday",
-    "hours": {
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Ku-ring-gai Council",
-    "source_url": "https://www.kmc.nsw.gov.au/Facilities_recreation/Library/Library_locations",
-    "postcode": "2075",
-    "lat": -33.7308,
-    "lon": 151.1670
-  },
-  {
     "name": "Wahroonga Library 3 Woniora Avenue Wahroonga NSW 2076",
     "address": "Wahroonga Library\n3 Woniora Avenue\nWahroonga NSW 2076",
     "days": "Tuesday",
@@ -257,23 +196,6 @@ const jpLocations = [
     "postcode": "2076",
     "lat": -33.7204,
     "lon": 151.1180
-  },
-  {
-    "name": "NSW Service Centre - Chatswood Service NSW Centre Shop 6001, Level 6, Westfield Chatswood 1 Anderson Street Chatswood NSW 2067",
-    "address": "NSW Service Centre - Chatswood\nService NSW Centre\nShop 6001, Level 6, Westfield Chatswood\n1 Anderson Street\nChatswood NSW 2067",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/chatswood-service-centre",
-    "postcode": "2067",
-    "lat": -33.7971,
-    "lon": 151.1837
   },
   {
     "name": "Cremorne Point Marina Office d'Albora Marinas, 2 Green Street Cremorne Point NSW 2090",
@@ -290,44 +212,18 @@ const jpLocations = [
     "lon": 151.2274
   },
   {
-    "name": "Neutral Bay Club 3 Westleigh Street Neutral Bay NSW 2089",
-    "address": "Neutral Bay Club\n3 Westleigh Street\nNeutral Bay NSW 2089",
-    "days": "Wednesday",
-    "hours": {
-      "Wednesday": "10:00 AM - 1:00 PM"
-    },
-    "council": "North Sydney Council",
-    "source_url": "https://www.neutralbayclub.com.au/services",
-    "postcode": "2089",
-    "lat": -33.8324,
-    "lon": 151.2185
-  },
-  {
     "name": "Northbridge Plaza Information Desk 79-113 Sailors Bay Road Northbridge NSW 2063",
     "address": "Northbridge Plaza Information Desk\n79-113 Sailors Bay Road\nNorthbridge NSW 2063",
-    "days": "Friday",
+    "days": "Tuesday",
     "hours": {
-      "Friday": "10:00 AM - 1:00 PM"
+      "Tuesday": "JP service reported on Tuesdays only - confirm times with the Plaza information desk"
     },
     "council": "Willoughby City Council",
     "source_url": "https://www.northbridgeplaza.com.au/centre-info/services",
     "postcode": "2063",
     "lat": -33.8121,
-    "lon": 151.2167
-  },
-  {
-    "name": "Forestville RSL Club 22 Melwood Avenue Forestville NSW 2087",
-    "address": "Forestville RSL Club\n22 Melwood Avenue\nForestville NSW 2087",
-    "days": "Tuesday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Saturday": "11:00 AM - 1:00 PM"
-    },
-    "council": "Northern Beaches Council",
-    "source_url": "https://www.forestvillersl.com.au/community",
-    "postcode": "2087",
-    "lat": -33.7689,
-    "lon": 151.2174
+    "lon": 151.2167,
+    "notes": "Needs verification: two May 2026 reports say JP is only here on Tuesdays; times not confirmed."
   },
   {
     "name": "The Hills Shire Council 3 Columbia Court Norwest NSW 2153",
@@ -346,70 +242,18 @@ const jpLocations = [
     "notes": "No Copying Service. Please bring all copies of documents to be certified as Council does not have a copying service available. To avoid delays for more than 5 Statutory Declarations or 10 Signatures, book by calling 02 9843 0555."
   },
   {
-    "name": "Blacktown City Council Civic Centre 62 Flushcombe Road Blacktown NSW 2148",
-    "address": "Blacktown City Council Civic Centre\n62 Flushcombe Road\nBlacktown NSW 2148",
-    "days": "Monday to Friday",
+    "name": "City of Parramatta JP Service",
+    "address": "City of Parramatta\nParramatta NSW 2150\n(no longer at 126 Church Street)",
+    "days": "Varies",
     "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
-    "postcode": "2148",
-    "lat": -33.7712,
-    "lon": 150.9068
-  },
-  {
-    "name": "Parramatta City Council Customer Contact Centre 126 Church Street Parramatta NSW 2150",
-    "address": "Parramatta City Council Customer Contact Centre\n126 Church Street\nParramatta NSW 2150",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 3:00 PM",
-      "Tuesday": "9:00 AM - 3:00 PM",
-      "Wednesday": "9:00 AM - 3:00 PM",
-      "Thursday": "9:00 AM - 3:00 PM",
-      "Friday": "9:00 AM - 3:00 PM"
+      "Varies": "Sessions and locations vary - check the City of Parramatta JP calendar before visiting"
     },
     "council": "City of Parramatta Council",
-    "source_url": "https://www.cityofparramatta.nsw.gov.au/community/justice-of-the-peace",
+    "source_url": "https://www.cityofparramatta.nsw.gov.au/community/libraries-and-community-hubs/justice-of-the-peace",
     "postcode": "2150",
-    "lat": -33.8150,
-    "lon": 151.0011
-  },
-  {
-    "name": "Canterbury-Bankstown Council Bankstown Customer Service Centre Upper Ground Floor, Bankstown Civic Tower, 66-72 Rickard Road Bankstown NSW 2200",
-    "address": "Canterbury-Bankstown Council Bankstown Customer Service Centre\nUpper Ground Floor, Bankstown Civic Tower\n66-72 Rickard Road\nBankstown NSW 2200",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Canterbury-Bankstown Council",
-    "source_url": "https://www.cbcity.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2200",
-    "lat": -33.9172,
-    "lon": 151.0334
-  },
-  {
-    "name": "Northern Beaches Council Dee Why Civic Centre 725 Pittwater Road Dee Why NSW 2099",
-    "address": "Northern Beaches Council Dee Why Civic Centre\n725 Pittwater Road\nDee Why NSW 2099",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "9:00 AM - 12:00 PM",
-      "Wednesday": "1:00 PM - 4:00 PM",
-      "Friday": "9:00 AM - 12:00 PM"
-    },
-    "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
-    "postcode": "2099",
-    "lat": -33.7539,
-    "lon": 151.2874
+    "lat": -33.815,
+    "lon": 151.0011,
+    "notes": "Reported moved from 126 Church St (now at PHIVE) and not available every day - verify against council calendar."
   },
   {
     "name": "Liverpool City Council Customer Service Centre Ground Floor, 33 Moore Street Liverpool NSW 2170",
@@ -427,36 +271,6 @@ const jpLocations = [
     "postcode": "2170",
     "lat": -33.9202,
     "lon": 150.9219
-  },
-  {
-    "name": "Westfield Parramatta Information Desk Level 2, 159-175 Church Street Parramatta NSW 2150",
-    "address": "Westfield Parramatta Information Desk\nLevel 2\n159-175 Church Street\nParramatta NSW 2150",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 2:00 PM",
-      "Thursday": "12:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.westfield.com.au/parramatta/services",
-    "postcode": "2150",
-    "lat": -33.8165,
-    "lon": 151.0028
-  },
-  {
-    "name": "Macquarie Centre Customer Service Centre Level 3, Corner Herring & Waterloo Roads North Ryde NSW 2113",
-    "address": "Macquarie Centre Customer Service Centre\nLevel 3\nCorner Herring & Waterloo Roads\nNorth Ryde NSW 2113",
-    "days": "Tuesday, Friday, Sunday",
-    "hours": {
-      "Tuesday": "11:00 AM - 2:00 PM",
-      "Friday": "4:00 PM - 7:00 PM",
-      "Sunday": "12:00 PM - 3:00 PM"
-    },
-    "council": "City of Ryde",
-    "source_url": "https://www.macquariecentre.com.au/services",
-    "postcode": "2113",
-    "lat": -33.7758,
-    "lon": 151.1231
   },
   {
     "name": "Northbridge Library, 173 Sailors Bay Road Northbridge NSW 2063",
@@ -565,10 +379,10 @@ const jpLocations = [
   {
     "name": "Stockland Wetherill Park Customer Care Desk 561-583 Polding Street Wetherill Park NSW 2164",
     "address": "Stockland Wetherill Park Customer Care Desk\n561-583 Polding Street\nWetherill Park NSW 2164",
-    "days": "Tuesday, Thursday",
+    "days": "Thursday, Saturday",
     "hours": {
-      "Tuesday": "10:00 AM - 2:00 PM",
-      "Thursday": "3:00 PM - 7:00 PM"
+      "Thursday": "5:00 PM - 6:00 PM",
+      "Saturday": "9:30 AM - 11:30 AM"
     },
     "council": "Fairfield City Council",
     "source_url": "https://www.stockland.com.au/shopping-centres/centres/stockland-wetherill-park/offers-and-services",
@@ -661,13 +475,12 @@ const jpLocations = [
   {
     "name": "Rhodes Waterside Shopping Centre Information Desk Level 1, 1 Rider Boulevard Rhodes NSW 2138",
     "address": "Rhodes Waterside Shopping Centre Information Desk\nLevel 1\n1 Rider Boulevard\nRhodes NSW 2138",
-    "days": "Monday, Wednesday",
+    "days": "Saturday",
     "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "4:00 PM - 7:00 PM"
+      "Saturday": "9:00 AM - 12:00 PM"
     },
     "council": "City of Canada Bay",
-    "source_url": "https://www.rhodeswaterside.com.au/centre-info/services",
+    "source_url": "https://www.rhodeswaterside.com.au/experience/events/free-jp-service",
     "postcode": "2138",
     "lat": -33.8338,
     "lon": 151.0869
@@ -687,65 +500,18 @@ const jpLocations = [
     "lon": 151.1040
   },
   {
-    "name": "NSW Service Centre - Chatswood Service NSW Centre Shop 6001, Level 6, Westfield Chatswood 1 Anderson Street Chatswood NSW 2067",
-    "address": "NSW Service Centre - Chatswood\nService NSW Centre\nShop 6001, Level 6, Westfield Chatswood\n1 Anderson Street\nChatswood NSW 2067",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/chatswood-service-centre",
-    "postcode": "2067",
-    "lat": -33.7971,
-    "lon": 151.1837
-  },
-  {
-    "name": "NSW Service Centre - Parramatta Service NSW Centre 8 Valentine Avenue Parramatta NSW 2150",
-    "address": "NSW Service Centre - Parramatta\nService NSW Centre\n8 Valentine Avenue\nParramatta NSW 2150",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 5:30 PM",
-      "Tuesday": "8:30 AM - 5:30 PM",
-      "Wednesday": "8:30 AM - 5:30 PM",
-      "Thursday": "8:30 AM - 5:30 PM",
-      "Friday": "8:30 AM - 5:30 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/parramatta-service-centre",
-    "postcode": "2150",
-    "lat": -33.8144,
-    "lon": 151.0031
-  },
-  {
     "name": "Marrickville Library & Pavilion 313 Marrickville Road Marrickville NSW 2204",
     "address": "Patyegarang Place, Marrickville Library & Pavilion\n313 Marrickville Road\nMarrickville NSW 2204",
-    "days": "Wednesday",
+    "days": "Tuesday (fortnightly)",
     "hours": {
-      "Wednesday": "2:00 PM - 4:00 PM (call 9392 5588 to book)"
+      "Tuesday": "10:00 AM - 12:00 PM (fortnightly)"
     },
     "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/explore/libraries/library-locations-and-opening-hours/marrickville-library",
+    "source_url": "https://www.innerwest.nsw.gov.au/libraries/justice-peace-jp-services",
     "postcode": "2204",
     "lat": -33.9108,
-    "lon": 151.1539
-  },
-  {
-    "name": "Randwick City Library - Bowen Library 669-673 Anzac Parade Maroubra NSW 2035",
-    "address": "Randwick City Library - Bowen Library\n669-673 Anzac Parade\nMaroubra NSW 2035",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Wednesday": "2:00 PM - 3:30 PM",
-      "Sunday": "1:00 PM - 2:30 PM"
-    },
-    "council": "Randwick City Council",
-    "source_url": "https://www.randwick.nsw.gov.au/library/about-the-library/locations-and-opening-hours",
-    "postcode": "2035",
-    "lat": -33.9438,
-    "lon": 151.2399
+    "lon": 151.1539,
+    "notes": "No longer Wednesdays - now fortnightly on Tuesdays."
   },
   {
     "name": "Hornsby Library 28-44 George Street Hornsby NSW 2077",
@@ -808,17 +574,15 @@ const jpLocations = [
   {
     "name": "Dennis Johnson Library (JP Service)",
     "address": "Stanhope Leisure Centre, Sentry Drive, Stanhope Gardens NSW 2768",
-    "days": "Monday, Tuesday, Wednesday, Saturday",
+    "days": "Tuesday, Wednesday, Saturday",
     "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Tuesday": "5:00 PM - 7:00 PM",
+      "Tuesday": "10:00 AM - 12:30 PM",
       "Wednesday": "10:00 AM - 12:00 PM",
       "Saturday": "10:00 AM - 12:30 PM"
     },
     "council": "N/A",
-    "source_url": "https://www.stanhopevillage.com.au/whats-on/justice-of-the-peace",
+    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace",
     "postcode": "2768",
-    "holiday_notice": "Christmas Holiday Hours 🎄",
     "lat": -33.7184,
     "lon": 150.9151
   },
@@ -889,20 +653,16 @@ const jpLocations = [
   {
     "name": "Penrith City Council - St. Marys Office",
     "address": "Penrith City Council - St Marys Office\nSt Marys Corner Community & Cultural Precinct\n207-209 Queen Street\nSt Marys NSW 2760",
-    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "days": "Thursday",
     "hours": {
-      "Monday": "9:00 AM - 4:00 PM",
-      "Tuesday": "9:00 AM - 4:00 PM",
-      "Wednesday": "9:00 AM - 4:00 PM",
-      "Thursday": "9:00 AM - 4:00 PM",
-      "Friday": "9:00 AM - 4:00 PM"
+      "Thursday": "2:30 PM - 4:30 PM"
     },
-
     "council": "Penrith City Council",
     "source_url": "https://www.penrithcity.nsw.gov.au/community-library/community-information/justice-of-the-peace",
     "postcode": "2760",
     "lat": -33.7656,
-    "lon": 150.7744
+    "lon": 150.7744,
+    "notes": "Appointment required - book via the Penrith Library website."
   },
   {
     "name": "Blue Mountains City Council - Katoomba Office",
@@ -924,47 +684,44 @@ const jpLocations = [
   {
     "name": "Manly Library",
     "address": "Manly Library\n1 Market Place\nManly NSW 2095",
-    "days": "Monday, Wednesday, Saturday",
+    "days": "Varies",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Varies": "Times change week to week - check the Northern Beaches Libraries JP schedule before visiting"
     },
     "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/library/services/justice-peace",
     "postcode": "2095",
     "lat": -33.7971,
-    "lon": 151.2857
+    "lon": 151.2857,
+    "notes": "Northern Beaches Libraries asked that listings direct people to their JP schedule page."
   },
   {
     "name": "Dee Why Library",
     "address": "Dee Why Library\n725 Pittwater Road\nDee Why NSW 2099",
-    "days": "Tuesday, Thursday, Friday",
+    "days": "Varies",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Varies": "Times change week to week - check the Northern Beaches Libraries JP schedule before visiting"
     },
     "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/library/services/justice-peace",
     "postcode": "2099",
     "lat": -33.7516,
-    "lon": 151.2867
+    "lon": 151.2867,
+    "notes": "Northern Beaches Libraries asked that listings direct people to their JP schedule page."
   },
   {
-    "name": "Cabramatta Library",
-    "address": "Cabramatta Library\n1 Railway Parade\nCabramatta NSW 2166",
-    "days": "Tuesday, Thursday, Saturday",
+    "name": "Whitlam Library Cabramatta",
+    "address": "Whitlam Library Cabramatta\n165 Railway Parade\nCabramatta NSW 2166",
+    "days": "Wednesday",
     "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Wednesday": "9:30 AM - 12:00 PM"
     },
     "council": "Fairfield City Council",
-    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Justice-of-the-Peace",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Fairfield-City-Open-Libraries/Our-Special-Services",
     "postcode": "2166",
-    "lat": -33.8945,
-    "lon": 150.9385
+    "lat": -33.8926667,
+    "lon": 150.9388692,
+    "notes": "Volunteer-supported service - call (02) 9725 0333 to confirm a JP is available."
   },
   {
     "name": "Kogarah Library",
@@ -975,7 +732,7 @@ const jpLocations = [
       "Thursday": "11:00 AM - 1:00 PM"
     },
     "council": "Georges River Council",
-    "source_url": "https://www.georgesriver.nsw.gov.au/Community/Justice-of-the-Peace",
+    "source_url": "https://georgesriver.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JPSERVICE",
     "postcode": "2217",
     "lat": -33.9671,
     "lon": 151.1374
@@ -1007,19 +764,19 @@ const jpLocations = [
     "lon": 151.1055
   },
   {
-    "name": "Macquarie Centre Customer Service Desk",
-    "address": "Macquarie Centre\nLevel 3 (near Event Cinemas)\nHerring Road & Waterloo Road\nMacquarie Park NSW 2113",
-    "days": "Tuesday, Thursday, Saturday",
+    "name": "Macquarie Centre JP Desk",
+    "address": "Macquarie Centre\nLevel 1, near Macquarie Ice Rink\nCnr Herring & Waterloo Roads\nMacquarie Park NSW 2113",
+    "days": "Wednesday, 1st & 3rd Saturday of the month",
     "hours": {
-      "Tuesday": "11:00 AM - 2:00 PM",
-      "Thursday": "11:00 AM - 2:00 PM",
-      "Saturday": "11:00 AM - 2:00 PM"
+      "Wednesday": "9:30 AM - 12:30 PM",
+      "1st & 3rd Saturday": "9:30 AM - 12:30 PM"
     },
     "council": "City of Ryde",
-    "source_url": "https://www.macquariecentre.com.au/services",
+    "source_url": "https://www.macquariecentre.com.au/centre-info/services-facilities",
     "postcode": "2113",
     "lat": -33.7766,
-    "lon": 151.1235
+    "lon": 151.1235,
+    "notes": "Run by NSW Justices Association volunteers; hours may vary depending on volunteer availability."
   },
   {
     "name": "Eastgardens Library",
@@ -1028,7 +785,7 @@ const jpLocations = [
     "hours": {
       "Monday": "11:00 AM - 1:00 PM",
       "Tuesday": "9:00 AM - 1:00 PM",
-      "Thursday": "1:00 PM - 4:45 PM",
+      "Thursday": "1:00 PM - 4:45 PM"
     },
     "council": "Bayside Council",
     "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
@@ -1039,43 +796,27 @@ const jpLocations = [
   {
     "name": "Rockdale Library",
     "address": "Rockdale Library\n444-446 Princes Highway\nRockdale NSW 2216",
-    "days": "Wednesday, Saturday",
+    "days": "Saturday",
     "hours": {
-      "Wednesday": "3:00 PM - 5:00 PM",
       "Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Bayside Council",
     "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
     "postcode": "2216",
     "lat": -33.9517,
-    "lon": 151.1397
-  },
-  {
-    "name": "Warringah Mall Library",
-    "address": "Warringah Mall Library\nShop 650, Level 2, Westfield Warringah Mall\n145 Old Pittwater Road\nBrookvale NSW 2100",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM",
-      "Friday": "10:00 AM - 1:00 PM"
-    },
-    "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
-    "postcode": "2100",
-    "lat": -33.7671,
-    "lon": 151.2712
+    "lon": 151.1397,
+    "notes": "Wednesday service ended (reported by Rockdale Library staff, May 2026)."
   },
   {
     "name": "Fairfield Library",
     "address": "Fairfield Library\n1/1B Barbara Street\nFairfield NSW 2165",
-    "days": "Monday, Wednesday, Friday",
+    "days": "Tuesday, Thursday",
     "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
+      "Tuesday": "1:30 PM - 3:00 PM",
+      "Thursday": "1:30 PM - 3:00 PM"
     },
     "council": "Fairfield City Council",
-    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Justice-of-the-Peace",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Fairfield-City-Open-Libraries/Our-Special-Services",
     "postcode": "2165",
     "lat": -33.8726,
     "lon": 150.9571
@@ -1112,7 +853,8 @@ const jpLocations = [
     "address": "Burwood Library\n2 Conder Street\nBurwood NSW 2134",
     "days": "Tuesday",
     "hours": {
-      "Tuesday": "2:00 PM - 4:00 PM (Every Tuesday) AND 6:45 PM - 7:45 PM (only - every second Tuesday of the month)"
+      "Tuesday": "2:00 PM - 4:00 PM",
+      "Second Tuesday of the month": "6:45 PM - 7:45 PM"
     },
     "council": "Burwood Council",
     "source_url": "https://www.burwood.nsw.gov.au/Community/Justice-of-the-Peace",
@@ -1136,13 +878,16 @@ const jpLocations = [
   {
     "name": "Mona Vale Library",
     "address": "Mona Vale Library\n1 Park Street\nMona Vale NSW 2103",
-    "days": "JP timings subject to change - refer https://www.northernbeaches.nsw.gov.au/library/services/justice-peace for latest timings",
-    "hours": {},
+    "days": "Varies",
+    "hours": {
+      "Varies": "Times change week to week - check the Northern Beaches Libraries JP schedule before visiting"
+    },
     "council": "Northern Beaches Council",
-    "source_url": "https://www.northernbeaches.nsw.gov.au/services/justice-of-the-peace",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/library/services/justice-peace",
     "postcode": "2103",
     "lat": -33.6766,
-    "lon": 151.3052
+    "lon": 151.3052,
+    "notes": "Northern Beaches Libraries asked that listings direct people to their JP schedule page."
   },
   {
     "name": "Campsie Library and Knowledge Centre",
@@ -1156,21 +901,6 @@ const jpLocations = [
     "postcode": "2194",
     "lat": -33.9115,
     "lon": 151.1036
-  },
-  {
-    "name": "St Ives Library",
-    "address": "St Ives Library\nSt Ives Village Shopping Centre\n166 Mona Vale Road\nSt Ives NSW 2075",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Ku-ring-gai Council",
-    "source_url": "https://www.krg.nsw.gov.au/Community/Justice-of-the-Peace",
-    "postcode": "2075",
-    "lat": -33.7444,
-    "lon": 151.1681
   },
   {
     "name": "Port Stephens Council Administration Building",
@@ -1224,23 +954,6 @@ const jpLocations = [
     "lon": 151.1689
   },
   {
-    "name": "Port Macquarie-Hastings Council Customer Service Centre",
-    "address": "17 Burrawan Street\nPort Macquarie NSW 2444",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Port Macquarie-Hastings Council",
-    "source_url": "https://www.pmhc.nsw.gov.au/Council/About-Us/Customer-Service",
-    "postcode": "2444",
-    "lat": -31.4312,
-    "lon": 152.9089
-  },
-  {
     "name": "Tweed Shire Council Administration Office",
     "address": "10-14 Tumbulgum Road\nMurwillumbah NSW 2484",
     "days": "Monday to Friday",
@@ -1290,34 +1003,6 @@ const jpLocations = [
     "postcode": "2320",
     "lat": -32.7316,
     "lon": 151.5550
-  },
-  {
-    "name": "Marsden Park Shopping Centre",
-    "address": "Marsden Park Shopping Centre\n169 Hollinsworth Road\nMarsden Park NSW 2765",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
-    "postcode": "2765",
-    "lat": -33.7227,
-    "lon": 150.8367
-  },
-  {
-    "name": "Schofields Community Centre",
-    "address": "Schofields Community Centre\n65 Railway Terrace\nSchofields NSW 2762",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "9:30 AM - 12:30 PM",
-      "Wednesday": "1:30 PM - 4:30 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
-    "postcode": "2762",
-    "lat": -33.7094,
-    "lon": 150.8728
   },
   {
     "name": "Wollongong City Council",
@@ -1598,10 +1283,12 @@ const jpLocations = [
   {
     "name": "Forster Library",
     "address": "Forster Library\n4-12 Breese Parade\nForster NSW 2428",
-    "days": "By Appointment",
-    "hours": {},
+    "days": "Varies - call ahead",
+    "hours": {
+      "Every day": "No set days or times - call (02) 7955 7001 and staff will advise when a JP is available"
+    },
     "council": "MidCoast Council",
-    "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
+    "source_url": "https://www.midcoast.nsw.gov.au/",
     "postcode": "2428",
     "lat": -32.1808,
     "lon": 152.5124
@@ -1609,10 +1296,12 @@ const jpLocations = [
   {
     "name": "Taree Library",
     "address": "Taree Library\n242 Victoria Street\nTaree NSW 2430",
-    "days": "By Appointment",
-    "hours": {},
+    "days": "Varies - call ahead",
+    "hours": {
+      "Every day": "No set days or times - call (02) 7955 7001 and staff will advise when a JP is available"
+    },
     "council": "MidCoast Council",
-    "source_url": "https://www.midcoast.nsw.gov.au/Community/Justice-of-the-Peace",
+    "source_url": "https://www.midcoast.nsw.gov.au/",
     "postcode": "2430",
     "lat": -31.9097,
     "lon": 152.4597
@@ -1635,36 +1324,6 @@ const jpLocations = [
     "lon": 149.7186
   },
   {
-    "name": "Leppington Library",
-    "address": "Leppington Library\n7 Madison Circuit\nLeppington NSW 2179",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Camden Council",
-    "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2179",
-    "lat": -33.9647,
-    "lon": 150.8286
-  },
-  {
-    "name": "Oran Park Library",
-    "address": "Oran Park Library\n72 Central Avenue\nOran Park NSW 2570",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Camden Council",
-    "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2570",
-    "lat": -34.0023,
-    "lon": 150.7419
-  },
-  {
     "name": "Edmondson Park Shopping Centre",
     "address": "Edmondson Park Shopping Centre\nCustomer Service Desk\n2 Soldiers Parade\nEdmondson Park NSW 2174",
     "days": "Tuesday, Thursday, Saturday",
@@ -1678,20 +1337,6 @@ const jpLocations = [
     "postcode": "2174",
     "lat": -33.9594,
     "lon": 150.8556
-  },
-  {
-    "name": "Narellan Library",
-    "address": "Narellan Library\nCamden Council\nQueen Street\nNarellan NSW 2567",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM"
-    },
-    "council": "Camden Council",
-    "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2567",
-    "lat": -34.0428,
-    "lon": 150.7364
   },
   {
     "name": "Ashfield Library",
@@ -1733,33 +1378,6 @@ const jpLocations = [
     "lon": 151.1552
   },
   {
-    "name": "Balmain Library",
-    "address": "Balmain Library\n370 Darling Street\nBalmain NSW 2041",
-    "days": "Wednesday",
-    "hours": {
-      "Wednesday": "10:00 AM - 12:00 PM (call 9392 5588 to book)"
-    },
-    "council": "Inner West Council",
-    "source_url": "https://www.innerwest.nsw.gov.au/live/community-well-being/justice-of-the-peace",
-    "postcode": "2041",
-    "lat": -33.8586,
-    "lon": 151.1792
-  },
-  {
-    "name": "Gregory Hills Shopping Centre",
-    "address": "Gregory Hills Shopping Centre\nCustomer Service Desk\n100 Waterfront Crescent\nGregory Hills NSW 2557",
-    "days": "Wednesday, Friday",
-    "hours": {
-      "Wednesday": "10:00 AM - 2:00 PM",
-      "Friday": "11:00 AM - 3:00 PM"
-    },
-    "council": "Camden Council",
-    "source_url": "https://www.camden.nsw.gov.au/community/justice-of-the-peace",
-    "postcode": "2557",
-    "lat": -34.0283,
-    "lon": 150.7736
-  },
-  {
     "name": "Epping Library",
     "address": "Epping Library\nChambers Court\n1 Chambers Court\nEpping NSW 2121",
     "council": "City of Parramatta",
@@ -1768,35 +1386,6 @@ const jpLocations = [
     "notes": "JPs on rotating roster every week, contact (02)9806 5843 to check hours and make a booking!",
     "lat": -33.7728,
     "lon": 151.0824
-  },
-  {
-    "name": "Carlingford Court Shopping Centre",
-    "address": "Carlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
-    "days": "Tuesday, Thursday, Saturday",
-    "hours": {
-      "Tuesday": "10:00 AM - 1:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.carlingfordcourt.com.au/services",
-    "postcode": "2118",
-    "lat": -33.7827,
-    "lon": 151.0463
-  },
-  {
-    "name": "North Epping Community Centre",
-    "address": "North Epping Community Centre\n9 Oxley Avenue\nEpping NSW 2121",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "2:00 PM - 4:00 PM",
-      "Wednesday": "10:00 AM - 12:00 PM"
-    },
-    "council": "City of Parramatta",
-    "source_url": "https://www.cityofparramatta.nsw.gov.au/community/community-venues/north-epping-community-centre",
-    "postcode": "2121",
-    "lat": -33.7603,
-    "lon": 151.0847
   },
   {
     "name": "West Epping Community Centre",
@@ -1815,11 +1404,9 @@ const jpLocations = [
   {
     "name": "Carlingford Library",
     "address": "Carlingford Library\nLloyds Avenue\nCarlingford NSW 2118",
-    "days": "Tuesday, Thursday, Saturday",
+    "days": "Monday",
     "hours": {
-      "Tuesday": "2:00 PM - 4:00 PM",
-      "Thursday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Monday": "1:00 PM - 2:30 PM"
     },
     "council": "City of Parramatta",
     "source_url": "https://www.cityofparramatta.nsw.gov.au/living/libraries/library-locations/carlingford-library",
@@ -1855,25 +1442,26 @@ const jpLocations = [
     "lon": 151.0247
   },
   {
-    "name": "Town Hall House customer service centre",
-    "address": "Lvl 2, Town Hall House customer service centre\n456 Kent Street\nSydney NSW 2000",
-    "days": "Monday, Tuesday, Wednesday, Thursday, Friday",
+    "name": "Downing Centre JP Desk",
+    "address": "Downing Centre\n143-147 Liverpool Street\nSydney NSW 2000",
+    "days": "Monday to Friday",
     "hours": {
-      "Monday": "12:00 PM - 2:00 PM",
-      "Tuesday": "12:00 PM - 2:00 PM",
-      "Wednesday": "12:00 PM - 2:00 PM",
-      "Thursday": "12:00 PM - 2:00 PM",
-      "Friday": "12:00 PM - 2:00 PM"
+      "Monday": "11:30 AM - 2:00 PM",
+      "Tuesday": "11:30 AM - 2:00 PM",
+      "Wednesday": "11:30 AM - 2:00 PM",
+      "Thursday": "11:30 AM - 2:00 PM",
+      "Friday": "11:30 AM - 2:00 PM"
     },
     "council": "City of Sydney",
-    "source_url": "https://www.cityofsydney.nsw.gov.au/guides/justice-of-the-peace",
+    "source_url": "https://www.cityofsydney.nsw.gov.au/library-information-services/find-a-jp",
     "postcode": "2000",
-    "lat": -33.8730,
-    "lon": 151.2060
+    "lat": -33.8770098,
+    "lon": 151.2090863,
+    "notes": "NSW Justices Association community desk - call 1300 679 272 to confirm the desk is open, as days may change."
   },
   {
     "name": "International Towers Barangaroo",
-    "address": "International Towers\nLobby of Tower 3\n100 Barangaroo Avenue\nBarangaroo NSW 2000",
+    "address": "International Towers\nLobby of Tower 3\n300 Barangaroo Avenue\nBarangaroo NSW 2000",
     "days": "Tuesday, Thursday, Contact Eddie Fazal JP on 0409 668 270",
     "hours": {
       "Tuesday": "12:00 PM - 1:30 PM",
@@ -1886,128 +1474,17 @@ const jpLocations = [
     "lon": 151.2012
   },
   {
-    "name": "Pitt Street Service NSW Centre",
-    "address": "Service NSW Centre\n20 Pitt Street\nSydney NSW 2000",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
-    },
-    "council": "City of Sydney",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/sydney-service-centre",
-    "postcode": "2000",
-    "lat": -33.8634,
-    "lon": 151.2089
-  },
-  {
-    "name": "Glenhaven Community Centre",
-    "address": "Glenhaven Community Centre\n76 Glenhaven Road\nGlenhaven NSW 2156",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM"
-    },
-    "council": "The Hills Shire Council",
-    "source_url": "https://www.thehills.nsw.gov.au/Services/Justice-of-the-Peace",
-    "postcode": "2156",
-    "lat": -33.6947,
-    "lon": 151.0033
-  },
-  {
-    "name": "Knightsbridge Shopping Centre",
-    "address": "Knightsbridge Shopping Centre\n227 Old Northern Road\nCastle Hill NSW 2154",
-    "days": "Tuesday, Thursday",
-    "hours": {
-      "Tuesday": "11:00 AM - 2:00 PM",
-      "Thursday": "2:00 PM - 5:00 PM"
-    },
-    "council": "The Hills Shire Council",
-    "source_url": "https://www.thehills.nsw.gov.au/Services/Justice-of-the-Peace",
-    "postcode": "2154",
-    "lat": -33.7147,
-    "lon": 151.0156
-  },
-  {
-    "name": "Blacktown City Council Civic Centre",
-    "address": "Blacktown City Council Civic Centre\n62 Flushcombe Road\nBlacktown NSW 2148",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "8:30 AM - 4:30 PM",
-      "Tuesday": "8:30 AM - 4:30 PM",
-      "Wednesday": "8:30 AM - 4:30 PM",
-      "Thursday": "8:30 AM - 4:30 PM",
-      "Friday": "8:30 AM - 4:30 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
-    "postcode": "2148",
-    "lat": -33.7712,
-    "lon": 150.9068
-  },
-  {
-    "name": "Westpoint Blacktown Customer Service",
-    "address": "Westpoint Blacktown\nLevel 4 Customer Service Desk\n17 Patrick Street\nBlacktown NSW 2148",
-    "days": "Monday, Wednesday, Saturday",
-    "hours": {
-      "Monday": "10:00 AM - 2:00 PM",
-      "Wednesday": "3:00 PM - 6:00 PM",
-      "Saturday": "10:00 AM - 1:00 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.westpoint.com.au/services",
-    "postcode": "2148",
-    "lat": -33.7717,
-    "lon": 150.9065
-  },
-  {
     "name": "Max Webber Library",
     "address": "Max Webber Library\n1 Flushcombe Road\nBlacktown NSW 2148",
-    "days": "Tuesday, Thursday, Friday",
+    "days": "Varies - call ahead",
     "hours": {
-      "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM",
-      "Friday": "11:00 AM - 1:00 PM"
+      "Every day": "JP availability varies - please call Max Webber Library on (02) 9839 6677 to check if a JP is available that day"
     },
     "council": "Blacktown City Council",
     "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-peace",
     "postcode": "2148",
     "lat": -33.7706,
     "lon": 150.9072
-  },
-  {
-    "name": "Service NSW Blacktown",
-    "address": "Service NSW Blacktown\nShop 3004, Level 3, Westpoint Shopping Centre\n17 Patrick Street\nBlacktown NSW 2148",
-    "days": "Monday to Friday",
-    "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
-    },
-    "council": "Blacktown City Council",
-    "source_url": "https://www.service.nsw.gov.au/service-centre/blacktown-service-centre",
-    "postcode": "2148",
-    "lat": -33.7717,
-    "lon": 150.9065
-  },
-  {
-    "name": "Willoughby Library",
-    "address": "Willoughby Library\n409 Victoria Avenue\nWilloughby NSW 2068",
-    "days": "Monday, Wednesday, Friday",
-    "hours": {
-      "Monday": "10:00 AM - 12:00 PM",
-      "Wednesday": "2:00 PM - 4:00 PM",
-      "Friday": "10:00 AM - 12:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.willoughby.nsw.gov.au/Community/Library/Library-locations/Willoughby-Library",
-    "postcode": "2068",
-    "lat": -33.7989,
-    "lon": 151.1912
   },
   {
     "name": "Artarmon Library",
@@ -2036,20 +1513,6 @@ const jpLocations = [
     "postcode": "2065",
     "lat": -33.8236,
     "lon": 151.1944
-  },
-  {
-    "name": "Northbridge Plaza",
-    "address": "Northbridge Plaza\nCustomer Service Desk\n79-113 Sailors Bay Road\nNorthbridge NSW 2063",
-    "days": "Monday, Wednesday",
-    "hours": {
-      "Monday": "10:00 AM - 1:00 PM",
-      "Wednesday": "2:00 PM - 5:00 PM"
-    },
-    "council": "Willoughby City Council",
-    "source_url": "https://www.willoughby.nsw.gov.au/Community/Justice-of-the-Peace",
-    "postcode": "2063",
-    "lat": -33.8121,
-    "lon": 151.2167
   },
   {
     "name": "Gore Hill Library",
@@ -2151,40 +1614,77 @@ const jpLocations = [
     "lon": 153.5408
   },
   {
-    "name": "Box Hill Justice Service Centre",
-    "address": "Box Hill Justice Service Centre\n5/21 Nelson Road\nBox Hill NSW 2765",
-    "days": "Monday to Friday",
+    "name": "Hurstville Library",
+    "address": "Hurstville Library\nCnr Queens Road & Dora Street\nHurstville NSW 2220",
+    "days": "Tuesday, Wednesday, Friday, Saturday",
     "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
+      "Tuesday": "11:00 AM - 1:00 PM",
+      "Wednesday": "11:00 AM - 12:00 PM",
+      "Friday": "12:30 PM - 1:30 PM",
+      "Saturday": "10:00 AM - 11:00 AM"
     },
-    "council": "The Hills Shire Council",
-    "source_url": "https://openhoursaustralia.com/en/box-hill/box-hill-justice-service-centre",
-    "postcode": "2765",
-    "lat": -33.6761,
-    "lon": 150.8655,
-    "notes": "Walk-in JP services available during business hours; no appointment necessary."
+    "council": "Georges River Council",
+    "source_url": "https://georgesriver.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JPSERVICE",
+    "postcode": "2220",
+    "lat": -33.9642597,
+    "lon": 151.1011728
   },
   {
-    "name": "Caddens Corner Shopping Centre",
-    "address": "Caddens Corner Shopping Centre\n68 O'Connell Street\nCaddens NSW 2747",
-    "days": "Monday to Friday",
+    "name": "Penshurst Library",
+    "address": "Penshurst Library\n630 Forest Road\nPenshurst NSW 2222",
+    "days": "Tuesday, Wednesday",
     "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
+      "Tuesday": "2:00 PM - 3:00 PM",
+      "Wednesday": "1:00 PM - 3:00 PM"
     },
-    "council": "Penrith City Council",
-    "source_url": "https://www.caddenscorner.com.au/",
-    "postcode": "2747",
-    "lat": -33.7684,
-    "lon": 150.7289,
-    "notes": "JP services available at the shopping centre; please check with individual retailers or the customer service desk for specific JP service times."
+    "council": "Georges River Council",
+    "source_url": "https://georgesriver.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JPSERVICE",
+    "postcode": "2222",
+    "lat": -33.9607236,
+    "lon": 151.0772504
+  },
+  {
+    "name": "Bonnyrigg Library",
+    "address": "Bonnyrigg Library\n100 Bonnyrigg Avenue\nBonnyrigg NSW 2177",
+    "days": "Monday, Wednesday",
+    "hours": {
+      "Monday": "4:00 PM - 5:30 PM",
+      "Wednesday": "3:00 PM - 5:00 PM"
+    },
+    "council": "Fairfield City Council",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Fairfield-City-Open-Libraries/Our-Special-Services",
+    "postcode": "2177",
+    "lat": -33.8864822,
+    "lon": 150.8880186
+  },
+  {
+    "name": "Wetherill Park Library",
+    "address": "Wetherill Park Library\nWetherill Park NSW 2164",
+    "days": "Tuesday, Friday",
+    "hours": {
+      "Tuesday": "11:00 AM - 1:00 PM",
+      "Friday": "2:00 PM - 4:00 PM"
+    },
+    "council": "Fairfield City Council",
+    "source_url": "https://www.fairfieldcity.nsw.gov.au/Services/Fairfield-City-Open-Libraries/Our-Special-Services",
+    "postcode": "2164",
+    "lat": -33.8505,
+    "lon": 150.9045,
+    "notes": "Address and coordinates need verification - hours confirmed by Fairfield City Council."
+  },
+  {
+    "name": "Green Square Library",
+    "address": "Green Square Library\n355 Botany Road\nZetland NSW 2017",
+    "days": "Thursday, Saturday",
+    "hours": {
+      "Thursday": "2:00 PM - 5:00 PM",
+      "Saturday": "12:00 PM - 3:00 PM"
+    },
+    "council": "City of Sydney",
+    "source_url": "https://www.cityofsydney.nsw.gov.au/library-information-services/find-a-jp",
+    "postcode": "2017",
+    "lat": -33.9064494,
+    "lon": 151.2034077
   }
 ];
 
