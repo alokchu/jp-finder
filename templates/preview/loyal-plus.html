@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loyal Plus Business Brokers - your ad on jpfinder.com.au</title>
+<link rel="stylesheet" href="/preview/preview.css">
+</head>
+<body>
+  <div class="header-container">
+    <h1>NSW Justice of Peace Finder</h1>
+    <p class="subtitle">Find JP services at community locations near you</p>
+  </div>
+  <a class="sponsor-slot" href="/go/loyal-plus" onclick="return demoClick(event)">
+    <div class="sponsor-tag">Sponsored</div>
+    <div class="sponsor-inner">
+      <div class="sponsor-logo">LP</div>
+      <div class="sponsor-text">
+        <strong>Loyal Plus Business Brokers</strong>
+        <span class="sponsor-sub">Business sales across western Sydney</span>
+      </div>
+      <span class="sponsor-cta">Learn more</span>
+    </div>
+  </a>
+  <div id="search-container">
+    <label for="suburb-input">Find a JP near you:</label>
+    <div class="input-container">
+      <span>&#128269;&nbsp;</span>
+      <input id="suburb-input" type="text" placeholder="Enter suburb or postcode (e.g. The Ponds or 2769)" autocomplete="off" />
+    </div>
+    <button id="find-jp" onclick="return false">Find Nearest JP</button>
+  </div>
+  <div id="result">
+    <div class="result-card">
+      <strong>Blacktown City Library</strong>
+      <div class="meta">Cnr Patrick St &amp; Flushcombe Rd, Blacktown NSW 2148</div>
+      <div class="meta">JP available: Thursdays 10:00am - 1:00pm</div>
+    </div>
+    <div class="result-card">
+      <strong>Westpoint Blacktown (Centre Court)</strong>
+      <div class="meta">17 Patrick St, Blacktown NSW 2148</div>
+      <div class="meta">JP available: Tuesdays 10:00am - 2:00pm</div>
+    </div>
+  </div>
+  <div class="demo-note">
+    <strong>Preview for Loyal Plus Business Brokers.</strong> This is how your sponsor banner would look on jpfinder.com.au -
+    top 2 on Google when people in Sydney search for a JP, about 9,000 pageviews a month, 72% mobile.
+    The banner links to your own tracked URL (jpfinder.com.au/go/loyal-plus) so every click is counted
+    and reported to you monthly. <span id="click-count"></span>
+  </div>
+<script>
+  var demoClicks = 0;
+  function demoClick(e) {
+    e.preventDefault();
+    demoClicks++;
+    document.getElementById('click-count').textContent =
+      ' Banner clicks in this preview: ' + demoClicks + ' (on the live site each click is logged against your tracked link).';
+    return false;
+  }
+</script>
+</body>
+</html>
