@@ -75,6 +75,12 @@ class JPFinderDeployer:
             shutil.copy2(gsc_file, self.build_dir)
             logger.info("Copied Google Search Console verification file")
 
+        # Copy the newer Search Console verification file if it exists
+        gsc_file_new = self.templates_dir / "google608a996bca3afcdc.html"
+        if gsc_file_new.exists():
+            shutil.copy2(gsc_file_new, self.build_dir)
+            logger.info("Copied google608a996bca3afcdc.html Search Console verification file")
+
         # Copy ads.txt
         gsc_file2 = self.templates_dir / "ads.txt"
         if gsc_file2.exists():
@@ -277,12 +283,12 @@ Sitemap: https://{self.base_domain}/sitemap.xml
     <html lang="en-AU">
     <head>
         <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJCWGPKCZ2"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){{dataLayer.push(arguments);}}
             gtag('js', new Date());
-            gtag('config', 'G-1MEP8KQ1D9');
+            gtag('config', 'G-HJCWGPKCZ2');
         </script>
 
         <meta charset="UTF-8">
@@ -414,12 +420,12 @@ Sitemap: https://{self.base_domain}/sitemap.xml
 <html lang="en-AU">
 <head>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MEP8KQ1D9"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJCWGPKCZ2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
         gtag('js', new Date());
-        gtag('config', 'G-1MEP8KQ1D9');
+        gtag('config', 'G-HJCWGPKCZ2');
     </script>
 
     <meta charset="UTF-8">
