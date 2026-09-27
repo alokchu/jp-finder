@@ -304,7 +304,7 @@ const jpLocations = [
     "days": "Wednesday, Saturday",
     "hours": {
       "Wednesday": "10:00 AM - 2:00 PM",
-      "Saturday": "11:00 AM - 3:00 PM"
+      "Saturday": "11:00 AM - 12:00 PM"
     },
     "council": "Canterbury-Bankstown Council",
     "source_url": "https://www.bankstowncentral.com.au/centre-info/services",
