@@ -99,12 +99,13 @@ const jpLocations = [
   {
     "name": "Mosman Library 605 Military Road Mosman NSW 2088",
     "address": "Mosman Library\n605 Military Road\nMosman NSW 2088",
-    "days": "Wednesday",
+    "days": "Tuesday, Wednesday",
     "hours": {
+      "Tuesday": "5:30 PM - 7:30 PM",
       "Wednesday": "12:00 PM - 2:00 PM"
     },
     "council": "Mosman Council",
-    "source_url": "https://mosman.nsw.gov.au/community/justice-of-the-peace",
+    "source_url": "https://mosman.nsw.gov.au/residents/resident-services/requiring-the-services-of-a-justice-of-the-peace",
     "postcode": "2088",
     "lat": -33.8283,
     "lon": 151.2446
@@ -796,16 +797,17 @@ const jpLocations = [
   {
     "name": "Rockdale Library",
     "address": "Rockdale Library\n444-446 Princes Highway\nRockdale NSW 2216",
-    "days": "Saturday",
+    "days": "Wednesday, 1st & 3rd Saturday of the month",
     "hours": {
-      "Saturday": "10:00 AM - 12:00 PM"
+      "Wednesday": "12:00 PM - 2:00 PM",
+      "1st & 3rd Saturday": "10:00 AM - 12:00 PM"
     },
     "council": "Bayside Council",
-    "source_url": "https://www.bayside.nsw.gov.au/services/justice-peace",
+    "source_url": "https://www.bayside.nsw.gov.au/recreation/places/libraries-and-museum/locations-and-opening-hours",
     "postcode": "2216",
     "lat": -33.9517,
     "lon": 151.1397,
-    "notes": "Wednesday service ended (reported by Rockdale Library staff, May 2026)."
+    "notes": "Saturday service is available only on the 1st and 3rd Saturday each month. Please confirm JP availability with the library before visiting."
   },
   {
     "name": "Fairfield Library",
@@ -1685,6 +1687,20 @@ const jpLocations = [
     "postcode": "2017",
     "lat": -33.9064494,
     "lon": 151.2034077
+  },
+  {
+    "name": "Warringah Mall Library",
+    "address": "Warringah Mall Library\nShop 650/145 Old Pittwater Rd\nBrookvale NSW 2100",
+    "days": "Varies",
+    "hours": {
+      "Varies": "Times change week to week - check the <a href=\"https://www.northernbeaches.nsw.gov.au/library/services/justice-peace\" target=\"_blank\" rel=\"noopener noreferrer\">Northern Beaches Libraries JP schedule</a> before visiting"
+    },
+    "council": "Northern Beaches Council",
+    "source_url": "https://www.northernbeaches.nsw.gov.au/library/services/justice-peace",
+    "postcode": "2100",
+    "lat": -33.7686424,
+    "lon": 151.265676,
+    "notes": "Please check the Northern Beaches Libraries JP schedule and phone the library to confirm a volunteer JP is available before visiting."
   }
 ];
 
