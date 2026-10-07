@@ -4,3 +4,5 @@ const route='[[redirects]]\n  from = "/hairhouse"\n  to = "/.netlify/functions/h
 if(!s.includes('from = "/hairhouse"'))s=s.replace('[[redirects]]',route+'[[redirects]]');
 if(!s.includes('[functions]'))s+='\n[functions]\n  node_bundler = "esbuild"\n  included_files = ["node_modules/pdfjs-dist/build/pdf.mjs", "node_modules/pdfjs-dist/build/pdf.worker.mjs"]\n';
 fs.writeFileSync(p,s);
+// A real static shell survives Netlify's post-build config reload and pretty URLs.
+(async()=>{const {APP}=await import('./netlify/functions/hairhouse.mjs');fs.mkdirSync('build/hairhouse',{recursive:true});fs.writeFileSync('build/hairhouse/index.html',APP);fs.appendFileSync('build/_headers','\n/hairhouse/*\n  X-Robots-Tag: noindex, nofollow\n  Cache-Control: no-store\n');})().catch(e=>{console.error(e);process.exit(1)});
