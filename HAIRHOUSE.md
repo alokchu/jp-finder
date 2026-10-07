@@ -23,7 +23,7 @@ Public templates, ads, JP location data and the public build script are unchange
 ## Activation gate
 
 1. Owner confirms the two login email identities, enters passwords through a secure setup path (not chat), and approves reminders' delivery channel and schedule.
-2. Configure server-only Netlify values for exactly two `HAIRHOUSE_ALLOWED_EMAILS`, a random `HAIRHOUSE_SESSION_SECRET` of 48+ characters, and temporary keyed setup (`HAIRHOUSE_ENROLLMENT_SECRET`, `HAIRHOUSE_SETUP_ENABLED=true`). Enroll new unique passwords (14+ characters) through secure browser fill. Credentials are hashed server-side and immutable on this initial endpoint. Disable setup and redeploy immediately afterward. No reset/recovery flow yet. Preview and production require separate enrollment.
+2. Configure server-only Netlify values for exactly two `HAIRHOUSE_ALLOWED_EMAILS`, a random `HAIRHOUSE_SESSION_SECRET` of 48+ characters, and temporary keyed setup (`HAIRHOUSE_ENROLLMENT_SECRET`, `HAIRHOUSE_SETUP_ENABLED=true`). Enroll new unique passwords (8+ characters, owner-selected minimum) through secure browser fill. Credentials are hashed server-side and immutable on this initial endpoint. Disable setup and redeploy immediately afterward. No reset/recovery flow yet. Preview and production require separate enrollment.
 3. Storage is a versioned workspace document in strongly consistent Netlify Blobs. Updates reject stale ETags. Preview stores use the PR number across deploys, production is separate; build context is embedded without secrets. Branch deploys fail closed. This is a small two-user visibility layer, not a transactional accounting ledger.
 4. Test both users, non-user rejection, logout, simultaneous edits, storage readback and PDF reading in the deployed function. Verify Netlify usage/cost limits before activating; no paid upgrade is authorized.
 5. Enter a dated balance plus all wages/rent/GST/other outflows and unbilled purchase orders. Expected sales remain estimates. Recurrences must currently be entered as dated rows; automatic recurrence scheduling is not implemented.
@@ -46,4 +46,12 @@ Image OCR and highlight candidates with human confirmation, email forwarding int
 - Charge changes, residual differences, absent invoices and unallocated payments are flagged. Disappearing rows or equal aggregate totals are not proof of individual payment allocations. Same-day payment posting can differ from statement printing.
 - No real statements, bank data or promises of payment are seeded into the public repo/sample. The two unexplained adjustments from the owner's supplied reconciliation remain unresolved evidence, not verified credits.
 
-Checks: `npm test` includes original forecast/auth checks, synthetic statement/aging boundaries and mocked enrollment/persistence checks. Actual two-user live storage/logout/conflicts still gate activation.
+Checks: `npm test` includes original forecast/auth checks, synthetic statement/aging boundaries and mocked enrollment/persistence checks. Preview two-user live persistence, stale-edit conflict, logout, non-user rejection and disabled-enrollment checks passed. Production activation remains separate.
+
+## Preview tested, production not activated
+
+The two approved preview accounts are enrolled. Preview setup is disabled and readback is empty after removal of a zero-value test row. Both users can sign in with their chosen Hairhouse passwords, see shared saved edits, and sign out. A stale edit is rejected without overwriting newer data. Preview credentials/data do not transfer to production.
+
+After Alok merges, production still needs separate server-only secrets, the same two-identity allowlist, controlled enrollment, setup disablement and production smoke tests. Verify hosting usage/cost limits before using this as a live business system. No production secrets, paid upgrade, reminders or external sends were configured.
+
+Graphical cues: one-week cash summary, 12-week risk strip, negative-week red shading, owner-set amber safety buffer, prominent actual overdue / unreceived stock / credit owed cues, direct-debit marker and due-date countdowns. An empty workspace asks for opening cash and commitments rather than claiming safety. Forecast completeness remains the user's responsibility; no bank feed or recurring outflows are imported automatically.
