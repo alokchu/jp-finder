@@ -13,3 +13,4 @@ test('cannot overallocate invoice',()=>{const d=data();d.payments[0].cents=15000
 test('cannot allocate twice with paid flag',()=>{const d=data();d.items[0].status='paid';assert.throws(()=>validateLedger(d));});
 test('cash forecast only residual after balance-date payments',async()=>{const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {forecast}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {forecast};').toString('base64'));assert.equal(forecast(data()).totalOut,8000);});
 test('cannot enter payment later than cash balance',()=>{const d=data();d.payments[0].date='2026-10-08';assert.throws(()=>validateLedger(d));});
+test('future invoice excluded from historical snapshot',()=>assert.equal(aging({...data(),items:[{...invoice,invoiceDate:'2026-10-08'}]},'Example','2026-10-07').outstanding,0));
