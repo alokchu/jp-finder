@@ -1,6 +1,6 @@
 [build]
   publish = "build/"
-  command = "npm test && python deploy.py --build-only"
+  command = "npm test && python deploy.py --build-only && node hairhouse-build.cjs"
 
 [functions]
   node_bundler = "esbuild"
