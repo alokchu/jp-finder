@@ -1,0 +1,15 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {APP,aging,reconcile,parseStatement,parseBankCSV,validateLedger} from './netlify/functions/hairhouse.mjs';
+const invoice={id:'i',kind:'invoice',supplier:'Example',reference:'SYN-1',cents:10000,invoiceDate:'2026-09-01',date:'2026-10-01',status:'confirmed'};
+const data=()=>({balance:{cents:100000,date:'2026-10-07'},items:[{...invoice}],payments:[{id:'p',source:'bank',supplier:'Example',reference:'SYN-P',date:'2026-10-02',cents:2000,allocations:[{invoiceId:'i',cents:2000}]}]});
+test('due today is current',()=>assert.equal(aging(data(),'Example','2026-10-01').buckets.current,10000));
+test('payment allocated once',()=>assert.equal(aging(data(),'Example','2026-10-07').overdue,8000));
+for(const [date,bucket] of [['2026-10-31','1-30'],['2026-11-01','31-60'],['2026-12-01','60+']])test('aging boundary '+bucket,()=>assert.equal(aging(data(),'Example',date).buckets[bucket],8000));
+test('supplier configurable terms',()=>assert.equal(aging({...data(),suppliers:[{name:'Example',days:60}]},'Example','2026-10-07').overdue,0));
+test('unexplained difference remains review',()=>{const r=reconcile(data(),{supplier:'Example',date:'2026-10-07',claimedCents:7500,lines:[{reference:'SYN-1',chargeCents:10000,remainingCents:7500}]});assert.equal(r.difference,-500);assert.equal(r.status,'Needs review');});
+test('statement running balance is not invoice residual',()=>{const s=parseStatement('Date 7/10/2026 Amount Due $120.00 1/9/2026 Invoice #123456 100.00 80.00 5/9/2026 Invoice #123457 40.00 120.00');assert.equal(s.lines[0].remainingCents,8000);assert.equal(s.lines[1].remainingCents,4000);});
+test('bank rebate excluded',()=>{const p=parseBankCSV('01/09/2026,"-10.00","Transfer To Example","+20.00"\n02/09/2026,"+5.00","REBATE","+25.00"');assert.equal(p.rows.length,1);assert.equal(p.excluded.length,1);});
+test('cannot overallocate payment',()=>{const d=data();d.payments[0].cents=1000;assert.throws(()=>validateLedger(d));});
+test('cannot overallocate invoice',()=>{const d=data();d.payments[0].cents=15000;d.payments[0].allocations[0].cents=15000;assert.throws(()=>validateLedger(d));});
+test('cannot allocate twice with paid flag',()=>{const d=data();d.items[0].status='paid';assert.throws(()=>validateLedger(d));});
+test('cash forecast only residual after balance-date payments',async()=>{const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {forecast}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {forecast};').toString('base64'));assert.equal(forecast(data()).totalOut,8000);});
+test('cannot enter payment later than cash balance',()=>{const d=data();d.payments[0].date='2026-10-08';assert.throws(()=>validateLedger(d));});
