@@ -1,6 +1,6 @@
 // Run after the existing JP build. Preserve its generated public config verbatim.
 const fs=require('node:fs');const p='netlify.toml';let s=fs.readFileSync(p,'utf8');
-const route='[[redirects]]\n  from = "/hairhouse"\n  to = "/.netlify/functions/hairhouse?action=app"\n  status = 200\n  force = true\n\n';
+const route='[[redirects]]\n  from = "/hairhouse"\n  to = "/hairhouse/index.html"\n  status = 200\n  force = true\n\n';
 // Existing generator writes invalid TOML. Keep the established catch-all without that invalid condition.
 s=s.replace('  conditions = {Response = {404}}\n','');
 if(!s.includes('from = "/hairhouse"'))s=s.replace('[[redirects]]',route+'[[redirects]]');
