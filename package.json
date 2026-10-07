@@ -1,1 +1,1 @@
-{"name":"jp-finder-private-tools","private":true,"scripts":{"test":"node --test hairhouse.test.mjs"},"dependencies":{"@netlify/blobs":"11.1.3","pdfjs-dist":"4.10.38"},"engines":{"node":">=20"}}
+{"name":"jp-finder-private-tools","private":true,"scripts":{"test":"node --test hairhouse.test.mjs"},"dependencies":{"@netlify/blobs":"10.7.13","pdfjs-dist":"4.10.38"},"engines":{"node":">=20"}}
