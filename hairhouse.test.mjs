@@ -18,3 +18,5 @@ test('bad balance chain rejected',()=>assert.throws(()=>bankHistory(rows.join('\
 test('committed floor not added twice',()=>{const m={...model,daily:model.daily.map(d=>({...d,'other debits':1000}))};const items=[{id:'i',kind:'expense',status:'confirmed',date:'2026-09-07',cents:10000,supplier:'Example',reference:'',notes:''}];assert.equal(historyPrediction({...predictionData,historyModel:m,items}).next7,97000);});
 test('history is optional',()=>assert.equal(historyPrediction({...predictionData,historyModel:null}),null));
 test('invalid history blocked server side',()=>assert.throws(()=>validate({...predictionData,historyModel:{...model,daily:[]}})));
+test('margin windows use trailing days of actual settlements',()=>{const w=model.margin.windows;assert.deepEqual(w.map(x=>x.days),[7,14,30]);assert.equal(w[0].sales,7*1000);assert.equal(w[2].sales,30*1000);assert.equal(w[0].rent,0);});
+test('margin windows validated server side',()=>{assert.throws(()=>validate({...predictionData,historyModel:{...model,margin:{windows:[{days:9}]}}}));validate(predictionData);});
