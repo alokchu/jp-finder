@@ -9,3 +9,12 @@ test('12 weeks',()=>assert.equal(forecast(data()).weeks.length,12));test('negati
 
 test('paid linked invoice does not reopen order reserve',()=>assert.equal(forecast(data([item({id:'po',kind:'order'}),item({id:'paid',orderId:'po',status:'paid',paidDate:'2026-10-06'})])).minimum,100000));
 test('credit owed not spendable',()=>assert.equal(forecast(data([item({kind:'creditOwed',cents:50000})])).minimum,100000));
+const predictionSource=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {bankHistory,historyPrediction}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {bankHistory,historyPrediction};').toString('base64'));
+const rows=[];let balance=100000;for(let n=0;n<35;n++){const date=new Date(Date.UTC(2026,7,3+n)).toISOString().slice(0,10);const d=date.split('-').reverse().join('/');balance+=1000;rows.unshift(`${d},10.00,Direct Credit ANZ Worldline,${balance/100}`);}
+const model=bankHistory(rows.join('\n')),predictionData={version:1,balance:{cents:100000,date:'2026-09-06'},items:[],historyModel:model};
+test('complete weeks only',()=>{assert.equal(model.weeks,4);assert.equal(model.start,'2026-08-03');assert.equal(model.end,'2026-08-30');});
+test('sales prediction deterministic',()=>{assert.equal(historyPrediction(predictionData).next7,107000);assert.equal(historyPrediction(predictionData).next30,130000);});
+test('bad balance chain rejected',()=>assert.throws(()=>bankHistory(rows.join('\n').replace('1350','9999'))));
+test('committed floor not added twice',()=>{const m={...model,daily:model.daily.map(d=>({...d,'other debits':1000}))};const items=[{id:'i',kind:'expense',status:'confirmed',date:'2026-09-07',cents:10000,supplier:'Example',reference:'',notes:''}];assert.equal(historyPrediction({...predictionData,historyModel:m,items}).next7,97000);});
+test('history is optional',()=>assert.equal(historyPrediction({...predictionData,historyModel:null}),null));
+test('invalid history blocked server side',()=>assert.throws(()=>validate({...predictionData,historyModel:{...model,daily:[]}})));
