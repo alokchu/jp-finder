@@ -23,3 +23,16 @@ test('margin windows validated server side',()=>{assert.throws(()=>validate({...
 test('margin months cover calendar months with partial flags',()=>{const mo=model.margin.months;assert.deepEqual(mo.map(x=>x.key),['2026-08','2026-09']);assert.equal(mo[0].partial,true);assert.equal(mo[0].start,'2026-08-03');assert.equal(mo[0].sales,29*1000);assert.equal(mo[1].partial,true);assert.equal(mo[1].sales,6*1000);});
 test('margin months validated server side',()=>assert.throws(()=>validate({...predictionData,historyModel:{...model,margin:{...model.margin,months:[{key:'bad'}]}}})));
 test('margin windows reconcile to bank balance change',()=>{for(const w of [...model.margin.windows,...model.margin.months])assert.equal(w.sales+w.credits-w.staff-w.insurance-w.suppliers-w.royalty-w.rent-w.other,w.change);assert.equal(model.margin.windows[0].change,7*1000);});
+const mkRows=(from,to,fn)=>{const out=[];for(let n=from;n<=to;n++)out.unshift(fn(n));return out;};
+{const all=rows.slice();// newest first, 35 rows
+ const A=all.slice(0,20).join('\n'),B=all.slice(15).join('\n');
+ test('two overlapping CSVs merge to the single-file model',()=>{const m=bankHistory([B,A]);assert.equal(m.rows,35);assert.equal(m.merge.duplicates,5);assert.deepEqual({...m,merge:undefined},{...model,merge:undefined});});
+ test('adjacent CSVs with no overlap still join by balance chain',()=>{const m=bankHistory([all.slice(0,20).join('\n'),all.slice(20).join('\n')]);assert.equal(m.rows,35);assert.equal(m.merge.duplicates,0);});
+ test('CSVs with a gap are rejected',()=>assert.throws(()=>bankHistory([all.slice(0,15).join('\n'),all.slice(20).join('\n')]),/do not join/));
+ test('contained duplicate file adds nothing',()=>assert.equal(bankHistory([all.join('\n'),all.slice(5,25).join('\n')]).rows,35));
+ {const full=[];let bal=100000;const oldestFirst=[];for(let n=0;n<30;n++){const d=new Date(Date.UTC(2026,7,3+Math.floor(n/2))).toISOString().slice(0,10).split('-').reverse().join('/');const amt=n===10||n===11?-4:10;bal+=amt*100;oldestFirst.push(`${d},${amt.toFixed(2)},${amt<0?'Card fee':'ANZ Worldline'},${bal/100}`);}
+ const nf=oldestFirst.reverse();// newest first, rows 19 and 18 are the two identical fees
+ test('identical same-day fees both survive an overlapping merge',()=>{const m=bankHistory([nf.slice(0,20).join('\n'),nf.slice(8).join('\n')]);assert.equal(m.rows,30);assert.equal(m.merge.duplicates,12);});
+ test('same fee on same day in both files is not double counted or dropped',()=>{const m=bankHistory([nf.slice(0,22).join('\n'),nf.slice(8).join('\n')]);assert.equal(m.rows,30);});
+}
+}
