@@ -20,3 +20,5 @@ test('history is optional',()=>assert.equal(historyPrediction({...predictionData
 test('invalid history blocked server side',()=>assert.throws(()=>validate({...predictionData,historyModel:{...model,daily:[]}})));
 test('margin windows use trailing days of actual settlements',()=>{const w=model.margin.windows;assert.deepEqual(w.map(x=>x.days),[7,14,30]);assert.equal(w[0].sales,7*1000);assert.equal(w[2].sales,30*1000);assert.equal(w[0].rent,0);});
 test('margin windows validated server side',()=>{assert.throws(()=>validate({...predictionData,historyModel:{...model,margin:{windows:[{days:9}]}}}));validate(predictionData);});
+test('margin months cover calendar months with partial flags',()=>{const mo=model.margin.months;assert.deepEqual(mo.map(x=>x.key),['2026-08','2026-09']);assert.equal(mo[0].partial,true);assert.equal(mo[0].start,'2026-08-03');assert.equal(mo[0].sales,29*1000);assert.equal(mo[1].partial,true);assert.equal(mo[1].sales,6*1000);});
+test('margin months validated server side',()=>assert.throws(()=>validate({...predictionData,historyModel:{...model,margin:{...model.margin,months:[{key:'bad'}]}}})));
