@@ -55,3 +55,9 @@ The two approved preview accounts are enrolled. Preview setup is disabled and re
 After Alok merges, production still needs separate server-only secrets, the same two-identity allowlist, controlled enrollment, setup disablement and production smoke tests. Verify hosting usage/cost limits before using this as a live business system. No production secrets, paid upgrade, reminders or external sends were configured.
 
 Graphical cues: one-week cash summary, 12-week risk strip, negative-week red shading, owner-set amber safety buffer, prominent actual overdue / unreceived stock / credit owed cues, direct-debit marker and due-date countdowns. An empty workspace asks for opening cash and commitments rather than claiming safety. Forecast completeness remains the user's responsibility; no bank feed or recurring outflows are imported automatically.
+
+## Gmail invoice intake (read-only)
+
+A daily scheduled function (06:00 Sydney, production deploy only) and a "Check Gmail now" button read the invoices mailbox with the Gmail read-only scope. New emails are listed in the app as "X new invoice emails from Gmail"; PDF attachments (3 MB max) are held privately until reviewed. Review opens the same PDF reader and invoice editor as the manual flow, and nothing is saved until the owner confirms. Dedupe is by Gmail message id. Nothing is sent, labelled or deleted in Gmail.
+
+Server-only Netlify env vars: GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_REFRESH_TOKEN. Without them the panel stays hidden and nothing runs. Scheduled functions do not run on deploy previews; use the button there.

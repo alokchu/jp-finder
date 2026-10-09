@@ -51,3 +51,16 @@ test('cash sales validated server side',()=>{assert.throws(()=>validate({...pred
 }
 import {splitTx} from './netlify/functions/hairhouse.mjs';
 test('splitTx removes transactions from the stored workspace copy only',()=>{const d={version:1,historyModel:{margin:{windows:[],tx:[['2026-10-01',-5,'','A']]}}};const s=splitTx(d);assert.equal(s.tx.length,1);assert.equal('tx' in s.data.historyModel.margin,false);assert.equal('tx' in d.historyModel.margin,true);assert.equal(splitTx({version:1}).tx,null);});
+import {gmailSync} from './netlify/functions/hairhouse.mjs';
+test('gmailSync adds new invoice emails once and keeps resume state',async()=>{
+ const blobs=new Map();const store={get:async(k,o)=>{const v=blobs.get(k);if(v===undefined)return null;return v;},setJSON:async(k,v)=>{blobs.set(k,JSON.parse(JSON.stringify(v)));},set:async(k,v)=>{blobs.set(k,v);},delete:async k=>{blobs.delete(k);}};
+ const env={GMAIL_CLIENT_ID:'c',GMAIL_CLIENT_SECRET:'s',GMAIL_REFRESH_TOKEN:'r'};
+ const pdf=Buffer.from('%PDF-1.4 fake').toString('base64url');
+ const msgs={m1:{id:'m1',internalDate:String(Date.parse('2026-10-08T01:00:00Z')),payload:{headers:[{name:'From',value:'Supplier <a@b.c>'},{name:'Subject',value:'Invoice 123'}],parts:[{filename:'inv.pdf',mimeType:'application/pdf',body:{attachmentId:'a1',size:12}}]}},m2:{id:'m2',internalDate:String(Date.parse('2026-10-08T02:00:00Z')),payload:{headers:[{name:'From',value:'x@y.z'},{name:'Subject',value:'Hello'}],body:{}}}};
+ const calls=[];const f=async(u,o)=>{u=String(u);calls.push(u);const J=x=>({ok:true,status:200,json:async()=>x});if(u.includes('oauth2'))return J({access_token:'t'});if(u.includes('/attachments/'))return J({data:pdf});if(/messages\?/.test(u))return J({messages:[{id:'m1'},{id:'m2'}]});const id=u.match(/messages\/(\w+)\?format/)[1];return J(msgs[id]);};
+ const now=Date.parse('2026-10-09T00:00:00Z');
+ assert.equal((await gmailSync({env:{},store,fetchFn:f,now})).configured,false);
+ const r=await gmailSync({env,store,fetchFn:f,now});assert.equal(r.added,2);
+ const idx=blobs.get('inbox/index');assert.equal(idx.items.length,2);assert.equal(idx.items[0].hasFile,true);assert.equal(idx.items[1].hasFile,false);assert.ok(blobs.get('inbox/file/m1-1').length>0);assert.ok(idx.lastSync);
+ const r2=await gmailSync({env,store,fetchFn:f,now:now+864e5});assert.equal(r2.added,0);assert.equal(blobs.get('inbox/index').items.length,2);
+});
