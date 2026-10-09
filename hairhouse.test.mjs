@@ -49,3 +49,5 @@ test('cash sales validated server side',()=>{assert.throws(()=>validate({...pred
  const m=bankHistory(oldest.reverse().join('\n')),w=m.margin.months[0];
  test('new cost categories classify recurring payees',()=>{assert.equal(w.loans,10000);assert.equal(w.marketing,5000);assert.equal(w.coffee,400);assert.equal(w.tax,3000);assert.equal(w.fees,2000);assert.equal(w.other,1000);assert.equal(w.personal,50000);assert.equal(w.sales+w.credits-w.personal-w.loans-w.marketing-w.coffee-w.tax-w.fees-w.other-w.staff-w.insurance-w.suppliers-w.royalty-w.rent,w.change);});
 }
+import {splitTx} from './netlify/functions/hairhouse.mjs';
+test('splitTx removes transactions from the stored workspace copy only',()=>{const d={version:1,historyModel:{margin:{windows:[],tx:[['2026-10-01',-5,'','A']]}}};const s=splitTx(d);assert.equal(s.tx.length,1);assert.equal('tx' in s.data.historyModel.margin,false);assert.equal('tx' in d.historyModel.margin,true);assert.equal(splitTx({version:1}).tx,null);});
