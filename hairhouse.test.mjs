@@ -9,7 +9,7 @@ test('12 weeks',()=>assert.equal(forecast(data()).weeks.length,12));test('negati
 
 test('paid linked invoice does not reopen order reserve',()=>assert.equal(forecast(data([item({id:'po',kind:'order'}),item({id:'paid',orderId:'po',status:'paid',paidDate:'2026-10-06'})])).minimum,100000));
 test('credit owed not spendable',()=>assert.equal(forecast(data([item({kind:'creditOwed',cents:50000})])).minimum,100000));
-const predictionSource=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {bankHistory,historyPrediction}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {bankHistory,historyPrediction};').toString('base64'));
+const predictionSource=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {bankHistory,historyPrediction,storedBankRows}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {bankHistory,historyPrediction,storedBankRows};').toString('base64'));
 const rows=[];let balance=100000;for(let n=0;n<35;n++){const date=new Date(Date.UTC(2026,7,3+n)).toISOString().slice(0,10);const d=date.split('-').reverse().join('/');balance+=1000;rows.unshift(`${d},10.00,Direct Credit ANZ Worldline,${balance/100}`);}
 const model=bankHistory(rows.join('\n')),predictionData={version:1,balance:{cents:100000,date:'2026-09-06'},items:[],historyModel:model};
 test('complete weeks only',()=>{assert.equal(model.weeks,4);assert.equal(model.start,'2026-08-03');assert.equal(model.end,'2026-08-30');});
@@ -35,6 +35,18 @@ const mkRows=(from,to,fn)=>{const out=[];for(let n=from;n<=to;n++)out.unshift(fn
  test('identical same-day fees both survive an overlapping merge',()=>{const m=bankHistory([nf.slice(0,20).join('\n'),nf.slice(8).join('\n')]);assert.equal(m.rows,30);assert.equal(m.merge.duplicates,12);});
  test('same fee on same day in both files is not double counted or dropped',()=>{const m=bankHistory([nf.slice(0,22).join('\n'),nf.slice(8).join('\n')]);assert.equal(m.rows,30);});
 }
+}
+
+{const all=rows.slice(),base=bankHistory(all.join('\n')),stored=storedBankRows(base);
+ test('saved history rebuilds bank rows with balances',()=>{assert.equal(stored.length,35);assert.equal(stored[0].balance,base.latestCents);for(let n=0;n<stored.length-1;n++)assert.equal(stored[n].balance,stored[n+1].balance+stored[n].cents);});
+ const feed=[];let bal=base.latestCents;for(let n=0;n<10;n++){const ds=new Date(Date.UTC(2026,8,7+n)).toISOString().slice(0,10).split('-').reverse().join('/');bal+=1000;feed.unshift(`${ds},10.00,Direct Credit ANZ Worldline,${bal/100}`);}
+ test('a new feed extends saved history without re-selecting old files',()=>{const m=bankHistory([feed.join('\n'),stored]);assert.equal(m.rows,45);assert.equal(m.latestCents,bal);});
+ test('re-importing the same export adds nothing',()=>assert.equal(bankHistory([all.join('\n'),stored]).rows,35));
+ test('an overlapping new feed skips the overlap silently',()=>{const m=bankHistory([feed.concat(all.slice(0,30)).join('\n'),stored]);assert.equal(m.rows,45);assert.equal(m.merge.duplicates,30);});
+ test('a feed with a gap to saved history is rejected with the missing dates',()=>assert.throws(()=>bankHistory([feed.slice(0,7).join('\n'),stored]),/do not join/));
+}
+{const long=[];let lb=500000;for(let n=0;n<28;n++){const ds=new Date(Date.UTC(2026,8,1+n)).toISOString().slice(0,10).split('-').reverse().join('/');lb+=1000;long.unshift(`${ds},10.00,${'Direct Credit ANZ Worldline settlement reference '+'x'.repeat(140)},${lb/100}`);}
+ test('references trimmed in saved history still dedupe against the raw export',()=>{const st=storedBankRows(bankHistory(long.join('\n')));assert.equal(bankHistory([long.join('\n'),st]).rows,28);});
 }
 {const {parseCashTenders,mergeCash,cashIn}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {parseCashTenders,mergeCash,cashIn};').toString('base64'));
 const cell=(t,v)=>`<Cell><Data ss:Type="${t}">${v}</Data></Cell>`,hdr=['Date','Location','Visa','Cash','Total Cash &amp; Cards'].map(x=>cell('String',x)).join('');
