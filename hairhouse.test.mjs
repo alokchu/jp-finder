@@ -77,3 +77,9 @@ test('gmailSync adds new invoice emails once and keeps resume state',async()=>{
  const idx=blobs.get('inbox/index');assert.equal(idx.items.length,2);assert.equal(idx.items[0].hasFile,true);assert.equal(idx.items[1].hasFile,false);assert.ok(blobs.get('inbox/file/m1-1').length>0);assert.ok(idx.lastSync);
  const r2=await gmailSync({env,store,fetchFn:f,now:now+864e5});assert.equal(r2.added,0);assert.equal(blobs.get('inbox/index').items.length,2);
 });
+test('custom date range sums only that window',async()=>{
+ const src=APP.slice(APP.indexOf('function mkCat('),APP.indexOf('function mkCat(')+APP.slice(APP.indexOf('function mkCat(')).indexOf('\nfunction ')),cw=APP.slice(APP.indexOf('function customWin('),APP.indexOf('function customTile('));
+ const {customWin}=await import('data:text/javascript;base64,'+Buffer.from(src+'\n'+cw+'\nexport {customWin};').toString('base64'));
+ const tx=[['2026-10-11',50000,0,'ANZ WORLDLINE'],['2026-10-08',-10000,0,'WAGES'],['2026-10-06',20000,0,'ANZ WORLDLINE'],['2026-10-05',99900,0,'ANZ WORLDLINE']];
+ const w=customWin(tx,'2026-10-06','2026-10-11');assert.equal(w.sales,70000);assert.equal(w.staff,10000);assert.equal(w.change,60000);
+});
