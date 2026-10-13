@@ -83,3 +83,9 @@ test('custom date range sums only that window',async()=>{
  const tx=[['2026-10-11',50000,0,'ANZ WORLDLINE'],['2026-10-08',-10000,0,'WAGES'],['2026-10-06',20000,0,'ANZ WORLDLINE'],['2026-10-05',99900,0,'ANZ WORLDLINE']];
  const w=customWin(tx,'2026-10-06','2026-10-11');assert.equal(w.sales,70000);assert.equal(w.staff,10000);assert.equal(w.change,60000);
 });
+test('avg per week only for long periods',async()=>{
+ const i=APP.indexOf('function avgWeek(');const src=APP.slice(i,APP.indexOf('\nfunction marginTile(',i));
+ const {avgWeek}=await import('data:text/javascript;base64,'+Buffer.from('const money=c=>"$"+(c/100).toFixed(2);\n'+src+'\nexport {avgWeek};').toString('base64'));
+ assert.equal(avgWeek({start:'2026-10-06',end:'2026-10-12',sales:100},null),'');
+ const h=avgWeek({start:'2026-04-01',end:'2026-09-29',sales:2600000},{cents:260000});assert.match(h,/\$1000\.00/);assert.match(h,/\$1100\.00/);
+});
