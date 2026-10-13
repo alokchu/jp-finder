@@ -91,7 +91,7 @@ test('avg per week only for long periods',async()=>{
 });
 test('statement lines missing from planner are offered once, by invoice number',async()=>{
  const i=APP.indexOf('function missingFromStatement(');const src=APP.slice(i,APP.indexOf('\nfunction parseBankCSV(',i));
- const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction parseBankCSV('));
+ const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction missingFromStatement('));
  const pre='const day=x=>Date.parse(x+"T00:00:00Z"),plus=(x,n)=>new Date(day(x)+n*864e5).toISOString().slice(0,10),money=c=>"$"+(c/100).toFixed(2);function termsFor(d,s){return 30}\n';
  const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+ps+'\n'+src+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
  const st=parseStatement('Collective Brands Statement Date 13/10/2026 Amount Due $300.00 1/7/2025 Balance Forward 0.00 8/9/2026 Invoice #111 400.00 100.00 21/9/2026 Invoice #222 120.00 220.00 6/10/2026 Invoice #333 80.00 300.00');
