@@ -89,3 +89,14 @@ test('avg per week only for long periods',async()=>{
  assert.equal(avgWeek({start:'2026-10-06',end:'2026-10-12',sales:100},null),'');
  const h=avgWeek({start:'2026-04-01',end:'2026-09-29',sales:2600000},{cents:260000});assert.match(h,/\$1000\.00/);assert.match(h,/\$1100\.00/);
 });
+test('statement lines missing from planner are offered once, by invoice number',async()=>{
+ const i=APP.indexOf('function missingFromStatement(');const src=APP.slice(i,APP.indexOf('\nfunction parseBankCSV(',i));
+ const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction parseBankCSV('));
+ const pre='const day=x=>Date.parse(x+"T00:00:00Z"),plus=(x,n)=>new Date(day(x)+n*864e5).toISOString().slice(0,10),money=c=>"$"+(c/100).toFixed(2);function termsFor(d,s){return 30}\n';
+ const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+ps+'\n'+src+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
+ const st=parseStatement('Collective Brands Statement Date 13/10/2026 Amount Due $300.00 1/7/2025 Balance Forward 0.00 8/9/2026 Invoice #111 400.00 100.00 21/9/2026 Invoice #222 120.00 220.00 6/10/2026 Invoice #333 80.00 300.00');
+ assert.equal(st.lines.length,3);assert.equal(st.lines[0].remainingCents,10000);
+ const d={items:[{kind:'invoice',supplier:'Collective Brands',reference:'333'}]};
+ const m=missingFromStatement(d,st);assert.deepEqual(m.map(x=>x.reference),['111','222']);assert.equal(m[0].cents,10000);assert.equal(m[0].date,'2026-10-08');assert.equal(m[1].date,'2026-10-21');
+ d.items.push(...m);assert.equal(missingFromStatement(d,st).length,0);
+});
