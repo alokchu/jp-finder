@@ -1,0 +1,1 @@
+{"name":"jp-finder-private-tools","private":true,"scripts":{"test":"node --test hairhouse.test.mjs hairhouse.statement-test.mjs && node hairhouse.enrollment-test.mjs"},"dependencies":{"@neondatabase/serverless":"^1.2.0","@netlify/blobs":"10.7.13","pdfjs-dist":"4.10.38"},"engines":{"node":">=20"}}
