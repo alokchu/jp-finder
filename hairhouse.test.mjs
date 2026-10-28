@@ -168,24 +168,32 @@ test('statement-created entries are detected and merged, keeping id and allocati
  assert.equal(statementCreated(existing),true);
  assert.equal(statementCreated({notes:'manual entry'}),false);
  const m=statementMerge(existing,incoming);
- assert.equal(m.item.id,'a');
- assert.equal(m.item.pdfHash,'h2');
- assert.equal(m.item.cents,100);
- assert.match(m.item.notes,/Replaces the entry added from the supplier statement/);
- assert.equal(m.payment,null);
+ assert.equal(m.id,'a');
+ assert.equal(m.pdfHash,'h2');
+ assert.equal(m.cents,100);
+ assert.match(m.notes,/Replaces the entry added from the supplier statement/);
+ assert.equal(m.settledCents,undefined);
 });
 test('merge of a fuller original over a part-settled statement entry keeps the outstanding balance unchanged',async()=>{
  const {statementMerge}=await statementFns();
  const existing={id:'a',notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:'',cents:10000,supplier:'Demo Supplies',reference:'555'};
  const incoming={id:'b',notes:'PDF candidate.',pdfHash:'h2',cents:40000,supplier:'Demo Supplies',reference:'555'};
- const {item,payment}=statementMerge(existing,incoming);
- assert.equal(item.cents,40000);
- assert.equal(item.id,'a');
- assert.ok(payment,'settlement record expected');
- assert.equal(payment.cents,30000);
- assert.equal(payment.date,'2026-10-28');
- assert.equal(payment.source,'statement');
- assert.deepEqual(payment.allocations,[{invoiceId:'a',cents:30000}]);
- // outstanding before: 10000; after: 40000 - 30000 = 10000
- assert.equal(item.cents-payment.allocations[0].cents,existing.cents);
+ const m=statementMerge(existing,incoming);
+ assert.equal(m.cents,40000);
+ assert.equal(m.id,'a');
+ assert.equal(m.settledCents,30000);
+ assert.match(m.notes,/\$300\.00 of the original was already settled/);
+});
+test('settled-baseline merge keeps outstanding unchanged with no payment record and no effect on bank matching',async()=>{
+ const {statementMerge}=await statementFns();
+ const {invoiceBalance}=await import('./netlify/functions/hairhouse.mjs');
+ const existing={id:'a',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:10000,notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:''};
+ const incoming={id:'b',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:40000,notes:'PDF candidate.',pdfHash:'h2'};
+ const m=statementMerge(existing,incoming);
+ const d={version:1,balance:{cents:0,date:'2026-10-29'},items:[m],payments:[]};
+ assert.equal(invoiceBalance(d,m,'2026-10-29'),10000);
+ assert.equal(d.payments.length,0,'no cash payment fabricated');
+ // a later real bank payment of 30000 can still be recorded and allocated normally
+ d.payments.push({id:'p1',supplier:'Demo Supplies',date:'2026-10-30',reference:'Supp Demo Supplies',cents:30000,source:'bank',allocations:[{invoiceId:'a',cents:10000}]});
+ assert.equal(invoiceBalance(d,m,'2026-10-30'),0);
 });
