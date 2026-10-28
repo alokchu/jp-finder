@@ -2,7 +2,7 @@ import {test} from 'node:test';import assert from 'node:assert/strict';
 import {deflateRawSync} from 'node:zlib';
 import {APP,users,session,verify,validate} from './netlify/functions/hairhouse.mjs';
 const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));
-const {forecast,match,extract,duplicates,receiptAlerts}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {forecast,match,extract,duplicates,receiptAlerts};').toString('base64'));
+const {forecast,match,extract,duplicates,receiptAlerts,outflowWindows}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {forecast,match,extract,duplicates,receiptAlerts,outflowWindows};').toString('base64'));
 const data=(items=[])=>({version:1,balance:{cents:100000,date:'2026-10-07'},items});const item=(p={})=>({id:'1',kind:'invoice',supplier:'Example',reference:'I1',cents:10000,date:'2026-10-08',status:'confirmed',notes:'',...p});
 const cases=[['invoice', [item()],90000],['review excluded',[item({status:'review'})],100000],['paid before balance excluded',[item({status:'paid',paidDate:'2026-10-06'})],100000],['paid after balance deducted',[item({status:'paid',paidDate:'2026-10-08'})],90000],['estimated order',[item({kind:'order',status:'estimated'})],90000],['order matched once',[item({id:'po',kind:'order'}),item({id:'inv',orderId:'po'})],90000],['partial invoices',[item({id:'po',kind:'order'}),item({id:'inv',orderId:'po',cents:4000})],90000],['credit reduces payable',[item(),item({id:'c',kind:'credit',cents:2000})],92000],['credit does not restore order',[item({id:'po',kind:'order'}),item({orderId:'po'}),item({id:'c',kind:'credit',orderId:'po',cents:2000})],92000],['sales excluded from conservative',[item({kind:'inflow',cents:50000})],100000],['cancelled excluded',[item({status:'cancelled'})],100000],['overdue reserved',[item({date:'2026-10-01'})],90000]];
 for(const [name,items,min] of cases)test(name,()=>assert.equal(forecast(data(items)).minimum,min));
@@ -112,3 +112,27 @@ test('cash tenders parsed from a real-structured xlsx (zip, shared strings, styl
 test('xlsx string dates in day/month/year form are accepted',async()=>{const f=xlsx(dataRow(2,'<c r="A2" t="inlineStr"><is><t>17/10/2026</t></is></c>','15'));const c=parseCashTable(await xlsxTable(f));assert.deepEqual(c.days,[['2026-10-17',1500]]);});
 test('xlsx parser rejects files that are not spreadsheets',async()=>{await assert.rejects(()=>xlsxTable(Buffer.from('not a zip')),/Could not read this file/);await assert.rejects(()=>xlsxTable(zip([['readme.txt','hello']])),/Could not read this file/);});
 }
+
+const wdata=(items)=>({version:1,balance:{cents:100000,date:'2026-10-29'},items,suppliers:[]});
+const witem=(p={})=>({id:Math.random().toString(36).slice(2),kind:'invoice',supplier:'Example',reference:'I1',cents:5000,date:'2026-10-30',status:'confirmed',notes:'',...p});
+test('outflowWindows: overdue-only counts in every window, flagged',()=>{
+  const r=outflowWindows(wdata([witem({date:'2026-10-01'})]),'2026-10-29');
+  assert.equal(r.overdue,5000);
+  assert.deepEqual(r.totals,[5000,5000,5000]);
+  assert.equal(r.rows[0].length,1);
+  assert.equal(r.rows[0][0].overdue,true);
+});
+test('outflowWindows: mixed overdue and future, cumulative, no double count',()=>{
+  const r=outflowWindows(wdata([witem({date:'2026-10-01',cents:5000}),witem({date:'2026-11-02',cents:3000,reference:'I2'}),witem({date:'2026-11-20',cents:2000,reference:'I3'})]),'2026-10-29');
+  assert.equal(r.overdue,5000);
+  assert.deepEqual(r.totals,[8000,8000,10000]);
+  assert.equal(r.rows[0].length,2);
+  assert.equal(r.rows[2].length,3);
+  assert.equal(r.rows[0].filter(x=>x.overdue).length,1);
+});
+test('outflowWindows: no overdue stays as before',()=>{
+  const r=outflowWindows(wdata([witem({date:'2026-11-02'})]),'2026-10-29');
+  assert.equal(r.overdue,0);
+  assert.deepEqual(r.totals,[5000,5000,5000]);
+  assert.equal(r.rows[0][0].overdue,false);
+});
