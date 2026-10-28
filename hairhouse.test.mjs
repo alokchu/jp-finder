@@ -97,9 +97,11 @@ test('statement lines missing from planner are offered once, by invoice number',
  const nr=APP.slice(APP.indexOf('function normRef('),APP.indexOf('\nfunction duplicates('));const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+ps+'\n'+src+'\n'+nr+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
  const st=parseStatement('Collective Brands Statement Date 13/10/2026 Amount Due $300.00 1/7/2025 Balance Forward 0.00 8/9/2026 Invoice #111 400.00 100.00 21/9/2026 Invoice #222 120.00 220.00 6/10/2026 Invoice #333 80.00 300.00');
  assert.equal(st.lines.length,3);assert.equal(st.lines[0].remainingCents,10000);
- const d={items:[{kind:'invoice',supplier:'Collective Brands',reference:'333'}]};
- const m=missingFromStatement(d,st);assert.deepEqual(m.map(x=>x.reference),['111','222']);assert.equal(m[0].cents,10000);assert.equal(m[0].date,'2026-10-08');assert.equal(m[1].date,'2026-10-21');
+ const d={items:[{kind:'invoice',supplier:'Collective Brands',reference:'333'}],suppliers:[{name:'Collective Brands',days:30}]};
+ const m=missingFromStatement(d,st);assert.deepEqual(m.map(x=>x.reference),['111','222']);assert.equal(m[0].cents,10000);assert.equal(m[0].date,'2026-10-08');assert.equal(m[1].date,'2026-10-21');assert.equal(m[0].status,'confirmed');assert.match(m[0].notes,/terms saved for Collective Brands/);
  d.items.push(...m);assert.equal(missingFromStatement(d,st).length,0);
+ const noTerms=missingFromStatement({items:[],suppliers:[]},st);
+ assert.equal(noTerms.length,3);assert.equal(noTerms[0].status,'review','no saved terms: stays pending review');assert.equal(noTerms[0].date,'','no invented due date');assert.equal(noTerms[0].invoiceDate,'2026-09-08');assert.match(noTerms[0].notes,/does not show a due date/);
 });
 
 {const {xlsxTable,parseCashTable}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {xlsxTable,parseCashTable};').toString('base64'));
@@ -184,16 +186,23 @@ test('merge of a fuller original over a part-settled statement entry keeps the o
  assert.equal(m.settledCents,30000);
  assert.match(m.notes,/\$300\.00 of the original was already settled/);
 });
-test('settled-baseline merge keeps outstanding unchanged with no payment record and no effect on bank matching',async()=>{
+test('settled-baseline merge: original 800 / statement remaining 500, then bank 300 leaves 200; over-allocation rejected',async()=>{
  const {statementMerge}=await statementFns();
  const {invoiceBalance}=await import('./netlify/functions/hairhouse.mjs');
- const existing={id:'a',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:10000,notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:''};
- const incoming={id:'b',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:40000,notes:'PDF candidate.',pdfHash:'h2'};
+ const vsrc=APP.slice(APP.indexOf('function validateLedger'),APP.indexOf('function paymentReadiness'));
+ const {validateLedger}=await import('data:text/javascript;base64,'+Buffer.from('const day=x=>Date.parse(x+"T00:00:00Z");\n'+vsrc+'\nexport {validateLedger};').toString('base64'));
+ const existing={id:'a',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:50000,notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:''};
+ const incoming={id:'b',supplier:'Demo Supplies',reference:'555',kind:'invoice',status:'confirmed',cents:80000,notes:'PDF candidate.',pdfHash:'h2'};
  const m=statementMerge(existing,incoming);
+ assert.equal(m.cents,80000);assert.equal(m.settledCents,30000);
  const d={version:1,balance:{cents:0,date:'2026-10-29'},items:[m],payments:[]};
- assert.equal(invoiceBalance(d,m,'2026-10-29'),10000);
+ assert.equal(invoiceBalance(d,m,'2026-10-29'),50000,'merge leaves outstanding unchanged');
  assert.equal(d.payments.length,0,'no cash payment fabricated');
- // a later real bank payment of 30000 can still be recorded and allocated normally
- d.payments.push({id:'p1',supplier:'Demo Supplies',date:'2026-10-30',reference:'Supp Demo Supplies',cents:30000,source:'bank',allocations:[{invoiceId:'a',cents:10000}]});
- assert.equal(invoiceBalance(d,m,'2026-10-30'),0);
+ d.payments.push({id:'p1',supplier:'Demo Supplies',date:'2026-10-29',reference:'Supp Demo Supplies',cents:30000,source:'bank',allocations:[{invoiceId:'a',cents:30000}]});
+ assert.equal(invoiceBalance(d,m,'2026-10-29'),20000,'a real 300 payment against 500 outstanding leaves 200, not 0');
+ d.payments[0].allocations=[{invoiceId:'a',cents:60000}];
+ assert.throws(()=>validateLedger(d),/Allocation exceeds outstanding/,'cannot allocate past the settled-adjusted outstanding');
+ d.payments[0].cents=50000;d.payments[0].allocations=[{invoiceId:'a',cents:50000}];
+ validateLedger(d);
+ assert.equal(invoiceBalance(d,m,'2026-10-29'),0,'allocating the full outstanding settles the invoice');
 });
