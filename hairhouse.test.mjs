@@ -1,5 +1,6 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {deflateRawSync} from 'node:zlib';
+import {readFileSync} from 'node:fs';
 import {APP,users,session,verify,validate} from './netlify/functions/hairhouse.mjs';
 const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));
 const {forecast,match,extract,duplicates,receiptAlerts,outflowWindows}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {forecast,match,extract,duplicates,receiptAlerts,outflowWindows};').toString('base64'));
@@ -7,6 +8,7 @@ const data=(items=[])=>({version:1,balance:{cents:100000,date:'2026-10-07'},item
 const cases=[['invoice', [item()],90000],['review excluded',[item({status:'review'})],100000],['paid before balance excluded',[item({status:'paid',paidDate:'2026-10-06'})],100000],['paid after balance deducted',[item({status:'paid',paidDate:'2026-10-08'})],90000],['estimated order',[item({kind:'order',status:'estimated'})],90000],['order matched once',[item({id:'po',kind:'order'}),item({id:'inv',orderId:'po'})],90000],['partial invoices',[item({id:'po',kind:'order'}),item({id:'inv',orderId:'po',cents:4000})],90000],['credit reduces payable',[item(),item({id:'c',kind:'credit',cents:2000})],92000],['credit does not restore order',[item({id:'po',kind:'order'}),item({orderId:'po'}),item({id:'c',kind:'credit',orderId:'po',cents:2000})],92000],['sales excluded from conservative',[item({kind:'inflow',cents:50000})],100000],['cancelled excluded',[item({status:'cancelled'})],100000],['overdue reserved',[item({date:'2026-10-01'})],90000]];
 for(const [name,items,min] of cases)test(name,()=>assert.equal(forecast(data(items)).minimum,min));
 test('12 weeks',()=>assert.equal(forecast(data()).weeks.length,12));test('negative cash visible',()=>assert.equal(forecast(data([item({cents:200000})])).minimum,-100000));test('duplicates case insensitive',()=>assert.equal(duplicates([item(),item({id:'2',reference:'i1'})]).length,1));test('duplicates ignores punctuation',()=>assert.equal(duplicates([item(),item({id:'2',reference:'I 1'})]).length,1));test('blank reference duplicate blocked',()=>assert.equal(duplicates([item({reference:''}),item({id:'2',reference:''})]).length,1));test('blank reference different date allowed',()=>assert.equal(duplicates([item({reference:''}),item({id:'2',reference:'',date:'2026-10-09'})]).length,0));test('blank reference different amount allowed',()=>assert.equal(duplicates([item({reference:''}),item({id:'2',reference:'',cents:5000})]).length,0));test('pack mismatch',()=>assert.ok(match({...item(),lines:[{sku:'a',qty:3,pack:6}]},{...item(),lines:[{sku:'a',qty:6,pack:1}]}).length));test('quantity matches',()=>assert.deepEqual(match({...item(),lines:[{sku:'a',qty:3,pack:6}]},{...item(),lines:[{sku:'a',qty:18,pack:1}]}),[]));test('late receipts',()=>assert.deepEqual(receiptAlerts([item({receiptExpected:'2026-09-20',lines:[{sku:'a',qty:3,pack:6,received:6}]})],'2026-10-07'),['1']));test('received not late',()=>assert.deepEqual(receiptAlerts([item({receiptExpected:'2026-09-20',lines:[{sku:'a',qty:3,pack:6,received:18}]})],'2026-10-07'),[]));test('valid data',()=>assert.equal(validate(data([item()])).version,1));test('invalid dates',()=>assert.throws(()=>validate(data([item({date:'2026-02-30'})]))));test('invalid negative',()=>assert.throws(()=>validate(data([item({cents:-1})]))));test('wrong supplier match',()=>assert.throws(()=>validate(data([item({id:'po',kind:'order'}),item({orderId:'po',supplier:'other'})]))));test('missing configuration fails closed',()=>assert.deepEqual(users({}),[]));test('third user rejected',()=>assert.deepEqual(users({HAIRHOUSE_USERS:'[{},{},{}]'}),[]));test('session integrity and expiry',()=>{const s='x'.repeat(48),u=[{email:'a@example.com'}],token=session('a@example.com',s,0);assert.equal(verify(token,s,u,100),'a@example.com');assert.equal(verify(token+'x',s,u,100),null);assert.equal(verify(token,s,u,9*3600e3),null);assert.equal(verify(token,s,[],100),null);});test('generic extraction is review candidate',()=>{const r=extract('Invoice Number INV-12 Due Date 05/11/2026 Total Due $1,200.00');assert.equal(r.reference,'INV-12');assert.equal(r.cents,120000);assert.equal(r.date,'2026-11-05');});
+test('extraction keeps invoice date separate; actual due date takes priority',()=>{const r=extract('Invoice Number INV-9 Invoice Date 15/10/2026 Total Due $100.00');assert.equal(r.invoiceDate,'2026-10-15');assert.equal(r.date,'','no due date: left empty for the terms estimate');const both=extract('Invoice Number INV-12 Invoice Date 01/10/2026 Due Date 05/11/2026 Total Due $1,200.00');assert.equal(both.date,'2026-11-05','actual due date takes priority');assert.equal(both.invoiceDate,'2026-10-01');});
 
 test('paid linked invoice does not reopen order reserve',()=>assert.equal(forecast(data([item({id:'po',kind:'order'}),item({id:'paid',orderId:'po',status:'paid',paidDate:'2026-10-06'})])).minimum,100000));
 test('credit owed not spendable',()=>assert.equal(forecast(data([item({kind:'creditOwed',cents:50000})])).minimum,100000));
@@ -93,15 +95,31 @@ test('avg per week only for long periods',async()=>{
 test('statement lines missing from planner are offered once, by invoice number',async()=>{
  const i=APP.indexOf('function missingFromStatement(');const src=APP.slice(i,APP.indexOf('\nfunction parseBankCSV(',i));
  const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction missingFromStatement('));
- const pre='const day=x=>Date.parse(x+"T00:00:00Z"),plus=(x,n)=>new Date(day(x)+n*864e5).toISOString().slice(0,10),money=c=>"$"+(c/100).toFixed(2);function termsFor(d,s){return 30}\n';
- const nr=APP.slice(APP.indexOf('function normRef('),APP.indexOf('\nfunction duplicates('));const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+ps+'\n'+src+'\n'+nr+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
+ const tf=APP.slice(APP.indexOf('function lorealName('),APP.indexOf('\nfunction allocations('));
+ const pre='const day=x=>Date.parse(x+"T00:00:00Z"),plus=(x,n)=>new Date(day(x)+n*864e5).toISOString().slice(0,10),money=c=>"$"+(c/100).toFixed(2);\n';
+ const nr=APP.slice(APP.indexOf('function normRef('),APP.indexOf('\nfunction duplicates('));const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+tf+'\n'+ps+'\n'+src+'\n'+nr+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
  const st=parseStatement('Collective Brands Statement Date 13/10/2026 Amount Due $300.00 1/7/2025 Balance Forward 0.00 8/9/2026 Invoice #111 400.00 100.00 21/9/2026 Invoice #222 120.00 220.00 6/10/2026 Invoice #333 80.00 300.00');
  assert.equal(st.lines.length,3);assert.equal(st.lines[0].remainingCents,10000);
  const d={items:[{kind:'invoice',supplier:'Collective Brands',reference:'333'}],suppliers:[{name:'Collective Brands',days:30}]};
  const m=missingFromStatement(d,st);assert.deepEqual(m.map(x=>x.reference),['111','222']);assert.equal(m[0].cents,10000);assert.equal(m[0].date,'2026-10-08');assert.equal(m[1].date,'2026-10-21');assert.equal(m[0].status,'confirmed');assert.match(m[0].notes,/terms saved for Collective Brands/);
  d.items.push(...m);assert.equal(missingFromStatement(d,st).length,0);
+});
+test('statement adds apply owner credit terms: 30-day default, 45-day L\u2019Oreal, review only when no invoice date',async()=>{
+ const tf=APP.slice(APP.indexOf('function lorealName('),APP.indexOf('\nfunction allocations('));
+ const pre='const day=x=>Date.parse(x+"T00:00:00Z"),plus=(x,n)=>new Date(day(x)+n*864e5).toISOString().slice(0,10),money=c=>"$"+(c/100).toFixed(2);\n';
+ const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction missingFromStatement('));
+ const i=APP.indexOf('function missingFromStatement(');const src=APP.slice(i,APP.indexOf('\nfunction parseBankCSV(',i));
+ const nr=APP.slice(APP.indexOf('function normRef('),APP.indexOf('\nfunction duplicates('));
+ const {missingFromStatement,parseStatement}=await import('data:text/javascript;base64,'+Buffer.from(pre+tf+'\n'+ps+'\n'+src+'\n'+nr+'\nexport {missingFromStatement,parseStatement};').toString('base64'));
+ const st=parseStatement('Collective Brands Statement Date 13/10/2026 Amount Due $300.00 1/7/2025 Balance Forward 0.00 8/9/2026 Invoice #111 400.00 100.00 21/9/2026 Invoice #222 120.00 220.00 6/10/2026 Invoice #333 80.00 300.00');
  const noTerms=missingFromStatement({items:[],suppliers:[]},st);
- assert.equal(noTerms.length,3);assert.equal(noTerms[0].status,'review','no saved terms: stays pending review');assert.equal(noTerms[0].date,'','no invented due date');assert.equal(noTerms[0].invoiceDate,'2026-09-08');assert.match(noTerms[0].notes,/does not show a due date/);
+ assert.equal(noTerms.length,3);assert.equal(noTerms[0].status,'confirmed','owner 30-day rule grounds the estimate');assert.equal(noTerms[0].date,'2026-10-08');assert.match(noTerms[0].notes,/standard 30-day credit rule/);
+ const loreal=missingFromStatement({items:[],suppliers:[]},{...st,supplier:"L'Oreal"});
+ assert.equal(loreal[0].date,'2026-10-23','45-day L\u2019Oreal terms from invoice date');assert.match(loreal[0].notes,/45-day L'Or\u00e9al terms/);
+ const saved=missingFromStatement({items:[],suppliers:[{name:"L'Oreal",days:60}]},{...st,supplier:"L'Oreal"});
+ assert.equal(saved[0].date,'2026-11-07','saved terms win over the 45-day rule');
+ const noDate=missingFromStatement({items:[],suppliers:[]},{supplier:'Demo',date:'2026-10-28',lines:[{reference:'X1',date:'',chargeCents:500,remainingCents:500}]});
+ assert.equal(noDate[0].status,'review','no invoice date on the line: stays pending review');assert.equal(noDate[0].date,'','no invented due date');assert.equal(noDate[0].invoiceDate,'');assert.match(noDate[0].notes,/no invoice or due date/);
 });
 
 {const {xlsxTable,parseCashTable}=await import('data:text/javascript;base64,'+Buffer.from(predictionSource+'\nexport {xlsxTable,parseCashTable};').toString('base64'));
@@ -140,6 +158,23 @@ test('outflowWindows: no overdue stays as before',()=>{
 });
 
 const statementFns=()=>{const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction missingFromStatement('));const pk=APP.slice(APP.indexOf('function pdfKind('),APP.indexOf('\nfunction statementCreated('));const sc=APP.slice(APP.indexOf('function statementCreated('),APP.indexOf('\nfunction statementMerge('));const sm=APP.slice(APP.indexOf('function statementMerge('),APP.indexOf('\nlet pdfQueue='));return import('data:text/javascript;base64,'+Buffer.from(ps+'\n'+pk+'\n'+sc+'\n'+sm+'\nexport {parseStatement,pdfKind,statementCreated,statementMerge};').toString('base64'));};
+test("owner credit terms resolve: saved terms, then 45-day L'Oreal, then 30-day default",async()=>{
+ const tf=APP.slice(APP.indexOf('function lorealName('),APP.indexOf('\nfunction allocations('));
+ const {termsFor,lorealName}=await import('data:text/javascript;base64,'+Buffer.from(tf+'\nexport {termsFor,lorealName};').toString('base64'));
+ assert.equal(termsFor({suppliers:[]},'Muk'),30);
+ assert.equal(termsFor({suppliers:[]},'Collective Brands'),30,'no fuzzy cross-supplier merge');
+ assert.equal(termsFor({suppliers:[]},"L'Oreal"),45);
+ assert.equal(termsFor({suppliers:[]},"L'Or\u00e9al Australia Pty Ltd"),45);
+ assert.equal(termsFor({suppliers:[]},'loreal'),45);
+ assert.equal(termsFor({suppliers:[{name:"L'Oreal",days:60}]},"l'Oreal"),60,'saved terms win');
+ assert.equal(termsFor({suppliers:[{name:'Muk',days:14}]},'Muk'),14);
+ assert.ok(lorealName("L'Or\u00e9al")&&lorealName("L'Oreal")&&!lorealName('Collective Brands'));
+});
+test('shared pure functions stay identical between module and app bundle',()=>{
+ const mod=readFileSync(new URL('./netlify/functions/hairhouse.mjs',import.meta.url),'utf8');
+ const pick=(src,name)=>{const line=src.split('\n').find(l=>l.startsWith('function '+name+'('));assert.ok(line,name+' missing');return line;};
+ for(const n of ['lorealName','termsInfo','termsFor','allocations','invoiceBalance','aging','parseStatement','parseBankCSV','validateLedger'])assert.equal(pick(APP,n),pick(mod,n),n+' differs between module and app');
+});
 test('statement parser carries payment rows and balance forward through running balances',async()=>{
  const {parseStatement}=await statementFns();
  const st=parseStatement('Demo Supplies Statement Date 28/10/2026 Amount Due $6,292.36 1/7/2025 Balance Forward 500.00 8/9/2026 Invoice #111 1,000.00 1,500.00 20/9/2026 Payment 208.00 1,292.00 6/10/2026 Invoice #222 5,000.36 6,292.36');
