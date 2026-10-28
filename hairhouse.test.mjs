@@ -136,3 +136,40 @@ test('outflowWindows: no overdue stays as before',()=>{
   assert.deepEqual(r.totals,[5000,5000,5000]);
   assert.equal(r.rows[0][0].overdue,false);
 });
+
+const statementFns=()=>{const ps=APP.slice(APP.indexOf('function parseStatement('),APP.indexOf('\nfunction missingFromStatement('));const pk=APP.slice(APP.indexOf('function pdfKind('),APP.indexOf('\nfunction statementCreated('));const sc=APP.slice(APP.indexOf('function statementCreated('),APP.indexOf('\nfunction statementMerge('));const sm=APP.slice(APP.indexOf('function statementMerge('),APP.indexOf('\nlet pdfQueue='));return import('data:text/javascript;base64,'+Buffer.from(ps+'\n'+pk+'\n'+sc+'\n'+sm+'\nexport {parseStatement,pdfKind,statementCreated,statementMerge};').toString('base64'));};
+test('statement parser carries payment rows and balance forward through running balances',async()=>{
+ const {parseStatement}=await statementFns();
+ const st=parseStatement('Demo Supplies Statement Date 28/10/2026 Amount Due $6,292.36 1/7/2025 Balance Forward 500.00 8/9/2026 Invoice #111 1,000.00 1,500.00 20/9/2026 Payment 208.00 1,292.00 6/10/2026 Invoice #222 5,000.36 6,292.36');
+ assert.equal(st.lines.length,2);
+ assert.equal(st.lines[0].remainingCents,100000);
+ assert.equal(st.lines[1].remainingCents,500036);
+ assert.equal(st.hasPayments,true);
+ assert.equal(st.claimedCents,629236);
+});
+test('statement parser reads a full statement layout; remaining equals charge when unpaid',async()=>{
+ const {parseStatement}=await statementFns();
+ const st=parseStatement('Demo Supplies Pty Ltd\nStatement\nDate 28/10/2026\nAmount Due $1,000.00\nBill To DEMO STORE\nDate Description Charge Payment Balance\n1/7/2025 Balance Forward 0.00\n21/9/2026 Invoice #1001 400.00 400.00\n6/10/2026 Invoice #1002 600.00 1,000.00\nCurrent 1-30 Days 31-60 Days Amount Due\n0.00 1,000.00 0.00 $1,000.00\nRemittance Slip\nAmount Paid ______\n');
+ assert.equal(st.supplier,'');
+ assert.equal(st.date,'2026-10-28');
+ assert.deepEqual(st.lines.map(l=>[l.reference,l.remainingCents]),[['1001',40000],['1002',60000]]);
+ assert.equal(st.hasPayments,false);
+});
+test('pdfKind routes statements, unreadable statements and invoices',async()=>{
+ const {pdfKind}=await statementFns();
+ assert.equal(pdfKind('Supplier Statement Date 28/10/2026 Amount Due $400.00 21/9/2026 Invoice #1001 400.00 400.00'),'statement');
+ assert.equal(pdfKind('ACME Statement Amount Due $10.00 nothing parseable here'),'statement-unread');
+ assert.equal(pdfKind('TAX INVOICE HairCo Tracking Code 01 Oct 2026 INV-1 total due $50.00'),'invoice');
+});
+test('statement-created entries are detected and merged, keeping id and allocations target',async()=>{
+ const {statementCreated,statementMerge}=await statementFns();
+ const existing={id:'a',notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:'h1',cents:100};
+ const incoming={id:'b',notes:'PDF candidate.',pdfHash:'h2',cents:400};
+ assert.equal(statementCreated(existing),true);
+ assert.equal(statementCreated({notes:'manual entry'}),false);
+ const m=statementMerge(existing,incoming);
+ assert.equal(m.id,'a');
+ assert.equal(m.pdfHash,'h2');
+ assert.equal(m.cents,400);
+ assert.match(m.notes,/Replaces the entry added from the supplier statement/);
+});
