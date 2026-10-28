@@ -164,12 +164,28 @@ test('pdfKind routes statements, unreadable statements and invoices',async()=>{
 test('statement-created entries are detected and merged, keeping id and allocations target',async()=>{
  const {statementCreated,statementMerge}=await statementFns();
  const existing={id:'a',notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:'h1',cents:100};
- const incoming={id:'b',notes:'PDF candidate.',pdfHash:'h2',cents:400};
+ const incoming={id:'b',notes:'PDF candidate.',pdfHash:'h2',cents:100};
  assert.equal(statementCreated(existing),true);
  assert.equal(statementCreated({notes:'manual entry'}),false);
  const m=statementMerge(existing,incoming);
- assert.equal(m.id,'a');
- assert.equal(m.pdfHash,'h2');
- assert.equal(m.cents,400);
- assert.match(m.notes,/Replaces the entry added from the supplier statement/);
+ assert.equal(m.item.id,'a');
+ assert.equal(m.item.pdfHash,'h2');
+ assert.equal(m.item.cents,100);
+ assert.match(m.item.notes,/Replaces the entry added from the supplier statement/);
+ assert.equal(m.payment,null);
+});
+test('merge of a fuller original over a part-settled statement entry keeps the outstanding balance unchanged',async()=>{
+ const {statementMerge}=await statementFns();
+ const existing={id:'a',notes:'Added from supplier statement dated 2026-10-28. Amount is the remaining balance on the statement.',pdfHash:'',cents:10000,supplier:'Demo Supplies',reference:'555'};
+ const incoming={id:'b',notes:'PDF candidate.',pdfHash:'h2',cents:40000,supplier:'Demo Supplies',reference:'555'};
+ const {item,payment}=statementMerge(existing,incoming);
+ assert.equal(item.cents,40000);
+ assert.equal(item.id,'a');
+ assert.ok(payment,'settlement record expected');
+ assert.equal(payment.cents,30000);
+ assert.equal(payment.date,'2026-10-28');
+ assert.equal(payment.source,'statement');
+ assert.deepEqual(payment.allocations,[{invoiceId:'a',cents:30000}]);
+ // outstanding before: 10000; after: 40000 - 30000 = 10000
+ assert.equal(item.cents-payment.allocations[0].cents,existing.cents);
 });
