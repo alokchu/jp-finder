@@ -1,4 +1,4 @@
-import {test} from 'node:test';import assert from 'node:assert/strict';import {APP,aging,reconcile,parseStatement,parseBankCSV,validateLedger} from './netlify/functions/hairhouse.mjs';
+import {test} from 'node:test';import assert from 'node:assert/strict';import {APP,aging,reconcile,parseStatement,parseBankCSV,bankAlias,bankSupplierGuess,matchBankPayments,invoiceBalance,validateLedger} from './netlify/functions/hairhouse.mjs';
 const invoice={id:'i',kind:'invoice',supplier:'Example',reference:'SYN-1',cents:10000,invoiceDate:'2026-09-01',date:'2026-10-01',status:'confirmed'};
 const data=()=>({balance:{cents:100000,date:'2026-10-07'},items:[{...invoice}],payments:[{id:'p',source:'bank',supplier:'Example',reference:'SYN-P',date:'2026-10-02',cents:2000,allocations:[{invoiceId:'i',cents:2000}]}]});
 test('due today is current',()=>assert.equal(aging(data(),'Example','2026-10-01').buckets.current,10000));
@@ -20,3 +20,60 @@ test('clickable window rows sum exactly to headline with partial invoices and re
 test('receipt gate: no lines partial missing and unreviewed never OK to pay',async()=>{const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {paymentReadiness}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {paymentReadiness};').toString('base64'));const i={kind:'invoice',status:'confirmed',lines:[{sku:'Sample',qty:2,pack:3,received:6}]};assert.equal(paymentReadiness(i).manualPay,true);for(const lines of [[],[{sku:'Sample',qty:0,pack:1,received:0}],[{sku:'Sample',qty:2,pack:3,received:3}]])assert.equal(paymentReadiness({...i,lines}).tone,'amber');assert.equal(paymentReadiness({...i,status:'review'}).manualPay,false);assert.equal(paymentReadiness({...i,lines:[{...i.lines[0],received:3,missing:true}],adjustment:'credit requested'}).tone,'red');assert.equal(paymentReadiness({...i,directDebit:true}).manualPay,false);assert.match(paymentReadiness({...i,directDebit:true}).label,/no manual pay/);assert.equal(paymentReadiness({...i,status:'paid'}).manualPay,false);assert.equal(paymentReadiness({...i,status:'cancelled'}).manualPay,false);});
 test('outflow rows carry readiness without removing pending cash obligations',async()=>{const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {outflowWindows}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {outflowWindows};').toString('base64'));const r=outflowWindows({items:[{id:'example',kind:'invoice',status:'confirmed',supplier:'Sample',date:'2026-10-09',cents:1000,lines:[]}]},'2026-10-08');assert.equal(r.totals[0],1000);assert.equal(r.rows[0][0].readiness.tone,'amber');assert.equal(r.rows[0][0].readiness.manualPay,false);});
 test('manual receipt attestation needs review and cannot bypass missing or debit',async()=>{const source=APP.slice(APP.indexOf('function match('),APP.indexOf('const $='));const {paymentReadiness}=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {paymentReadiness};').toString('base64'));const i={kind:'invoice',status:'confirmed',lines:[],manualReceipt:true};assert.equal(paymentReadiness(i).manualPay,true);assert.match(paymentReadiness(i).label,/Manually confirmed/);assert.equal(paymentReadiness({...i,status:'review'}).manualPay,false);assert.equal(paymentReadiness({...i,directDebit:true}).manualPay,false);assert.equal(paymentReadiness({...i,lines:[{sku:'Example',qty:1,pack:1,received:0,missing:true}]}).tone,'red');assert.equal(paymentReadiness({...i,manualReceipt:false}).tone,'amber');});
+
+const mkData=()=>({version:1,balance:{cents:10000000,date:'2026-10-28'},items:[
+ {id:'inv1',kind:'invoice',status:'confirmed',supplier:'Collective Brands',reference:'29301517',cents:500000,date:'2026-10-21',invoiceDate:'2026-09-21',paidDate:'',orderId:'',receiptExpected:'',receiptDays:7,directDebit:false,manualReceipt:false,manualReceiptDate:'',adjustment:'none',lines:[],notes:''},
+ {id:'inv2',kind:'invoice',status:'confirmed',supplier:"L'Oreal Australia",reference:'6100272474',cents:320647,date:'2026-11-29',invoiceDate:'2026-10-15',paidDate:'',orderId:'',receiptExpected:'',receiptDays:7,directDebit:false,manualReceipt:false,manualReceiptDate:'',adjustment:'none',lines:[],notes:''},
+],payments:[],supplierAliases:[{alias:'SUPP COLLECTIVE BRANDS',supplier:'Collective Brands'}]});
+const CSV='07/10/2026,"-5000.00","SUPP COLLECTIVE BRANDS TDM","+9000.00"\n20/10/2026,"-3206.47","DIRECT DEBIT LOREAL AUSTRALIA","+5793.53"';
+test('bank match: confirmed alias + unique exact outstanding amount proposes a match',()=>{
+ const r=matchBankPayments(mkData(),parseBankCSV(CSV).rows);
+ assert.equal(r[0].status,'match');assert.equal(r[0].invoiceId,'inv1');assert.equal(r[0].invoiceReference,'29301517');
+ assert.equal(r[1].status,'nosupplier');assert.equal(r[1].guess,"L'Oreal Australia",'ledger supplier name is only a guess until the owner confirms');
+});
+test('bank match: saved alias resolves; guess never matches on its own',()=>{
+ const d=mkData();assert.equal(bankAlias(d,'SUPP COLLECTIVE BRANDS TDM REF 123'),'Collective Brands');
+ assert.equal(bankAlias(d,'DIRECT DEBIT LOREAL AUSTRALIA'),'','no saved alias, no match');
+ assert.equal(bankSupplierGuess(d,'DIRECT DEBIT LOREAL AUSTRALIA'),"L'Oreal Australia");
+ assert.equal(bankSupplierGuess(d,'RANDOM SHOP PTY LTD'),'');
+});
+test('bank match: ambiguous, partial and settled-baseline cases never auto-match',()=>{
+ const d=mkData();
+ d.items.push({id:'inv3',kind:'invoice',status:'confirmed',supplier:'Collective Brands',reference:'29301518',cents:500000,date:'2026-10-21',invoiceDate:'2026-09-22',paidDate:'',orderId:'',receiptExpected:'',receiptDays:7,directDebit:false,manualReceipt:false,manualReceiptDate:'',adjustment:'none',lines:[],notes:''});
+ let r=matchBankPayments(d,parseBankCSV(CSV).rows);
+ assert.equal(r[0].status,'ambiguous','two open bills at the same amount ask, never guess');
+ d.items.pop();
+ r=matchBankPayments(d,[{date:'2026-10-07',cents:250000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r[0].status,'none','partial payment is manual');
+ d.items[0].settledCents=300000;
+ r=matchBankPayments(d,[{date:'2026-10-07',cents:200000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r[0].status,'match','statement settled baseline: 800 charge - 300 settled = 200 outstanding matches 200');
+ r=matchBankPayments(d,[{date:'2026-10-07',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r[0].status,'none','full charge does not match once part is settled');
+});
+test('bank match: duplicate rows in one file cannot double-apply; recorded lines skip; dates guard',()=>{
+ const d=mkData();
+ const two=[{date:'2026-10-07',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'},{date:'2026-10-07',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}];
+ const r=matchBankPayments(d,two);
+ assert.equal(r[0].status,'match');assert.equal(r[1].status,'none','second identical line finds no open bill after the first applies');
+ d.payments.push({id:'p1',supplier:'Collective Brands',date:'2026-10-07',reference:'SUPP COLLECTIVE BRANDS TDM',cents:500000,source:'bank',allocations:[{invoiceId:'inv1',cents:500000}]});
+ const r2=matchBankPayments(d,[{date:'2026-10-07',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r2[0].status,'recorded','reimport of an already recorded line is skipped');
+ const r3=matchBankPayments(mkData(),[{date:'2026-10-29',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r3[0].status,'future','payment after the dated bank balance is not recorded');
+ const r4=matchBankPayments(mkData(),[{date:'2026-09-20',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r4[0].status,'none','payment dated before the invoice does not match');
+});
+test('bank match: proposed payments validate and settle the invoice',()=>{
+ const d=mkData(),r=matchBankPayments(d,parseBankCSV(CSV).rows);
+ const x=r[0];
+ d.payments.push({id:'p9',supplier:x.supplier,date:x.row.date,reference:x.row.reference,cents:x.row.cents,source:'bank',allocations:[{invoiceId:x.invoiceId,cents:x.row.cents}]});
+ validateLedger(d);
+ assert.equal(invoiceBalance(d,d.items[0],'2026-10-28'),0);
+});
+test('supplier aliases are validated by validateLedger',()=>{
+ const d=mkData();validateLedger(d);
+ d.supplierAliases=[{alias:'',supplier:'X'}];assert.throws(()=>validateLedger(d),/Invalid supplier alias/);
+ d.supplierAliases=[{alias:'X'}];assert.throws(()=>validateLedger(d),/Invalid supplier alias/);
+ d.supplierAliases=new Array(201).fill({alias:'A',supplier:'B'});assert.throws(()=>validateLedger(d),/Invalid supplier ledger/);
+});
