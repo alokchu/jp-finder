@@ -62,7 +62,10 @@ test('bank match: duplicate rows in one file cannot double-apply; recorded lines
  const r3=matchBankPayments(mkData(),[{date:'2026-10-29',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
  assert.equal(r3[0].status,'future','payment after the dated bank balance is not recorded');
  const r4=matchBankPayments(mkData(),[{date:'2026-09-20',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
- assert.equal(r4[0].status,'none','payment dated before the invoice does not match');
+ assert.equal(r4[0].status,'none','payment dated before the invoice issue date does not match');
+ const early=mkData();delete early.items[0].invoiceDate;
+ const r5=matchBankPayments(early,[{date:'2026-10-15',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r5[0].status,'match','payment before the DUE date is normal when no issue date is recorded');
 });
 test('bank match: proposed payments validate and settle the invoice',()=>{
  const d=mkData(),r=matchBankPayments(d,parseBankCSV(CSV).rows);
