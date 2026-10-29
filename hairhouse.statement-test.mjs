@@ -1,4 +1,4 @@
-import {test} from 'node:test';import assert from 'node:assert/strict';import {APP,aging,reconcile,parseStatement,parseBankCSV,bankAlias,bankSupplierGuess,matchBankPayments,invoiceBalance,validateLedger} from './netlify/functions/hairhouse.mjs';
+import {test} from 'node:test';import assert from 'node:assert/strict';import {APP,aging,reconcile,parseStatement,parseBankCSV,aliasKey,bankAlias,bankSupplierGuess,matchBankPayments,invoiceBalance,validateLedger} from './netlify/functions/hairhouse.mjs';
 const invoice={id:'i',kind:'invoice',supplier:'Example',reference:'SYN-1',cents:10000,invoiceDate:'2026-09-01',date:'2026-10-01',status:'confirmed'};
 const data=()=>({balance:{cents:100000,date:'2026-10-07'},items:[{...invoice}],payments:[{id:'p',source:'bank',supplier:'Example',reference:'SYN-P',date:'2026-10-02',cents:2000,allocations:[{invoiceId:'i',cents:2000}]}]});
 test('due today is current',()=>assert.equal(aging(data(),'Example','2026-10-01').buckets.current,10000));
@@ -76,4 +76,36 @@ test('supplier aliases are validated by validateLedger',()=>{
  d.supplierAliases=[{alias:'',supplier:'X'}];assert.throws(()=>validateLedger(d),/Invalid supplier alias/);
  d.supplierAliases=[{alias:'X'}];assert.throws(()=>validateLedger(d),/Invalid supplier alias/);
  d.supplierAliases=new Array(201).fill({alias:'A',supplier:'B'});assert.throws(()=>validateLedger(d),/Invalid supplier ledger/);
+});
+
+test('bank match: invoice reference in narration backs and disambiguates the match',()=>{
+ const d=mkData();
+ d.items.push({id:'inv4',kind:'invoice',status:'confirmed',supplier:'Collective Brands',reference:'29301599',cents:500000,date:'2026-10-25',invoiceDate:'2026-09-25',paidDate:'',orderId:'',receiptExpected:'',receiptDays:7,directDebit:false,manualReceipt:false,manualReceiptDate:'',adjustment:'none',lines:[],notes:''});
+ const r=matchBankPayments(d,[{date:'2026-10-28',cents:500000,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301599'}]);
+ assert.equal(r[0].status,'match');assert.equal(r[0].invoiceId,'inv4','reference picks the named invoice, not an amount twin');
+});
+test('bank match: a named reference never falls back to an amount match on another bill',()=>{
+ const d=mkData();
+ let r=matchBankPayments(d,[{date:'2026-10-28',cents:144829,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301517'}]);
+ assert.equal(r[0].status,'refmismatch',/open amount differs/.test(r[0].reason)?'amount differs':'wrong','names 29301517 (open at 5000) but pays 1448.29');
+ r=matchBankPayments(d,[{date:'2026-10-28',cents:500000,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 99998888'}]);
+ assert.equal(r[0].status,'refmismatch','unknown reference blocks amount-only fallback');
+ assert.match(r[0].reason,/99998888/);
+ r=matchBankPayments(d,[{date:'2026-10-28',cents:320647,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 6100272474'}]);
+ assert.equal(r[0].status,'refmismatch','cross-supplier reference never merges');
+});
+test('bank match: same-day statement date adds a caution instead of blind confidence',()=>{
+ const d=mkData();
+ d.statements=[{id:'s1',supplier:'Collective Brands',date:'2026-10-07',claimedCents:500000,lines:[{reference:'29301517',date:'2026-09-21',chargeCents:500000,remainingCents:500000}]}];
+ const r=matchBankPayments(d,[{date:'2026-10-07',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r[0].status,'match');assert.match(r[0].caution,/statement dated 2026-10-07/);
+ const r2=matchBankPayments(d,[{date:'2026-10-06',cents:500000,reference:'SUPP COLLECTIVE BRANDS TDM'}]);
+ assert.equal(r2[0].caution,'','different day carries no caution');
+});
+test('alias key ignores invoice numbers and amounts so one confirmation covers future narrations',()=>{
+ assert.equal(aliasKey('Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301517'),aliasKey('Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301600'));
+ const d=mkData();
+ d.supplierAliases=[{alias:aliasKey('Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301517'),supplier:'Collective Brands'}];
+ assert.equal(bankAlias(d,'Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301600'),'Collective Brands');
+ assert.equal(bankAlias(d,'Transfer To Someone Else 29301600'),'');
 });

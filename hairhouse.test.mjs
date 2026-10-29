@@ -173,7 +173,7 @@ test("owner credit terms resolve: saved terms, then 45-day L'Oreal, then 30-day 
 test('shared pure functions stay identical between module and app bundle',()=>{
  const mod=readFileSync(new URL('./netlify/functions/hairhouse.mjs',import.meta.url),'utf8');
  const pick=(src,name)=>{const line=src.split('\n').find(l=>l.startsWith('function '+name+'('));assert.ok(line,name+' missing');return line;};
- for(const n of ['lorealName','termsInfo','termsFor','allocations','invoiceBalance','aging','parseStatement','parseBankCSV','bankAlias','bankSupplierGuess','matchBankPayments','validateLedger'])assert.equal(pick(APP,n),pick(mod,n),n+' differs between module and app');
+ for(const n of ['lorealName','termsInfo','termsFor','allocations','invoiceBalance','aging','parseStatement','parseBankCSV','aliasKey','bankAlias','bankSupplierGuess','matchBankPayments','validateLedger'])assert.equal(pick(APP,n),pick(mod,n),n+' differs between module and app');
 });
 test('statement parser carries payment rows and balance forward through running balances',async()=>{
  const {parseStatement}=await statementFns();
