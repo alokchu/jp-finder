@@ -111,3 +111,33 @@ test('alias key ignores invoice numbers and amounts so one confirmation covers f
  assert.equal(bankAlias(d,'Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301600'),'Collective Brands');
  assert.equal(bankAlias(d,'Transfer To Someone Else 29301600'),'');
 });
+
+test('reversing a recorded bank payment restores the invoice balance and validates',()=>{
+ const d=mkData(),r=matchBankPayments(d,parseBankCSV(CSV).rows);
+ const m=r.find(x=>x.status==='match'&&x.supplier==='Collective Brands');
+ const payment={id:'rev1',supplier:m.supplier,date:m.row.date,reference:m.row.reference,cents:m.row.cents,source:'bank',allocations:[{invoiceId:m.invoiceId,cents:m.row.cents}]};
+ const recorded={...d,payments:[payment]};
+ validateLedger(recorded);
+ assert.equal(invoiceBalance(recorded,recorded.items.find(i=>i.id==='inv1'),'2026-10-28'),0);
+ const reversed={...recorded,payments:recorded.payments.filter(p=>p.id!=='rev1')};
+ validateLedger(reversed);
+ assert.equal(invoiceBalance(reversed,reversed.items.find(i=>i.id==='inv1'),'2026-10-28'),500000,'invoice fully outstanding again after removal');
+});
+test('auto-recordable matches are exactly clean matches without a caution',()=>{
+ const d=mkData(),r=matchBankPayments(d,parseBankCSV(CSV).rows);
+ const clean=r.filter(x=>x.status==='match');
+ assert.ok(clean.length>=1);
+ for(const x of clean)assert.equal(x.caution,'','no statement on those dates, so no caution');
+ const withStatement={...d,statements:[{id:'s',supplier:'Collective Brands',date:'2026-10-07',claimedCents:500000,lines:[]}]};
+ const r2=matchBankPayments(withStatement,parseBankCSV(CSV).rows);
+ const flagged=r2.find(x=>x.status==='match'&&x.supplier==='Collective Brands');
+ assert.ok(flagged.caution,'same-day statement match stays manual, never auto-recorded');
+});
+test('wages, card purchases and fee narrations resolve no supplier and no guess so the review list can collapse them',()=>{
+ const d=mkData();
+ for(const reference of ['Transfer To HIBA CHALHOUB NetBank Hairhouse Wages','CocaColaEPP HURSTVILLE AU Card xx1366 Value Date: 23/10/2026','Direct Debit 523295 AFTERPAY AUSTRAL 261025001087733']){
+  const r=matchBankPayments(d,[{date:'2026-10-27',cents:10000,reference}]);
+  assert.equal(r[0].status,'nosupplier',reference);
+  assert.equal(r[0].guess,'',reference);
+ }
+});
