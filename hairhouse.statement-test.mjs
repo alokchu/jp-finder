@@ -141,3 +141,19 @@ test('wages, card purchases and fee narrations resolve no supplier and no guess 
   assert.equal(r[0].guess,'',reference);
  }
 });
+
+test('payment removal survives a serialized save/load roundtrip',()=>{
+ const d=mkData(),r=matchBankPayments(d,parseBankCSV(CSV).rows);
+ const m=r.find(x=>x.status==='match'&&x.supplier==='Collective Brands');
+ const recorded={...d,payments:[{id:'rt1',supplier:m.supplier,date:m.row.date,reference:m.row.reference,cents:m.row.cents,source:'bank',allocations:[{invoiceId:m.invoiceId,cents:m.row.cents}]}]};
+ validateLedger(recorded);
+ const restored=JSON.parse(JSON.stringify(recorded));
+ validateLedger(restored);
+ assert.equal(invoiceBalance(restored,restored.items.find(i=>i.id==='inv1'),'2026-10-28'),0);
+ const afterRemoval={...restored,payments:restored.payments.filter(p=>p.id!=='rt1')};
+ validateLedger(afterRemoval);
+ assert.equal(invoiceBalance(afterRemoval,afterRemoval.items.find(i=>i.id==='inv1'),'2026-10-28'),500000);
+ const reloaded=JSON.parse(JSON.stringify(afterRemoval));
+ validateLedger(reloaded);
+ assert.equal(invoiceBalance(reloaded,reloaded.items.find(i=>i.id==='inv1'),'2026-10-28'),500000,'still fully outstanding after save/load');
+});
