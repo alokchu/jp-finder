@@ -89,8 +89,7 @@ test('bank match: a named reference never falls back to an amount match on anoth
  let r=matchBankPayments(d,[{date:'2026-10-28',cents:144829,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 29301517'}]);
  assert.equal(r[0].status,'refmismatch',/open amount differs/.test(r[0].reason)?'amount differs':'wrong','names 29301517 (open at 5000) but pays 1448.29');
  r=matchBankPayments(d,[{date:'2026-10-28',cents:500000,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 99998888'}]);
- assert.equal(r[0].status,'refmismatch','unknown reference blocks amount-only fallback');
- assert.match(r[0].reason,/99998888/);
+ assert.equal(r[0].status,'match','unrecognised digits are treated as no reference (owner: invoice number may be absent); unique amount resolves');
  r=matchBankPayments(d,[{date:'2026-10-28',cents:320647,reference:'Transfer To Collective Brands TDM NetBank Supp Collective Brands 6100272474'}]);
  assert.equal(r[0].status,'refmismatch','cross-supplier reference never merges');
 });
