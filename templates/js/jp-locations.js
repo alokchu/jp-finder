@@ -575,17 +575,16 @@ const jpLocations = [
   {
     "name": "Dennis Johnson Library (JP Service)",
     "address": "Stanhope Leisure Centre, Sentry Drive, Stanhope Gardens NSW 2768",
-    "days": "Tuesday, Wednesday, Saturday",
+    "days": "Varies - call ahead",
     "hours": {
-      "Tuesday": "10:00 AM - 12:30 PM",
-      "Wednesday": "10:00 AM - 12:00 PM",
-      "Saturday": "10:00 AM - 12:30 PM"
+      "Varies": "Call Dennis Johnson Library on (02) 9421 2670 to confirm JP days and times before visiting"
     },
     "council": "N/A",
-    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace",
+    "source_url": "https://www.blacktown.nsw.gov.au/Services/Justice-of-the-Peace-services",
     "postcode": "2768",
     "lat": -33.7184,
-    "lon": 150.9151
+    "lon": 150.9151,
+    "notes": "Volunteer JP availability can change. Please call before attending; a volunteer may not be replaced if sick or leaving early."
   },
   {
     "name": "Winston Hills Mall",
@@ -838,14 +837,14 @@ const jpLocations = [
   },
   {
     "name": "Carlingford Court Shopping Centre",
-    "address": "Lvl 1 opposite Mobile Experts\nCarlingford Court Shopping Centre\nCustomer Service Desk\n220 Carlingford Road\nCarlingford NSW 2118",
-    "days": "Tuesday, Thursday, Saturday",
+    "address": "Level 1 near Lowes\nCarlingford Court Shopping Centre\n220 Carlingford Road\nCarlingford NSW 2118",
+    "days": "Tuesday, Thursday",
     "hours": {
       "Tuesday": "11:00 AM - 1:00 PM",
       "Thursday": "11:00 AM - 1:00 PM"
     },
     "council": "City of Parramatta",
-    "source_url": "https://www.carlingfordcourt.com.au/services",
+    "source_url": "https://home-co.com.au/carlingford-court/centre-info/services-amenities/",
     "postcode": "2118",
     "lat": -33.7827,
     "lon": 151.0463
@@ -1693,14 +1692,48 @@ const jpLocations = [
     "address": "Warringah Mall Library\nShop 650/145 Old Pittwater Rd\nBrookvale NSW 2100",
     "days": "Varies",
     "hours": {
-      "Varies": "Times change week to week - check the <a href=\"https://www.northernbeaches.nsw.gov.au/library/services/justice-peace\" target=\"_blank\" rel=\"noopener noreferrer\">Northern Beaches Libraries JP schedule</a> before visiting"
+      "Varies": "Times change week to week - check the <a href=\"https://www.northernbeaches.nsw.gov.au/library/services/justice-peace\" target=\"_blank\" rel=\"noopener noreferrer\">Northern Beaches Libraries JP schedule</a>, then call Warringah Mall Library on (02) 8495 5022 to confirm a JP is available before visiting"
     },
     "council": "Northern Beaches Council",
     "source_url": "https://www.northernbeaches.nsw.gov.au/library/services/justice-peace",
     "postcode": "2100",
     "lat": -33.7686424,
     "lon": 151.265676,
-    "notes": "Please check the Northern Beaches Libraries JP schedule and phone the library to confirm a volunteer JP is available before visiting."
+    "notes": "JP times change week to week - before visiting, check the Northern Beaches Libraries JP schedule AND phone Warringah Mall Library on (02) 8495 5022 to confirm a JP is rostered."
+  },
+  {
+    "name": "Penrith City Library",
+    "address": "Penrith City Library\n601 High Street\nPenrith NSW 2750",
+    "days": "Tuesday, Wednesday, Thursday, Friday",
+    "hours": {
+      "Tuesday": "9:30 AM - 11:30 AM",
+      "Wednesday": "5:30 PM - 7:30 PM",
+      "Thursday": "3:30 PM - 5:30 PM",
+      "Friday": "11:00 AM - 2:30 PM",
+      "Booking": "Bookings required via the Penrith City Library JP page. Call (02) 4732 7891 to confirm before visiting."
+    },
+    "council": "Penrith City Council",
+    "source_url": "https://penrithcity.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JP",
+    "postcode": "2750",
+    "lat": -33.7502699,
+    "lon": 150.6892147,
+    "notes": "Bookings required - book through the Penrith City Library JP page. Dates and times are subject to change. Library phone: (02) 4732 7891."
+  },
+  {
+    "name": "St Clair Library",
+    "address": "St Clair Library\nShop 12, St Clair Shopping Centre\n155 Bennett Road\nSt Clair NSW 2759",
+    "days": "Monday, Thursday",
+    "hours": {
+      "Monday": "2:00 PM - 4:00 PM",
+      "Thursday": "2:00 PM - 4:00 PM",
+      "Booking": "Bookings required via the Penrith City Library JP page. Call (02) 9670 6853 to confirm before visiting."
+    },
+    "council": "Penrith City Council",
+    "source_url": "https://penrithcity.spydus.com/cgi-bin/spydus.exe/MSGTRNGEN/OPAC/JP",
+    "postcode": "2759",
+    "lat": -33.7953161,
+    "lon": 150.7892522,
+    "notes": "Bookings required - book through the Penrith City Library JP page. Dates and times are subject to change. Library phone: (02) 9670 6853."
   }
 ];
 
