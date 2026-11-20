@@ -67,34 +67,34 @@ const jpLocations = [
   {
     "name": "North Sydney Council Customer Service Centre 200 Miller Street North Sydney NSW 2060",
     "address": "North Sydney Council Customer Service Centre\n200 Miller Street\nNorth Sydney NSW 2060",
-    "days": "Monday to Friday",
+    "days": "Monday, Wednesday (appointment required; call (02) 9936 8100 to book)",
     "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM"
+      "Monday": "2:00 PM - 4:00 PM",
+      "Wednesday": "10:00 AM - 12:00 PM"
     },
     "council": "North Sydney Council",
-    "source_url": "https://www.northsydney.nsw.gov.au/Community_Services/Justice_of_the_Peace",
+    "source_url": "https://www.northsydney.nsw.gov.au/community/justice-peace-services",
     "postcode": "2060",
     "lat": -33.8385,
-    "lon": 151.2072
+    "lon": 151.2072,
+    "notes": "Appointment required. Call North Sydney Council Customer Service Centre on (02) 9936 8100 to book."
   },
   {
     "name": "Stanton Library 234 Miller Street North Sydney NSW 2060",
     "address": "Stanton Library\n234 Miller Street\nNorth Sydney NSW 2060",
-    "days": "Tuesday, Thursday",
+    "days": "Tuesday, Wednesday, Thursday, Friday (appointment required; call (02) 9936 8400 to book)",
     "hours": {
       "Tuesday": "10:00 AM - 12:00 PM",
-      "Thursday": "2:00 PM - 4:00 PM"
+      "Wednesday": "12:30 PM - 2:30 PM",
+      "Thursday": "4:00 PM - 6:00 PM",
+      "Friday": "1:00 PM - 3:00 PM"
     },
     "council": "North Sydney Council",
     "source_url": "https://www.northsydney.nsw.gov.au/community/justice-peace-services",
     "postcode": "2060",
     "lat": -33.8399,
     "lon": 151.2069,
-    "notes": "Bookings required (no walk-ins) - book via the North Sydney Council JP page. No Saturday service."
+    "notes": "Appointment required. Call Stanton Library on (02) 9936 8400 to book. No Saturday service."
   },
   {
     "name": "Mosman Library 605 Military Road Mosman NSW 2088",
