@@ -242,3 +242,12 @@ test('settled-baseline merge: original 800 / statement remaining 500, then bank 
  validateLedger(d);
  assert.equal(invoiceBalance(d,m,'2026-10-29'),0,'allocating the full outstanding settles the invoice');
 });
+test('cost percentages all use total sales (bank + till) when till sales are loaded',async()=>{
+ const i=APP.indexOf('function marginTile(');const src=APP.slice(i,APP.indexOf('function spanTiles(',i));
+ const pre='const money=c=>"$"+(c/100).toFixed(2),dm=x=>x,esc=x=>x,drillRows=[],data={cashSales:{start:"2026-01-01",end:"2026-12-31"}},cashIn=()=>({cents:200000,covered:true}),avgWeek=()=>"";\n';
+ const {marginTile}=await import('data:text/javascript;base64,'+Buffer.from(pre+src+'\nexport {marginTile};').toString('base64'));
+ const h=marginTile({start:'2026-01-01',end:'2026-06-30',sales:800000,suppliers:300000,rent:100000,staff:100000,marketing:0},'t','s',true);
+ assert.match(h,/Supplier payments<\/td><td class="money">\$3000\.00<\/td><td class="money muted">30\.0%/);
+ assert.match(h,/Rent<\/td><td class="money">\$1000\.00<\/td><td class="money muted">10\.0%/);
+ assert.match(h,/Staff[^<]*<\/td><td class="money">\$1000\.00<\/td><td class="money muted">10\.0%/);
+});
