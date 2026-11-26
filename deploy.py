@@ -7,6 +7,7 @@ import re
 import logging
 import time
 import subprocess
+import jp_area_pages
 from pathlib import Path
 
 # Setup logging
@@ -512,6 +513,14 @@ Sitemap: https://{self.base_domain}/sitemap.xml
     <priority>{priority}</priority>
   </url>
 """
+        for url_path in jp_area_pages.sitemap_entries(self.root_dir):
+            sitemap_content += f"""  <url>
+    <loc>https://{self.base_domain}{url_path}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+"""
         sitemap_content += "</urlset>"
 
         with open(self.build_dir / "sitemap.xml", "w", encoding="utf-8") as f:
@@ -583,6 +592,7 @@ Sitemap: https://{self.base_domain}/sitemap.xml
         self.create_robots_txt()
         self.create_additional_pages()
         self.create_404_page()
+        jp_area_pages.write_pages(self.root_dir, self.build_dir, log=logger.info)
         self.copy_sitemap()
 
         # Create Netlify configuration
@@ -610,3 +620,4 @@ if __name__ == "__main__":
     # In deploy.py, make sure we're copying both JS files
     shutil.copy('templates/js/main.js', 'build/js/main.js')
     shutil.copy('templates/js/jp-locations.js', 'build/js/jp-locations.js')
+
